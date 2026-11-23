@@ -1,0 +1,193 @@
+{
+ "id": "blog-09-g2",
+ "source_id": "blog-09",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [
+  8
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "새벽 기온이 3도까지 떨어졌지만",
+     "source_quote": "새벽엔 3도까지 내려갔대요.",
+     "reason": "넣은 글에서 들은 말(\"~대요\")로 전한 수치를 대본은 단정적으로 말했습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.9,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "혼자 떠난 캠핑에서 텐트 하나를 설치하는 데 40분이 넘게 걸렸어요.",
+     "source_quote": "텐트는 친구한테 빌렸는데 설치하는 데 40분 넘게 걸렸어요.",
+     "reason": "첫 장면이 글의 중심(처음 혼자 간 캠핑과 아침 안개 숲)이 아니라 텐트 설치 시간이라는 곁가지로 시작합니다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "텐트는 친구한테 빌렸는데 설치하는 데 40분 넘게 걸렸어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "집에서 차로 1시간 거리에 있는 국립 자연휴양림 야영장이었어요. 주말은 예약이 빨리 차서 저는 평일 수요일로 잡았어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "텐트는 친구한테 빌렸는데 설치하는 데 40분 넘게 걸렸어요. 유튜브 영상을 세 번이나 돌려 봤네요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "밤에는 생각보다 추웠어요. 낮 기온은 15도였는데 새벽엔 3도까지 내려갔대요. 침낭을 하나 더 챙겨 간 게 정말 다행이었어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "아침에 텐트 문을 열었을 때 안개 낀 숲이 보이는데, 그 순간 때문에 또 가고 싶어졌어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "혼자 떠난 캠핑에서 텐트 하나를 설치하는 데 40분이 넘게 걸렸어요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 집에서 1시간 거리인 국립 자연휴양림으로 평일 캠핑을 떠났습니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "친구에게 빌린 텐트라 유튜브를 세 번이나 돌려보며 고군분투했대요.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "새벽 기온이 3도까지 떨어졌지만 침낭을 더 챙겨간 덕분에 잘 견뎠습니다.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "아침에 문을 열었을 때 마주한 안개 낀 숲 풍경에 다시 가고 싶어졌다고 해요.",
+   "estimated_sec": 7.1
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.4,
+    "input_tokens": 2,
+    "output_tokens": 4136,
+    "cache_creation_input_tokens": 4584,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00264
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.5,
+    "input_tokens": 2,
+    "output_tokens": 3819,
+    "cache_creation_input_tokens": 4582,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00248
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.8,
+    "input_tokens": 2,
+    "output_tokens": 2921,
+    "cache_creation_input_tokens": 4583,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00203
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 16.9,
+    "input_tokens": 2,
+    "output_tokens": 3115,
+    "cache_creation_input_tokens": 2984,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00193
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 13991,
+   "cache_creation_input_tokens": 16733,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00908,
+  "sec": 19.4
+ }
+}

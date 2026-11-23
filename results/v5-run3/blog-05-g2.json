@@ -1,0 +1,184 @@
+{
+ "id": "blog-05-g2",
+ "source_id": "blog-05",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 지난 주말에 혼자 동네 뒷산을 처음으로 가보았다고 합니다.",
+     "source_quote": "지난 주말에 처음으로 혼자 동네 뒷산에 다녀왔어요.",
+     "reason": "장면 1과 3은 말하는 사람이 '~어요', '~죠'로 직접 이야기하는데, 장면 2에서만 '글쓴이는'이라는 제3자 호칭과 '~고 합니다'라는 보고체로 바뀌어 까닭 없이 말하는 사람이 달라진다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "옆에 계시던 할머니가 따뜻한 보리차를 한 잔 따라 주셨어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지난 주말에 처음으로 혼자 동네 뒷산에 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "입구에서 정상까지는 천천히 걸어서 40분 정도 걸렸어요. 벤치에 앉아서 챙겨 간 귤을 까먹고 있으니까"
+  },
+  {
+   "scene": 4,
+   "source_quote": "매일 아침 여기 올라오신다고 하더라고요. 따뜻한 보리차를 한 잔 따라 주셨어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다음엔 해 뜨는 시간에 맞춰서 한번 올라가 보려고요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "동네 뒷산 정상 아래 쉼터에서 낯선 할머니가 갑자기 보리차를 따라 주셨어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 지난 주말에 혼자 동네 뒷산을 처음으로 가보았다고 합니다.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "운동화를 신고 40분 정도 걸어 올라가 벤치에 앉아 귤을 까먹고 있었죠.",
+   "estimated_sec": 6.8
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "옆에 계시던 할머니는 매일 아침 이곳에 올라오신다며 차를 한 잔 주셨습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "글쓴이는 다음번에 해 뜨는 시간에 맞춰서 다시 올라가 볼 계획이에요.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.7,
+    "input_tokens": 2,
+    "output_tokens": 3060,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4258,
+    "cost_usd": 0.00162
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.0,
+    "input_tokens": 2,
+    "output_tokens": 3762,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4258,
+    "cost_usd": 0.00197
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.7,
+    "input_tokens": 2,
+    "output_tokens": 3179,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4258,
+    "cost_usd": 0.00168
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.7,
+    "input_tokens": 2,
+    "output_tokens": 2883,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2660,
+    "cost_usd": 0.00152
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 12884,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 15434
+  },
+  "cost_usd_est": 0.00679,
+  "sec": 16.0
+ }
+}

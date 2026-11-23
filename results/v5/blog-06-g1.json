@@ -1,0 +1,193 @@
+{
+ "id": "blog-06-g1",
+ "source_id": "blog-06",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "실내 온도를 1.5도 올렸고",
+     "source_quote": "실내 온도가 1.5℃ 정도 올랐어요.",
+     "reason": "원문의 '정도'라는 근사 표현이 빠져 측정값을 확정적으로 말하게 되었습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "전기요금이 부담되어 난방비를 줄여봤답니다",
+     "source_quote": "",
+     "reason": "\"부담되어\"는 문서에서 쓰는 연결 표현(\"~되며\"와 같은 계열)이라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "올해는 같은 달 기준으로 11만 2천 원이 나와서 약 39% 줄었습니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "전기요금이 부담돼서 올겨울 난방비를 줄여 본 기록입니다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "거실 창에 뽁뽁이를 붙이고 문풍지를 둘렀더니 실내 온도가 1.5℃ 정도 올랐어요. 외출할 때 끄지 않고 '외출 모드'로 두고, 실내 온도는 22℃에서 20℃로 낮췄어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "참고로 올해 12월은 작년보다 평균 기온이 1.8℃ 높았다고 해서, 줄어든 금액이 전부 제 노력 덕분은 아닐 수도 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "우리 집은 전용 59㎡ 아파트이고, 작년 12월 관리비 중 난방비가 18만 4천 원이었어요. 올해는 같은 달 기준으로 11만 2천 원이 나와서 약 39% 줄었습니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "작년보다 난방비가 39%나 줄어든 비결이 있었어요.",
+   "estimated_sec": 4.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "전용 59제곱미터 아파트에 사는 이 집은 전기요금이 부담되어 난방비를 줄여봤답니다.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "거실 창에 뽁뽁이를 붙이고 문풍지를 둘러 실내 온도를 1.5도 올렸고 보일러 온도를 낮췄죠.",
+   "estimated_sec": 8.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "하지만 올해 12월은 작년보다 평균 기온이 1.8도 높았던 것도 한몫을 했다고 해요.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 작년보다 약 7만 원 정도의 난방비를 아꼈습니다.",
+   "estimated_sec": 5.4
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.7,
+    "input_tokens": 2,
+    "output_tokens": 6095,
+    "cache_creation_input_tokens": 4623,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00363
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.6,
+    "input_tokens": 2,
+    "output_tokens": 6191,
+    "cache_creation_input_tokens": 4623,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00367
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 39.2,
+    "input_tokens": 2,
+    "output_tokens": 9655,
+    "cache_creation_input_tokens": 4621,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00541
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.5,
+    "input_tokens": 2,
+    "output_tokens": 2459,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2632,
+    "cost_usd": 0.00131
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 24400,
+   "cache_creation_input_tokens": 14261,
+   "cache_read_input_tokens": 2632
+  },
+  "cost_usd_est": 0.01402,
+  "sec": 39.2
+ }
+}

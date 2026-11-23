@@ -1,0 +1,184 @@
+{
+ "id": "news-04-g1",
+ "source_id": "news-04",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 40.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "행정안전부는 23일부터 카카오페이와 토스에서 주민등록증 진위확인 서비스를 시행한다고 밝혔습니다.",
+     "source_quote": "행안부는 이날부터 카카오페이와 토스에서도 정부의 주민등록증 진위확인 서비스를 시행한다고 밝혔다.",
+     "reason": "장면 1에서 이미 말한 '카카오페이와 토스에서 주민등록증 진위를 확인하게 됐다'는 요점을 장면 2가 날짜와 기관명만 더해 되풀이한다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "카카오페이와 토스에서도 비대면 고객확인 과정에서 주민등록증의 기재정보와 사진정보를 검증하는 '주민등록증 진위확인' 서비스를 23일부터 이용할 수 있다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "행정안전부는 이날부터 카카오페이와 토스에서도 정부의 주민등록증 진위확인 서비스를 시행한다고 밝혔다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "이번 서비스는 위·변조 신분증을 이용한 금융범죄를 예방하고 전자금융거래의 안전성을 높이기 위해 추진됐다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "2025년 한 해 카카오페이에서는 약 750만 건, 토스에서는 약 1000만 건의 비대면 고객확인이 이뤄졌다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "네이버페이는 12월 중 서비스를 시작할 예정이다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "카카오페이와 토스에서 비대면으로 신분증을 확인할 때, 이제는 주민등록증 진위까지 확인하게 됐어요.",
+   "estimated_sec": 10.0
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "행정안전부는 23일부터 카카오페이와 토스에서 주민등록증 진위확인 서비스를 시행한다고 밝혔습니다.",
+   "estimated_sec": 10.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "이번 서비스는 위변조 신분증을 이용한 금융범죄를 예방하고 전자금융거래의 안전성을 높이기 위해 추진됐습니다.",
+   "estimated_sec": 11.2
+  },
+  {
+   "scene": 4,
+   "role": "stat",
+   "text": "2025년 한 해 카카오페이에서는 약 750만 건, 토스에서는 약 1000만 건의 비대면 고객확인이 이뤄졌습니다.",
+   "estimated_sec": 9.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "네이버페이는 12월 중 서비스를 시작할 예정입니다.",
+   "estimated_sec": 5.1
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.2,
+    "input_tokens": 2,
+    "output_tokens": 2887,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4819,
+    "cost_usd": 0.00154
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 8.1,
+    "input_tokens": 2,
+    "output_tokens": 1971,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4819,
+    "cost_usd": 0.00108
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.6,
+    "input_tokens": 2,
+    "output_tokens": 3159,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4819,
+    "cost_usd": 0.00168
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.8,
+    "input_tokens": 2,
+    "output_tokens": 2499,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3498,
+    "cost_usd": 0.00133
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 10516,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 17955
+  },
+  "cost_usd_est": 0.00563,
+  "sec": 12.6
+ }
+}

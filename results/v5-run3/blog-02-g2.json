@@ -1,0 +1,174 @@
+{
+ "id": "blog-02-g2",
+ "source_id": "blog-02",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "김치가 덜 익었을 때는 설탕 대신 식초를 1큰술 넣으면",
+     "source_quote": "",
+     "reason": "넣은 글에는 설탕을 빼라는 말이 없고 설탕은 반 작은술만 넣으라고 되어 있어, 설탕 대신 식초를 넣는다는 말은 넣은 글과 반대되는 지시다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 25.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "설탕은 반 작은술만 넣어야 해요. 많이 넣으면 찌개가 달아져서 오히려 이상해져요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "냄비에 고기를 넣고 중불에서 3분 정도 볶다가 김치를 넣고 5분 더 볶아요. 그다음 물을 붓고 센불에서 끓기 시작하면 중약불로 줄여 15분 끓여요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "설탕은 반 작은술만 넣어야 해요. 많이 넣으면 찌개가 달아져서 오히려 이상해져요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "김치가 덜 익었을 때는 설탕 대신 식초를 1큰술 넣으면 신맛을 살릴 수 있어요.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+   "estimated_sec": 7.0
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.0,
+    "input_tokens": 2,
+    "output_tokens": 4514,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4178,
+    "cost_usd": 0.00235
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.7,
+    "input_tokens": 2,
+    "output_tokens": 4624,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4178,
+    "cost_usd": 0.0024
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 30.1,
+    "input_tokens": 2,
+    "output_tokens": 6684,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4178,
+    "cost_usd": 0.00343
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.2,
+    "input_tokens": 2,
+    "output_tokens": 1644,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2580,
+    "cost_usd": 0.0009
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 17466,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 15114
+  },
+  "cost_usd_est": 0.00908,
+  "sec": 30.2
+ }
+}

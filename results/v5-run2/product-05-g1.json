@@ -1,0 +1,184 @@
+{
+ "id": "product-05-g1",
+ "source_id": "product-05",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "부드러운 소재 날개로 아이들도 안전하게 쓸 수 있습니다",
+     "source_quote": "날개는 부드러운 소재라 아이들이 손가락을 넣어도 다치지 않게 만들었습니다.",
+     "reason": "넣은 글은 날개가 아이 손가락을 다치게 하지 않는다는 구체적 설계를 말하는데, 대본은 이를 아이가 안전하게 쓸 수 있다는 전반적 안전 주장으로 넓혀 더 강하게 말했다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 31.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "가장 세게 틀면 한여름 버스 정류장에서도 시원합니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "바람솔은 무게가 가벼워서 가방에 넣어도 부담이 없어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "접으면 스마트폰보다 작아지고"
+  },
+  {
+   "scene": 4,
+   "source_quote": "날개는 부드러운 소재라 아이들이 손가락을 넣어도 다치지 않게 만들었습니다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "올여름, 바람솔과 함께 시원하게 다니세요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "한여름 버스 정류장에서 땀이 비 오듯 쏟아지는데 손에 든 선풍기가 너무 무겁게 느껴진 적이 있죠.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "무거운 선풍기는 가방에 넣기도 부담스럽고 휴대하기가 정말 불편하니까요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "바람솔은 접으면 스마트폰보다 작고 가벼워서 가방에 쏙 들어가요.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "3단계 바람 세기를 조절할 수 있고 부드러운 소재 날개로 아이들도 안전하게 쓸 수 있습니다.",
+   "estimated_sec": 8.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "올여름에는 바람솔과 함께 시원하게 다니세요.",
+   "estimated_sec": 4.5
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.4,
+    "input_tokens": 2,
+    "output_tokens": 6171,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4135,
+    "cost_usd": 0.00318
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.4,
+    "input_tokens": 2,
+    "output_tokens": 3717,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4135,
+    "cost_usd": 0.00195
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.2,
+    "input_tokens": 2,
+    "output_tokens": 4873,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4135,
+    "cost_usd": 0.00253
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 6.7,
+    "input_tokens": 2,
+    "output_tokens": 1139,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2537,
+    "cost_usd": 0.00064
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15900,
+   "cache_creation_input_tokens": 1570,
+   "cache_read_input_tokens": 14942
+  },
+  "cost_usd_est": 0.0083,
+  "sec": 25.4
+ }
+}

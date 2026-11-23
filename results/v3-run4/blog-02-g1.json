@@ -1,0 +1,207 @@
+{
+ "id": "blog-02-g1",
+ "source_id": "blog-02",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  3,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "신김치가 없을 때 덜 익은 김치로 김치찌개를 끓이면 맛이 이상해질 수 있다는 사실을 알고 계신가요.",
+     "source_quote": "",
+     "reason": "넣은 글에는 덜 익은 김치로 끓이면 맛이 이상해진다는 원인과 결과가 없고, 식초로 신맛을 보완할 수 있다는 내용만 있습니다."
+    },
+    {
+     "scene": 3,
+     "quote": "대신 식초를 1큰술 넣으면 신맛을 살릴 수 있고",
+     "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요.",
+     "reason": "식초 사용의 조건인 「김치가 덜 익었으면」이 빠져 모든 김치에 식초를 넣으라는 말이 되었고, 「대신」으로 설탕을 식초로 바꾸라는 뜻이 새로 생겼습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "냉동 보관 시에는 두부를 빼고 얼려야 식감이 변하지 않습니다.",
+     "source_quote": "두부는 얼면 식감이 변하니까 빼고 얼리는 게 나아요.",
+     "reason": "「얼리는 게 나아요」라는 비교 권유가 「얼려야 식감이 변하지 않습니다」라는 필수이자 확정된 말로 강해졌습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 32.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "김치가 덜 익었다면 식초와 약간의 설탕으로 간을 조절해 보세요.",
+     "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요.",
+     "reason": "장면 3에서 이미 말한 '덜 익은 김치에 식초와 설탕으로 간을 맞춘다'는 요점을 새 사실 없이 되풀이한다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "많이 넣으면 찌개가 달아져서 오히려 이상해져요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요. 설탕은 반 작은술만 넣어야 해요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "냉동은 2주 정도인데, 두부는 얼면 식감이 변하니까 빼고 얼리는 게 나아요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요. 설탕은 반 작은술만 넣어야 해요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "신김치가 없을 때 덜 익은 김치로 김치찌개를 끓이면 맛이 이상해질 수 있다는 사실을 알고 계신가요.",
+   "estimated_sec": 9.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "설탕을 많이 넣으면 찌개가 달아져서 오히려 맛이 이상해질 수 있습니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "대신 식초를 1큰술 넣으면 신맛을 살릴 수 있고 설탕은 반 작은술만 넣는 것이 좋습니다.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "냉동 보관 시에는 두부를 빼고 얼려야 식감이 변하지 않습니다.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "김치가 덜 익었다면 식초와 약간의 설탕으로 간을 조절해 보세요.",
+   "estimated_sec": 6.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 36.0,
+    "input_tokens": 2,
+    "output_tokens": 8467,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3785,
+    "cost_usd": 0.00432
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 31.1,
+    "input_tokens": 2,
+    "output_tokens": 6994,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 3785,
+    "cost_usd": 0.00358
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.8,
+    "input_tokens": 2,
+    "output_tokens": 5879,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 3785,
+    "cost_usd": 0.00303
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.8,
+    "input_tokens": 2,
+    "output_tokens": 2502,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2628,
+    "cost_usd": 0.00133
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 23842,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 13983
+  },
+  "cost_usd_est": 0.01226,
+  "sec": 36.0
+ }
+}

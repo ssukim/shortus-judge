@@ -1,0 +1,175 @@
+{
+ "id": "community-05-g1",
+ "source_id": "community-05",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "고양이가 현관에서 안 나오고 신발장 위에 앉아서 저를 계속 쳐다보는 거예요. 평소엔 소파에서 자고 있다가"
+  },
+  {
+   "scene": 2,
+   "source_quote": "어제 퇴근하고 왔는데"
+  },
+  {
+   "scene": 3,
+   "source_quote": "거실에 들어갔더니 화분 하나가 바닥에 엎어져 있었어요. 흙이 거실 반쯤 퍼져 있고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "범인은 너무 뻔했죠. 그런데 웃긴 건 제가 흙을 치우는 동안 고양이가 계속 옆에 와서 제 팔에 머리를 비비는 거예요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "결국 화분은 높은 선반으로 옮겼고, 고양이는 간식 하나 받고 다시 소파로 돌아갔습니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "평소 소파에서만 자던 고양이가 현관 신발장 위에서 계속 쳐다보고 있었어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이가 퇴근하고 집에 돌아왔을 때 벌어진 일입니다.",
+   "estimated_sec": 5.2
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "거실에 들어가 보니 화분 하나가 엎어져서 흙이 반쯤 퍼져 있었죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "범인은 뻔했지만 고양이는 흙을 치우는 동안 팔에 머리를 계속 비볐습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "화분은 선반 위로 옮기고 고양이는 간식 하나에 다시 소파로 돌아갔대요.",
+   "estimated_sec": 6.9
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 10.2,
+    "input_tokens": 2,
+    "output_tokens": 2279,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4177,
+    "cost_usd": 0.00123
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.7,
+    "input_tokens": 2,
+    "output_tokens": 3007,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4177,
+    "cost_usd": 0.00159
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.0,
+    "input_tokens": 2,
+    "output_tokens": 3721,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4177,
+    "cost_usd": 0.00195
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 7.4,
+    "input_tokens": 2,
+    "output_tokens": 1212,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2579,
+    "cost_usd": 0.00068
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 10219,
+   "cache_creation_input_tokens": 1574,
+   "cache_read_input_tokens": 15110
+  },
+  "cost_usd_est": 0.00545,
+  "sec": 16.0
+ }
+}

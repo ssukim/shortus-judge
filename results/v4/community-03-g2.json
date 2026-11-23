@@ -1,0 +1,199 @@
+{
+ "id": "community-03-g2",
+ "source_id": "community-03",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  4
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "몸무게가 한 달 만에 4.8킬로그램에서 4.5킬로그램으로 줄었죠.",
+     "source_quote": "지난달 동물병원에서 쟀을 때 4.8kg이었는데 어제 집에서 재 보니까 4.5kg이더라고요.",
+     "reason": "병원 저울과 집 저울로 잰 값이라는 조건이 빠지고 '한 달 만에'는 넣은 글에 없는 기간인데, 확정된 체중 감소로 단정했습니다."
+    },
+    {
+     "scene": 5,
+     "quote": "병원비가 10만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요.",
+     "source_quote": "피검사까지 하면 10만 원 넘게 나온다고 들었거든요.",
+     "reason": "피검사 조건이 빠져 병원비 전체가 10만 원 넘는 것처럼 되었고, 병원비 걱정을 병원 방문이 아닌 사료 교체의 이유로 바꿔 글쓴이의 뜻과 다르게 만들었습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "사료를 다시 바꿀지 고민 중이래요.",
+     "source_quote": "아니면 그냥 병원 먼저 가 보는 게 맞을까요?",
+     "reason": "글쓴이의 질문 중 병원에 먼저 갈지에 대한 부분이 빠졌습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 27.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "저희 집 고양이 '두부'가 이제 4살인데, 요즘 밥을 잘 안 먹어요. / 일주일 전부터 30g도 겨우 먹어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "원래 하루에 건사료 60g 정도 먹었는데"
+  },
+  {
+   "scene": 3,
+   "source_quote": "지난달 동물병원에서 쟀을 때 4.8kg이었는데 어제 집에서 재 보니까 4.5kg이더라고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "혹시 사료를 바꿔서 그런가 싶기도 해요. 2주 전에 다른 회사 사료로 바꿨는데"
+  },
+  {
+   "scene": 5,
+   "source_quote": "동네 병원은 기본 진료비가 1만 5,000원인데 피검사까지 하면 10만 원 넘게 나온다고 들었거든요. / 예전 사료로 다시 바꾸면 될까요? 아니면 그냥 병원 먼저 가 보는 게 맞을까요?"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "4살 고양이 두부가 일주일 전부터 30그램도 겨우 먹고 있어요.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 평소 60그램을 먹던 고양이의 식욕 부진을 걱정했대요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "몸무게가 한 달 만에 4.8킬로그램에서 4.5킬로그램으로 줄었죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "그저 2주 전에 바꾼 다른 회사 사료 때문인지 궁금해하고 있습니다.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "병원비가 10만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요.",
+   "estimated_sec": 6.6
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 40.6,
+    "input_tokens": 2,
+    "output_tokens": 9788,
+    "cache_creation_input_tokens": 4317,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00543
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 47.9,
+    "input_tokens": 2,
+    "output_tokens": 11863,
+    "cache_creation_input_tokens": 4317,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00647
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.3,
+    "input_tokens": 2,
+    "output_tokens": 6181,
+    "cache_creation_input_tokens": 4318,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00363
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.5,
+    "input_tokens": 2,
+    "output_tokens": 1866,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2603,
+    "cost_usd": 0.00101
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 29698,
+   "cache_creation_input_tokens": 13345,
+   "cache_read_input_tokens": 2603
+  },
+  "cost_usd_est": 0.01654,
+  "sec": 47.9
+ }
+}

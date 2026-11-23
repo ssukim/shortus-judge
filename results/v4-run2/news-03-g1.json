@@ -1,0 +1,228 @@
+{
+ "id": "news-03-g1",
+ "source_id": "news-03",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림",
+  "기준 5 걸림"
+ ],
+ "diagnostics": [
+  6,
+  7
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "K-시푸드가 유럽과 할랄 시장을 공략하며 수출 지형을 바꾸고 있어요.",
+     "source_quote": "특히 유럽연합(EU)권역 수출은 2억 5000만 달러로 36.6% 급증해 주요 수출시장 중 가장 높은 증가세를 보였으며, 할랄 시장 역시 2억 1000만 달러로 20.3% 늘어나며 해외시장 다변화 성과가 두드러지게 나타났다.",
+     "reason": "넣은 글은 유럽·할랄 시장 성장과 다변화 성과가 '두드러졌다'고만 말하는데, 대본은 수출 지형을 바꾸고 있다고 더 강하게 단정했다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "11.9%",
+     "reason": "잘못 읽는 표기 — 소수 퍼센트"
+    },
+    {
+     "scene": 3,
+     "quote": "36.6%",
+     "reason": "잘못 읽는 표기 — 소수 퍼센트"
+    },
+    {
+     "scene": 3,
+     "quote": "20.3%",
+     "reason": "잘못 읽는 표기 — 소수 퍼센트"
+    }
+   ],
+   "vague": [
+    {
+     "scene": 1,
+     "quote": "K-시푸드가",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "수출기업의 노력에 감사하며",
+     "source_quote": "",
+     "reason": "'~하며' 연결 어미로 이어 쓴 문서체 문장이라 말하듯 읽히지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "해양수산부는 올해 10월까지 수산식품 누적 수출액이 전",
+     "reason": "장면 읽는 시간 12.1초 > 10초"
+    },
+    {
+     "scene": 4,
+     "quote": "정부는 수산물 해외시장 개척 사업 예산을 807억 원 ",
+     "reason": "장면 읽는 시간 10.7초 > 10초"
+    }
+   ],
+   "total_sec": 44.9,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "특히 유럽연합(EU)권역 수출은 2억 5000만 달러로 36.6% 급증해 주요 수출시장 중 가장 높은 증가세를 보였으며, 할랄 시장 역시 2억 1000만 달러로 20.3% 늘어나며 해외시장 다변화 성과가 두드러지게 나타났다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "해양수산부는 올해 10월까지 수산식품 누적 수출액이 전년 동기 대비 11.9% 증가한 30억 3000만 달러로 '역대 최대' 실적을 달성했다고 밝혔다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "특히 유럽연합(EU)권역 수출은 2억 5000만 달러로 36.6% 급증해 주요 수출시장 중 가장 높은 증가세를 보였으며, 할랄 시장 역시 2억 1000만 달러로 20.3% 늘어나며 해외시장 다변화 성과가 두드러지게 나타났다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "해수부는 올해 '수산물 해외시장 개척 사업' 예산을 전년보다 261억 원 증가한 807억 원 규모로 편성해 K-시푸드(sea food)의 유망상품화, 해외시장 다변화 등을 전략적으로 지원해 오고 있다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "황종우 해수부 장관은 \"어업인과 수출기업의 노력과 도전 덕분에 대한민국 수출 1조 달러 시대를 여는 역사적 순간에 우리 수산식품 수출도 두 자릿수 성장세를 기록하며 힘을 보탤 수 있었다\"고 말했다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "K-시푸드가 유럽과 할랄 시장을 공략하며 수출 지형을 바꾸고 있어요.",
+   "estimated_sec": 6.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "해양수산부는 올해 10월까지 수산식품 누적 수출액이 전년 동기 대비 11.9% 증가한 30억 3000만 달러로 역대 최대 실적을 달성했다고 밝혔습니다.",
+   "estimated_sec": 13.9
+  },
+  {
+   "scene": 3,
+   "role": "stat",
+   "text": "특히 유럽연합 수출은 36.6% 급증했고 할랄 시장은 20.3% 늘어나는 등 해외시장 다변화 성과가 뚜렷했습니다.",
+   "estimated_sec": 10.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "정부는 수산물 해외시장 개척 사업 예산을 807억 원 규모로 편성해 유망상품화와 시장 다변화를 전략적으로 지원하고 있습니다.",
+   "estimated_sec": 12.3
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "황종우 해수부 장관은 수출기업의 노력에 감사하며 지속적인 확대 지원을 약속했습니다.",
+   "estimated_sec": 8.6
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.3,
+    "input_tokens": 2,
+    "output_tokens": 4630,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4436,
+    "cost_usd": 0.00241
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.7,
+    "input_tokens": 2,
+    "output_tokens": 3037,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4436,
+    "cost_usd": 0.00161
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.2,
+    "input_tokens": 2,
+    "output_tokens": 4324,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4436,
+    "cost_usd": 0.00226
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.1,
+    "input_tokens": 2,
+    "output_tokens": 2645,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 3115,
+    "cost_usd": 0.0014
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 14636,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 16423
+  },
+  "cost_usd_est": 0.00768,
+  "sec": 18.3
+ }
+}

@@ -1,0 +1,226 @@
+{
+ "id": "product-01-g2",
+ "source_id": "product-01",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  5,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "일반적인 전기포트는 부피가 커서 짐을 챙길 때 큰 짐이 되곤 하죠.",
+     "source_quote": "",
+     "reason": "넣은 글에 일반 전기포트의 부피에 대한 내용이 없는데 사실처럼 덧붙였습니다."
+    },
+    {
+     "scene": 4,
+     "quote": "600W 출력으로 4분이면 물을 끓이고 110V와 220V를 모두 지원합니다.",
+     "source_quote": "600W 출력으로 컵라면 하나 분량의 물을 약 4분이면 끓입니다.",
+     "reason": "4분이 컵라면 하나 분량의 물에 대한 시간이라는 조건이 빠져 물의 양과 무관한 시간으로 들립니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "4.5cm까지",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "600W",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "110V와",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "220V를",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 5,
+     "quote": "31,200원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 27.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "일반적인 전기포트는 부피가 커서 짐을 챙길 때 큰 짐이 되곤 하죠.",
+     "source_quote": "",
+     "reason": "장면 1의 '캐리어에 넣을 전기포트 부피가 너무 커서 고민'과 같은 요점을 새 사실 없이 말만 바꿔 되풀이했습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "실리콘 몸체를 접으면 높이가 4.5cm까지 줄어 캐리어 구석에 쏙 들어갑니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": ""
+  },
+  {
+   "scene": 3,
+   "source_quote": "실리콘 몸체를 접으면 높이가 4.5cm까지 줄어 캐리어 구석에 쏙 들어갑니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "600W 출력으로 컵라면 하나 분량의 물을 약 4분이면 끓입니다. 110V와 220V를 모두 지원해 해외여행에서도 변압기 없이 쓸 수 있습니다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "출시 기념으로 12월 31일까지 정가 39,000원에서 20% 할인한 31,200원에 판매합니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "해외여행 중 캐리어에 넣을 전기포트 부피가 너무 커서 고민이었죠.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "일반적인 전기포트는 부피가 커서 짐을 챙길 때 큰 짐이 되곤 하죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "폴드케틀은 실리콘 몸체를 접으면 높이가 4.5cm까지 줄어듭니다.",
+   "estimated_sec": 6.1
+  },
+  {
+   "scene": 4,
+   "role": "stat",
+   "text": "600W 출력으로 4분이면 물을 끓이고 110V와 220V를 모두 지원합니다.",
+   "estimated_sec": 6.5
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "12월 31일까지 출시 기념 20% 할인가인 31,200원에 판매합니다.",
+   "estimated_sec": 6.0
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.9,
+    "input_tokens": 2,
+    "output_tokens": 4262,
+    "cache_creation_input_tokens": 4164,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00265
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.6,
+    "input_tokens": 2,
+    "output_tokens": 6072,
+    "cache_creation_input_tokens": 4165,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00356
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.0,
+    "input_tokens": 2,
+    "output_tokens": 3998,
+    "cache_creation_input_tokens": 4163,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00252
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 7.3,
+    "input_tokens": 2,
+    "output_tokens": 1270,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2450,
+    "cost_usd": 0.00071
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15602,
+   "cache_creation_input_tokens": 12886,
+   "cache_read_input_tokens": 2450
+  },
+  "cost_usd_est": 0.00944,
+  "sec": 25.6
+ }
+}

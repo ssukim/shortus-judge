@@ -1,0 +1,175 @@
+{
+ "id": "community-06-g2",
+ "source_id": "community-06",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "왼쪽 이어폰 배터리가 20분 만에 꺼지더라고요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "어제 중고 앱에서 무선 이어폰을 9만 원에 사기로 했어요. 판매자분이 새 제품 정가가 25만 9천 원인데"
+  },
+  {
+   "scene": 3,
+   "source_quote": "판매자분은 자기가 쓸 땐 몰랐다면서 1만 원 깎아 주겠다고 했어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "집에 와서 제조사 서비스센터에 물어보니 보증기간이 1년이라 무상 교체가 된대요. 다만 구매 영수증이 있어야 한다고 해서 판매자분께 연락했더니 영수증을 보내 주셨어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "결국 오늘 센터에 가서 왼쪽 한 짝을 새것으로 교체받았습니다. 교체비는 0원이었어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "중고로 산 무선 이어폰의 한쪽 배터리가 20분 만에 꺼져버렸어요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 정가 25만 9천 원인 제품을 9만 원에 사기로 했답니다.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "판매자는 자기도 몰랐다며 1만 원을 깎아준 채 물건을 넘겼습니다.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "하지만 영수증을 확인해보니 보증기간이 남아있어 무상 교체가 가능했대요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 서비스센터에서 한쪽을 새 제품으로 공짜 교체받았습니다.",
+   "estimated_sec": 6.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.5,
+    "input_tokens": 2,
+    "output_tokens": 3957,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4179,
+    "cost_usd": 0.00207
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.1,
+    "input_tokens": 2,
+    "output_tokens": 3321,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4179,
+    "cost_usd": 0.00175
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.1,
+    "input_tokens": 2,
+    "output_tokens": 4047,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4179,
+    "cost_usd": 0.00211
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.2,
+    "input_tokens": 2,
+    "output_tokens": 1807,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2581,
+    "cost_usd": 0.00098
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 13132,
+   "cache_creation_input_tokens": 1569,
+   "cache_read_input_tokens": 15118
+  },
+  "cost_usd_est": 0.00691,
+  "sec": 17.1
+ }
+}

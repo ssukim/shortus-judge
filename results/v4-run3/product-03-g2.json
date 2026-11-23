@@ -1,0 +1,204 @@
+{
+ "id": "product-03-g2",
+ "source_id": "product-03",
+ "verdict": "보류",
+ "why": [
+  "기준 5 걸림",
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "180g으로",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "한 장 무게 180g으로 적당하며",
+     "source_quote": "",
+     "reason": "\"~이며\"는 문서에서 쓰는 말투라 말하듯 읽히지 않는다."
+    },
+    {
+     "scene": 5,
+     "quote": "2세트 이상 구매 시 무료배송이며",
+     "source_quote": "",
+     "reason": "\"~이며\"는 문서에서 쓰는 말투라 말하듯 읽히지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 37.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다",
+     "source_quote": "",
+     "reason": "2장면에서 이미 한 말(면 100%, 코마사, 세탁할수록 부드러움)을 같은 요점으로 되풀이하고 새 사실을 더하지 않았다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "한 번 쓰면 다른 수건은 못 씁니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "면 100% 40수 코마사로 짜서 처음 써도 보풀이 거의 없고, 세탁할수록 더 부드러워집니다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "면 100% 40수 코마사로 짜서 처음 써도 보풀이 거의 없고, 세탁할수록 더 부드러워집니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "한 장 무게는 180g으로 너무 얇지도 무겁지도 않아 매일 쓰기 좋습니다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "수령 후 7일 안에는 사용 전 제품에 한해 교환·반품이 가능합니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "한 번 써보면 다른 수건은 못 쓰게 된다는 말이 나오는 수건이 있습니다.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "이 수건은 면 100% 40수 코마사로 짜여서 보풀이 거의 없고 세탁할수록 부드러워집니다.",
+   "estimated_sec": 8.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "결고운 호텔수건 40수 세트는 면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "한 장 무게 180g으로 적당하며 화이트나 그레이 중 5장 세트를 2만 9천 원에 구매할 수 있습니다.",
+   "estimated_sec": 9.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "2세트 이상 구매 시 무료배송이며 수령 후 7일 이내엔 사용 전 제품에 한해 교환이나 반품이 가능합니다.",
+   "estimated_sec": 10.3
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.7,
+    "input_tokens": 2,
+    "output_tokens": 3068,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 3862,
+    "cost_usd": 0.00162
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.9,
+    "input_tokens": 2,
+    "output_tokens": 3754,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 3862,
+    "cost_usd": 0.00196
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.4,
+    "input_tokens": 2,
+    "output_tokens": 2896,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 3862,
+    "cost_usd": 0.00154
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.7,
+    "input_tokens": 2,
+    "output_tokens": 1968,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2541,
+    "cost_usd": 0.00106
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 11686,
+   "cache_creation_input_tokens": 1567,
+   "cache_read_input_tokens": 14127
+  },
+  "cost_usd_est": 0.00618,
+  "sec": 15.9
+ }
+}

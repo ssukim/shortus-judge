@@ -1,0 +1,221 @@
+{
+ "id": "product-06-g1",
+ "source_id": "product-06",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  4,
+  5,
+  8,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "불끈 그릴 프로는 1,800W의 소비전력으로 3분 만에 230도까지 예열됩니다.",
+     "source_quote": "예열 3분이면 표면 온도가 230℃까지 올라갑니다. 단, 230℃는 실내 온도 20℃에서 잰 값이고 영하의 야외에서는 예열에 5분 이상 걸릴 수 있습니다.",
+     "reason": "230℃는 실내 20℃ 기준이고 영하 야외에서는 5분 이상 걸릴 수 있다는 조건이 빠져, 캠핑장에서의 예열 시간이 틀린 말이 됨."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "불끈 그릴 프로는 1,800W의 소비전력으로 3분 만에 230도까지 예열됩니다.",
+     "source_quote": "캠핑장 전기 사이트처럼 전기 용량이 정해진 곳에서는 사용 전에 허용 용량(보통 600W~1,000W)을 꼭 확인해 주세요.",
+     "reason": "전기 용량 고민이 대본의 출발점인데, 1,800W가 보통 600W~1,000W인 허용 용량을 넘을 수 있어 사용 전 확인이 필요하다는 내용이 빠짐."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "1,800W의",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 5,
+     "quote": "124,020원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "캠핑장에서 삼겹살을 굽고 싶은데 전기 용량 때문에 고민이었어요.",
+     "source_quote": "캠핑장 전기 사이트처럼 전기 용량이 정해진 곳에서는 사용 전에 허용 용량(보통 600W~1,000W)을 꼭 확인해 주세요.",
+     "reason": "첫 장면이 던진 전기 용량 고민의 답(허용 용량 확인)이 넣은 글에 있는데도 대본에서 끝까지 나오지 않습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "전기 사이트마다 허용 용량이 정해져 있어서 기기를 고르기가 어렵습니다.",
+     "source_quote": "",
+     "reason": "장면 1의 전기 용량 고민을 같은 요점으로 바꿔 되풀이하며, 새 숫자나 사실로 얘기를 앞으로 가져가지 않습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "캠핑장 전기 사이트처럼 전기 용량이 정해진 곳에서는 사용 전에 허용 용량(보통 600W~1,000W)을 꼭 확인해 주세요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "캠핑장 전기 사이트처럼 전기 용량이 정해진 곳에서는 사용 전에 허용 용량(보통 600W~1,000W)을 꼭 확인해 주세요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "정격 소비전력은 1,800W이고, 예열 3분이면 표면 온도가 230℃까지 올라갑니다. 단, 230℃는 실내 온도 20℃에서 잰 값이고 영하의 야외에서는 예열에 5분 이상 걸릴 수 있습니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "조리판 크기는 가로 42cm, 세로 28cm로 성인 4인분 삼겹살을 한 번에 구울 수 있어요. 코팅은 PFOA를 쓰지 않은 세라믹 코팅입니다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "가격은 정가 159,000원이고, 이번 달 출시 기념으로 첫 500대는 22% 할인된 124,020원에 판매합니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "캠핑장에서 삼겹살을 굽고 싶은데 전기 용량 때문에 고민이었어요.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "전기 사이트마다 허용 용량이 정해져 있어서 기기를 고르기가 어렵습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "불끈 그릴 프로는 1,800W의 소비전력으로 3분 만에 230도까지 예열됩니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "4인분 조리가 가능한 넓은 크기에 세라믹 코팅을 적용해 편리해요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "이번 달 출시 기념으로 첫 500대는 22퍼센트 할인된 124,020원에 판매합니다.",
+   "estimated_sec": 7.1
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.9,
+    "input_tokens": 2,
+    "output_tokens": 6686,
+    "cache_creation_input_tokens": 4304,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00388
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.2,
+    "input_tokens": 2,
+    "output_tokens": 6973,
+    "cache_creation_input_tokens": 4303,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00402
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.1,
+    "input_tokens": 2,
+    "output_tokens": 5049,
+    "cache_creation_input_tokens": 4303,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00306
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.2,
+    "input_tokens": 2,
+    "output_tokens": 2651,
+    "cache_creation_input_tokens": 2983,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0017
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 21359,
+   "cache_creation_input_tokens": 15893,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01266,
+  "sec": 29.2
+ }
+}

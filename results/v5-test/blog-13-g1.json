@@ -1,0 +1,219 @@
+{
+ "id": "blog-13-g1",
+ "source_id": "blog-13",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  3,
+  5,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "퇴근 후 매일 1시간씩 걷기만 해서",
+     "source_quote": "평일 저녁에 하루 1시간씩 걷기만 했어요. 주말은 쉬었고요.",
+     "reason": "넣은 글의 '평일' 조건이 빠져 매일 �¸은 것처럼 틀린 범위를 말하게 됨"
+    },
+    {
+     "scene": 3,
+     "quote": "하루 평균 9천 보에서 1만 2천 보를 걸으며",
+     "source_quote": "걸음 수로 치면 평일 하루 평균 9천 보에서 1만 2천 보 정도였어요.",
+     "reason": "'평일' 조건이 빠져 주말 포함 전체 하루 평균처럼 들려 걸음 수 범위가 바뀜"
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "저녁 8시 이후 금식과 주 1회 야식 허용을 지켰더니 첫 달에 4kg이 빠졌죠.",
+     "source_quote": "아마 처음엔 붓기랑 수분이 많이 빠진 게 아닌가 싶은데, 이건 제 추측이에요.",
+     "reason": "글쓴이가 추측이라고 밝힌 원인을 식단 때문이라고 단정해 더 세게 말함"
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "7kg을",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "4kg이",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+     "source_quote": "",
+     "reason": "장면 1은 말하는 사람이 직접 말하는 투인데 장면 2에서 '글쓴이는'으로 바뀌고 까닭이 없다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "퇴근 후 걷기만으로 3개월 동안 7kg 뺀 후기 남겨요. 시작할 때 몸무게가 78kg이었고, 3개월 지난 지금은 71kg이에요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "헬스장은 안 다녔고, 평일 저녁에 하루 1시간씩 걷기만 했어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "걸음 수로 치면 평일 하루 평균 9천 보에서 1만 2천 보 정도였어요. 식단은 거창하게 안 했어요. 딱 두 가지만 지켰어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "저녁 8시 이후엔 안 먹기, 그리고 야식은 주 1회까지만 허용. 첫 달에 4kg이 확 빠졌고, 둘째 달엔 2kg, 셋째 달엔 1kg밖에 안 빠졌어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "주의하실 점은, 저는 원래 무릎이 튼튼한 편이라 괜찮았는데 무릎 안 좋으신 분은 하루 1시간이 무리일 수 있어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "퇴근 후 매일 1시간씩 걷기만 해서 3개월 만에 7kg을 감량했어요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "하루 평균 9천 보에서 1만 2천 보를 걸으며 식단도 두 가지만 지켰습니다.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "저녁 8시 이후 금식과 주 1회 야식 허용을 지켰더니 첫 달에 4kg이 빠졌죠.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "무릎이 건강하다면 하루 1시간 걷기가 효과적이라고 전했어요.",
+   "estimated_sec": 6.3
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 32.4,
+    "input_tokens": 2,
+    "output_tokens": 7852,
+    "cache_creation_input_tokens": 4696,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00451
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 55.8,
+    "input_tokens": 2,
+    "output_tokens": 13043,
+    "cache_creation_input_tokens": 4696,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00711
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 34.6,
+    "input_tokens": 2,
+    "output_tokens": 7915,
+    "cache_creation_input_tokens": 4696,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00454
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.8,
+    "input_tokens": 2,
+    "output_tokens": 1644,
+    "cache_creation_input_tokens": 3098,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00121
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 30454,
+   "cache_creation_input_tokens": 17186,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01737,
+  "sec": 55.8
+ }
+}

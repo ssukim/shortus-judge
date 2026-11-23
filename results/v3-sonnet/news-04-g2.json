@@ -1,0 +1,175 @@
+{
+ "id": "news-04-g2",
+ "source_id": "news-04",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 36.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "간편결제·송금 등 전자금융서비스에서도 은행·증권·보험사와 같은 수준으로 주민등록증 진위를 확인할 수 있게 됐다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "카카오페이와 토스에서도 비대면 고객확인 과정에서 주민등록증의 기재정보와 사진정보를 검증하는 '주민등록증 진위확인' 서비스를 23일부터 이용할 수 있다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "이번 서비스는 위·변조 신분증을 이용한 금융범죄를 예방하고 전자금융거래의 안전성을 높이기 위해 추진됐다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "2025년 한 해 카카오페이에서는 약 750만 건, 토스에서는 약 1000만 건의 비대면 고객확인이 이뤄졌다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "네이버페이는 12월 중 서비스를 시작할 예정이다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "간편결제와 송금 서비스를 이용할 때 신분증 진위 여부를 확인하는 방식이 바뀝니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "23일부터 카카오페이와 토스에서 주민등록증의 기재 정보와 사진 정보를 검증할 수 있습니다.",
+   "estimated_sec": 9.2
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "위변조 신분증을 이용한 금융범죄를 예방하고 전자금융거래의 안전성을 높이기 위해 추진됐습니다.",
+   "estimated_sec": 9.8
+  },
+  {
+   "scene": 4,
+   "role": "stat",
+   "text": "2025년 한 해 카카오페이에서는 약 750만 건, 토스에서는 약 1000만 건의 비대면 고객확인이 이뤄졌습니다.",
+   "estimated_sec": 9.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "네이버페이는 12월 중 서비스를 시작할 예정입니다.",
+   "estimated_sec": 5.1
+  }
+ ],
+ "run": {
+  "model": "claude-sonnet-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 7.6,
+    "input_tokens": 2,
+    "output_tokens": 1065,
+    "cache_creation_input_tokens": 5006,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.02317
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 7.5,
+    "input_tokens": 2,
+    "output_tokens": 1054,
+    "cache_creation_input_tokens": 5006,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.02306
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 7.0,
+    "input_tokens": 2,
+    "output_tokens": 1018,
+    "cache_creation_input_tokens": 5006,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0227
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 6.6,
+    "input_tokens": 2,
+    "output_tokens": 655,
+    "cache_creation_input_tokens": 3849,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.01618
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 3792,
+   "cache_creation_input_tokens": 18867,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.08511,
+  "sec": 7.6
+ }
+}
