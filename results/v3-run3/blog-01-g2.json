@@ -1,0 +1,190 @@
+{
+ "id": "blog-01-g2",
+ "source_id": "blog-01",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "KTX와 숙소 및 식비를 포함해 총 61만 원 정도의 경비가 들었습니다.",
+     "source_quote": "전체 경비는 교통, 숙박, 식비 다 합쳐서 두 명 61만 원 정도 들었네요.",
+     "reason": "금액의 대상인 '두 명' 조건이 빠져 61만 원이 누구 기준인지 틀리게 읽힐 수 있습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "KTX와",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "돌아오는 KTX는 오후 5시 10분 차였는데, 렌터카 반납이 4시까지라 역 근처에서 1시간을 기다려야 했어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지난달 말에 남편이랑 강릉으로 2박 3일 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "전체 경비는 교통, 숙박, 식비 다 합쳐서 두 명 61만 원 정도 들었네요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "돌아오는 KTX는 오후 5시 10분 차였는데, 렌터카 반납이 4시까지라 역 근처에서 1시간을 기다려야 했어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "시간 맞춰 예약하실 분들은 반납 시간부터 확인하세요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "강릉 여행을 다녀온 네티즌이 렌터카 반납 시간 때문에 1시간을 기다렸습니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 남편과 2박 3일 일정으로 강릉 여행을 다녀왔대요.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "KTX와 숙소 및 식비를 포함해 총 61만 원 정도의 경비가 들었습니다.",
+   "estimated_sec": 6.5
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "돌아오는 기차는 오후 5시 10분인데 렌터카 반납은 4시까지였죠.",
+   "estimated_sec": 6.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "시간 맞춰 예약할 분들은 반납 시간부터 꼭 확인하라고 당부했습니다.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.7,
+    "input_tokens": 2,
+    "output_tokens": 3336,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4214,
+    "cost_usd": 0.00176
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.6,
+    "input_tokens": 2,
+    "output_tokens": 3870,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4214,
+    "cost_usd": 0.00203
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.9,
+    "input_tokens": 2,
+    "output_tokens": 3900,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4214,
+    "cost_usd": 0.00204
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.4,
+    "input_tokens": 2,
+    "output_tokens": 1870,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3057,
+    "cost_usd": 0.00102
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 12976,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 15699
+  },
+  "cost_usd_est": 0.00685,
+  "sec": 17.9
+ }
+}

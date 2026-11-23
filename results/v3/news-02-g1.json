@@ -1,0 +1,183 @@
+{
+ "id": "news-02-g1",
+ "source_id": "news-02",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "더 많은 농업인이 공익직불금 혜택을 받게 된다고 밝혔습니다",
+     "source_quote": "올해는 농외소득 기준 현실화 등을 통해 보다 많은 농업인이 공익직불제의 혜택을 받을 수 있도록 했다",
+     "reason": "넣은 글의 '받을 수 있도록 했다'(가능성)를 '받게 된다'(확정)로 바꿔 더 강하게 말했다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "지급대상은 지난해보다 1만 1000건 증가한 129만 6000건이며",
+     "source_quote": "",
+     "reason": "\"~이며\"는 문서에서 쓰는 말투라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "올해부터 기본형 공익직불금 지급을 제한하는 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향돼 더 많은 농업인이 직불금을 받을 수 있게 된다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "올해부터 기본형 공익직불금 지급을 제한하는 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향돼 더 많은 농업인이 직불금을 받을 수 있게 된다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "올해는 농외소득 기준 현실화 등을 통해 보다 많은 농업인이 공익직불제의 혜택을 받을 수 있도록 했다"
+  },
+  {
+   "scene": 4,
+   "source_quote": "올해 지급대상은 농가, 농업인, 농업법인 등 129만 6000건으로, 지난해 128만 5000건보다 1만 1000건 증가했다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "농업 외 소득이 일정 금액을 넘으면 직불금을 못 받는데, 이 기준이 17년 만에 바뀌었어요.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "올해부터 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향됩니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "농식품부는 이번 기준 완화를 통해 더 많은 농업인이 공익직불금 혜택을 받게 된다고 밝혔습니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "지급대상은 지난해보다 1만 1000건 증가한 129만 6000건이며 11월 중순부터 순차 지급됩니다.",
+   "estimated_sec": 9.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.0,
+    "input_tokens": 2,
+    "output_tokens": 6395,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4421,
+    "cost_usd": 0.00329
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 27.2,
+    "input_tokens": 2,
+    "output_tokens": 6499,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4421,
+    "cost_usd": 0.00334
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 43.0,
+    "input_tokens": 2,
+    "output_tokens": 11059,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4421,
+    "cost_usd": 0.00562
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.4,
+    "input_tokens": 2,
+    "output_tokens": 2003,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 3264,
+    "cost_usd": 0.00108
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 25956,
+   "cache_creation_input_tokens": 1571,
+   "cache_read_input_tokens": 16527
+  },
+  "cost_usd_est": 0.01333,
+  "sec": 43.0
+ }
+}
