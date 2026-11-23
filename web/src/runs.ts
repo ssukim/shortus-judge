@@ -6,7 +6,7 @@
 import type { CriterionResult, Data, Result, Scene, Script } from './types'
 import { parseHash, verdictWord } from './common'
 import {
-  FRESH_WAIT_MAX_MS, freshPoll, freshStart, getMeta, postJudgeStream, probeFresh, probeLive,
+  FRESH_WAIT_MAX_MS, FULL_NOTE, freshFull, freshPoll, freshStart, getMeta, markFull, postJudgeStream, probeFresh, probeLive,
   type ApiResult, type ShortusTime,
 } from './judgeClient'
 
@@ -68,6 +68,8 @@ export interface Final {
   stages?: { text: string; sec: number }[] // 흘려보낼 때 들어온 단계 (고친 대본 만들기 등)
   // 결론은 나왔고 고친 대본을 아직 만드는 중 (판정 서버의 judged 줄, D37). 끝나면 지운다
   revising?: { since: number; text: string }
+  // 쇼더스에서 새 대본을 받지 못해 모아 둔 대본의 저장해 둔 결과를 대신 보일 때, 판정봇이 맨 먼저 말할 까닭
+  notice?: string
   savedDiff?: string // 새로 판정한 것이 저장해 둔 판정과 다를 때 (같으면 없음)
 }
 
@@ -362,15 +364,17 @@ async function run(token: string, spec: Spec, data: Data) {
     // 붙여 넣은 글은 대신 보여 줄 모아 둔 대본이 없어 안내만
     const s = sourceId ? ordered(data).find((x) => x.source_id === sourceId) : undefined
     if (!s) return set(token, { steps: done, final: { scenes: [], sourceText: pastedText, meta: '', notes: [], costLines: [], error: textError ?? '지금은 새 대본을 받을 수 없어요. 잠시 뒤 다시 눌러 주세요.' } })
-    set(token, { steps: done, final: savedFinal(data, s, `모아 둔 ${s.nth} 대본의 저장해 둔 판정 결과`, [why]) })
+    set(token, { steps: done, final: { ...savedFinal(data, s, `모아 둔 ${s.nth} 대본의 저장해 둔 판정 결과`, [why]), notice: why } })
   }
   const busy = (status: number) => status === 429
     ? '요청이 많아 지금은 새 대본을 받을 수 없습니다. 잠시 뒤 다시 눌러 주세요. 아래는 모아 둔 대본의 결과입니다.'
     : undefined
   if (spec.kind === 'text' && !pastedText) return fallback([], undefined, '이 글은 이 브라우저에 남아 있지 않아 다시 받을 수 없습니다. 글을 다시 붙여 넣어 주세요.')
   if (!(await probeFresh())) return fallback([])
+  if (freshFull()) return fallback([], `${FULL_NOTE} 아래는 모아 둔 대본의 결과예요.`, FULL_NOTE)
   const st = await freshStart(sourceId ? { sourceId } : { text: pastedText, title: spec.kind === 'text' ? spec.title : undefined })
   if (!st.ok) {
+    if (st.full) markFull()
     const textError = st.status === 400 ? st.error : st.status === 429 ? st.error ?? '요청이 많아 지금은 새 대본을 받을 수 없습니다. 잠시 뒤 다시 눌러 주세요.' : undefined
     // 쇼더스 하루 한도처럼 서버가 까닭을 적어 보내면 모아 둔 대본으로 대신 보일 때도 그 까닭을 적는다
     const why = st.status === 429 && st.error ? `${st.error} 아래는 모아 둔 대본의 결과입니다.` : busy(st.status)

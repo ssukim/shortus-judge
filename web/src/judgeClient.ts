@@ -47,9 +47,28 @@ export function probeLive(): Promise<boolean> {
   return liveProbe
 }
 
+// 쇼더스 하루 대본 만들기 한도를 다 썼는지 (GET api/fresh의 full, 또는 받기가 429로 막힌 때). 다 썼으면 받기 단추를 끈다
+let fullNow = false
+const fullListeners = new Set<() => void>()
+export const freshFull = () => fullNow
+export function subscribeFull(fn: () => void) {
+  fullListeners.add(fn)
+  return () => { fullListeners.delete(fn) }
+}
+export function markFull() {
+  if (fullNow) return
+  fullNow = true
+  fullListeners.forEach((fn) => fn())
+}
+export const FULL_NOTE = '오늘 쇼더스 대본 만들기 한도를 다 써서 새 대본은 한국 시각 자정부터 다시 받을 수 있어요.'
+
 let freshProbe: Promise<boolean> | null = null
+/** 쇼더스에서 받기를 쓸 수 있는 서버인지(키가 있음). 한도를 다 쓴 것은 freshFull로 따로 본다 */
 export function probeFresh(): Promise<boolean> {
-  freshProbe ??= probeLive().then((live) => (live ? getJson(FRESH_URL).then((b) => !!(b && b.fresh === true && b.ready === true)) : false))
+  freshProbe ??= probeLive().then((live) => (live ? getJson(FRESH_URL).then((b) => {
+    if (b?.full === true) markFull()
+    return !!(b && b.fresh === true && b.ready === true)
+  }) : false))
   return freshProbe
 }
 
@@ -59,7 +78,7 @@ export interface ApiResult extends Result {
   input: { sec_estimated_scenes: number[]; scenes: { n: number; text: string; sec: number }[] }
 }
 
-export type Outcome<T> = { ok: true; body: T } | { ok: false; status: number; error?: string }
+export type Outcome<T> = { ok: true; body: T } | { ok: false; status: number; error?: string; full?: boolean } // full: 쇼더스 하루 한도
 
 async function post<T>(url: string, payload: unknown, timeoutMs: number): Promise<Outcome<T>> {
   const ctrl = new AbortController()
@@ -72,7 +91,7 @@ async function post<T>(url: string, payload: unknown, timeoutMs: number): Promis
       signal: ctrl.signal,
     })
     const body = await r.json().catch(() => null)
-    return r.ok && body ? { ok: true, body: body as T } : { ok: false, status: r.status, error: body?.error }
+    return r.ok && body ? { ok: true, body: body as T } : { ok: false, status: r.status, error: body?.error, full: body?.full === true }
   } catch {
     return { ok: false, status: 0 }
   } finally {

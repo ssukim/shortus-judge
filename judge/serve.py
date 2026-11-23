@@ -252,7 +252,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, {"judge": True, "ready": judge_ready(), "model": config.MODEL,
                                     "backend": config.BACKEND, "criteria": view.criteria_meta(), "stream": STREAM_TYPE})
         if route == PATH_FRESH:
-            return self._send(200, {"fresh": True, "ready": judge_ready() and fresh.ready()})
+            ok = judge_ready() and fresh.ready()
+            return self._send(200, {"fresh": True, "ready": ok, **(fresh.status() if ok else {"full": False, "resets_at": None})})
         if route == PATH_TTS:
             return self._send(200, {"tts": True, "ready": tts_ready()})
         if route.startswith("/api/"):

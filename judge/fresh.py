@@ -35,14 +35,42 @@ DAILY_LIMIT = int(os.environ.get("FRESH_DAILY_LIMIT", "20"))  # 이 서버가 �
 SHOWN_FIELDS = ("id", "text_source_id", "status", "full_text", "estimated_duration_sec", "sections")
 SHOWN_SECTION = ("role", "text", "estimated_sec", "reading")
 
+QUOTA_TTL_SEC = 60            # 쇼더스 남은 한도를 다시 묻는 간격 (GET /v1/meta/quota-status, 크레딧 0, 가정값)
+
 _lock = threading.Lock()
 _minute, _day = {}, {"date": "", "n": 0}
+_quota = {"at": -1e9, "full": False, "resets_at": None}
 _issued = {}                  # 이 서버가 만든 쇼더스 대본 id → 만든 때. 조회는 이것만 받는다
 _UUID = re.compile(r"^[0-9a-fA-F-]{8,64}$")
 
 
 def ready():
     return bool(listen._key())
+
+
+def _mark_full(resets_at=None):
+    with _lock:
+        _quota.update(at=time.monotonic(), full=True, resets_at=resets_at or _quota["resets_at"])
+
+
+def status():
+    """오늘 더 받을 수 있는지 → {"full": bool, "resets_at": 쇼더스가 알려 준 풀리는 때 또는 None}.
+    쇼더스 하루 한도는 QUOTA_TTL_SEC마다 한 번 묻고, 이 서버의 하루 한도(DAILY_LIMIT)도 같이 본다.
+    묻지 못하면 받을 수 있다고 둔다(실제로 보낼 때 다시 막힌다)."""
+    key = listen._key()
+    with _lock:
+        mine_full = _day["date"] == time.strftime("%Y-%m-%d") and _day["n"] >= DAILY_LIMIT
+        fresh_enough = time.monotonic() - _quota["at"] < QUOTA_TTL_SEC
+    if key and not fresh_enough:
+        try:
+            q = _call(key, "GET", "/v1/meta/quota-status").get("daily_t2s_starts") or {}
+            if "limit" in q:
+                with _lock:
+                    _quota.update(at=time.monotonic(), full=q.get("used", 0) >= q["limit"], resets_at=q.get("resets_at"))
+        except (urllib.error.URLError, TimeoutError, ValueError, OSError):
+            pass
+    with _lock:
+        return {"full": mine_full or _quota["full"], "resets_at": _quota["resets_at"]}
 
 
 def source_ids():
@@ -113,7 +141,8 @@ def start(source_id=None, ip="-", text=None, title=None):
         created = _call(key, "POST", "/v1/t2s/scripts", {"text_source_id": ts["id"]})
     except urllib.error.HTTPError as e:
         if e.code == 429:   # 쇼더스 하루 한도. 응답 글·키는 밖으로 내지 않는다
-            return 429, {"error": DAILY_FULL}
+            _mark_full()
+            return 429, {"error": DAILY_FULL, "full": True}
         return 502, {"error": FAIL}
     except (urllib.error.URLError, TimeoutError, KeyError, ValueError, OSError):
         return 502, {"error": FAIL}   # 쇼더스 응답 글·키는 밖으로 내지 않는다

@@ -347,6 +347,7 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
       <section className="result" aria-label="판정 결과" aria-busy={!!running}>
         <BotHead at={!running && v ? judgedAt : undefined} tag={tags} />
         <div className="bot-flow">
+          {final?.notice && <p className="bot-line bot-notice" role="alert">{final.notice}</p>}
           {got && <p className="bot-line">쇼더스에서 대본을 받아 왔어요 · 장면 {got.scenes!.length}개</p>}
           {!got && pre.some((s) => !s.done) && <WorkLine text="대본 받는 중" since={pre.find((s) => s.startedAt)?.startedAt} />}
           {showScript && shownScenes.length > 0 && original}
@@ -366,6 +367,7 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
   return (
     <section className="result" aria-label="판정 결과" aria-busy={!!running}>
       {preWorking}
+      {final?.notice && <Bubble><p role="alert">{final.notice}</p></Bubble>}
       {freshBubble}
       {working}
       {report}

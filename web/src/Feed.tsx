@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { Data, Script } from './types'
 import { decisionWord, setQuery } from './common'
-import { TEXT_MAX, TEXT_MIN, pastedTitle, probeFresh, probeLive } from './judgeClient'
+import { FULL_NOTE, TEXT_MAX, TEXT_MIN, freshFull, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
 import {
   PREPARE_MAX_MS, type Final, type Spec, getRun, giveUp, newToken, ordered, saveSpec, specOf, start, subscribe, titleOf,
 } from './runs'
@@ -101,7 +101,7 @@ function Pills({ pills, onPick, disabled, row }: { pills: Pill[]; onPick: (p: Pi
  * sourceId: 판정 서버가 source_id로 받을 수 있는 모아 둔 글일 때만 둔다 */
 interface Preset { n: number; text: string; sourceId?: string }
 
-function Composer({ onSubmit, disabled, compact, preset }: { onSubmit: (spec: Spec) => void; disabled?: boolean; compact?: boolean; preset?: Preset | null }) {
+function Composer({ onSubmit, disabled, compact, preset, full }: { onSubmit: (spec: Spec) => void; disabled?: boolean; compact?: boolean; preset?: Preset | null; full?: boolean }) {
   const [open, setOpen] = useState(false)
   const [fill, setFill] = useState<Preset | null>(null) // 접으면 비운다(다시 열면 빈 칸)
   useEffect(() => {
@@ -112,6 +112,17 @@ function Composer({ onSubmit, disabled, compact, preset }: { onSubmit: (spec: Sp
   const close = () => {
     setOpen(false)
     setFill(null)
+  }
+  // 쇼더스 하루 한도를 다 썼으면 칸을 열지 못하게 두고 까닭을 적는다
+  if (full) {
+    return (
+      <div className="composer-full">
+        <button type="button" className={compact ? 'composer-closed composer-compact' : 'composer-closed'} disabled aria-describedby="full-note">
+          {compact ? '글 붙여 넣기' : '글을 넣으면 쇼더스가 대본을 만들고 판정합니다'}
+        </button>
+        <p id="full-note" className="hint">{FULL_NOTE}</p>
+      </div>
+    )
   }
   if (!open) {
     return (
@@ -198,8 +209,8 @@ function scenesOf(data: Data, spec: Spec, steps: { scenes?: Final['scenes'] }[] 
 }
 
 // again: 이 차례 글로 쇼더스에서 받기 (차례 안에 둔다. 한 번 눌러 아래에 받으면 Feed가 null로 넘겨 사라진다)
-function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy }: {
-  data: Data; token: string; spec: Spec; freshNo: number; onPaint?: () => void; again?: Spec | null; onAgain?: (s: Spec) => void; busy?: boolean
+function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy, full }: {
+  data: Data; token: string; spec: Spec; freshNo: number; onPaint?: () => void; again?: Spec | null; onAgain?: (s: Spec) => void; busy?: boolean; full?: boolean
 }) {
   const st = useSyncExternalStore(subscribe, () => getRun(token))
   useLayoutEffect(() => onPaint?.()) // 따라가기: 그리기 전에 차례 끝을 고정 영역 위로
@@ -232,9 +243,10 @@ function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy }: {
         running={running ? { criteria, since, text: '확인하는 중', stages: judging?.stages } : undefined} sheetKey={token} flow />
       {f && !f.revising && again && onAgain && (
         <div className="pills turn-again">
-          <button type="button" className="pill pill-main" disabled={busy} onClick={() => onAgain(again)}>
+          <button type="button" className="pill pill-main" disabled={busy || full} onClick={() => onAgain(again)} aria-describedby={full ? `full-${token}` : undefined}>
             {spec.kind === 'fresh' || spec.kind === 'text' ? '같은 글로 쇼더스 대본 한 번 더 받기' : '이 글로 쇼더스 대본 받기'}
           </button>
+          {full && <span id={`full-${token}`} className="hint">{FULL_NOTE}</span>}
         </div>
       )}
     </article>
@@ -258,6 +270,7 @@ export function HeroShell({ children }: { children?: ReactNode }) {
 export default function Feed({ data, query }: { data: Data; query: URLSearchParams }) {
   const live = useProbe(probeLive)
   const freshOk = useProbe(probeFresh)
+  const full = useSyncExternalStore(subscribeFull, freshFull)
   const tokens = tokensOf(query)
   const turns = tokens.map((t) => ({ token: t, spec: specOf(t, data) })).filter((x): x is { token: string; spec: Spec } => !!x.spec)
   const list = ordered(data)
@@ -270,7 +283,7 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
 
   const submit = (spec: Spec) => addTurn(spec, query)
   // 첫 화면에서 입력 칸이 보이면(쇼더스 받기를 쓸 수 있으면) 단추는 그 대본의 원래 글을 칸에 채우기만 한다
-  const withFill = turns.length === 0 && !!live && !!freshOk
+  const withFill = turns.length === 0 && !!live && !!freshOk && !full
   // 확인이 끝났는지: 서버가 없다고 나왔거나, 쇼더스 받기 확인까지 끝났을 때
   const decided = live === false || (live !== undefined && freshOk !== undefined)
   const [preset, setPreset] = useState<Preset | null>(null)
@@ -327,7 +340,7 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
         {/* 판정 서버 확인(probeLive, probeFresh)이 끝나기 전에는 입력 칸과 단추 줄을 같이 숨긴다.
             어느 단추 줄인지(예시 글 넣기 / 바로 판정)가 확인 결과로 정해지기 때문. 끝나면 둘이 한 번에 나타난다 */}
         <div className={decided ? 'hero-below on' : 'hero-below'} aria-hidden={!decided} inert={!decided}>
-          {live && freshOk && <Composer onSubmit={submit} preset={preset} />}
+          {live && freshOk && <Composer onSubmit={submit} preset={preset} full={full} />}
           <div className="saved-picks">
             <p className="hint">{withFill ? '예시 글 넣기:' : '모아 둔 대본으로 바로 판정:'}</p>
             <Pills pills={pills} onPick={pick} disabled={!decided} />
@@ -352,11 +365,11 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
         const again = freshOk ? againOf(data, spec) : null
         const used = !!again && turns.slice(i + 1).some((x) => sameAgain(x.spec, again))
         return <Turn key={token} data={data} token={token} spec={spec} freshNo={noOf(spec)} onPaint={token === lastToken ? nudge : undefined}
-          again={used ? null : again} onAgain={submit} busy={busy} />
+          again={used ? null : again} onAgain={submit} busy={busy} full={full} />
       })}
       <div className="feed-bottom" ref={bottom}>
         <div className="feed-bottom-in">
-          {live && freshOk && <Composer onSubmit={submit} disabled={busy} compact />}
+          {live && freshOk && <Composer onSubmit={submit} disabled={busy} compact full={full} />}
           <Pills pills={pills} onPick={pick} disabled={busy} row />
         </div>
       </div>
