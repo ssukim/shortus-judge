@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숫자 읽기 확인표</title>
+<style>
+body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;margin:0;background:#f6f6f4;color:#222}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #ddd;padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;z-index:1}
+header h1{font-size:17px;margin:0}
+#progress{font-weight:600}
+main{max-width:860px;margin:0 auto;padding:12px 16px 60px}
+.scene{background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px 14px;margin:12px 0}
+.scene.done{border-color:#7bb07b}
+.meta{font-size:13px;color:#666;margin-bottom:6px}
+.text{font-size:17px;line-height:1.6;margin:4px 0 8px}
+.text b{background:#fff3b0;padding:0 2px}
+audio{width:100%;margin:4px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:4px 6px;border-top:1px solid #eee;vertical-align:middle}
+td.tok{font-weight:600;white-space:nowrap;width:1%}
+td input[type=text]{width:100%;box-sizing:border-box;padding:4px 6px;font-size:14px}
+td.judge{white-space:nowrap;width:1%}
+td.judge label{margin-right:8px}
+button{font-size:14px;padding:6px 12px}
+</style></head><body>
+<header><h1>숫자 읽기 표본</h1><span id="progress"></span>
+<button id="dl">CSV로 내려받기</button></header>
+<main id="list"></main>
+<script>
+const SCENES = [{"script_id": "blog-01-g1", "scene": 1, "text": "강릉 여행을 다녀온 부부가 여행 경비로 총 61만 원을 썼어요.", "words": ["강릉", "여행을", "다녀온", "부부가", "여행", "경비로", "총", "61만", "원을", "썼어요."], "tokens": [{"token": "61만 원을", "words": [7, 8], "kind": "금액"}], "audio": "blog-01-g1-s1.wav"}, {"script_id": "blog-01-g1", "scene": 2, "text": "글쓴이는 남편과 2박 3일 일정으로 강릉 바다를 보러 다녀왔습니다.", "words": ["글쓴이는", "남편과", "2박", "3일", "일정으로", "강릉", "바다를", "보러", "다녀왔습니다."], "tokens": [{"token": "2박", "words": [2], "kind": "숫자+단위"}], "audio": "blog-01-g1-s2.wav"}, {"script_id": "blog-01-g1", "scene": 3, "text": "KTX와 렌터카를 이용하고 안목해변 근처 게스트하우스에 머물렀죠.", "words": ["KTX와", "렌터카를", "이용하고", "안목해변", "근처", "게스트하우스에", "머물렀죠."], "tokens": [{"token": "KTX와", "words": [0], "kind": "영문"}], "audio": "blog-01-g1-s3.wav"}, {"script_id": "blog-03-g1", "scene": 1, "text": "8주 만에 처음으로 쉬지 않고 5km를 달린 기록은 34분 12초였어요.", "words": ["8주", "만에", "처음으로", "쉬지", "않고", "5km를", "달린", "기록은", "34분", "12초였어요."], "tokens": [{"token": "5km를", "words": [5], "kind": "숫자+단위"}], "audio": "blog-03-g1-s1.wav"}, {"script_id": "blog-04-g2", "scene": 3, "text": "가스 연결은 2~3일 전에 예약해야 하며 인터넷 이전은 최소 10일 전에 신청해야 원하는 날짜를 잡을 수 있습니다.", "words": ["가스", "연결은", "2~3일", "전에", "예약해야", "하며", "인터넷", "이전은", "최소", "10일", "전에", "신청해야", "원하는", "날짜를", "잡을", "수", "있습니다."], "tokens": [{"token": "2~3일", "words": [2], "kind": "날짜"}], "audio": "blog-04-g2-s3.wav"}, {"script_id": "community-02-g1", "scene": 2, "text": "글쓴이는 퇴근길에 6,980원 할인을 받으려고 마트에 방문했대요.", "words": ["글쓴이는", "퇴근길에", "6,980원", "할인을", "받으려고", "마트에", "방문했대요."], "tokens": [{"token": "6,980원", "words": [2], "kind": "금액"}], "audio": "community-02-g1-s2.wav"}, {"script_id": "community-03-g1", "scene": 2, "text": "집사들은 몸무게가 4.8kg에서 4.5kg으로 빠진 것을 확인했대요.", "words": ["집사들은", "몸무게가", "4.8kg에서", "4.5kg으로", "빠진", "것을", "확인했대요."], "tokens": [{"token": "4.8kg에서", "words": [2], "kind": "숫자+단위"}], "audio": "community-03-g1-s2.wav"}, {"script_id": "community-04-g1", "scene": 4, "text": "글쓴이는 귀찮아서 요구대로 3만 5,000원에 물건을 넘겨주었습니다.", "words": ["글쓴이는", "귀찮아서", "요구대로", "3만", "5,000원에", "물건을", "넘겨주었습니다."], "tokens": [{"token": "3만 5,000원에", "words": [3, 4], "kind": "금액"}], "audio": "community-04-g1-s4.wav"}, {"script_id": "news-03-g1", "scene": 2, "text": "해양수산부는 올해 10월까지 수산식품 누적 수출액이 전년 동기 대비 11.9% 증가한 30억 3000만 달러로 역대 최대 실적을 달성했다고 밝혔습니다.", "words": ["해양수산부는", "올해", "10월까지", "수산식품", "누적", "수출액이", "전년", "동기", "대비", "11.9%", "증가한", "30억", "3000만", "달러로", "역대", "최대", "실적을", "달성했다고", "밝혔습니다."], "tokens": [{"token": "11.9%", "words": [9], "kind": "숫자+단위"}], "audio": "news-03-g1-s2.wav"}, {"script_id": "product-01-g1", "scene": 3, "text": "폴드케틀은 실리콘 몸체를 접으면 높이가 4.5cm까지 줄어듭니다.", "words": ["폴드케틀은", "실리콘", "몸체를", "접으면", "높이가", "4.5cm까지", "줄어듭니다."], "tokens": [{"token": "4.5cm까지", "words": [5], "kind": "숫자+단위"}], "audio": "product-01-g1-s3.wav"}, {"script_id": "product-01-g1", "scene": 4, "text": "600W 출력으로 4분이면 물이 끓고 110V와 220V를 모두 지원합니다.", "words": ["600W", "출력으로", "4분이면", "물이", "끓고", "110V와", "220V를", "모두", "지원합니다."], "tokens": [{"token": "600W", "words": [0], "kind": "숫자+단위"}], "audio": "product-01-g1-s4.wav"}];
+const KEY = "listen-sample-v3";
+const JUDGE = ["바르게 읽음", "잘못 읽음", "애매"];
+let store = {};
+try { store = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { store = {}; }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+function esc(s) { return s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function id(s, j) { return s.script_id + "|" + s.scene + "|" + j; }
+
+const list = document.getElementById("list");
+SCENES.forEach((s, si) => {
+  const bold = new Set(s.tokens.flatMap(t => t.words));
+  const text = s.words.map((w, i) => bold.has(i) ? "<b>" + esc(w) + "</b>" : esc(w)).join(" ");
+  const rows = s.tokens.map((t, j) => {
+    const k = id(s, j), v = store[k] || {};
+    const radios = JUDGE.map(o => `<label><input type="radio" name="r${si}_${j}" value="${o}" data-k="${esc(k)}"${v.judge === o ? " checked" : ""}> ${o}</label>`).join("");
+    return `<tr><td class="tok">${esc(t.token)}</td><td><input type="text" placeholder="들린 소리" data-k="${esc(k)}" value="${esc(v.heard || "")}"></td><td class="judge">${radios}</td></tr>`;
+  }).join("");
+  const div = document.createElement("section");
+  div.className = "scene";
+  div.innerHTML = `<div class="meta">${esc(s.script_id)} · 장면 ${s.scene}</div><div class="text">${text}</div><audio controls preload="none" src="../../audio/${esc(s.audio)}"></audio><table>${rows}</table>`;
+  list.appendChild(div);
+});
+
+function filled(k) { const v = store[k]; return v && v.heard && v.heard.trim() && v.judge; }
+function refresh() {
+  let total = 0, done = 0;
+  SCENES.forEach((s, si) => {
+    let all = true;
+    s.tokens.forEach((t, j) => { total++; if (filled(id(s, j))) done++; else all = false; });
+    list.children[si].classList.toggle("done", all);
+  });
+  document.getElementById("progress").textContent = `${total}개 중 ${done}개 입력 (장면 ${SCENES.length}개)`;
+}
+list.addEventListener("input", e => {
+  const k = e.target.dataset.k; if (!k) return;
+  store[k] = store[k] || {};
+  if (e.target.type === "text") store[k].heard = e.target.value;
+  if (e.target.type === "radio") store[k].judge = e.target.value;
+  save(); refresh();
+});
+document.getElementById("dl").onclick = () => {
+  const q = v => '"' + String(v ?? "").replace(/"/g, '""') + '"';
+  const lines = [["대본 id", "장면", "표기", "들린 소리", "판정"].map(q).join(",")];
+  SCENES.forEach(s => s.tokens.forEach((t, j) => {
+    const v = store[id(s, j)] || {};
+    lines.push([s.script_id, s.scene, t.token, v.heard, v.judge].map(q).join(","));
+  }));
+  const blob = new Blob(["﻿" + lines.join("\r\n")], {type: "text/csv;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "listen.csv"; a.click();
+  URL.revokeObjectURL(a.href);
+};
+refresh();
+</script></body></html>
