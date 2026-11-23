@@ -11,9 +11,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LABELS = ROOT / "data" / "labels"
-CRITERIA = ["c1", "c2", "c3", "c4", "c6", "c8", "c9", "c10"]
+CRITERIA = ["c1", "c2", "c3", "c4", "c5", "c6", "c8", "c9", "c10"]
 FACT = {"c1", "c2"}          # 걸리면 탈락
-HOLD = {"c3", "c4"}          # 하나라도 걸리면 보류 (c5는 듣기로 따로 정함)
+HOLD = {"c3", "c4", "c5"}    # 하나라도 걸리면 보류 (c5는 data/labels/c5.csv에서 읽음)
 STYLE = {"c6", "c8", "c9"}   # 2개 이상이면 보류 (c10은 진단만, c7은 코드로 셈)
 
 
@@ -43,6 +43,10 @@ def main() -> None:
     raters = {f.stem: {r["id"]: r for r in csv.DictReader(f.open())} for f in files}
     names = list(raters)
     ids = sorted(set.intersection(*(set(v) for v in raters.values())))
+    c5 = {r["id"]: int(r["c5"]) for r in csv.DictReader((LABELS / "c5.csv").open())}
+    for n in names:
+        for i in ids:
+            raters[n][i]["c5"] = c5[i]
     k = len(names)
     print(f"채점자 {k}명: {', '.join(names)} / 대본 {len(ids)}개\n")
 
