@@ -66,10 +66,15 @@ export function SceneText({ text, spots, numbers = true, onNo }: { text: string;
     // 구절이 문장부호로 끝나면 번호를 그 앞에
     const tail = q.match(/[.?!。]+$/)?.[0] ?? ''
     if (tail && !p.fix) q = q.slice(0, -tail.length)
+    // 밑줄 친 구절도 번호와 같이 누를 수 있다(그 구절의 첫 번호 기준을 연다). 화면 읽기에는 번호 단추만 읽히게 둔다
+    const open = onNo && p.nos.length ? () => onNo(p.nos[0]) : undefined
+    const hit = (body: ReactNode) => open
+      ? <span className="hit-click" onClick={open} title="자세히 보기">{body}</span>
+      : body
     if (p.fix) {
-      out.push(<span key={k} className="swap"><del>{q}</del><span className="sr-only">를 이렇게 바꿈:</span> <ins>{p.fix}</ins><Nos nos={p.nos} /></span>)
+      out.push(<span key={k} className="swap">{hit(<><del>{q}</del><span className="sr-only">를 이렇게 바꿈:</span> <ins>{p.fix}</ins></>)}<Nos nos={p.nos} /></span>)
     } else {
-      out.push(<span key={k}><u className="hit-u">{q}</u><Nos nos={p.nos} />{tail}</span>)
+      out.push(<span key={k}>{hit(<u className="hit-u">{q}</u>)}<Nos nos={p.nos} />{tail}</span>)
     }
     i = p.end
   })
@@ -255,8 +260,8 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
   // 판정해 보기 차례 끝에 펼쳐 둘 견주기 (결정이 고친 대본이거나, 고쳐 봤지만 만들지 않거나 사람이 볼 때). 원래 대본으로 만들면 붙이지 않는다
   const lastRound = r?.revision_2 ? 2 : 1
   const times = (r?.decision?.round ?? lastRound) === 2 ? '두 번' : '한 번'
-  const revTitle = readingOnly ? '만들 대본 · 표기를 고친 대본'
-    : act === 'render_revised' ? `만들 대본 · ${times} 고친 대본`
+  const revTitle = readingOnly ? '영상으로 만들 대본 · 표기를 고친 대본'
+    : act === 'render_revised' ? `영상으로 만들 대본 · ${times} 고친 대본`
       : act === 'review' && r?.decision?.round ? `${times} 고친 대본 · 사람이 보고 정함`
         : act === 'do_not_render' ? '고쳐 봤지만 사실 틀림이 남은 대본' : null
   const shortName = (n: number) => { const nm = data.criteria.find((c) => c.n === n)?.name ?? ''; return SHORT_NAME[nm] ?? nm }
@@ -334,8 +339,8 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
 
   // 통과한 대본도 쇼더스로 넘길 대본이므로 다른 판정과 같은 자리에 「만들 대본 · 원래 대본」으로 전체와 듣기 단추를 둔다
   const passOpen = !running && !!v && v === pass && !readingOnly && shownScenes.length > 0 && (
-    <section className="rev rev-open" aria-label="만들 대본 · 원래 대본">
-      <h3 className="rev-title">만들 대본 · 원래 대본</h3>
+    <section className="rev rev-open" aria-label="영상으로 만들 대본 · 원래 대본">
+      <h3 className="rev-title">영상으로 만들 대본 · 원래 대본</h3>
       {original}
     </section>
   )
@@ -417,8 +422,8 @@ function RevisionChanges({ rev, say, clip, origClip }: {
   return (
     <>
       {say && <p className="muted">{say}</p>}
-      {clips.length > 1 && <div className="listen-all"><PlayButton clips={clips} label="만들 대본 전체 듣기" text="전체 듣기" /></div>}
-      <ol className="rev-list" aria-label="만들 대본">
+      {clips.length > 1 && <div className="listen-all"><PlayButton clips={clips} label="영상으로 만들 대본 전체 듣기" text="전체 듣기" /></div>}
+      <ol className="rev-list" aria-label="영상으로 만들 대본">
         {rev.scenes.map((x) => {
           const textChanged = x.after !== x.before
           const changed = x.changed || textChanged

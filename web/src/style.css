@@ -172,7 +172,7 @@ button.ghost { font: inherit; min-height: 44px; padding: 6px 18px; border: 1px s
 .bot-head .bot-name { margin: 0; flex: 1; min-width: 0; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
 .bot-head .bot-at { flex: none; }
 .bot-head .vtags { flex-wrap: nowrap; overflow: hidden; }
-.bot-head .vtags .vtag { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.bot-head .vtags .vtag { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; line-height: 1.6; } /* 줄 높이가 낮으면 「만듦」의 받침이 잘려 「만들」로 보인다 */
 .bot-head .fact-mark { flex: none; }
 .bot-flow { padding-left: 38px; }
 .bot-flow .script, .bot-flow .listen-all, .bot-flow .report-card, .bot-flow .checklist, .bot-flow .rev, .bot-flow .detail-btn, .bot-flow button.link { margin-left: 0; }
@@ -517,3 +517,7 @@ button.sn-no { vertical-align: baseline; padding: 4px 2px; margin: 0; color: var
 .composer-full .composer-closed { opacity: .5; cursor: not-allowed; }
 .turn-again .hint { align-self: center; margin-left: 8px; }
 .bot-notice { color: var(--hold-fg); }
+
+/* 밑줄 친 걸린 구절: 번호처럼 눌러서 보고서의 그 기준을 연다 */
+.hit-click { cursor: pointer; }
+.hit-click:hover .hit-u, .hit-click:hover ins { text-decoration-thickness: 3px; }
