@@ -12,10 +12,17 @@ CODE = {config.HIT: 1, config.OK: 0, config.UNKNOWN: "NA"}
 def main():
     ap = argparse.ArgumentParser(prog="python -m judge.run_all")
     ap.add_argument("--out", required=True, help="결과 폴더, 예: results/v1")
+    ap.add_argument("--set", choices=["dev", "test", "all"], default="dev",
+                    help="dev: data/labels/test.txt에 없는 대본(기본), test: 시험용만, all: 모두")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     files = sorted(config.SCRIPTS.glob("*.json"))
+    test_ids = set((config.ROOT / "data" / "labels" / "test.txt").read_text().split())
+    if a.set == "dev":
+        files = [f for f in files if f.stem not in test_ids]
+    elif a.set == "test":
+        files = [f for f in files if f.stem in test_ids]
     total_cost = 0.0
     for i, f in enumerate(files, 1):
         dst = out / f.name

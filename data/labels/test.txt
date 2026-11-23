@@ -1,0 +1,10 @@
+blog-01-g1
+blog-02-g2
+blog-03-g2
+blog-04-g2
+community-02-g1
+community-02-g2
+community-04-g1
+news-03-g2
+product-04-g1
+product-04-g2
