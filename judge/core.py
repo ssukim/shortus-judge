@@ -13,9 +13,15 @@ def load_script(path):
 
 
 def judge_file(path, model=None):
+    d, source = load_script(path)
+    return judge_script(d, source, model)
+
+
+def judge_script(d, source, model=None):
+    """메모리에 든 대본 하나를 판정한다. d: data/scripts/<id>.json과 같은 꼴({"id", "source_id", "script": {"sections"}}),
+    source: 넣은 글. 파일을 읽지 않고, 판정 서버(judge/serve.py)도 이 함수를 쓴다."""
     model = model or config.MODEL
     t0 = time.monotonic()
-    d, source = load_script(path)
     sections = d["script"]["sections"]
 
     criteria = {5: checks_code.check_notation(sections), 7: checks_code.check_length(sections)}

@@ -221,5 +221,124 @@ class Failed(unittest.TestCase):
             self.assertTrue(_failed(p))
 
 
+def stored(scenes, **crit):
+    """저장한 결과 꼴: stored(["문장", ...], c1={"result": H, "votes": "2/3", "findings": [...]})"""
+    criteria = {str(n): {"result": O, "findings": [], "by": "code" if n in (5, 7) else "model"} for n in range(1, 11)}
+    criteria["5"]["vague"] = []
+    criteria["7"]["total_sec"] = 35.0
+    for k, c in crit.items():
+        criteria[k[1:]].update(c)
+    return {"id": "t-1", "source_id": "s", "verdict": config.PASS, "why": [], "diagnostics": [],
+            "criteria": criteria, "scenes": [{"scene": i, "text": t, "estimated_sec": 6.0} for i, t in enumerate(scenes, 1)],
+            "run": {"model": config.MODEL, "cost_usd_est": 0.01, "sec": 30.0, "calls": 4}}
+
+
+class View(unittest.TestCase):
+    """judge/view.py: 판정 결과 → 화면 결과"""
+
+    def setUp(self):
+        from judge import view
+        self.view = view
+
+    def test_redecide_majority_fails(self):
+        r = stored(["대본은 4분이면 끓습니다."], c1={"result": O, "votes": "2/3", "doubt": True, "findings": [
+            {"scene": 1, "quote": "4분이면 끓습니다", "source_quote": "한 컵을 4분에 끓입니다.", "reason": "조건이 빠짐"}]})
+        v = self.view.to_view(self.view.redecide(r))
+        self.assertEqual(v["verdict"], config.FAIL)   # 5판: 탈락 기준도 과반(D19)
+        c1 = v["criteria"]["1"]
+        self.assertEqual((c1["flagged"], c1["scenes"], c1["source_quote"]), (True, [1], "한 컵을 4분에 끓입니다."))
+        self.assertEqual(c1["marks"], [{"scene": 1, "quote": "4분이면 끓습니다", "fix": None}])
+        self.assertEqual(v["decision"]["action"], "do_not_render")
+        self.assertEqual(v["decision"]["remaining"], [{"criterion": 1, "name": "없는 내용, 바뀐 뜻"}])
+
+    def test_notation_gives_reading_only_revision(self):
+        r = stored(["무게는 1.5kg이고 31,200원에 팝니다.", "그대로인 장면"],
+                   c5={"result": H, "findings": [{"scene": 1, "quote": "1.5kg이고", "reason": "잘못 읽는 표기 — 영문 단위 기호"},
+                                                 {"scene": 1, "quote": "31,200원에", "reason": "잘못 읽는 표기 — 쉼표 든 금액"}]})
+        v = self.view.to_view(self.view.redecide(r))
+        self.assertEqual(v["verdict"], config.PASS)
+        self.assertEqual(v["diagnostics"], [5])
+        hits = v["criteria"]["5"]["hits"]
+        self.assertEqual([h["fix"] for h in hits], ["일 점 오 킬로그램이고", "삼만 천이백원에"])
+        rev = v["revision"]
+        self.assertEqual(rev["method"], "reading_only")
+        self.assertEqual([s["changed"] for s in rev["scenes"]], [True, False])
+        self.assertEqual(rev["scenes"][0]["after"], "무게는 일 점 오 킬로그램이고 삼만 천이백원에 팝니다.")
+        self.assertEqual(rev["scenes"][0]["reading"], rev["scenes"][0]["after"])
+        self.assertEqual(rev["scenes"][0]["why"], "읽는 법만 바꿈: 「1.5kg이고 31,200원에」 → 「일 점 오 킬로그램이고 삼만 천이백원에」")
+        self.assertEqual(v["decision"]["action"], "render_revised")   # 통과 + 고친 대본 → 고친 대본으로 만듦
+
+    def test_fixed_scenes_used_when_present(self):
+        r = stored(["8가지 방법"], c5={"result": O})
+        r["fixed_scenes"] = ["여덟 가지 방법"]
+        v = self.view.to_view(r)
+        self.assertEqual(v["revision"]["scenes"][0]["after"], "여덟 가지 방법")
+        r["fixed_scenes"] = None   # 바뀐 것이 없으면 judge_script가 None을 둔다
+        v = self.view.to_view(r)
+        self.assertIsNone(v["revision"])
+        self.assertEqual(v["decision"]["action"], "render_original")
+
+    def test_hold_is_review_and_unknown_listed(self):
+        r = stored(["장면"], c3={"result": H, "votes": "3/3", "findings": [{"scene": 1, "quote": "장면", "reason": "세게 말함"}]},
+                   c4={"result": U, "error": "timeout"})
+        v = self.view.to_view(self.view.redecide(r))
+        self.assertEqual(v["verdict"], config.HOLD)
+        self.assertEqual(v["decision"]["action"], "review")
+        self.assertEqual(v["undecided"], [{"criterion": 4, "why": "timeout"}])
+        self.assertTrue(v["criteria"]["4"]["error"])
+        self.assertEqual(v["flagged"], [3])
+
+    def test_length_view(self):
+        r = stored(["짧은 장면"], c7={"total_sec": 5.2})
+        c7 = self.view.to_view(r)["criteria"]["7"]
+        self.assertEqual((c7["scene_sec"], c7["sec_factor"], c7["flagged"]), ([5.2], config.READ_RATIO, False))
+        self.assertTrue(self.view.to_view(r)["notices"])   # 30초 미만은 걸지 않고 알림
+
+    def test_same_as_evaluate_redecide(self):
+        """저장한 결과 98개: 화면 판정이 tools/evaluate.py --redecide와 같다"""
+        import sys
+        sys.path.insert(0, str(config.ROOT))
+        from tools.evaluate import redecide
+        d = config.ROOT / "results" / "v5-all98"
+        if not d.exists():
+            self.skipTest("results/v5-all98 없음")
+        ref = redecide(d)
+        for f in sorted(d.glob("*.json")):
+            v = self.view.to_view(self.view.redecide(json.loads(f.read_text(encoding="utf-8"))))
+            self.assertEqual(v["verdict"], ref[f.stem]["verdict"], f.stem)
+
+
+class ServePayload(unittest.TestCase):
+    def test_parse(self):
+        from judge import serve
+        src, d, est = serve.parse_payload({"source": " 글 ", "scenes": [{"text": "가나다", "sec": 4}, {"text": "라마"}]})
+        self.assertEqual(src, "글")
+        self.assertEqual(est, [2])
+        self.assertEqual([s["estimated_sec"] for s in d["script"]["sections"]], [4.0, round(2 * serve.SEC_PER_CHAR, 1)])
+
+    def test_rejects(self):
+        from judge import serve
+        for bad in (None, {"source": "", "scenes": [{"text": "a"}]}, {"source": "글", "scenes": []},
+                    {"source": "글", "scenes": [{"text": "a", "sec": 0}]}, {"source": "글", "scenes": [{"text": "a"}] * 13}):
+            with self.assertRaises(serve.InputError):
+                serve.parse_payload(bad)
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class PinnedMarks(unittest.TestCase):
+    def test_pinned_numbers_shown_as_notation_diagnosis(self):
+        """발음 고정으로만 바뀐 숫자도 기준 5의 고칠 표기로 보이되, 남은 문제로 세지 않는다."""
+        import json as _j
+        from judge import view
+        r = view.redecide(_j.loads((config.ROOT / "results" / "v5-all98" / "blog-14-g1.json").read_text()))
+        v = view.to_view(r)
+        c5 = v["criteria"]["5"]
+        self.assertTrue(c5["flagged"])
+        self.assertIn(("오후 8시까지지만", "오후 여덟 시까지지만"), [(h["text"], h["fix"]) for h in c5["hits"]]
+                      + [("오후 " + h["text"], "오후 " + h["fix"]) for h in c5["hits"]])
+        self.assertEqual(v["decision"].get("remaining"), [])
+        self.assertIn(5, v["diagnostics"])
+

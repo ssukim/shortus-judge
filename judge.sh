@@ -8,6 +8,7 @@
 #   ./judge.sh test [결과 폴더]      시험용 대본 판정하고 합의와 견줌 (기본: results/latest-test)
 #   ./judge.sh eval [결과 폴더]      저장한 결과를 합의와 견줌 (기본: results/latest)
 #   ./judge.sh labels                채점자 합의 다시 계산
+#   ./judge.sh web [포트]            화면과 판정 서버 띄우기 (기본 http://127.0.0.1:8787, 빌드한 web/dist가 있어야 함)
 #
 # 환경 변수:
 #   JUDGE_MODEL    기본 claude-haiku-5-5. claude-sonnet-5-5 로 바꿀 수 있다.
@@ -82,6 +83,16 @@ case "$CMD" in
     python3 tools/consensus.py
     ;;
 
+  web)
+    if [[ ! -f web/dist/index.html ]]; then
+      echo "  화면이 아직 빌드되지 않았어요. 한 번 빌드해 주세요 (Node.js 20 이상):"
+      echo "    cd web && npm install && npm run build"
+      exit 1
+    fi
+    title "화면과 판정 서버 — 끄려면 Ctrl+C"
+    if [[ -n "$ARG" ]]; then $PY -m judge.serve --port "$ARG"; else $PY -m judge.serve; fi
+    ;;
+
   "")
     echo ""
     echo "  쇼더스 대본 판정기"
@@ -92,6 +103,7 @@ case "$CMD" in
     echo "  3. test    — 시험용 대본 판정하고 합의와 견주기"
     echo "  4. eval    — 저장한 결과를 합의와 견주기"
     echo "  5. labels  — 채점자 합의 다시 계산"
+    echo "  6. web     — 화면과 판정 서버 띄우기"
     echo ""
     echo -n "  번호: "
     read -r MENU
@@ -101,6 +113,7 @@ case "$CMD" in
       3|test)   exec "$0" test ;;
       4|eval)   exec "$0" eval ;;
       5|labels) exec "$0" labels ;;
+      6|web)    exec "$0" web ;;
       *) echo "  잘못된 선택."; exit 1 ;;
     esac
     ;;
@@ -108,7 +121,7 @@ case "$CMD" in
   *)
     echo ""
     echo "  알 수 없는 명령: $CMD"
-    echo "  사용법: ./judge.sh [one [대본]|dev [폴더]|test [폴더]|eval [폴더]|labels]"
+    echo "  사용법: ./judge.sh [one [대본]|dev [폴더]|test [폴더]|eval [폴더]|labels|web [포트]]"
     exit 1
     ;;
 esac

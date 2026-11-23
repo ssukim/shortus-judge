@@ -32,7 +32,10 @@
 python3 tools/evaluate.py results/v5 --redecide  # 저장한 표 수에 지금 판정 선을 다시 적용해 견줌(모델 호출 없음)
 ./judge.sh labels                                # 채점자 세 명의 합의와 일치도를 다시 계산
 python3 -m unittest discover tests               # 모델을 부르지 않는 부분의 테스트
+./judge.sh web                                   # 화면과 판정 서버 띄우기 → http://127.0.0.1:8787
 ```
+
+- **화면**(`./judge.sh web`): 대본 98개의 판정 결과, 채점자 정답과 견준 숫자를 보고, 모아 둔 대본이나 직접 넣은 대본을 새로 판정합니다. 빌드한 화면(`web/dist`)이 저장소에 있어 Node.js 없이 뜹니다. 판정 한 번은 약 20~30초, 약 15원입니다. 화면을 고쳐 다시 빌드하는 법은 [web/README.md](web/README.md)에 있습니다.
 
 - 모델은 기본이 `claude-haiku-5-5`이고, `JUDGE_MODEL=claude-sonnet-5-5`로 바꿀 수 있습니다.
 - 동시에 판정하는 대본 수는 `JUDGE_WORKERS`로 정합니다(기본 6).

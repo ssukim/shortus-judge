@@ -1,0 +1,69 @@
+# 판정기 화면
+
+판정기 결과를 보는 화면입니다(React + Vite). 그록봇(Grok)의 채팅 화면을 참고해, 대본을 넣으면 판정봇이 말풍선으로 판정과 고칠 곳을 답하는 채팅형으로 만들었습니다(D34). 판정 서버(`judge/serve.py`)가 빌드한 화면(`web/dist`)을 같이 내줍니다.
+
+## 띄우기
+
+저장소 맨 위 폴더에서 실행하고 `http://127.0.0.1:8787`을 엽니다.
+
+```sh
+./judge.sh web            # 또는 python3 -m judge.serve [--port 8787]
+```
+
+`web/dist`는 저장소에 넣어 두므로 Node.js 없이도 뜹니다. 화면을 고쳤을 때만 다시 빌드합니다.
+
+## 화면
+
+| 화면 | 하는 일 |
+|---|---|
+| 첫 화면 「판정해 보기」 | 모아 둔 대본을 누르거나 넣은 글과 대본(장면마다 한 줄)을 직접 넣어 판정합니다. 판정봇이 체크 목록, 걸린 곳, 결정을 말하고 「세부정보 보기」에 기준 10개, 넣은 글, 표기·길이, 고친 대본이 있습니다 |
+| 모아 둔 대본 | 대본 98개와 최종 판정기(5판) 결과. 결정, 채점자와 판정이 다른 대본, 시험용으로 거릅니다 |
+| 얼마나 믿을 수 있나 | 판정기를 채점자 정답과 견준 숫자. 시험용 50개가 먼저이고, 개발용·전체와 다수결·확신 정답을 골라 봅니다 |
+
+결과 카드는 판정 대신 결정을 보여 줍니다(`judge/view.py`의 `decision_of`).
+
+| 판정 | 결정 |
+|---|---|
+| 통과, 고친 대본 없음 | 그대로 만들어도 됨 |
+| 통과, 고친 대본 있음 | 고친 대본으로 만듦 |
+| 보류 | 사람이 보고 정함 |
+| 탈락 | 만들지 않음 · 사실 틀림 |
+
+고친 대본은 코드가 목소리가 잘못 읽을 표기와 읽을 때마다 틀리게 읽는 숫자만 바로 읽히게 바꾼 것입니다(`revision.method`가 `reading_only`). 판정기는 모델로 문장을 고쳐 쓰지 않으며, 화면도 그렇게 적습니다.
+
+화면이 할 수 있는 일은 띄운 곳에 따라 달라집니다. 화면 글자에는 서버나 키 이야기를 쓰지 않으므로 차이는 여기에만 적습니다.
+
+| 띄운 곳 | 모아 둔 대본을 누르면 | 직접 넣기 | ▶ 듣기 |
+|---|---|---|---|
+| 판정 서버, `claude` 명령 또는 `ANTHROPIC_API_KEY` 있음 | 새로 판정(약 20~30초, 약 $0.01) | 있음 | `SHORTUS_API_KEY`가 있을 때 |
+| 판정 서버, 판정 못 함 | 저장해 둔 결과 | 없음 | 위와 같음 |
+| 정적 파일만(`web/dist`를 다른 곳에 올림) | 저장해 둔 결과 | 없음 | 없음 |
+
+- 소리는 쇼더스 「목소리 미리 듣기」(크레딧 0, `judge/listen.py`의 `tts`)로 받아 `audio/listen/`에 모아 둡니다. 고친 장면은 고친 문장을 읽힙니다.
+- 판정 서버는 한 번에 받는 응답만 냅니다. 체크 목록은 판정이 끝날 때 한꺼번에 채워집니다.
+- 쇼더스에서 새 대본을 받는 길은 화면과 서버에 두지 않았습니다. 대본 만들기는 하루 한도가 있어 `tools/collect.py`로만 받습니다.
+- 연습 모드: 주소에 `demo=1`을 붙이면(예: `#/?t=blog-01-g1&demo=1`) 서버에 보내지 않고 저장해 둔 결과를 기준 하나씩 채웁니다. 모델 호출 없이 화면 배치를 볼 때 씁니다.
+
+## 서버
+
+| 주소 | 하는 일 |
+|---|---|
+| `GET /api/judge` | `{"judge": true, "ready", "model", "backend", "criteria"}` |
+| `POST /api/judge` | 본문 `{"source": 넣은 글, "scenes": [{"text", "sec"}]}`. `sec`(쇼더스 예상 초)가 없으면 글자 수 × 0.1764초로 어림 |
+| `GET /api/tts`, `POST /api/tts` | `{"tts": true, "ready"}`, 본문 `{"text"}` → WAV |
+
+응답은 `judge/view.py`의 `to_view` 모양에 `input`, `request_id`를 더한 것이고, 화면 자료의 결과와 같은 모양입니다(`src/types.ts`의 `Result`). 같은 주소에서 1분에 5번(`JUDGE_PER_MINUTE`), 동시에 2건(`JUDGE_MAX_CONCURRENT`)까지 받습니다. 모델과 호출 경로는 판정기와 같은 환경 변수(`JUDGE_MODEL`, `JUDGE_BACKEND`)를 씁니다.
+
+## 화면 자료와 빌드
+
+Node.js 20 이상이 필요합니다. `web` 폴더에서 실행합니다.
+
+```sh
+npm install
+npm run export   # public/data.json을 다시 만듦 (python3 scripts/export_data.py)
+npm run build    # dist/에 정적 파일. 하위 경로에 올려도 열림
+```
+
+- `export`는 대본 98개(`data/scripts`), 넣은 글, 정답 두 가지(`data/labels/consensus.csv`, `consensus-sure.csv`), 시험용 표시(`data/labels/test.txt`), 5판 결과(`results/v5-all98`)를 읽습니다. 결과에는 저장한 표 수로 지금 판정 선을 다시 적용합니다(`tools/evaluate.py --redecide`와 같은 셈).
+- 「얼마나 믿을 수 있나」의 숫자도 같은 셈으로 내고, 끝에 `tools/evaluate.py --redecide`의 출력과 대조해 다르면 멈춥니다.
+- 개발 서버: `JUDGE_ALLOW_ORIGINS=http://localhost:5173 python3 -m judge.serve`(맨 위 폴더)와 `VITE_JUDGE_API=http://127.0.0.1:8787/api/judge npm run dev`(`web` 폴더).
