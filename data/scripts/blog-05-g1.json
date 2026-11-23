@@ -1,0 +1,54 @@
+{
+ "id": "blog-05-g1",
+ "source_id": "blog-05",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:40:59+09:00",
+ "script": {
+  "id": "d0cbede2-d178-456c-a07a-a8e73ec202d0",
+  "text_source_id": "0bf5c157-0233-45ba-ba9b-4e9eb578b44f",
+  "status": "draft",
+  "full_text": "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요. 글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다. 운동화로 충분한 흙길을 40분 정도 걸어 올라가 벤치에 앉았대요. 옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다. 내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "운동화로 충분한 흙길을 40분 정도 걸어 올라가 벤치에 앉았대요.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+    "estimated_sec": 5.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 30.8,
+  "narration_sec": 24.571428571428573,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

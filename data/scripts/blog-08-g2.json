@@ -1,0 +1,54 @@
+{
+ "id": "blog-08-g2",
+ "source_id": "blog-08",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:58:35+09:00",
+ "script": {
+  "id": "f02a09fc-a98b-46a5-b8b0-3810536d7ff3",
+  "text_source_id": "a9b3f8aa-b654-48be-aedf-3ec37e4c76b5",
+  "status": "draft",
+  "full_text": "퇴근 후 30분씩 걷기만 시작했는데 잠드는 시간이 1시간에서 20분으로 줄었어요. 글쓴이는 한 달 동안 매일 9천 보 가까이 걷는 습관을 가졌습니다. 식단 변화 없이 야식을 줄였고 체중도 1.2kg 정도 감량했죠. 걷기 운동 중 발바닥 통증이 생겨 7만 9천 원짜리 쿠션 운동화로 바꿨습니다. 다음 달 목표는 비가 와도 계단을 오르며 하루 1만 보를 채우는 것이에요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "퇴근 후 30분씩 걷기만 시작했는데 잠드는 시간이 1시간에서 20분으로 줄었어요.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 한 달 동안 매일 9천 보 가까이 걷는 습관을 가졌습니다.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "식단 변화 없이 야식을 줄였고 체중도 1.2kg 정도 감량했죠.",
+    "estimated_sec": 5.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "걷기 운동 중 발바닥 통증이 생겨 7만 9천 원짜리 쿠션 운동화로 바꿨습니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "다음 달 목표는 비가 와도 계단을 오르며 하루 1만 보를 채우는 것이에요.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.6,
+  "narration_sec": 28.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

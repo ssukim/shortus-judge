@@ -1,0 +1,54 @@
+{
+ "id": "blog-13-g2",
+ "source_id": "blog-13",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:12:29+09:00",
+ "script": {
+  "id": "15cfcbe1-cc7e-4154-b357-08e0964e096f",
+  "text_source_id": "a9ed0b49-0173-4d91-b182-acd99da59abe",
+  "status": "draft",
+  "full_text": "퇴근 후 매일 한 시간씩 걷기만 했는데 3개월 만에 7kg을 감량했어요. 글쓴이는 헬스장에 가지 않고 평일 저녁에만 꾸준히 걸었답니다. 식단은 저녁 8시 이후 금식과 주 1회 야식 허용이라는 두 가지만 지켰죠. 첫 달에 4kg이 빠진 뒤로는 매달 감량 폭이 점차 줄어들었습니다. 무릎이 튼튼한 편이라 가능했던 수치라 무릎이 약하다면 30분부터 시작하라고 했어요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "퇴근 후 매일 한 시간씩 걷기만 했는데 3개월 만에 7kg을 감량했어요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 헬스장에 가지 않고 평일 저녁에만 꾸준히 걸었답니다.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "식단은 저녁 8시 이후 금식과 주 1회 야식 허용이라는 두 가지만 지켰죠.",
+    "estimated_sec": 7.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "첫 달에 4kg이 빠진 뒤로는 매달 감량 폭이 점차 줄어들었습니다.",
+    "estimated_sec": 6.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "무릎이 튼튼한 편이라 가능했던 수치라 무릎이 약하다면 30분부터 시작하라고 했어요.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.6,
+  "narration_sec": 28.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

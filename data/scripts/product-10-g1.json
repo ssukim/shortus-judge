@@ -1,0 +1,54 @@
+{
+ "id": "product-10-g1",
+ "source_id": "product-10",
+ "type": "product",
+ "collected_at": "2026-11-23T19:10:30+09:00",
+ "script": {
+  "id": "0613de22-6849-42ed-b4cc-b7d0cb74cc63",
+  "text_source_id": "6d87da70-9ae6-4f58-b54d-803ea46c4481",
+  "status": "draft",
+  "full_text": "카펫이 많은 집에서 물걸레질을 할 때 로봇청소기가 카펫을 피해 가는 상황이 발생했습니다. 로봇청소기 말끔이 S7은 물걸레를 달면 카펫을 자동으로 피해 가기 때문입니다. 이 제품은 5000Pa의 흡입력으로 카펫 위 먼지를 빨아들이는 기능을 갖추고 있습니다. 한 번 충전으로 최대 180분 동안 사용 가능하며 자동 비움 스테이션도 포함됩니다. 다음 달 15일까지 사전 예약하면 10만 원 할인과 여분 걸레 4장을 드립니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "카펫이 많은 집에서 물걸레질을 할 때 로봇청소기가 카펫을 피해 가는 상황이 발생했습니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "로봇청소기 말끔이 S7은 물걸레를 달면 카펫을 자동으로 피해 가기 때문입니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이 제품은 5000Pa의 흡입력으로 카펫 위 먼지를 빨아들이는 기능을 갖추고 있습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "한 번 충전으로 최대 180분 동안 사용 가능하며 자동 비움 스테이션도 포함됩니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "다음 달 15일까지 사전 예약하면 10만 원 할인과 여분 걸레 4장을 드립니다.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 39.6,
+  "narration_sec": 32.857142857142854,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "id": "news-09-g1",
+ "source_id": "news-09",
+ "type": "news",
+ "collected_at": "2026-11-23T19:09:06+09:00",
+ "script": {
+  "id": "a3c06b83-6867-4f37-9a6c-4e2b853b797b",
+  "text_source_id": "b0fbdc57-172d-46b5-8776-e9663951ccb6",
+  "status": "draft",
+  "full_text": "버스를 탈 때 교통카드 대신 휴대폰 화면을 보여주면 요금이 결제됩니다. 12월 1일부터 시내버스 12개 노선에서 휴대폰 QR코드로 요금을 낼 수 있습니다. 시 교통 앱에 결제 수단을 등록해서 만든 QR코드는 30초마다 바뀝니다. 석 달 동안 시범 운영한 뒤 모든 노선으로 넓힐지 정할 계획입니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "버스를 탈 때 교통카드 대신 휴대폰 화면을 보여주면 요금이 결제됩니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "12월 1일부터 시내버스 12개 노선에서 휴대폰 QR코드로 요금을 낼 수 있습니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "시 교통 앱에 결제 수단을 등록해서 만든 QR코드는 30초마다 바뀝니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "석 달 동안 시범 운영한 뒤 모든 노선으로 넓힐지 정할 계획입니다.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 28.2,
+  "narration_sec": 23.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

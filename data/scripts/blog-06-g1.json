@@ -1,0 +1,54 @@
+{
+ "id": "blog-06-g1",
+ "source_id": "blog-06",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:41:27+09:00",
+ "script": {
+  "id": "99e102d9-5127-474f-acc0-feeedc3e0287",
+  "text_source_id": "6935cf2e-6e8c-4a8f-838f-2c9737b26c41",
+  "status": "draft",
+  "full_text": "작년보다 난방비가 39%나 줄어든 비결이 있었어요. 전용 59제곱미터 아파트에 사는 이 집은 전기요금이 부담되어 난방비를 줄여봤답니다. 거실 창에 뽁뽁이를 붙이고 문풍지를 둘러 실내 온도를 1.5도 올렸고 보일러 온도를 낮췄죠. 하지만 올해 12월은 작년보다 평균 기온이 1.8도 높았던 것도 한몫을 했다고 해요. 결국 작년보다 약 7만 원 정도의 난방비를 아꼈습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "작년보다 난방비가 39%나 줄어든 비결이 있었어요.",
+    "estimated_sec": 4.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "전용 59제곱미터 아파트에 사는 이 집은 전기요금이 부담되어 난방비를 줄여봤답니다.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "거실 창에 뽁뽁이를 붙이고 문풍지를 둘러 실내 온도를 1.5도 올렸고 보일러 온도를 낮췄죠.",
+    "estimated_sec": 8.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "하지만 올해 12월은 작년보다 평균 기온이 1.8도 높았던 것도 한몫을 했다고 해요.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결국 작년보다 약 7만 원 정도의 난방비를 아꼈습니다.",
+    "estimated_sec": 5.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.3,
+  "narration_sec": 28.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

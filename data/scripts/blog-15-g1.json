@@ -1,0 +1,54 @@
+{
+ "id": "blog-15-g1",
+ "source_id": "blog-15",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:13:20+09:00",
+ "script": {
+  "id": "71993a18-7535-4b0c-81a1-6d1d5f7a4862",
+  "text_source_id": "278475a8-9087-4ad5-9999-d31903363989",
+  "status": "draft",
+  "full_text": "찬밥을 넣고 바로 볶으면 밥이 질척해지는 이유가 따로 있었어요. 볶음밥을 만들 때 밥을 너무 빨리 뒤적이면 질척해지기 때문입니다. 밥을 넣은 뒤 주걱으로 꾹꾹 눌러 펴고 바닥이 살짝 눌을 때까지 기다려야 합니다. 간장을 팬 가장자리에 둘러 살짝 태우듯 넣으면 불맛 비슷한 향이 납니다. 기다림과 팬 가장자리를 활용해 10분 만에 맛있는 볶음밥을 완성하세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "찬밥을 넣고 바로 볶으면 밥이 질척해지는 이유가 따로 있었어요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "볶음밥을 만들 때 밥을 너무 빨리 뒤적이면 질척해지기 때문입니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "밥을 넣은 뒤 주걱으로 꾹꾹 눌러 펴고 바닥이 살짝 눌을 때까지 기다려야 합니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "간장을 팬 가장자리에 둘러 살짝 태우듯 넣으면 불맛 비슷한 향이 납니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "기다림과 팬 가장자리를 활용해 10분 만에 맛있는 볶음밥을 완성하세요.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.2,
+  "narration_sec": 27.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

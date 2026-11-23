@@ -1,0 +1,54 @@
+{
+ "id": "blog-05-g2",
+ "source_id": "blog-05",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:41:13+09:00",
+ "script": {
+  "id": "6af5986c-9af2-4bc3-ac61-a88b20edbf38",
+  "text_source_id": "9532e9f4-270c-4649-ac41-187ae92cfa27",
+  "status": "draft",
+  "full_text": "동네 뒷산 정상 아래 쉼터에서 낯선 할머니가 갑자기 보리차를 따라 주셨어요. 글쓴이는 지난 주말에 혼자 동네 뒷산을 처음으로 가보았다고 합니다. 운동화를 신고 40분 정도 걸어 올라가 벤치에 앉아 귤을 까먹고 있었죠. 옆에 계시던 할머니는 매일 아침 이곳에 올라오신다며 차를 한 잔 주셨습니다. 글쓴이는 다음번에 해 뜨는 시간에 맞춰서 다시 올라가 볼 계획이에요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "동네 뒷산 정상 아래 쉼터에서 낯선 할머니가 갑자기 보리차를 따라 주셨어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 지난 주말에 혼자 동네 뒷산을 처음으로 가보았다고 합니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "운동화를 신고 40분 정도 걸어 올라가 벤치에 앉아 귤을 까먹고 있었죠.",
+    "estimated_sec": 6.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "옆에 계시던 할머니는 매일 아침 이곳에 올라오신다며 차를 한 잔 주셨습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "글쓴이는 다음번에 해 뜨는 시간에 맞춰서 다시 올라가 볼 계획이에요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.9,
+  "narration_sec": 28.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

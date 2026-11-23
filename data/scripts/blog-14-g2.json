@@ -1,0 +1,54 @@
+{
+ "id": "blog-14-g2",
+ "source_id": "blog-14",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:13:01+09:00",
+ "script": {
+  "id": "78eb581d-f6fe-4839-94cb-e3f0ef03eab9",
+  "text_source_id": "b3e38ebf-9107-4eae-a379-f54e50c00aad",
+  "status": "draft",
+  "full_text": "줄 서는 맛집인 할매손칼국수에는 예상 밖의 마감 안내가 붙어 있었어요. 동네 골목에 숨은 이 집은 테이블이 6개뿐인 작은 가게입니다. 주말 점심에는 30분 정도 대기해야 할 만큼 인기가 많았죠. 그런데 재료가 소진되면 마감 전이라도 문을 닫는다는 사실이 있었어요. 방문한 토요일에는 오후 6시 반쯤 마감 안내가 붙었답니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "줄 서는 맛집인 할매손칼국수에는 예상 밖의 마감 안내가 붙어 있었어요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "동네 골목에 숨은 이 집은 테이블이 6개뿐인 작은 가게입니다.",
+    "estimated_sec": 6.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "주말 점심에는 30분 정도 대기해야 할 만큼 인기가 많았죠.",
+    "estimated_sec": 5.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "그런데 재료가 소진되면 마감 전이라도 문을 닫는다는 사실이 있었어요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "방문한 토요일에는 오후 6시 반쯤 마감 안내가 붙었답니다.",
+    "estimated_sec": 5.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.3,
+  "narration_sec": 25.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

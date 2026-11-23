@@ -1,0 +1,54 @@
+{
+ "id": "news-06-g2",
+ "source_id": "news-06",
+ "type": "news",
+ "collected_at": "2026-11-23T18:43:40+09:00",
+ "script": {
+  "id": "32954334-5cfe-4c5e-8bb2-0709a490d8a2",
+  "text_source_id": "0228bcb5-bd3f-4e2a-93f6-51fb5388795f",
+  "status": "draft",
+  "full_text": "청년들이 지역 유망기업 인사담당자를 직접 만나서 취업 상담을 받는 장소가 생겨요. 고용노동부가 청주와 전주에서 청년고용정책 팝업스토어를 운영합니다. 청년들이 정책을 체험하고 기업 설명회와 일대일 컨설팅을 한자리에서 받을 수 있습니다. 노동부는 내년 청년일자리 예산을 3조 3000억 원으로 늘릴 계획입니다. 취업 경험이 없는 청년도 구직촉진수당과 지원 서비스를 받는 제도가 신설됩니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "청년들이 지역 유망기업 인사담당자를 직접 만나서 취업 상담을 받는 장소가 생겨요.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "고용노동부가 청주와 전주에서 청년고용정책 팝업스토어를 운영합니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "청년들이 정책을 체험하고 기업 설명회와 일대일 컨설팅을 한자리에서 받을 수 있습니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "노동부는 내년 청년일자리 예산을 3조 3000억 원으로 늘릴 계획입니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "취업 경험이 없는 청년도 구직촉진수당과 지원 서비스를 받는 제도가 신설됩니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 38.6,
+  "narration_sec": 30.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

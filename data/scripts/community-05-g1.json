@@ -1,0 +1,54 @@
+{
+ "id": "community-05-g1",
+ "source_id": "community-05",
+ "type": "community",
+ "collected_at": "2026-11-23T18:41:54+09:00",
+ "script": {
+  "id": "d88b506c-1c28-479a-9dc6-4131ac40c701",
+  "text_source_id": "f1e3874d-2c3a-45b3-83c7-e88ea434d714",
+  "status": "draft",
+  "full_text": "평소 소파에서만 자던 고양이가 현관 신발장 위에서 계속 쳐다보고 있었어요. 글쓴이가 퇴근하고 집에 돌아왔을 때 벌어진 일입니다. 거실에 들어가 보니 화분 하나가 엎어져서 흙이 반쯤 퍼져 있었죠. 범인은 뻔했지만 고양이는 흙을 치우는 동안 팔에 머리를 계속 비볐습니다. 화분은 선반 위로 옮기고 고양이는 간식 하나에 다시 소파로 돌아갔대요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "평소 소파에서만 자던 고양이가 현관 신발장 위에서 계속 쳐다보고 있었어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이가 퇴근하고 집에 돌아왔을 때 벌어진 일입니다.",
+    "estimated_sec": 5.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "거실에 들어가 보니 화분 하나가 엎어져서 흙이 반쯤 퍼져 있었죠.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "범인은 뻔했지만 고양이는 흙을 치우는 동안 팔에 머리를 계속 비볐습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "화분은 선반 위로 옮기고 고양이는 간식 하나에 다시 소파로 돌아갔대요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 32.9,
+  "narration_sec": 26.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "community-06-g2",
+ "source_id": "community-06",
+ "type": "community",
+ "collected_at": "2026-11-23T18:42:40+09:00",
+ "script": {
+  "id": "cdcfdc58-9e16-4d41-8888-351d42830836",
+  "text_source_id": "20c13e43-4584-4781-8eb9-e1dc0a935d63",
+  "status": "draft",
+  "full_text": "중고로 산 무선 이어폰의 한쪽 배터리가 20분 만에 꺼져버렸어요. 글쓴이는 정가 25만 9천 원인 제품을 9만 원에 사기로 했답니다. 판매자는 자기도 몰랐다며 1만 원을 깎아준 채 물건을 넘겼습니다. 하지만 영수증을 확인해보니 보증기간이 남아있어 무상 교체가 가능했대요. 결국 서비스센터에서 한쪽을 새 제품으로 공짜 교체받았습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "중고로 산 무선 이어폰의 한쪽 배터리가 20분 만에 꺼져버렸어요.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 정가 25만 9천 원인 제품을 9만 원에 사기로 했답니다.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "판매자는 자기도 몰랐다며 1만 원을 깎아준 채 물건을 넘겼습니다.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "하지만 영수증을 확인해보니 보증기간이 남아있어 무상 교체가 가능했대요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결국 서비스센터에서 한쪽을 새 제품으로 공짜 교체받았습니다.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 33.0,
+  "narration_sec": 25.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

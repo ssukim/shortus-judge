@@ -1,0 +1,54 @@
+{
+ "id": "community-11-g1",
+ "source_id": "community-11",
+ "type": "community",
+ "collected_at": "2026-11-23T19:14:19+09:00",
+ "script": {
+  "id": "bd252986-bad0-43f7-b98f-266fc35c3d11",
+  "text_source_id": "2490ee93-db07-489e-b69a-341f9a67e1df",
+  "status": "draft",
+  "full_text": "편의점 사장님이 새벽 2시부터 4시까지는 근무 시간에서 빼겠다고 했습니다. 주 4일 밤 10시부터 아침 6시까지 일하는 알바생은 주휴수당을 못 받았대요. 글쓴이가 계산해보니 쉬는 시간을 빼도 주 28시간이라 15시간을 훨씬 넘는 상황입니다. 하지만 사장님은 손님이 없는 대기 시간은 근무로 인정하지 않는다는 입장입니다. 등록금 때문에 12월까지 잘리지 않고 버티는 게 맞을지 고민 중이라네요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "편의점 사장님이 새벽 2시부터 4시까지는 근무 시간에서 빼겠다고 했습니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "주 4일 밤 10시부터 아침 6시까지 일하는 알바생은 주휴수당을 못 받았대요.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이가 계산해보니 쉬는 시간을 빼도 주 28시간이라 15시간을 훨씬 넘는 상황입니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "하지만 사장님은 손님이 없는 대기 시간은 근무로 인정하지 않는다는 입장입니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "등록금 때문에 12월까지 잘리지 않고 버티는 게 맞을지 고민 중이라네요.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 39.2,
+  "narration_sec": 30.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

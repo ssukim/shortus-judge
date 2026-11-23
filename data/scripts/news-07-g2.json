@@ -1,0 +1,54 @@
+{
+ "id": "news-07-g2",
+ "source_id": "news-07",
+ "type": "news",
+ "collected_at": "2026-11-23T19:00:26+09:00",
+ "script": {
+  "id": "1ffbce12-ffa4-4ac6-976f-e26ce02201d5",
+  "text_source_id": "46fc2967-7c19-4a28-9a14-c17008d5e277",
+  "status": "draft",
+  "full_text": "지난 절기 정점을 넘어서며 입원환자와 양성 사망 신고가 동시에 늘고 있어요. 질병관리청은 46주차 인플루엔자 의사환자 분율이 4주 연속 증가함에 따라 고위험군에게 신속한 예방접종을 권고했습니다. 병원급 입원환자는 전주 대비 1.5배 늘었으며 특히 65세 이상 고령층이 전체의 65.4퍼센트를 차지합니다. 백신 접종은 중증 및 사망 위험을 최대 5분의 1 수준으로 낮출 수 있어 고령층과 어린이의 접종이 중요합니다. 아직 접종하지 않은 어르신과 어린이 그리고 임신부는 신속하게 예방접종을 받아야 합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "지난 절기 정점을 넘어서며 입원환자와 양성 사망 신고가 동시에 늘고 있어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "질병관리청은 46주차 인플루엔자 의사환자 분율이 4주 연속 증가함에 따라 고위험군에게 신속한 예방접종을 권고했습니다.",
+    "estimated_sec": 12.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "병원급 입원환자는 전주 대비 1.5배 늘었으며 특히 65세 이상 고령층이 전체의 65.4퍼센트를 차지합니다.",
+    "estimated_sec": 10.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "백신 접종은 중증 및 사망 위험을 최대 5분의 1 수준으로 낮출 수 있어 고령층과 어린이의 접종이 중요합니다.",
+    "estimated_sec": 10.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "아직 접종하지 않은 어르신과 어린이 그리고 임신부는 신속하게 예방접종을 받아야 합니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 49.5,
+  "narration_sec": 39.42857142857143,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

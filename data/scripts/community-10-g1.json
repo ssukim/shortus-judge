@@ -1,0 +1,54 @@
+{
+ "id": "community-10-g1",
+ "source_id": "community-10",
+ "type": "community",
+ "collected_at": "2026-11-23T19:07:51+09:00",
+ "script": {
+  "id": "5c2ec87f-8e8d-4314-ad7d-e44c8a8109a3",
+  "text_source_id": "c5ab9883-87aa-44f4-9989-2e8936bbebc6",
+  "status": "draft",
+  "full_text": "집주인이 새 세입자가 들어와야만 보증금을 돌려주겠다고 했어요. 글쓴이는 10월 말 전세 계약 만료를 앞두고 8월에 퇴거 의사를 밝혔습니다. 보증금이 1억 2천만 원이라 불안해진 글쓴이는 임차권등기명령을 알아봤죠. 이걸 해두면 대항력이 유지되기에 등기 확인 후 이사할 계획까지 세웠습니다. 다행히 10월 중순에 세입자가 구해져서 보증금을 전액 돌려받았습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "집주인이 새 세입자가 들어와야만 보증금을 돌려주겠다고 했어요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 10월 말 전세 계약 만료를 앞두고 8월에 퇴거 의사를 밝혔습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "보증금이 1억 2천만 원이라 불안해진 글쓴이는 임차권등기명령을 알아봤죠.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이걸 해두면 대항력이 유지되기에 등기 확인 후 이사할 계획까지 세웠습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "다행히 10월 중순에 세입자가 구해져서 보증금을 전액 돌려받았습니다.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.1,
+  "narration_sec": 27.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,61 @@
+{
+ "id": "product-11-g1",
+ "source_id": "product-11",
+ "type": "product",
+ "collected_at": "2026-11-23T19:11:12+09:00",
+ "script": {
+  "id": "cc68ff2a-65f4-41d8-a95c-590feaf027b5",
+  "text_source_id": "44c25252-303c-4e2d-a382-b35bc418621d",
+  "status": "draft",
+  "full_text": "무거운 장보기 짐을 들고 이동할 때마다 느껴지는 무게감을 해결할 방법은 무엇일까요 장보기를 할 때마다 무거운 짐을 계속 들고 이동하는 게 큰 부담입니다. 접이식 장바구니 카트 척척카트는 손잡이를 당기기만 하면 펼쳐집니다. 네 개의 바퀴로 스스로 서 있으며 계단에서는 기울여 끌 수도 있습니다. 물에 강한 소재라 비 오는 날에도 안이 젖지 않고 손으로 빨 수 있습니다. 무거운 장보기는 이제 척척카트에 맡기세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "무거운 장보기 짐을 들고 이동할 때마다 느껴지는 무게감을 해결할 방법은 무엇일까요",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "장보기를 할 때마다 무거운 짐을 계속 들고 이동하는 게 큰 부담입니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "접이식 장바구니 카트 척척카트는 손잡이를 당기기만 하면 펼쳐집니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "네 개의 바퀴로 스스로 서 있으며 계단에서는 기울여 끌 수도 있습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "물에 강한 소재라 비 오는 날에도 안이 젖지 않고 손으로 빨 수 있습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "무거운 장보기는 이제 척척카트에 맡기세요.",
+    "estimated_sec": 4.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 39.5,
+  "narration_sec": 32.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

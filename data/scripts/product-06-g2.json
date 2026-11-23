@@ -1,0 +1,54 @@
+{
+ "id": "product-06-g2",
+ "source_id": "product-06",
+ "type": "product",
+ "collected_at": "2026-11-23T18:45:06+09:00",
+ "script": {
+  "id": "9c9efb45-861f-4e0c-90ef-e508e1dee744",
+  "text_source_id": "f6f35aeb-1f39-4045-a3ae-d8df181de858",
+  "status": "draft",
+  "full_text": "캠핑장 전기 사이트에서 사용 전 확인해야 하는 허용 용량이 보통 600W에서 1,000W 사이입니다. 전기 용량이 정해진 캠핑장은 사용 전 허용 용량을 미리 확인해야 합니다. 불끈 그릴 프로는 1,800W의 소비전력으로 230도까지 빠르게 예열됩니다. 가로 42cm 조리판에 성인 4인분을 한 번에 구울 수 있고 세라믹 코팅을 적용했습니다. 출시 기념 첫 500대는 22퍼센트 할인된 124,020원에 판매합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "캠핑장 전기 사이트에서 사용 전 확인해야 하는 허용 용량이 보통 600W에서 1,000W 사이입니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "전기 용량이 정해진 캠핑장은 사용 전 허용 용량을 미리 확인해야 합니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "불끈 그릴 프로는 1,800W의 소비전력으로 230도까지 빠르게 예열됩니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가로 42cm 조리판에 성인 4인분을 한 번에 구울 수 있고 세라믹 코팅을 적용했습니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "출시 기념 첫 500대는 22퍼센트 할인된 124,020원에 판매합니다.",
+    "estimated_sec": 5.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.2,
+  "narration_sec": 32.42857142857143,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

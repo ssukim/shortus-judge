@@ -1,0 +1,47 @@
+{
+ "id": "product-10-g2",
+ "source_id": "product-10",
+ "type": "product",
+ "collected_at": "2026-11-23T19:10:49+09:00",
+ "script": {
+  "id": "ae9e1581-53c5-409b-9717-d80090972f0a",
+  "text_source_id": "6e9d44e1-2c21-4429-9be9-fee16d6280d1",
+  "status": "draft",
+  "full_text": "카펫 위로 흩어진 먼지를 치우려고 할 때마다 매번 걸레질과 청소기를 따로 돌려야 했어요. 로봇청소기 말끔이 S7은 5,000Pa의 흡입력으로 카펫 위 먼지까지 한 번에 빨아들입니다. 물걸레 기능도 포함되어 있으며 카펫이 있는 곳은 알아서 피해 가도록 설계되었습니다. 다음 달 15일까지 사전 예약하면 10만 원 할인과 여분 걸레 4장을 증정합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "카펫 위로 흩어진 먼지를 치우려고 할 때마다 매번 걸레질과 청소기를 따로 돌려야 했어요.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "로봇청소기 말끔이 S7은 5,000Pa의 흡입력으로 카펫 위 먼지까지 한 번에 빨아들입니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "물걸레 기능도 포함되어 있으며 카펫이 있는 곳은 알아서 피해 가도록 설계되었습니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "다음 달 15일까지 사전 예약하면 10만 원 할인과 여분 걸레 4장을 증정합니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 32.8,
+  "narration_sec": 27.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

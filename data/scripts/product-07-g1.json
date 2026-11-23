@@ -1,0 +1,54 @@
+{
+ "id": "product-07-g1",
+ "source_id": "product-07",
+ "type": "product",
+ "collected_at": "2026-11-23T19:00:55+09:00",
+ "script": {
+  "id": "4162cbb0-b527-4187-a759-536f8cc5b3eb",
+  "text_source_id": "6a16db9d-126c-4ae0-ae2d-1ddb28e4bb7c",
+  "status": "draft",
+  "full_text": "아이가 잠든 뒤에 매번 방에 들어가 조명을 꺼줘야 하는 일이 번거로웠습니다. 조명을 끄러 들어가는 과정에서 아이의 잠을 방해할까 봐 걱정되기도 하죠. 달빛곰은 머리를 톡 치면 불이 켜지고 30분 뒤에 저절로 꺼지는 기능이 있습니다. 말랑한 실리콘 몸통이라 떨어뜨려도 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있어요. 하얀 곰과 갈색 곰 두 가지 색상으로 아이의 첫 조명을 만나 보세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "아이가 잠든 뒤에 매번 방에 들어가 조명을 꺼줘야 하는 일이 번거로웠습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "조명을 끄러 들어가는 과정에서 아이의 잠을 방해할까 봐 걱정되기도 하죠.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "달빛곰은 머리를 톡 치면 불이 켜지고 30분 뒤에 저절로 꺼지는 기능이 있습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "말랑한 실리콘 몸통이라 떨어뜨려도 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있어요.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "하얀 곰과 갈색 곰 두 가지 색상으로 아이의 첫 조명을 만나 보세요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 37.0,
+  "narration_sec": 30.571428571428573,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

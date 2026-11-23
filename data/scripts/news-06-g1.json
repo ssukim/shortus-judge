@@ -1,0 +1,54 @@
+{
+ "id": "news-06-g1",
+ "source_id": "news-06",
+ "type": "news",
+ "collected_at": "2026-11-23T18:43:27+09:00",
+ "script": {
+  "id": "a1bd4ef2-96fa-43d4-b7f6-3068a2ee4aa7",
+  "text_source_id": "1765cc5c-6a99-4902-8557-1c25a6dd0f0b",
+  "status": "draft",
+  "full_text": "온라인에만 있던 청년 정책을 오프라인에서 직접 체험할 수 있는 공간이 생겨요. 고용노동부는 청년고용정책 팝업스토어를 20일부터 28일까지 청주와 전주에서 운영합니다. 지역 유망기업 인사담당자가 참여하는 기업설명회와 일대일 취업컨설팅을 한자리에서 제공합니다. 청년들이 정책을 자연스럽게 이해할 수 있도록 플레이존과 정책안내존 등으로 구성했습니다. 내년에는 청년일자리 예산을 3조 3000억 원으로 늘려 지원을 강화할 계획입니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "온라인에만 있던 청년 정책을 오프라인에서 직접 체험할 수 있는 공간이 생겨요.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "고용노동부는 청년고용정책 팝업스토어를 20일부터 28일까지 청주와 전주에서 운영합니다.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "지역 유망기업 인사담당자가 참여하는 기업설명회와 일대일 취업컨설팅을 한자리에서 제공합니다.",
+    "estimated_sec": 9.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "청년들이 정책을 자연스럽게 이해할 수 있도록 플레이존과 정책안내존 등으로 구성했습니다.",
+    "estimated_sec": 9.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "내년에는 청년일자리 예산을 3조 3000억 원으로 늘려 지원을 강화할 계획입니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 43.6,
+  "narration_sec": 33.42857142857143,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

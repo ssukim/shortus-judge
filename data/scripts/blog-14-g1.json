@@ -1,0 +1,54 @@
+{
+ "id": "blog-14-g1",
+ "source_id": "blog-14",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:12:42+09:00",
+ "script": {
+  "id": "85a7599b-eaa3-457f-8845-345253cef846",
+  "text_source_id": "0c463384-d43d-4a24-8ac5-ab850ec71c0d",
+  "status": "draft",
+  "full_text": "줄을 서서 기다려야 하는 동네 골목 칼국수집에 마감 안내가 일찍 붙었습니다. 글쓴이는 테이블이 6개뿐인 작은 가게인 할매손칼국수를 방문했어요. 이곳은 주말 점심에 30분 정도 대기해야 하는 인기 있는 곳이었죠. 영업시간은 오후 8시까지지만 재료가 소진되면 조기 마감한다고 합니다. 방문한 토요일에는 오후 6시 반부터 마감 안내가 붙어 있었습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "줄을 서서 기다려야 하는 동네 골목 칼국수집에 마감 안내가 일찍 붙었습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 테이블이 6개뿐인 작은 가게인 할매손칼국수를 방문했어요.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이곳은 주말 점심에 30분 정도 대기해야 하는 인기 있는 곳이었죠.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "영업시간은 오후 8시까지지만 재료가 소진되면 조기 마감한다고 합니다.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "방문한 토요일에는 오후 6시 반부터 마감 안내가 붙어 있었습니다.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.6,
+  "narration_sec": 27.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

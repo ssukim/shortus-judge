@@ -1,0 +1,54 @@
+{
+ "id": "community-06-g1",
+ "source_id": "community-06",
+ "type": "community",
+ "collected_at": "2026-11-23T18:42:21+09:00",
+ "script": {
+  "id": "9eb964e5-ec38-42e2-a081-0267096edc1c",
+  "text_source_id": "034e4f0d-f6e8-4f9a-a9f5-bf59862113fd",
+  "status": "draft",
+  "full_text": "중고로 산 무선 이어폰의 배터리가 20분 만에 꺼져버렸어요. 글쓴이는 정가 25만 9천 원짜리 제품을 9만 원에 사기로 했답니다. 직거래로 만나 확인해 보니 왼쪽 이어폰 배터리가 금방 닳았죠. 판매자가 1만 원을 깎아주었고 글쓴이는 일단 8만 원에 샀습니다. 서비스센터에 영수증을 제출했더니 왼쪽 한 짝을 무료로 교체받았습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "중고로 산 무선 이어폰의 배터리가 20분 만에 꺼져버렸어요.",
+    "estimated_sec": 5.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 정가 25만 9천 원짜리 제품을 9만 원에 사기로 했답니다.",
+    "estimated_sec": 6.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "직거래로 만나 확인해 보니 왼쪽 이어폰 배터리가 금방 닳았죠.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "판매자가 1만 원을 깎아주었고 글쓴이는 일단 8만 원에 샀습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "서비스센터에 영수증을 제출했더니 왼쪽 한 짝을 무료로 교체받았습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 32.5,
+  "narration_sec": 25.571428571428573,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

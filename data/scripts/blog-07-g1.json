@@ -1,0 +1,54 @@
+{
+ "id": "blog-07-g1",
+ "source_id": "blog-07",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:57:39+09:00",
+ "script": {
+  "id": "1babb505-26f5-4b1e-8abc-7243dd77bd2e",
+  "text_source_id": "50499222-10b6-4fbb-9cb4-be51f6cd8746",
+  "status": "draft",
+  "full_text": "마들렌을 구울 때 반죽을 30분 동안 쉬게 해야 하는 이유가 있었어요. 글쓴이는 주말에 동네 공방에서 4만 5천 원을 내고 원데이 베이킹 클래스에 참여했습니다. 선생님은 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 설명해주었죠. 오븐 성능이 다를 수 있으니 처음엔 색을 보며 2~3분 더 구우라는 팁도 전해주었습니다. 집에 오자마자 가족들이 마들렌을 반이나 먹어버려서 다음 달 휘낭시에 수업도 신청했답니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "마들렌을 구울 때 반죽을 30분 동안 쉬게 해야 하는 이유가 있었어요.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 주말에 동네 공방에서 4만 5천 원을 내고 원데이 베이킹 클래스에 참여했습니다.",
+    "estimated_sec": 9.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "선생님은 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 설명해주었죠.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "오븐 성능이 다를 수 있으니 처음엔 색을 보며 2~3분 더 구우라는 팁도 전해주었습니다.",
+    "estimated_sec": 8.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "집에 오자마자 가족들이 마들렌을 반이나 먹어버려서 다음 달 휘낭시에 수업도 신청했답니다.",
+    "estimated_sec": 9.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 40.5,
+  "narration_sec": 32.42857142857143,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

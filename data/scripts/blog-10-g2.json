@@ -1,0 +1,54 @@
+{
+ "id": "blog-10-g2",
+ "source_id": "blog-10",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:06:39+09:00",
+ "script": {
+  "id": "0bc5972d-852f-4706-b00e-dcfd5dc3f495",
+  "text_source_id": "1c777a25-43f6-416e-99fb-5a2b6e9af31d",
+  "status": "draft",
+  "full_text": "아이와 박물관에 갈 때 유모차를 입구에서 맡겨야 했습니다. 글쓴이는 아이와 함께 국립중앙박물관 어린이박물관을 방문했습니다. 다섯 살 아이는 옛 도구를 만져보고 짚신을 신는 체험을 즐겼죠. 박물관 안에서는 음식 섭취가 금지되어 간식은 밖에서 먹여야 합니다. 관람 후 산책로의 예쁜 단풍이 더 기억에 남는다고 했어요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "아이와 박물관에 갈 때 유모차를 입구에서 맡겨야 했습니다.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 아이와 함께 국립중앙박물관 어린이박물관을 방문했습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "다섯 살 아이는 옛 도구를 만져보고 짚신을 신는 체험을 즐겼죠.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "박물관 안에서는 음식 섭취가 금지되어 간식은 밖에서 먹여야 합니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "관람 후 산책로의 예쁜 단풍이 더 기억에 남는다고 했어요.",
+    "estimated_sec": 5.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 30.7,
+  "narration_sec": 24.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

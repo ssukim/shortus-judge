@@ -1,0 +1,54 @@
+{
+ "id": "product-08-g2",
+ "source_id": "product-08",
+ "type": "product",
+ "collected_at": "2026-11-23T19:02:01+09:00",
+ "script": {
+  "id": "7ba81e52-3424-48ae-aa16-61b21ded8e18",
+  "text_source_id": "351e4f09-94fe-4867-93c1-79cc25e80ea2",
+  "status": "draft",
+  "full_text": "아침마다 갓 구운 빵을 먹고 싶었지만 식빵 한 덩이를 만드는 데 3시간 10분이나 걸리는 과정이 고민이었어요. 식빵 한 덩이를 만드는 데 3시간 10분이나 걸리는 과정은 바쁜 일상 속에서 매번 직접 하기엔 부담스럽습니다. 가정용 제빵기 아침빵 메이커는 재료를 넣고 버튼만 누르면 반죽부터 굽기까지 자동으로 진행해 줍니다. 예약 기능을 활용하면 최대 13시간 뒤에 빵이 완성되도록 맞출 수 있어 아침에 따뜻한 빵을 즐길 수 있습니다. 정가 18만 9천 원인 제품을 이달 말까지 공식몰에서 사면 식빵 믹스 3봉을 함께 증정합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "아침마다 갓 구운 빵을 먹고 싶었지만 식빵 한 덩이를 만드는 데 3시간 10분이나 걸리는 과정이 고민이었어요.",
+    "estimated_sec": 10.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "식빵 한 덩이를 만드는 데 3시간 10분이나 걸리는 과정은 바쁜 일상 속에서 매번 직접 하기엔 부담스럽습니다.",
+    "estimated_sec": 10.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가정용 제빵기 아침빵 메이커는 재료를 넣고 버튼만 누르면 반죽부터 굽기까지 자동으로 진행해 줍니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "예약 기능을 활용하면 최대 13시간 뒤에 빵이 완성되도록 맞출 수 있어 아침에 따뜻한 빵을 즐길 수 있습니다.",
+    "estimated_sec": 10.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "정가 18만 9천 원인 제품을 이달 말까지 공식몰에서 사면 식빵 믹스 3봉을 함께 증정합니다.",
+    "estimated_sec": 9.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 51.1,
+  "narration_sec": 41.42857142857143,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

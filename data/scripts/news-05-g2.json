@@ -1,0 +1,54 @@
+{
+ "id": "news-05-g2",
+ "source_id": "news-05",
+ "type": "news",
+ "collected_at": "2026-11-23T18:43:12+09:00",
+ "script": {
+  "id": "67ce3266-d562-4503-b375-6caffa7f74ac",
+  "text_source_id": "91b49eac-bce4-4830-8200-5705098ad18e",
+  "status": "draft",
+  "full_text": "수능 시험 당일 전국의 모든 휴대전화에서 갑자기 재난문자가 울립니다. 정부는 2027학년도 대학수학능력시험일인 오는 19일 전국에 위급재난문자를 발송합니다. AI를 활용한 부정행위를 예방하고 적발하기 위해 전 국민과 국내 체류 외국인에게도 문자를 보냅니다. 경보음으로 인한 불편을 줄이려 TV 자막이나 전광판 등을 활용해 사전에 홍보할 계획입니다. 문자를 받더라도 대피 등 별도의 조치를 할 필요는 없다고 당부했습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "수능 시험 당일 전국의 모든 휴대전화에서 갑자기 재난문자가 울립니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "정부는 2027학년도 대학수학능력시험일인 오는 19일 전국에 위급재난문자를 발송합니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "AI를 활용한 부정행위를 예방하고 적발하기 위해 전 국민과 국내 체류 외국인에게도 문자를 보냅니다.",
+    "estimated_sec": 9.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "경보음으로 인한 불편을 줄이려 TV 자막이나 전광판 등을 활용해 사전에 홍보할 계획입니다.",
+    "estimated_sec": 8.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "문자를 받더라도 대피 등 별도의 조치를 할 필요는 없다고 당부했습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 41.5,
+  "narration_sec": 32.857142857142854,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

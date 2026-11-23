@@ -1,0 +1,54 @@
+{
+ "id": "community-12-g1",
+ "source_id": "community-12",
+ "type": "community",
+ "collected_at": "2026-11-23T19:14:47+09:00",
+ "script": {
+  "id": "3f6c8dc4-9e49-411a-bef3-0318c8b44258",
+  "text_source_id": "998e6c2a-7eba-4af2-ba3b-ec83f700058e",
+  "status": "draft",
+  "full_text": "문 앞에 온 택배가 매번 사라지는 일이 한 달 동안 반복됐어요. 글쓴이는 배송 실수인 줄 알았지만 세 번째 반복되자 이상함을 느꼈죠. 관리실에서 복도 CCTV를 확인한 결과 옆집 할머니가 상자를 들고 들어갔습니다. 비가 오면 택배가 젖을까 봐 할머니가 대신 보관해 준 것이었죠. 상자 위에는 비가 와서 맡아두었다는 포스트잇이 붙어 있었답니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "문 앞에 온 택배가 매번 사라지는 일이 한 달 동안 반복됐어요.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 배송 실수인 줄 알았지만 세 번째 반복되자 이상함을 느꼈죠.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "관리실에서 복도 CCTV를 확인한 결과 옆집 할머니가 상자를 들고 들어갔습니다.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "비가 오면 택배가 젖을까 봐 할머니가 대신 보관해 준 것이었죠.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "상자 위에는 비가 와서 맡아두었다는 포스트잇이 붙어 있었답니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 32.3,
+  "narration_sec": 26.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

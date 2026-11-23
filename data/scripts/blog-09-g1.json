@@ -1,0 +1,54 @@
+{
+ "id": "blog-09-g1",
+ "source_id": "blog-09",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:05:48+09:00",
+ "script": {
+  "id": "fa8e58df-12d5-473c-aa35-fa06f5a2ae89",
+  "text_source_id": "d40eff5a-b31c-49d6-8657-778c8b80572c",
+  "status": "draft",
+  "full_text": "텐트를 설치하는 데 40분이나 걸리는 고전 끝에 마주한 풍경이 있었어요. 글쓴이는 평일 수요일을 이용해 국립 자연휴양림으로 혼자 캠핑을 떠났습니다. 유튜브를 세 번이나 돌려보며 겨우 텐트를 치고 숯불에 소시지를 구워 먹었죠. 밤에는 기온이 3도까지 내려가 추웠지만 침낭을 챙겨간 덕분에 잘 견뎠습니다. 아침에 텐트 문을 열었을 때 펼쳐진 안개 낀 숲 풍경에 다시 가고 싶어졌대요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "텐트를 설치하는 데 40분이나 걸리는 고전 끝에 마주한 풍경이 있었어요.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 평일 수요일을 이용해 국립 자연휴양림으로 혼자 캠핑을 떠났습니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "유튜브를 세 번이나 돌려보며 겨우 텐트를 치고 숯불에 소시지를 구워 먹었죠.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "밤에는 기온이 3도까지 내려가 추웠지만 침낭을 챙겨간 덕분에 잘 견뎠습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "아침에 텐트 문을 열었을 때 펼쳐진 안개 낀 숲 풍경에 다시 가고 싶어졌대요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.9,
+  "narration_sec": 29.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

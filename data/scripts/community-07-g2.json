@@ -1,0 +1,54 @@
+{
+ "id": "community-07-g2",
+ "source_id": "community-07",
+ "type": "community",
+ "collected_at": "2026-11-23T18:59:13+09:00",
+ "script": {
+  "id": "58e81dec-d2d2-476d-8205-e7f2e2f30a7b",
+  "text_source_id": "a07496ec-5a9a-4cd6-834d-8bf72eeae5d9",
+  "status": "draft",
+  "full_text": "지하철에서 할아버지가 내리시며 지갑을 떨어뜨리셨어요. 글쓴이는 주운 지갑을 돌려드리려 할아버지 뒤를 따라 뛰었습니다. 할아버지는 고맙다며 주머니에서 사탕 하나를 꺼내 주셨죠. 그 바람에 지하철을 놓쳐 회사에 5분 늦었지만 팀장님은 잘했다고 하셨습니다. 아까워서 책상 위에 둔 사탕은 아직도 못 먹고 있어요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "지하철에서 할아버지가 내리시며 지갑을 떨어뜨리셨어요.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 주운 지갑을 돌려드리려 할아버지 뒤를 따라 뛰었습니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "할아버지는 고맙다며 주머니에서 사탕 하나를 꺼내 주셨죠.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "그 바람에 지하철을 놓쳐 회사에 5분 늦었지만 팀장님은 잘했다고 하셨습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "아까워서 책상 위에 둔 사탕은 아직도 못 먹고 있어요.",
+    "estimated_sec": 5.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 30.6,
+  "narration_sec": 23.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

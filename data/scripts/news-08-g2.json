@@ -1,0 +1,47 @@
+{
+ "id": "news-08-g2",
+ "source_id": "news-08",
+ "type": "news",
+ "collected_at": "2026-11-23T19:08:42+09:00",
+ "script": {
+  "id": "6331a6cb-6354-43a8-aa21-7d5a9712e736",
+  "text_source_id": "4c3a0c2c-eb61-448b-bc0f-71d663ac4590",
+  "status": "draft",
+  "full_text": "겨울철 난방비 부담을 덜기 위해 정부가 지원하는 바우처의 혜택이 가구원 수에 따라 달라요. 올해 겨울 지원액은 1인 가구 25만 원에서 4인 이상 가구 70만 원까지입니다. 기초생활수급자 중 노인이나 장애인이 있는 가구는 12월 31일까지 행정복지센터에서 신청하면 돼요. 받은 바우처는 전기나 도시가스 등 하나를 골라 쓸 수 있고 남은 금액은 내년 5월 말에 사라집니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "겨울철 난방비 부담을 덜기 위해 정부가 지원하는 바우처의 혜택이 가구원 수에 따라 달라요.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "올해 겨울 지원액은 1인 가구 25만 원에서 4인 이상 가구 70만 원까지입니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "기초생활수급자 중 노인이나 장애인이 있는 가구는 12월 31일까지 행정복지센터에서 신청하면 돼요.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "받은 바우처는 전기나 도시가스 등 하나를 골라 쓸 수 있고 남은 금액은 내년 5월 말에 사라집니다.",
+    "estimated_sec": 9.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.2,
+  "narration_sec": 29.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

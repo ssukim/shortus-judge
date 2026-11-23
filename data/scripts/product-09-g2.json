@@ -1,0 +1,54 @@
+{
+ "id": "product-09-g2",
+ "source_id": "product-09",
+ "type": "product",
+ "collected_at": "2026-11-23T19:10:06+09:00",
+ "script": {
+  "id": "b6b18c99-c322-4c52-836b-141ed7f970ab",
+  "text_source_id": "8946ab83-e4ca-4a4b-a3ec-6ee49eec738e",
+  "status": "draft",
+  "full_text": "가방에 텀블러를 넣었는데 내용물이 새서 엉망이 된 적이 있었죠. 텀블러 뚜껑을 열고 닫을 때 한 손으로 조작하기 힘들면 불편합니다. 온기한잔은 이중 진공 구조로 온도를 유지하고 실리콘 마개로 누수를 막아줍니다. 가운데를 잘록하게 만들어 손이 작은 사람도 잡기 편하고 미끄럼 방지 고무도 붙었습니다. 크림, 초록, 남색 세 가지 색상 중에서 선택할 수 있습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "가방에 텀블러를 넣었는데 내용물이 새서 엉망이 된 적이 있었죠.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "텀블러 뚜껑을 열고 닫을 때 한 손으로 조작하기 힘들면 불편합니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "온기한잔은 이중 진공 구조로 온도를 유지하고 실리콘 마개로 누수를 막아줍니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가운데를 잘록하게 만들어 손이 작은 사람도 잡기 편하고 미끄럼 방지 고무도 붙었습니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "크림, 초록, 남색 세 가지 색상 중에서 선택할 수 있습니다.",
+    "estimated_sec": 5.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.3,
+  "narration_sec": 28.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

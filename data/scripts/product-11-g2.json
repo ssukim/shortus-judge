@@ -1,0 +1,54 @@
+{
+ "id": "product-11-g2",
+ "source_id": "product-11",
+ "type": "product",
+ "collected_at": "2026-11-23T19:11:31+09:00",
+ "script": {
+  "id": "6ad9625c-4bf3-4353-a04b-f845cbb58b18",
+  "text_source_id": "ec5ab066-25b9-4e28-972a-9f681a926de0",
+  "status": "draft",
+  "full_text": "무거운 장바구니를 들고 이동할 때 손목에 무리가 가는 상황은 늘 반복됐어요. 장을 많이 보는 날에는 짐의 무게 때문에 이동이 번거롭고 힘들기 때문이죠. 척척카트는 손잡이를 당기면 펼쳐지고 바퀴가 네 개라 혼자 서 있거나 밀고 끌 수 있습니다. 물에 강한 소재를 사용해 비 오는 날에도 안이 젖지 않고 손세척이 가능해요. 무거운 장보기는 이제 척척카트에 맡기세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "무거운 장바구니를 들고 이동할 때 손목에 무리가 가는 상황은 늘 반복됐어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "장을 많이 보는 날에는 짐의 무게 때문에 이동이 번거롭고 힘들기 때문이죠.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "척척카트는 손잡이를 당기면 펼쳐지고 바퀴가 네 개라 혼자 서 있거나 밀고 끌 수 있습니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "물에 강한 소재를 사용해 비 오는 날에도 안이 젖지 않고 손세척이 가능해요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "무거운 장보기는 이제 척척카트에 맡기세요.",
+    "estimated_sec": 4.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.5,
+  "narration_sec": 28.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

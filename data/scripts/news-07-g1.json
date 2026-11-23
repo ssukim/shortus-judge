@@ -1,0 +1,54 @@
+{
+ "id": "news-07-g1",
+ "source_id": "news-07",
+ "type": "news",
+ "collected_at": "2026-11-23T19:00:08+09:00",
+ "script": {
+  "id": "aae4a78e-959c-45ad-a09c-dddaf6dcb124",
+  "text_source_id": "f31ef082-f803-4e58-a7e8-f377389665f3",
+  "status": "draft",
+  "full_text": "인플루엔자 양성 사망 신고가 지난 절기 정점을 넘어선 상태에서 전주 대비 2배나 늘어났어요. 질병관리청은 11월 8일부터 14일까지 의원급 의사환자 분율이 37.0명으로 4주 연속 증가했다고 발표했습니다. 병원급 입원환자는 926명으로 전년 동기간보다 2배가량 높으며 65세 이상 고령층이 전체의 65.4퍼센트를 차지합니다. 백신 접종으로 중증 및 사망 위험을 최대 5분의 1 수준으로 낮출 수 있어 고위험군에게 신속한 접종을 권고했습니다. 질병청은 아직 접종하지 않은 어르신과 어린이 그리고 임신부에게 예방접종을 당부했습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "인플루엔자 양성 사망 신고가 지난 절기 정점을 넘어선 상태에서 전주 대비 2배나 늘어났어요.",
+    "estimated_sec": 9.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "질병관리청은 11월 8일부터 14일까지 의원급 의사환자 분율이 37.0명으로 4주 연속 증가했다고 발표했습니다.",
+    "estimated_sec": 11.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "병원급 입원환자는 926명으로 전년 동기간보다 2배가량 높으며 65세 이상 고령층이 전체의 65.4퍼센트를 차지합니다.",
+    "estimated_sec": 11.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "백신 접종으로 중증 및 사망 위험을 최대 5분의 1 수준으로 낮출 수 있어 고위험군에게 신속한 접종을 권고했습니다.",
+    "estimated_sec": 11.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "질병청은 아직 접종하지 않은 어르신과 어린이 그리고 임신부에게 예방접종을 당부했습니다.",
+    "estimated_sec": 9.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 52.8,
+  "narration_sec": 41.57142857142857,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

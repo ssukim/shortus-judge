@@ -1,0 +1,47 @@
+{
+ "id": "news-09-g2",
+ "source_id": "news-09",
+ "type": "news",
+ "collected_at": "2026-11-23T19:09:19+09:00",
+ "script": {
+  "id": "8d36bf08-93ae-4abd-a5d2-76227172bfca",
+  "text_source_id": "9068797f-42bb-419c-8069-96149efe7351",
+  "status": "draft",
+  "full_text": "시내버스를 탈 때 교통카드가 없어서 당황했던 경험이 있으신가요? 다음 달 12월 1일부터 시내버스 12개 노선에서 휴대폰 QR코드로 요금을 낼 수 있습니다. 시 교통 앱에 결제 수단을 등록해 만들 수 있으며 요금과 환승 할인은 기존과 동일합니다. 3개월간 시범 운영을 거쳐 모든 노선으로 확대할지 결정할 계획입니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "시내버스를 탈 때 교통카드가 없어서 당황했던 경험이 있으신가요?",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "다음 달 12월 1일부터 시내버스 12개 노선에서 휴대폰 QR코드로 요금을 낼 수 있습니다.",
+    "estimated_sec": 8.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "시 교통 앱에 결제 수단을 등록해 만들 수 있으며 요금과 환승 할인은 기존과 동일합니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "3개월간 시범 운영을 거쳐 모든 노선으로 확대할지 결정할 계획입니다.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 30.7,
+  "narration_sec": 24.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

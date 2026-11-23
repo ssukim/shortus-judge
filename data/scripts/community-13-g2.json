@@ -1,0 +1,54 @@
+{
+ "id": "community-13-g2",
+ "source_id": "community-13",
+ "type": "community",
+ "collected_at": "2026-11-23T19:15:28+09:00",
+ "script": {
+  "id": "d0765732-3c7d-4980-80a1-4d3a562325e4",
+  "text_source_id": "e2734b6a-240c-4b13-b7a3-855075e1f341",
+  "status": "draft",
+  "full_text": "캠핑 의자를 중고로 팔기로 했는데 구매자가 갑자기 집 앞으로 오라고 했어요. 글쓴이는 직거래 장소를 역 근처로 제한했지만 구매자는 20분 거리의 자기 집으로 오라고 요구했습니다. 막상 도착하니 구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠. 결국 실랑이 끝에 3만 3천 원을 받고 왔는데 구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다. 글쓴이는 이 후기를 신고해야 할지 고민 중이에요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "캠핑 의자를 중고로 팔기로 했는데 구매자가 갑자기 집 앞으로 오라고 했어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 직거래 장소를 역 근처로 제한했지만 구매자는 20분 거리의 자기 집으로 오라고 요구했습니다.",
+    "estimated_sec": 10.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "막상 도착하니 구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "결국 실랑이 끝에 3만 3천 원을 받고 왔는데 구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다.",
+    "estimated_sec": 10.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "글쓴이는 이 후기를 신고해야 할지 고민 중이에요.",
+    "estimated_sec": 4.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 40.6,
+  "narration_sec": 32.57142857142857,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

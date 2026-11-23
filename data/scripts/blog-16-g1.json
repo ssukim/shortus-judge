@@ -1,0 +1,54 @@
+{
+ "id": "blog-16-g1",
+ "source_id": "blog-16",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:13:47+09:00",
+ "script": {
+  "id": "fc83fe48-a268-47ad-afce-f887fd4a6949",
+  "text_source_id": "b0bffbaa-5edb-497a-a961-2c7b9860936f",
+  "status": "draft",
+  "full_text": "매달 89,000원씩 내던 통신비를 2만 원대로 줄인 방법이 있었어요. 글쓴이는 무제한 요금제를 썼지만 실제 데이터는 한 달에 11기가지 안 나왔습니다. 그래서 집과 회사에서 와이파이를 쓰는 환경을 고려해 알뜰폰으로 갈아탔죠. 가족 결합 할인이나 위약금 같은 조건들을 미리 계산하며 꼼꼼하게 확인했습니다. 결과적으로 매달 5만 원 넘게 아끼는 요금제를 찾았습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "매달 89,000원씩 내던 통신비를 2만 원대로 줄인 방법이 있었어요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 무제한 요금제를 썼지만 실제 데이터는 한 달에 11기가지 안 나왔습니다.",
+    "estimated_sec": 8.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "그래서 집과 회사에서 와이파이를 쓰는 환경을 고려해 알뜰폰으로 갈아탔죠.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가족 결합 할인이나 위약금 같은 조건들을 미리 계산하며 꼼꼼하게 확인했습니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결과적으로 매달 5만 원 넘게 아끼는 요금제를 찾았습니다.",
+    "estimated_sec": 5.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.3,
+  "narration_sec": 28.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

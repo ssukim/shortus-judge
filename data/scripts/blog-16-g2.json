@@ -1,0 +1,54 @@
+{
+ "id": "blog-16-g2",
+ "source_id": "blog-16",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:14:01+09:00",
+ "script": {
+  "id": "14d44297-89a6-4f0d-bd18-00cf54562207",
+  "text_source_id": "fab9b0c7-ef97-4075-9e71-d6015a9058cc",
+  "status": "draft",
+  "full_text": "월 89,000원을 내던 통신비가 단 2만 원대로 줄어들었어요. 글쓴이는 무제한 요금제를 쓰면서 매달 큰 비용을 지불해 왔습니다. 데이터 사용량을 확인해 보니 한 달 평균 11GB밖에 안 쓴다는 사실을 발견했죠. 알뜰폰으로 옮기기 전 약정 위약금과 가족 결합 할인 여부를 꼼꼼히 확인했습니다. 결국 월 5만 원 넘게 아끼는 요금제로 갈아탔습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "월 89,000원을 내던 통신비가 단 2만 원대로 줄어들었어요.",
+    "estimated_sec": 5.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 무제한 요금제를 쓰면서 매달 큰 비용을 지불해 왔습니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "데이터 사용량을 확인해 보니 한 달 평균 11GB밖에 안 쓴다는 사실을 발견했죠.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "알뜰폰으로 옮기기 전 약정 위약금과 가족 결합 할인 여부를 꼼꼼히 확인했습니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결국 월 5만 원 넘게 아끼는 요금제로 갈아탔습니다.",
+    "estimated_sec": 5.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 32.2,
+  "narration_sec": 27.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

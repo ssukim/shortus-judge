@@ -1,0 +1,54 @@
+{
+ "id": "product-07-g2",
+ "source_id": "product-07",
+ "type": "product",
+ "collected_at": "2026-11-23T19:01:19+09:00",
+ "script": {
+  "id": "d3910a74-7b4b-4cb2-bb06-e68d146fc1e8",
+  "text_source_id": "2a6b9165-6c99-4ea1-ad24-3719a67f6aad",
+  "status": "draft",
+  "full_text": "아이가 잠든 뒤 조명을 끄러 방에 들어갈 때마다 아이가 깨어버리는 일이 반복됐어요. 아이의 수면을 방해하지 않으면서 조명을 관리하기가 쉽지 않았습니다. 달빛곰은 30분 뒤에 저절로 꺼지는 기능과 눈이 편한 노란빛을 제공합니다. 말랑한 실리콘 몸통이라 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있습니다. 하얀 곰과 갈색 곰 두 가지 색상으로 만나보세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "아이가 잠든 뒤 조명을 끄러 방에 들어갈 때마다 아이가 깨어버리는 일이 반복됐어요.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "아이의 수면을 방해하지 않으면서 조명을 관리하기가 쉽지 않았습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "달빛곰은 30분 뒤에 저절로 꺼지는 기능과 눈이 편한 노란빛을 제공합니다.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "말랑한 실리콘 몸통이라 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있습니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "하얀 곰과 갈색 곰 두 가지 색상으로 만나보세요.",
+    "estimated_sec": 4.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.4,
+  "narration_sec": 27.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

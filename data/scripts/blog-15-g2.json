@@ -1,0 +1,47 @@
+{
+ "id": "blog-15-g2",
+ "source_id": "blog-15",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:13:34+09:00",
+ "script": {
+  "id": "64b5b174-ec15-4c7d-86a0-66789c4aa58c",
+  "text_source_id": "ef88f60a-238f-44df-b392-f321084357e7",
+  "status": "draft",
+  "full_text": "찬밥을 넣고 바로 휘저으면 볶음밥이 질척해지는 이유가 있었어요. 계란이 반쯤 익었을 때 찬밥을 넣고 주걱으로 꾹꾹 눌러가며 펴야 합니다. 바닥이 살짝 눌을 때까지 기다려야 하며 간장은 팬 가장자리에 둘러 태우듯 넣어야 불맛이 납니다. 파 기름에 스크램블을 하고 밥을 눌이며 볶으면 10분 만에 맛있는 볶음밥이 완성됩니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "찬밥을 넣고 바로 휘저으면 볶음밥이 질척해지는 이유가 있었어요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "계란이 반쯤 익었을 때 찬밥을 넣고 주걱으로 꾹꾹 눌러가며 펴야 합니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "바닥이 살짝 눌을 때까지 기다려야 하며 간장은 팬 가장자리에 둘러 태우듯 넣어야 불맛이 납니다.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "파 기름에 스크램블을 하고 밥을 눌이며 볶으면 10분 만에 맛있는 볶음밥이 완성됩니다.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.1,
+  "narration_sec": 25.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

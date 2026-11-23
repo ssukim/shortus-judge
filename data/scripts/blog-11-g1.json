@@ -1,0 +1,54 @@
+{
+ "id": "blog-11-g1",
+ "source_id": "blog-11",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:06:52+09:00",
+ "script": {
+  "id": "39441948-156a-4377-be82-bb7a9ecf0105",
+  "text_source_id": "35c226d5-7db9-4344-8c88-dd3d247c4357",
+  "status": "draft",
+  "full_text": "직접 키운 콩나물을 무쳐 먹었더니 마트에서 파는 것보다 고소했어요. 글쓴이는 마트에서 산 콩 500g 중 한 컵을 꺼내 집에서 키우기 시작했죠. 검은 천을 덮고 하루에 대여섯 번씩 물을 주며 일주일 동안 정성껏 돌봤습니다. 손가락 길이만큼 자란 콩나물을 수확했는데 생각보다 손이 많이 가는 일이었어요. 맞벌이 부부는 낮에 물을 주기 힘들어서 키우기 어려울 것 같다고 했어요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "직접 키운 콩나물을 무쳐 먹었더니 마트에서 파는 것보다 고소했어요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 마트에서 산 콩 500g 중 한 컵을 꺼내 집에서 키우기 시작했죠.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "검은 천을 덮고 하루에 대여섯 번씩 물을 주며 일주일 동안 정성껏 돌봤습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "손가락 길이만큼 자란 콩나물을 수확했는데 생각보다 손이 많이 가는 일이었어요.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "맞벌이 부부는 낮에 물을 주기 힘들어서 키우기 어려울 것 같다고 했어요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.4,
+  "narration_sec": 29.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

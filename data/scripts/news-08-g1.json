@@ -1,0 +1,47 @@
+{
+ "id": "news-08-g1",
+ "source_id": "news-08",
+ "type": "news",
+ "collected_at": "2026-11-23T19:08:23+09:00",
+ "script": {
+  "id": "a205c86f-de63-4250-a811-04670dc793b5",
+  "text_source_id": "a6368186-fb36-4065-b2df-58271e4ddff4",
+  "status": "draft",
+  "full_text": "겨울철 난방비가 걱정인 가구를 위해 정부가 지원 금액을 다르게 책정했어요. 올해 겨울 에너지바우처 지원액은 1인 가구 25만 원에서 4인 이상 가구 70만 원까지입니다. 기초생활수급자 중 노인이나 장애인이 포함된 가구 등이 대상이며 12월 31일까지 신청할 수 있습니다. 지난해 대상자 중 조건이 같은 가구는 따로 신청하지 않아도 자동으로 지원을 받습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "겨울철 난방비가 걱정인 가구를 위해 정부가 지원 금액을 다르게 책정했어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "올해 겨울 에너지바우처 지원액은 1인 가구 25만 원에서 4인 이상 가구 70만 원까지입니다.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "기초생활수급자 중 노인이나 장애인이 포함된 가구 등이 대상이며 12월 31일까지 신청할 수 있습니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "지난해 대상자 중 조건이 같은 가구는 따로 신청하지 않아도 자동으로 지원을 받습니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.1,
+  "narration_sec": 28.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

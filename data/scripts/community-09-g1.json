@@ -1,0 +1,54 @@
+{
+ "id": "community-09-g1",
+ "source_id": "community-09",
+ "type": "community",
+ "collected_at": "2026-11-23T19:07:19+09:00",
+ "script": {
+  "id": "36500512-f53c-4e9c-8dd1-81aa43413ae2",
+  "text_source_id": "81f9bada-2a17-42e7-b381-c85bff854e03",
+  "status": "draft",
+  "full_text": "팀원들이 늘 같이 먹던 점심시간에 신입 사원이 조심스럽게 던진 한마디가 화제가 됐어요. 글쓴이의 팀은 원래 매일 점심을 다 같이 먹는 분위기였다고 합니다. 그런데 새로 온 신입이 운동을 가고 싶다며 혼자 먹어도 되냐고 물었죠. 팀장님은 이를 긍정적으로 받아들여 화요일과 목요일을 각자 먹는 날로 정했습니다. 결국 신입의 제안 덕분에 팀원들의 표정이 밝아지며 분위기가 바뀌었습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "팀원들이 늘 같이 먹던 점심시간에 신입 사원이 조심스럽게 던진 한마디가 화제가 됐어요.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이의 팀은 원래 매일 점심을 다 같이 먹는 분위기였다고 합니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "그런데 새로 온 신입이 운동을 가고 싶다며 혼자 먹어도 되냐고 물었죠.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "팀장님은 이를 긍정적으로 받아들여 화요일과 목요일을 각자 먹는 날로 정했습니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결국 신입의 제안 덕분에 팀원들의 표정이 밝아지며 분위기가 바뀌었습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 37.1,
+  "narration_sec": 29.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "product-05-g2",
+ "source_id": "product-05",
+ "type": "product",
+ "collected_at": "2026-11-23T18:44:28+09:00",
+ "script": {
+  "id": "baeebf38-21a0-4626-a5c3-f883a2eb4073",
+  "text_source_id": "f469ec14-52dc-496d-af9d-bc57b898dc30",
+  "status": "draft",
+  "full_text": "여름철 버스 정류장에서 더위를 식히고 싶을 때 휴대용 선풍기를 꺼내기가 망설여졌어요. 무거운 선풍기를 가방에 넣으면 짐이 되고, 꺼내서 세워두기 번거로웠기 때문입니다. 바람솔은 접으면 스마트폰보다 작아지고 펼치면 책상 위에 세워둘 수도 있습니다. 세 단계 바람 세기 중 가장 약한 단계는 소리가 거의 들리지 않아 도서관에서도 쓸 수 있습니다. 올여름 바람솔과 함께 시원하게 다니세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "여름철 버스 정류장에서 더위를 식히고 싶을 때 휴대용 선풍기를 꺼내기가 망설여졌어요.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "무거운 선풍기를 가방에 넣으면 짐이 되고, 꺼내서 세워두기 번거로웠기 때문입니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "바람솔은 접으면 스마트폰보다 작아지고 펼치면 책상 위에 세워둘 수도 있습니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "세 단계 바람 세기 중 가장 약한 단계는 소리가 거의 들리지 않아 도서관에서도 쓸 수 있습니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "올여름 바람솔과 함께 시원하게 다니세요.",
+    "estimated_sec": 4.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 37.4,
+  "narration_sec": 30.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

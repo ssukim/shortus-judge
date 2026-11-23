@@ -1,0 +1,61 @@
+{
+ "id": "product-09-g1",
+ "source_id": "product-09",
+ "type": "product",
+ "collected_at": "2026-11-23T19:09:43+09:00",
+ "script": {
+  "id": "ba9a3a85-8bad-45b6-9f7e-da734def3b33",
+  "text_source_id": "e26f482d-775a-46ae-993e-c6f4279d3857",
+  "status": "draft",
+  "full_text": "따뜻한 음료를 마시려는데 가방 속에서 내용물이 새어버릴까 걱정된 적이 있나요. 따뜻한 음료를 오래 유지하면서 가방에 넣어도 새지 않는 텀블러가 필요합니다. 온기한잔은 이중 진공 구조로 온기를 지키고 실리콘 마개로 내용물이 새는 것을 막아줍니다. 톨 사이즈가 딱 들어가는 크기에 손이 작은 사람도 잡기 편하게 가운데가 잘록합니다. 크림과 초록 그리고 남색 세 가지 색상이 있습니다. 온기한잔과 함께 환경도 지키고 따뜻한 음료를 오래 즐겨보세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "따뜻한 음료를 마시려는데 가방 속에서 내용물이 새어버릴까 걱정된 적이 있나요.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "따뜻한 음료를 오래 유지하면서 가방에 넣어도 새지 않는 텀블러가 필요합니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "온기한잔은 이중 진공 구조로 온기를 지키고 실리콘 마개로 내용물이 새는 것을 막아줍니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "톨 사이즈가 딱 들어가는 크기에 손이 작은 사람도 잡기 편하게 가운데가 잘록합니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "크림과 초록 그리고 남색 세 가지 색상이 있습니다.",
+    "estimated_sec": 4.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "온기한잔과 함께 환경도 지키고 따뜻한 음료를 오래 즐겨보세요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 43.3,
+  "narration_sec": 34.57142857142857,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

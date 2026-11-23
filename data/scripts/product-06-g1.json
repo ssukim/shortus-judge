@@ -1,0 +1,54 @@
+{
+ "id": "product-06-g1",
+ "source_id": "product-06",
+ "type": "product",
+ "collected_at": "2026-11-23T18:44:47+09:00",
+ "script": {
+  "id": "66a27979-02ae-41f5-a54a-216210c01384",
+  "text_source_id": "5d87de38-f405-439a-a167-9ad6594286d9",
+  "status": "draft",
+  "full_text": "캠핑장에서 삼겹살을 굽고 싶은데 전기 용량 때문에 고민이었어요. 전기 사이트마다 허용 용량이 정해져 있어서 기기를 고르기가 어렵습니다. 불끈 그릴 프로는 1,800W의 소비전력으로 3분 만에 230도까지 예열됩니다. 4인분 조리가 가능한 넓은 크기에 세라믹 코팅을 적용해 편리해요. 이번 달 출시 기념으로 첫 500대는 22퍼센트 할인된 124,020원에 판매합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "캠핑장에서 삼겹살을 굽고 싶은데 전기 용량 때문에 고민이었어요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "전기 사이트마다 허용 용량이 정해져 있어서 기기를 고르기가 어렵습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "불끈 그릴 프로는 1,800W의 소비전력으로 3분 만에 230도까지 예열됩니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "4인분 조리가 가능한 넓은 크기에 세라믹 코팅을 적용해 편리해요.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "이번 달 출시 기념으로 첫 500대는 22퍼센트 할인된 124,020원에 판매합니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.3,
+  "narration_sec": 28.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

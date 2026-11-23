@@ -1,0 +1,54 @@
+{
+ "id": "blog-11-g2",
+ "source_id": "blog-11",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:07:05+09:00",
+ "script": {
+  "id": "03075eb0-0418-4dbc-9453-6b3dbf8fff53",
+  "text_source_id": "288e4928-801d-4469-89c7-6c69dde59d3c",
+  "status": "draft",
+  "full_text": "집에서 처음으로 키운 콩나물을 무쳐 먹었는데 맛이 묘하게 달랐어요. 글쓴이는 마트에서 산 콩 500그램 중 한 컵을 꺼내 키워봤습니다. 매일 대여섯 번 물을 주며 일주일 동안 정성껏 관리했대요. 직접 수확한 콩나물을 무쳐 먹어보니 마트 것보다 훨씬 고소했습니다. 다만 생각보다 손이 많이 가서 맞벌이 부부에게는 힘들 것 같다고 했어요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "집에서 처음으로 키운 콩나물을 무쳐 먹었는데 맛이 묘하게 달랐어요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 마트에서 산 콩 500그램 중 한 컵을 꺼내 키워봤습니다.",
+    "estimated_sec": 6.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "매일 대여섯 번 물을 주며 일주일 동안 정성껏 관리했대요.",
+    "estimated_sec": 5.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "직접 수확한 콩나물을 무쳐 먹어보니 마트 것보다 훨씬 고소했습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "다만 생각보다 손이 많이 가서 맞벌이 부부에게는 힘들 것 같다고 했어요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.8,
+  "narration_sec": 26.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

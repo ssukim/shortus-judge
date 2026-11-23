@@ -1,0 +1,54 @@
+{
+ "id": "blog-12-g2",
+ "source_id": "blog-12",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:12:01+09:00",
+ "script": {
+  "id": "bed2e4f7-ec8e-4c3c-97be-2187cc61f522",
+  "text_source_id": "4be6057a-efe2-45f7-8271-8cc3fed905bc",
+  "status": "draft",
+  "full_text": "탈취제를 사서 넣어봤지만 냉장고 문을 열 때마다 묘한 냄새가 사라지지 않았어요. 냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬이나 김치와 젓갈류에서 발생합니다. 커피 찌꺼기를 하루 말려 그릇에 담아 넣어두거나 반찬통 뚜껑을 꼭 닫으세요. 일주일에 한 번 비우는 날을 정해 오래된 음식을 정리하고 선반을 식초 탄 물로 닦으면 됩니다. 비용을 거의 들이지 않고 냉장고 냄새를 효과적으로 줄일 수 있습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "탈취제를 사서 넣어봤지만 냉장고 문을 열 때마다 묘한 냄새가 사라지지 않았어요.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬이나 김치와 젓갈류에서 발생합니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "커피 찌꺼기를 하루 말려 그릇에 담아 넣어두거나 반찬통 뚜껑을 꼭 닫으세요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "일주일에 한 번 비우는 날을 정해 오래된 음식을 정리하고 선반을 식초 탄 물로 닦으면 됩니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "비용을 거의 들이지 않고 냉장고 냄새를 효과적으로 줄일 수 있습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 38.3,
+  "narration_sec": 31.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

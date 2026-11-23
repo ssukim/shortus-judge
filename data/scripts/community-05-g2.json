@@ -1,0 +1,54 @@
+{
+ "id": "community-05-g2",
+ "source_id": "community-05",
+ "type": "community",
+ "collected_at": "2026-11-23T18:42:08+09:00",
+ "script": {
+  "id": "e306e623-b86f-4edc-83ec-df41cdb43c1f",
+  "text_source_id": "f309dedd-e440-4c94-a86d-1692d48d0843",
+  "status": "draft",
+  "full_text": "평소엔 부르면 겨우 고개만 들던 고양이가 현관에서 빤히 쳐다보고 있었어요. 집사에 퇴근한 이 고양이는 신발장 위에 앉아 계속 시선을 보냈대요. 거실에 들어간 집사는 바닥에 엎어져 흙이 퍼진 화분을 발견했습니다. 고양이는 흙을 치우는 집사의 팔에 머리를 비비며 애교를 부렸죠. 화분은 높은 곳으로 옮겼고 고양이는 간식을 받고 소파로 돌아갔습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "평소엔 부르면 겨우 고개만 들던 고양이가 현관에서 빤히 쳐다보고 있었어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "집사에 퇴근한 이 고양이는 신발장 위에 앉아 계속 시선을 보냈대요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "거실에 들어간 집사는 바닥에 엎어져 흙이 퍼진 화분을 발견했습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "고양이는 흙을 치우는 집사의 팔에 머리를 비비며 애교를 부렸죠.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "화분은 높은 곳으로 옮겼고 고양이는 간식을 받고 소파로 돌아갔습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 33.6,
+  "narration_sec": 26.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "community-11-g2",
+ "source_id": "community-11",
+ "type": "community",
+ "collected_at": "2026-11-23T19:14:33+09:00",
+ "script": {
+  "id": "4b3347f7-3e88-4549-b0d2-019d88792d3a",
+  "text_source_id": "3a2a3c4c-56c7-46ec-9811-476fc923b928",
+  "status": "draft",
+  "full_text": "새벽 2시부터 4시까지는 근무 시간으로 인정하지 않는다는 편의점 사장님이 있었어요. 야간 알바를 하는 글쓴이는 사장님으로부터 주휴수당을 받지 못했습니다. 글쓴이는 쉬는 시간을 빼도 주 28시간을 일해서 수당 대상이라고 생각했죠. 하지만 사장님은 손님이 없는 대기 시간은 근무에서 뺀다며 거부했습니다. 등록금 때문에 당분간은 버티는 게 맞을지 고민 중이라네요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "새벽 2시부터 4시까지는 근무 시간으로 인정하지 않는다는 편의점 사장님이 있었어요.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "야간 알바를 하는 글쓴이는 사장님으로부터 주휴수당을 받지 못했습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 쉬는 시간을 빼도 주 28시간을 일해서 수당 대상이라고 생각했죠.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "하지만 사장님은 손님이 없는 대기 시간은 근무에서 뺀다며 거부했습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "등록금 때문에 당분간은 버티는 게 맞을지 고민 중이라네요.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.1,
+  "narration_sec": 28.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

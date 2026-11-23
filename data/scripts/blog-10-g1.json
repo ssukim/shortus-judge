@@ -1,0 +1,54 @@
+{
+ "id": "blog-10-g1",
+ "source_id": "blog-10",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:06:20+09:00",
+ "script": {
+  "id": "abc671e3-daa3-498a-9b42-e732a7e7650c",
+  "text_source_id": "85c1c2c5-90c2-4e1f-a8e9-413ac6910299",
+  "status": "draft",
+  "full_text": "다 보고 나온 뒤에 아이의 기억 속에 가장 강렬하게 남은 것은 전시 내용이 아니었습니다. 글쓴이는 아이와 처음으로 국립중앙박물관 어린이박물관을 방문했대요. 아이는 맷돌을 돌리고 짚신 모형을 신어 보는 체험에 매우 즐거워했습니다. 전시를 모두 관람한 뒤에는 바로 옆 거울못 산책로를 한 바퀴 돌았죠. 단풍이 너무 예뻐서 그 풍경이 아이에게 더 기억에 남았답니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "다 보고 나온 뒤에 아이의 기억 속에 가장 강렬하게 남은 것은 전시 내용이 아니었습니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 아이와 처음으로 국립중앙박물관 어린이박물관을 방문했대요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "아이는 맷돌을 돌리고 짚신 모형을 신어 보는 체험에 매우 즐거워했습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "전시를 모두 관람한 뒤에는 바로 옆 거울못 산책로를 한 바퀴 돌았죠.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "단풍이 너무 예뻐서 그 풍경이 아이에게 더 기억에 남았답니다.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.0,
+  "narration_sec": 28.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

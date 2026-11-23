@@ -1,0 +1,54 @@
+{
+ "id": "blog-08-g1",
+ "source_id": "blog-08",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:58:17+09:00",
+ "script": {
+  "id": "df27d41e-b928-4bfa-95e8-f100d75b1d1e",
+  "text_source_id": "4df75c9f-ab21-4248-a876-58c64071bb09",
+  "status": "draft",
+  "full_text": "퇴근 후 걷기 운동을 한 달간 시작한 결과 수면 시간이 급격히 변했습니다. 이 네티즌은 하루 평균 6천 보에서 9천 보까지 걸으며 체중을 1.2kg 줄였대요. 식단 변화 없이 야식을 줄인 것과 걷기 운동이 병행된 결과였습니다. 잠들기까지 한 시간 넘게 뒤척이던 예전과 달리 요즘은 20분이면 잠든다네요. 신발을 쿠션 있는 제품으로 바꾸고 발바닥 통증까지 사라졌습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "퇴근 후 걷기 운동을 한 달간 시작한 결과 수면 시간이 급격히 변했습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이 네티즌은 하루 평균 6천 보에서 9천 보까지 걸으며 체중을 1.2kg 줄였대요.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "식단 변화 없이 야식을 줄인 것과 걷기 운동이 병행된 결과였습니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "잠들기까지 한 시간 넘게 뒤척이던 예전과 달리 요즘은 20분이면 잠든다네요.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "신발을 쿠션 있는 제품으로 바꾸고 발바닥 통증까지 사라졌습니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.8,
+  "narration_sec": 28.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "community-08-g1",
+ "source_id": "community-08",
+ "type": "community",
+ "collected_at": "2026-11-23T18:59:31+09:00",
+ "script": {
+  "id": "fccc5a43-8d82-455a-bf38-513d34885052",
+  "text_source_id": "04d1f85d-b5df-44e1-95ac-109909b504b0",
+  "status": "draft",
+  "full_text": "아파트 관리비가 한 달 사이에 9만 원이나 갑자기 올랐습니다. 글쓴이는 지난달보다 많이 나온 고지서를 보고 관리사무소에 문의했대요. 확인 결과 난방비 상승과 승강기 교체 공사비가 원인이었습니다. 난방비는 단지 평균이 비슷했고 공사비는 이번 달만 추가된 금액이었죠. 결국 관리가 잘못된 게 아니라 공사비 항목을 못 보고 지나친 것이었대요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "아파트 관리비가 한 달 사이에 9만 원이나 갑자기 올랐습니다.",
+    "estimated_sec": 6.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 지난달보다 많이 나온 고지서를 보고 관리사무소에 문의했대요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "확인 결과 난방비 상승과 승강기 교체 공사비가 원인이었습니다.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "난방비는 단지 평균이 비슷했고 공사비는 이번 달만 추가된 금액이었죠.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결국 관리가 잘못된 게 아니라 공사비 항목을 못 보고 지나친 것이었대요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 33.2,
+  "narration_sec": 26.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

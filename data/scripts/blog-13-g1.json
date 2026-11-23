@@ -1,0 +1,54 @@
+{
+ "id": "blog-13-g1",
+ "source_id": "blog-13",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:12:15+09:00",
+ "script": {
+  "id": "6f1ae44a-0eb3-424e-88f1-fa21f665e285",
+  "text_source_id": "32b7af4a-8365-4806-9002-ef2da0018eba",
+  "status": "draft",
+  "full_text": "퇴근 후 매일 1시간씩 걷기만 해서 3개월 만에 7kg을 감량했어요. 글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요. 하루 평균 9천 보에서 1만 2천 보를 걸으며 식단도 두 가지만 지켰습니다. 저녁 8시 이후 금식과 주 1회 야식 허용을 지켰더니 첫 달에 4kg이 빠졌죠. 무릎이 건강하다면 하루 1시간 걷기가 효과적이라고 전했어요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "퇴근 후 매일 1시간씩 걷기만 해서 3개월 만에 7kg을 감량했어요.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "하루 평균 9천 보에서 1만 2천 보를 걸으며 식단도 두 가지만 지켰습니다.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "저녁 8시 이후 금식과 주 1회 야식 허용을 지켰더니 첫 달에 4kg이 빠졌죠.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "무릎이 건강하다면 하루 1시간 걷기가 효과적이라고 전했어요.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.9,
+  "narration_sec": 28.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

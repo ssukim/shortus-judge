@@ -1,0 +1,56 @@
+{
+ "id": "product-05-g1",
+ "source_id": "product-05",
+ "type": "product",
+ "collected_at": "2026-11-23T18:44:05+09:00",
+ "script": {
+  "id": "e21ed216-7f50-4945-a83e-79d3e3ae2d07",
+  "text_source_id": "d6233369-420e-4e3d-bb63-29bf64a160c0",
+  "status": "draft",
+  "full_text": "한여름 버스 정류장에서 땀이 비 오듯 쏟아지는데 손에 든 선풍기가 너무 무겁게 느껴진 적이 있죠. 무거운 선풍기는 가방에 넣기도 부담스럽고 휴대하기가 정말 불편하니까요. 바람솔은 접으면 스마트폰보다 작고 가벼워서 가방에 쏙 들어가요. 3단계 바람 세기를 조절할 수 있고 부드러운 소재 날개로 아이들도 안전하게 쓸 수 있습니다. 올여름에는 바람솔과 함께 시원하게 다니세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "한여름 버스 정류장에서 땀이 비 오듯 쏟아지는데 손에 든 선풍기가 너무 무겁게 느껴진 적이 있죠.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "무거운 선풍기는 가방에 넣기도 부담스럽고 휴대하기가 정말 불편하니까요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "바람솔은 접으면 스마트폰보다 작고 가벼워서 가방에 쏙 들어가요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "3단계 바람 세기를 조절할 수 있고 부드러운 소재 날개로 아이들도 안전하게 쓸 수 있습니다.",
+    "estimated_sec": 8.9,
+    "ungrounded_numbers": [
+     "3"
+    ],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "올여름에는 바람솔과 함께 시원하게 다니세요.",
+    "estimated_sec": 4.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.6,
+  "narration_sec": 29.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

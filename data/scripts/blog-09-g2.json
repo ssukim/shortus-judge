@@ -1,0 +1,54 @@
+{
+ "id": "blog-09-g2",
+ "source_id": "blog-09",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:06:02+09:00",
+ "script": {
+  "id": "b1e32b26-f313-4d34-9d85-b9041017116e",
+  "text_source_id": "af5a824b-aedc-4cf0-865c-c57baf5639e3",
+  "status": "draft",
+  "full_text": "혼자 떠난 캠핑에서 텐트 하나를 설치하는 데 40분이 넘게 걸렸어요. 글쓴이는 집에서 1시간 거리인 국립 자연휴양림으로 평일 캠핑을 떠났습니다. 친구에게 빌린 텐트라 유튜브를 세 번이나 돌려보며 고군분투했대요. 새벽 기온이 3도까지 떨어졌지만 침낭을 더 챙겨간 덕분에 잘 견뎠습니다. 아침에 문을 열었을 때 마주한 안개 낀 숲 풍경에 다시 가고 싶어졌다고 해요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "혼자 떠난 캠핑에서 텐트 하나를 설치하는 데 40분이 넘게 걸렸어요.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 집에서 1시간 거리인 국립 자연휴양림으로 평일 캠핑을 떠났습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "친구에게 빌린 텐트라 유튜브를 세 번이나 돌려보며 고군분투했대요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "새벽 기온이 3도까지 떨어졌지만 침낭을 더 챙겨간 덕분에 잘 견뎠습니다.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "아침에 문을 열었을 때 마주한 안개 낀 숲 풍경에 다시 가고 싶어졌다고 해요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.4,
+  "narration_sec": 28.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

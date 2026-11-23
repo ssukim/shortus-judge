@@ -1,0 +1,54 @@
+{
+ "id": "blog-06-g2",
+ "source_id": "blog-06",
+ "type": "blog",
+ "collected_at": "2026-11-23T18:41:40+09:00",
+ "script": {
+  "id": "abedc609-689b-4a6a-b91f-3ca45f8eb791",
+  "text_source_id": "e98404c7-78d6-472e-8ee5-ab3a2fa8d238",
+  "status": "draft",
+  "full_text": "올해 12월 난방비를 작년보다 39%나 줄인 방법이 있었어요. 전용 59제곱미터 아파트에 사는 이 네티즌은 관리비를 아끼려 노력했대요. 거실 창에 뽁뽁이를 붙이고 보일러를 외출 모드로 설정하는 등 조치를 취했죠. 작년보다 평균 기온이 1.8도 높았던 점도 요금 절감에 영향을 주었을 수 있습니다. 결과적으로 난방비는 18만 4천 원에서 11만 2천 원으로 줄어들었습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "올해 12월 난방비를 작년보다 39%나 줄인 방법이 있었어요.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "전용 59제곱미터 아파트에 사는 이 네티즌은 관리비를 아끼려 노력했대요.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "거실 창에 뽁뽁이를 붙이고 보일러를 외출 모드로 설정하는 등 조치를 취했죠.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "작년보다 평균 기온이 1.8도 높았던 점도 요금 절감에 영향을 주었을 수 있습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결과적으로 난방비는 18만 4천 원에서 11만 2천 원으로 줄어들었습니다.",
+    "estimated_sec": 7.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.8,
+  "narration_sec": 29.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

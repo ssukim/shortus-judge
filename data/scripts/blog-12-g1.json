@@ -1,0 +1,54 @@
+{
+ "id": "blog-12-g1",
+ "source_id": "blog-12",
+ "type": "blog",
+ "collected_at": "2026-11-23T19:11:47+09:00",
+ "script": {
+  "id": "6bf156f8-31fa-4031-a1d4-c690ce051ac3",
+  "text_source_id": "1511f38c-0d0a-4ab5-aad1-42b8cd51b393",
+  "status": "draft",
+  "full_text": "탈취제를 써도 냉장고 냄새가 사라지지 않는다면 반찬통 뚜껑을 확인해 보세요. 냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬에서 나오기 때문입니다. 특히 김치나 젓갈류는 반드시 따로 밀폐하고 일주일에 한 번은 오래된 음식을 정리하세요. 선반은 식초 탄 물로 닦아 주면 돈을 거의 들이지 않고 냄새를 잡을 수 있습니다. 밀폐와 정기적인 비우기만으로 냉장고를 쾌적하게 관리하세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "탈취제를 써도 냉장고 냄새가 사라지지 않는다면 반찬통 뚜껑을 확인해 보세요.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬에서 나오기 때문입니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "특히 김치나 젓갈류는 반드시 따로 밀폐하고 일주일에 한 번은 오래된 음식을 정리하세요.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "선반은 식초 탄 물로 닦아 주면 돈을 거의 들이지 않고 냄새를 잡을 수 있습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "밀폐와 정기적인 비우기만으로 냉장고를 쾌적하게 관리하세요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.2,
+  "narration_sec": 29.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

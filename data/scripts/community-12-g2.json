@@ -1,0 +1,54 @@
+{
+ "id": "community-12-g2",
+ "source_id": "community-12",
+ "type": "community",
+ "collected_at": "2026-11-23T19:15:01+09:00",
+ "script": {
+  "id": "c5206937-f572-4575-8804-1fb702612dcd",
+  "text_source_id": "1ed17fbf-988b-436e-9233-077481aaae5f",
+  "status": "draft",
+  "full_text": "택배가 문 앞에 왔다는 문자를 받았는데 막상 나가 보면 상자가 없었어요. 한 달 전부터 반복되는 상황에 글쓴이는 배송 실수가 아닌 도난을 의심했답니다. 관리실에 요청해 확인한 CCTV에는 옆집 할머니가 택배를 들고 들어가는 장면이 찍혔죠. 사실은 비가 오면 물이 들이치는 복도 때문에 상자가 젖을까 봐 할머니가 대신 보관해 주신 거였습니다. 나중에 할머니가 귤을 절반이나 다시 나눠주시는 상황이 벌어졌대요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "택배가 문 앞에 왔다는 문자를 받았는데 막상 나가 보면 상자가 없었어요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "한 달 전부터 반복되는 상황에 글쓴이는 배송 실수가 아닌 도난을 의심했답니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "관리실에 요청해 확인한 CCTV에는 옆집 할머니가 택배를 들고 들어가는 장면이 찍혔죠.",
+    "estimated_sec": 8.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "사실은 비가 오면 물이 들이치는 복도 때문에 상자가 젖을까 봐 할머니가 대신 보관해 주신 거였습니다.",
+    "estimated_sec": 9.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "나중에 할머니가 귤을 절반이나 다시 나눠주시는 상황이 벌어졌대요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 39.2,
+  "narration_sec": 31.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}
