@@ -513,8 +513,7 @@ button.sn-no { vertical-align: baseline; padding: 4px 2px; margin: 0; color: var
 @media (max-width: 760px) { .listen-all { margin-left: 0; } .feed-bottom { left: 0; } .new-below { left: 50%; } }
 
 /* 쇼더스 하루 한도를 다 썼을 때: 꺼진 입력 칸과 까닭, 저장해 둔 결과를 대신 보일 때 판정봇이 먼저 하는 말 */
-.composer-full { display: flex; flex-direction: column; gap: 8px; }
-.composer-full .composer-closed { opacity: .5; cursor: not-allowed; }
+.composer-wrap { display: flex; flex-direction: column; gap: 8px; }
 .turn-again .hint { align-self: center; margin-left: 8px; }
 .bot-notice { color: var(--hold-fg); }
 

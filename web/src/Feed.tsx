@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { Data, Script } from './types'
 import { decisionWord, setQuery } from './common'
-import { FULL_NOTE, TEXT_MAX, TEXT_MIN, freshFull, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
+import { FULL_NOTE, SCENES_MAX, SCENE_MAX, SOURCE_MAX, TEXT_MAX, TEXT_MIN, freshFull, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
 import {
   PREPARE_MAX_MS, type Final, type Spec, getRun, giveUp, newToken, ordered, saveSpec, specOf, start, subscribe, titleOf,
 } from './runs'
@@ -101,11 +101,14 @@ function Pills({ pills, onPick, disabled, row }: { pills: Pill[]; onPick: (p: Pi
  * sourceId: 판정 서버가 source_id로 받을 수 있는 모아 둔 글일 때만 둔다 */
 interface Preset { n: number; text: string; sourceId?: string }
 
-function Composer({ onSubmit, disabled, compact, preset, full }: { onSubmit: (spec: Spec) => void; disabled?: boolean; compact?: boolean; preset?: Preset | null; full?: boolean }) {
+// direct: 쇼더스에서 받기를 못 쓸 때(하루 한도를 다 썼거나 키가 없음). 넣은 글과 가진 대본을 직접 넣어 판정한다
+function Composer({ onSubmit, disabled, compact, preset, full, direct }: {
+  onSubmit: (spec: Spec) => void; disabled?: boolean; compact?: boolean; preset?: Preset | null; full?: boolean; direct?: boolean
+}) {
   const [open, setOpen] = useState(false)
   const [fill, setFill] = useState<Preset | null>(null) // 접으면 비운다(다시 열면 빈 칸)
   useEffect(() => {
-    if (!preset) return
+    if (!preset || direct) return
     setFill(preset)
     setOpen(true)
   }, [preset?.n])
@@ -113,25 +116,63 @@ function Composer({ onSubmit, disabled, compact, preset, full }: { onSubmit: (sp
     setOpen(false)
     setFill(null)
   }
-  // 쇼더스 하루 한도를 다 썼으면 칸을 열지 못하게 두고 까닭을 적는다
-  if (full) {
+  const label = direct ? (compact ? '대본 직접 넣기' : '넣은 글과 대본을 넣으면 판정합니다')
+    : compact ? '글 붙여 넣기' : '글을 넣으면 쇼더스가 대본을 만들고 판정합니다'
+  // 쇼더스 하루 한도를 다 썼으면 까닭을 적고, 가진 대본을 직접 넣는 칸을 둔다
+  const note = full && !compact ? <p id="full-note" className="hint">{FULL_NOTE} 지금은 가진 대본을 직접 넣어 판정할 수 있어요.</p> : null
+  if (!open) {
     return (
-      <div className="composer-full">
-        <button type="button" className={compact ? 'composer-closed composer-compact' : 'composer-closed'} disabled aria-describedby="full-note">
-          {compact ? '글 붙여 넣기' : '글을 넣으면 쇼더스가 대본을 만들고 판정합니다'}
+      <div className="composer-wrap">
+        <button type="button" className={compact ? 'composer-closed composer-compact' : 'composer-closed'} onClick={() => setOpen(true)} aria-expanded={false} disabled={disabled}
+          aria-describedby={note ? 'full-note' : undefined}>
+          {label}
         </button>
-        <p id="full-note" className="hint">{FULL_NOTE}</p>
+        {note}
       </div>
     )
   }
-  if (!open) {
-    return (
-      <button type="button" className={compact ? 'composer-closed composer-compact' : 'composer-closed'} onClick={() => setOpen(true)} aria-expanded={false} disabled={disabled}>
-        {compact ? '글 붙여 넣기' : '글을 넣으면 쇼더스가 대본을 만들고 판정합니다'}
-      </button>
-    )
-  }
-  return <TextForm key={fill?.n ?? 0} preset={fill} onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />
+  return direct
+    ? <OwnForm onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />
+    : <TextForm key={fill?.n ?? 0} preset={fill} onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />
+}
+
+/** 쇼더스에서 받기를 못 쓸 때(하루 한도를 다 썼거나 키가 없음): 넣은 글과 가진 대본을 직접 넣어 판정한다 */
+function OwnForm({ onSubmit, onClose, disabled }: { onSubmit: (spec: Spec) => void; onClose: () => void; disabled?: boolean }) {
+  const [source, setSource] = useState('')
+  const [lines, setLines] = useState('')
+  const ref = useRef<HTMLTextAreaElement>(null)
+  useEffect(() => ref.current?.focus(), [])
+  const scenes = lines.split('\n').map((l) => l.trim()).filter(Boolean)
+  const src = source.trim()
+  const long = scenes.findIndex((l) => l.length > SCENE_MAX)
+  // 판정 서버(judge/serve.py)와 같은 한도. 비어 있을 때는 빨간 글을 보이지 않는다
+  const why = !src || !scenes.length ? ''
+    : src.length > SOURCE_MAX ? `넣은 글이 ${src.length.toLocaleString()}자입니다. ${SOURCE_MAX.toLocaleString()}자 이하로 줄여 주세요.`
+      : scenes.length > SCENES_MAX ? `장면이 ${scenes.length}개입니다. ${SCENES_MAX}개 이하로 넣어 주세요.`
+        : long >= 0 ? `${long + 1}번 장면이 ${scenes[long].length}자입니다. 장면 하나는 ${SCENE_MAX}자 이하로 넣어 주세요.` : ''
+  return (
+    <form
+      className="composer"
+      onSubmit={(e) => {
+        e.preventDefault()
+        if (!src || !scenes.length || why) return
+        onSubmit({ kind: 'own', source: src, scenes: scenes.map((text) => ({ text })) })
+      }}
+    >
+      <label htmlFor="own-source">넣은 글</label>
+      <textarea id="own-source" ref={ref} rows={6} value={source} onChange={(e) => setSource(e.target.value)}
+        placeholder="쇼더스에 넣은 기사나 블로그 글을 그대로 붙여 넣어 주세요. 대본의 사실을 이 글과 견줍니다." />
+      <label htmlFor="own-scenes">대본</label>
+      <textarea id="own-scenes" rows={6} value={lines} onChange={(e) => setLines(e.target.value)} aria-describedby="own-hint"
+        placeholder="장면마다 한 줄씩 넣어 주세요." />
+      <p id="own-hint" className="hint">장면 {SCENES_MAX}개, 장면 하나 {SCENE_MAX}자까지{scenes.length ? ` · 지금 장면 ${scenes.length}개` : ''}. 장면 길이는 글자 수로 어림합니다. 판정에는 30초쯤 걸리고, 보류·탈락이면 고친 대본까지 1분쯤 걸립니다.</p>
+      <div className="composer-actions">
+        <button type="submit" className="primary" disabled={!src || !scenes.length || !!why || disabled} aria-describedby={why ? 'own-why' : undefined}>판정하기</button>
+        <button type="button" className="ghost" onClick={onClose}>접기</button>
+        {why && <span id="own-why" className="hint hint-error">{why}</span>}
+      </div>
+    </form>
+  )
 }
 
 function TextForm({ onSubmit, onClose, disabled, preset }: { onSubmit: (spec: Spec) => void; onClose: () => void; disabled?: boolean; preset?: Preset | null }) {
@@ -336,7 +377,7 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
         {/* 판정 서버 확인(probeLive, probeFresh)이 끝나기 전에는 입력 칸과 단추 줄을 같이 숨긴다.
             어느 단추 줄인지(예시 글 넣기 / 바로 판정)가 확인 결과로 정해지기 때문. 끝나면 둘이 한 번에 나타난다 */}
         <div className={decided ? 'hero-below on' : 'hero-below'} aria-hidden={!decided} inert={!decided}>
-          {live && freshOk && <Composer onSubmit={submit} preset={preset} full={full} />}
+          {live && <Composer onSubmit={submit} preset={preset} full={full} direct={!freshOk || full} />}
           <div className="saved-picks">
             <p className="hint">{withFill ? '예시 글 넣기:' : '모아 둔 대본으로 바로 판정:'}</p>
             <Pills pills={pills} onPick={pick} disabled={!decided} />
@@ -365,7 +406,7 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
       })}
       <div className="feed-bottom" ref={bottom}>
         <div className="feed-bottom-in">
-          {live && freshOk && <Composer onSubmit={submit} disabled={busy} compact full={full} />}
+          {live && <Composer onSubmit={submit} disabled={busy} compact full={full} direct={!freshOk || full} />}
           <Pills pills={pills} onPick={pick} disabled={busy} row />
         </div>
       </div>
