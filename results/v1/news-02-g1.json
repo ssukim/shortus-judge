@@ -1,0 +1,150 @@
+{
+ "id": "news-02-g1",
+ "source_id": "news-02",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "지급대상은 지난해보다 1만 1000건 증가한 129만 6000건이며",
+     "source_quote": "올해 지급대상은 농가, 농업인, 농업법인 등 129만 6000건으로, 지난해 128만 5000건보다 1만 1000건 증가했다.",
+     "reason": "\"~이며\"는 말하듯 쓴 문장이 아니라 문서에서 쓰는 어투이다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "올해부터 기본형 공익직불금 지급을 제한하는 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향돼 더 많은 농업인이 직불금을 받을 수 있게 된다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "올해부터 기본형 공익직불금 지급을 제한하는 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향돼 더 많은 농업인이 직불금을 받을 수 있게 된다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "강동윤 농림축산식품부 농촌소득에너지정책관은 \"올해는 농외소득 기준 현실화 등을 통해 보다 많은 농업인이 공익직불제의 혜택을 받을 수 있도록 했다\"며 \"앞으로도 농업 현장의 목소리를 적극 반영해 제도를 개선하고, 농업인의 소득안정과 농업·농촌의 공익기능 증진에 기여하도록 노력하겠다\"고 밝혔다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "올해 지급대상은 농가, 농업인, 농업법인 등 129만 6000건으로, 지난해 128만 5000건보다 1만 1000건 증가했다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "농업 외 소득이 일정 금액을 넘으면 직불금을 못 받는데, 이 기준이 17년 만에 바뀌었어요.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "올해부터 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향됩니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "농식품부는 이번 기준 완화를 통해 더 많은 농업인이 공익직불금 혜택을 받게 된다고 밝혔습니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "지급대상은 지난해보다 1만 1000건 증가한 129만 6000건이며 11월 중순부터 순차 지급됩니다.",
+   "estimated_sec": 9.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 30.6,
+    "input_tokens": 2,
+    "output_tokens": 7338,
+    "cache_creation_input_tokens": 4016,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00417
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.5,
+    "input_tokens": 2,
+    "output_tokens": 1857,
+    "cache_creation_input_tokens": 3657,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00139
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 9195,
+   "cache_creation_input_tokens": 7673,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00556,
+  "sec": 30.6
+ }
+}

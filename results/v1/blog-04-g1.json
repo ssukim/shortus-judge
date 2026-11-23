@@ -1,0 +1,167 @@
+{
+ "id": "blog-04-g1",
+ "source_id": "blog-04",
+ "verdict": "보류",
+ "why": [
+  "기준 6·8 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "예약해야 하며 주말에는 출장비가 붙는 곳도 있습니다.",
+     "source_quote": "연결 기사님 방문은 보통 2~3일 전에 예약해야 하고 주말에는 출장비가 붙는 곳도 있어요.",
+     "reason": "'~하며'로 이어 붙인 문서체 문장이라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 40.0,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "자동차 보험사에는 따로 연락해야 하는 상황이 발생합니다",
+     "source_quote": "차가 있다면 전입신고하면 자동으로 바뀌는 경우가 많지만, 보험사에는 따로 알려야 해요.",
+     "reason": "넣은 글에서 자동차 보험 연락은 다섯 번째 곁가지 항목인데, 첫 장면이 이 곁가지로 시작한다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "차가 있다면 전입신고하면 자동으로 바뀌는 경우가 많지만, 보험사에는 따로 알려야 해요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "차가 있다면 전입신고하면 자동으로 바뀌는 경우가 많지만, 보험사에는 따로 알려야 해요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "가스는 새집에서 다시 연결해야 하는데, 연결 기사님 방문은 보통 2~3일 전에 예약해야 하고 주말에는 출장비가 붙는 곳도 있어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "최소 10일 전에는 신청하세요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "전기·가스·수도는 이사 나가는 날 검침을 받아야 해요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "이사 후 전입신고를 마쳤음에도 자동차 보험사에는 따로 연락해야 하는 상황이 발생합니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "전입신고를 하면 자동차 주소가 자동으로 바뀌는 경우가 많지만 보험사 정보는 별도로 수정해야 합니다.",
+   "estimated_sec": 10.0
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "가스는 새집 연결을 위해 보통 2에서 3일 전에 예약해야 하며 주말에는 출장비가 붙는 곳도 있습니다.",
+   "estimated_sec": 10.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "인터넷 이전 설치는 원하는 날짜를 확보하기 위해 최소 10일 전에는 신청하는 것이 좋습니다.",
+   "estimated_sec": 8.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "이사 후에는 공과금 정리와 통신사 예약 등 세부적인 행정 절차를 꼼꼼히 챙겨야 합니다.",
+   "estimated_sec": 8.3
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.3,
+    "input_tokens": 2,
+    "output_tokens": 3405,
+    "cache_creation_input_tokens": 3529,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00214
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 14.5,
+    "input_tokens": 2,
+    "output_tokens": 3026,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2778,
+    "cost_usd": 0.00159
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 6431,
+   "cache_creation_input_tokens": 3923,
+   "cache_read_input_tokens": 2778
+  },
+  "cost_usd_est": 0.00373,
+  "sec": 14.5
+ }
+}
