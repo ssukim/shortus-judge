@@ -318,10 +318,42 @@ class ServePayload(unittest.TestCase):
 
     def test_rejects(self):
         from judge import serve
-        for bad in (None, {"source": "", "scenes": [{"text": "a"}]}, {"source": "글", "scenes": []},
+        for bad in (None, {"source": 3, "scenes": [{"text": "a"}]}, {"source": "글", "scenes": []},
                     {"source": "글", "scenes": [{"text": "a", "sec": 0}]}, {"source": "글", "scenes": [{"text": "a"}] * 13}):
             with self.assertRaises(serve.InputError):
                 serve.parse_payload(bad)
+
+
+    def test_source_optional(self):
+        """원래 글 없이 대본만 보내도 받는다(D38). 사실 기준은 판정기가 보지 않는다"""
+        from judge import serve
+        src, d, _ = serve.parse_payload({"scenes": [{"text": "가나다"}]})
+        self.assertEqual(src, "")
+
+
+class NoSource(unittest.TestCase):
+    """원래 글이 없으면 사실 묶음(기준 1~4)은 묻지 않고 「보지 않음」으로 둔다(D38)."""
+    def test_fact_not_checked(self):
+        from judge import checks_llm, core, view
+        asked = []
+
+        def fake_run(model, sections, source, on_group=None, groups=None):
+            asked.append(groups)
+            crit = {n: {"result": O, "findings": []} for n in checks_llm.GROUPS["flow"]}
+            return {"flow": {"criteria": crit, "grounding": None, "calls": [], "usage": {"input_tokens": 0}, "error": None}}
+        orig = checks_llm.run
+        checks_llm.run = fake_run
+        try:
+            r = core.judge_script({"id": "t", "source_id": "", "script": {"sections": [{"text": "가나다", "estimated_sec": 3}]}},
+                                  "", fix=False)
+        finally:
+            checks_llm.run = orig
+        self.assertEqual(asked, [("flow",)])
+        self.assertFalse(r["source_given"])
+        self.assertEqual(r["verdict"], config.PASS)
+        v = view.to_view(r)
+        self.assertFalse(v["source_given"])
+        self.assertTrue(all(v["criteria"][str(n)].get("not_checked") for n in (1, 2, 3, 4)))
 
 
 if __name__ == "__main__":

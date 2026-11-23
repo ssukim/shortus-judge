@@ -85,6 +85,10 @@ def criterion_view(n, c, scenes):
     hit = c["result"] == config.HIT
     fs = c.get("findings") or []
     out = {"flagged": hit, "scenes": [], "reason": "", "by": c.get("by") or BY[n], "result": c["result"]}
+    if c.get("not_checked"):
+        out["not_checked"] = True
+        out["reason"] = "원래 글(넣은 글)이 없어 보지 않았습니다."
+
     if c.get("votes"):
         out["votes"] = c["votes"]
     if c.get("doubt"):
@@ -229,7 +233,7 @@ def to_view(r, judged_at=None):
         "notices": notices,
         "undecided": [{"criterion": int(k), "why": c.get("error") or ""} for k, c in r["criteria"].items()
                       if c["result"] == config.UNKNOWN],
-        "source_given": True,
+        "source_given": r.get("source_given", True),
         "cost_usd": round(run.get("cost_usd_est", 0) + run.get("revise_cost_usd", 0), 5), "elapsed_sec": round((run.get("sec") or 0) + run.get("revise_sec", 0), 1) if run.get("sec") is not None else None, "model": run.get("model"),
         "calls": run.get("calls"), "judged_at": judged_at,
         **_decision_and_revision(r, rev, remaining),

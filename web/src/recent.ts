@@ -70,6 +70,11 @@ export function clearRecent() {
   write([])
 }
 
+/** 최근 판정 하나만 지운다 */
+export function removeRecent(token: string) {
+  write(read().filter((x) => x.token !== token))
+}
+
 /** 다시 열기 전에: 표와 끝난 결과를 이 탭에 되돌려 놓는다 (runs.ts와 같은 열쇠) */
 export function restoreRecent(item: Recent) {
   try {

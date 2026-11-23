@@ -49,7 +49,14 @@ def _judge(d, source, model, on_criterion=None):
     def group_done(g, out):
         for n, c in out["criteria"].items():
             tell(n, {**c, "by": "model"})
-    llm = checks_llm.run(model, sections, source, on_group=group_done if on_criterion else None)
+    # 원래 글(넣은 글)이 없으면 사실 묶음(기준 1~4)은 견줄 것이 없어 보지 않는다(D38). 판정 선에서는 안 걸림으로 두고 not_checked로 적는다
+    given = bool(source and source.strip())
+    if not given:
+        for n in checks_llm.GROUPS["fact"]:
+            criteria[n] = {"result": config.OK, "findings": [], "not_checked": True, "by": "model"}
+            tell(n, criteria[n])
+    llm = checks_llm.run(model, sections, source or "", on_group=group_done if on_criterion else None,
+                         groups=None if given else ("flow",))
     calls, usage = [], {}
     for g, out in llm.items():
         for n, c in out["criteria"].items():
@@ -77,7 +84,7 @@ def _judge(d, source, model, on_criterion=None):
         "id": d["id"], "source_id": d["source_id"], "verdict": v, "why": why,
         "diagnostics": diag,
         "criteria": {str(n): c for n, c in criteria.items()},
-        "grounding": llm["fact"]["grounding"],
+        "grounding": llm["fact"]["grounding"] if given else None, "source_given": given,
         "scenes": [{"scene": n, "role": s.get("role"), "text": s["text"], "estimated_sec": s.get("estimated_sec")}
                    for n, s in enumerate(sections, 1)],
         "fixed_scenes": fixed if fixed != [s["text"] for s in sections] else None,

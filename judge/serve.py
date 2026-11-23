@@ -3,7 +3,7 @@
   python3 -m judge.serve [--port 8787] [--host 127.0.0.1]      (./judge.sh web 도 같음)
   http://127.0.0.1:8787     화면 (web/dist)
   GET  /api/judge           판정 서버가 있는지와 새로 판정할 수 있는지 {"judge": true, "ready", "model", "criteria"}
-  POST /api/judge           판정. 본문 {"source": 넣은 글, "scenes": [{"text": 장면 문장, "sec": 쇼더스 예상 초(없어도 됨)}]}
+  POST /api/judge           판정. 본문 {"source": 원래 글(없어도 됨, 없으면 기준 1~4는 보지 않음), "scenes": [{"text": 장면 문장, "sec": 쇼더스 예상 초(없어도 됨)}]}
                             → judge/view.py의 to_view 모양에 "input", "request_id"를 더한 것. 한 번에 받는 응답(JSON)만 낸다
                             Accept: application/x-ndjson이면 한 요청 안에서 줄 단위 JSON으로 흘려보낸다(아래 STREAM)
   GET  /api/fresh           {"fresh": true, "ready": 쇼더스 키가 있고 판정할 수 있는지}
@@ -105,10 +105,10 @@ def parse_payload(payload):
     """→ (넣은 글, 대본 사전(judge_script가 받는 꼴), 초를 어림한 장면 번호)"""
     if not isinstance(payload, dict):
         raise InputError("요청 모양이 맞지 않습니다. source와 scenes를 담은 JSON을 보내 주세요.")
-    source = payload.get("source")
-    if not isinstance(source, str) or not source.strip():
-        raise InputError("넣은 글이 비어 있습니다. 대본의 사실을 넣은 글과 견주므로 넣은 글이 있어야 합니다.")
-    source = source.strip()
+    source = payload.get("source") or ""
+    if not isinstance(source, str):
+        raise InputError("요청 모양이 맞지 않습니다. source는 글로 보내 주세요.")
+    source = source.strip()   # 비어 있으면 원래 글과 견주는 기준(1~4)은 보지 않는다(D38)
     if len(source) > SOURCE_MAX_CHARS:
         raise InputError(f"넣은 글이 {len(source):,}자입니다. {SOURCE_MAX_CHARS:,}자 이하로 줄여 주세요.")
     scenes = payload.get("scenes")

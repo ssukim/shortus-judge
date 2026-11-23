@@ -1,6 +1,6 @@
 import { useEffect, useSyncExternalStore } from 'react'
 import { href } from './common'
-import { clearRecent, recentList, restoreRecent, subscribeRecent } from './recent'
+import { clearRecent, removeRecent, recentList, restoreRecent, subscribeRecent } from './recent'
 
 // 왼쪽 메뉴: 제목 → 새 판정 → 화면 링크 → 최근 판정(recent.ts).
 // 넓은 화면에서는 왼쪽에 고정. 휴대폰 폭(760px 이하)에서는 숨겨 두고, 머리줄 ☰ 단추로 왼쪽에서 덮어 연다.
@@ -36,7 +36,7 @@ export default function Sidebar({ page, query, open, onClose }: {
         <div className="side-recent">
           <div className="side-recent-head">
             <h2>최근 판정</h2>
-            {recent.length > 0 && <button type="button" className="inline-link side-clear" onClick={clearRecent}>지우기</button>}
+            {recent.length > 0 && <button type="button" className="inline-link side-clear" onClick={clearRecent}>모두 지우기</button>}
           </div>
           {recent.length === 0 ? (
             <p className="hint">판정한 대본이 여기에 쌓입니다.</p>
@@ -49,6 +49,7 @@ export default function Sidebar({ page, query, open, onClose }: {
                     <span className="side-recent-label">{x.label}</span>
                     <span className="side-recent-v">{x.verdict}</span>
                   </a>
+                  <button type="button" className="side-recent-del" onClick={() => removeRecent(x.token)} aria-label={`${x.label} 지우기`} title="이 판정 지우기">×</button>
                 </li>
               ))}
             </ul>

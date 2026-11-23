@@ -99,16 +99,25 @@ function Pills({ pills, onPick, disabled, row }: { pills: Pill[]; onPick: (p: Pi
 
 /** 첫 화면 「예시 글 넣기」가 입력 칸에 채울 글. n은 누를 때마다 늘어 같은 단추를 다시 눌러도 다시 채운다.
  * sourceId: 판정 서버가 source_id로 받을 수 있는 모아 둔 글일 때만 둔다 */
-interface Preset { n: number; text: string; sourceId?: string }
+// scenes: 「가진 대본 넣기」에 채울 대본(장면마다 한 줄). text는 원래 글(두 탭이 같이 씀)
+interface Preset { n: number; text: string; sourceId?: string; scenes?: string }
 
-// direct: 쇼더스에서 받기를 못 쓸 때(하루 한도를 다 썼거나 키가 없음). 넣은 글과 가진 대본을 직접 넣어 판정한다
-function Composer({ onSubmit, disabled, compact, preset, full, direct }: {
-  onSubmit: (spec: Spec) => void; disabled?: boolean; compact?: boolean; preset?: Preset | null; full?: boolean; direct?: boolean
+// 입력은 두 갈래다(D38).
+//   쇼더스로 대본 만들기: 원래 글을 넣으면 쇼더스가 대본을 만들고 판정한다(spec.kind 'text'). 쇼더스 키가 없거나 하루 한도를 다 썼으면 끈다
+//   가진 대본 넣기: 가진 대본(장면마다 한 줄)을 넣는다. 원래 글은 넣어도 되고 안 넣어도 된다(spec.kind 'own')
+type Mode = 'fresh' | 'own'
+function Composer({ onSubmit, disabled, compact, preset, full, canFresh }: {
+  onSubmit: (spec: Spec) => void; disabled?: boolean; compact?: boolean; preset?: Preset | null; full?: boolean; canFresh?: boolean
 }) {
+  const freshOn = !!canFresh && !full
+  const [mode, setMode] = useState<Mode>(freshOn ? 'fresh' : 'own')
   const [open, setOpen] = useState(false)
   const [fill, setFill] = useState<Preset | null>(null) // 접으면 비운다(다시 열면 빈 칸)
+  // 쇼더스를 쓸 수 있는지는 화면을 그린 뒤에 알게 된다. 칸을 열기 전이면 그에 맞춰 기본 탭을 바꾼다
+  useEffect(() => { if (!open || !freshOn) setMode(freshOn ? 'fresh' : 'own') }, [freshOn])
+  // 예시 단추: 지금 탭의 칸을 채운다(쇼더스 탭은 원래 글, 가진 대본 탭은 대본과 원래 글)
   useEffect(() => {
-    if (!preset || direct) return
+    if (!preset) return
     setFill(preset)
     setOpen(true)
   }, [preset?.n])
@@ -116,64 +125,90 @@ function Composer({ onSubmit, disabled, compact, preset, full, direct }: {
     setOpen(false)
     setFill(null)
   }
-  const label = direct ? (compact ? '대본 직접 넣기' : '넣은 글과 대본을 넣으면 판정합니다')
-    : compact ? '글 붙여 넣기' : '글을 넣으면 쇼더스가 대본을 만들고 판정합니다'
-  // 쇼더스 하루 한도를 다 썼으면 까닭을 적고, 가진 대본을 직접 넣는 칸을 둔다
-  const note = full && !compact ? <p id="full-note" className="hint">{FULL_NOTE} 지금은 가진 대본을 직접 넣어 판정할 수 있어요.</p> : null
+  const pick = (m: Mode) => { setMode(m); setOpen(true) }
+  const label = mode === 'fresh'
+    ? (compact ? '원래 글 넣기' : '원래 글을 넣으면 쇼더스가 대본을 만들고 판정합니다')
+    : (compact ? '가진 대본 넣기' : '가진 대본을 넣어 판정합니다')
+  const why = !canFresh ? '' : full ? FULL_NOTE : ''
+  const tabs = (
+    <div className="mode-tabs" role="tablist" aria-label="무엇을 넣을지">
+      <button type="button" role="tab" aria-selected={mode === 'fresh'} className={mode === 'fresh' ? 'on' : ''}
+        disabled={!freshOn || disabled} onClick={() => pick('fresh')} aria-describedby={why ? 'full-note' : undefined}>쇼더스로 대본 만들기</button>
+      <button type="button" role="tab" aria-selected={mode === 'own'} className={mode === 'own' ? 'on' : ''}
+        disabled={disabled} onClick={() => pick('own')}>가진 대본 넣기</button>
+    </div>
+  )
+  const note = why && !compact ? <p id="full-note" className="hint">{why}</p> : null
   if (!open) {
     return (
       <div className="composer-wrap">
-        <button type="button" className={compact ? 'composer-closed composer-compact' : 'composer-closed'} onClick={() => setOpen(true)} aria-expanded={false} disabled={disabled}
-          aria-describedby={note ? 'full-note' : undefined}>
+        {tabs}
+        <button type="button" className={compact ? 'composer-closed composer-compact' : 'composer-closed'} onClick={() => setOpen(true)} aria-expanded={false} disabled={disabled}>
           {label}
         </button>
         {note}
       </div>
     )
   }
-  return direct
-    ? <OwnForm onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />
-    : <TextForm key={fill?.n ?? 0} preset={fill} onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />
+  return (
+    <div className="composer-wrap">
+      {tabs}
+      {mode === 'own'
+        ? <OwnForm key={`own-${fill?.n ?? 0}`} preset={fill} onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />
+        : <TextForm key={fill?.n ?? 0} preset={fill} onSubmit={(spec) => { onSubmit(spec); close() }} onClose={close} disabled={disabled} />}
+      {note}
+    </div>
+  )
 }
 
-/** 쇼더스에서 받기를 못 쓸 때(하루 한도를 다 썼거나 키가 없음): 넣은 글과 가진 대본을 직접 넣어 판정한다 */
-function OwnForm({ onSubmit, onClose, disabled }: { onSubmit: (spec: Spec) => void; onClose: () => void; disabled?: boolean }) {
-  const [source, setSource] = useState('')
-  const [lines, setLines] = useState('')
+/** 가진 대본 넣기: 대본(장면마다 한 줄)은 꼭, 원래 글은 넣으면 대본이 원래 글과 같은 말을 하는지(기준 1~4)까지 본다 */
+function OwnForm({ onSubmit, onClose, disabled, preset }: { onSubmit: (spec: Spec) => void; onClose: () => void; disabled?: boolean; preset?: Preset | null }) {
+  const [source, setSource] = useState(preset?.text ?? '')
+  const [lines, setLines] = useState(preset?.scenes ?? '')
   const ref = useRef<HTMLTextAreaElement>(null)
   useEffect(() => ref.current?.focus(), [])
   const scenes = lines.split('\n').map((l) => l.trim()).filter(Boolean)
   const src = source.trim()
   const long = scenes.findIndex((l) => l.length > SCENE_MAX)
   // 판정 서버(judge/serve.py)와 같은 한도. 비어 있을 때는 빨간 글을 보이지 않는다
-  const why = !src || !scenes.length ? ''
-    : src.length > SOURCE_MAX ? `넣은 글이 ${src.length.toLocaleString()}자입니다. ${SOURCE_MAX.toLocaleString()}자 이하로 줄여 주세요.`
+  const why = !scenes.length ? ''
+    : src.length > SOURCE_MAX ? `원래 글이 ${src.length.toLocaleString()}자입니다. ${SOURCE_MAX.toLocaleString()}자 이하로 줄여 주세요.`
       : scenes.length > SCENES_MAX ? `장면이 ${scenes.length}개입니다. ${SCENES_MAX}개 이하로 넣어 주세요.`
         : long >= 0 ? `${long + 1}번 장면이 ${scenes[long].length}자입니다. 장면 하나는 ${SCENE_MAX}자 이하로 넣어 주세요.` : ''
   return (
     <form
-      className="composer"
+      className="composer composer-own"
       onSubmit={(e) => {
         e.preventDefault()
-        if (!src || !scenes.length || why) return
+        if (!scenes.length || why) return
         onSubmit({ kind: 'own', source: src, scenes: scenes.map((text) => ({ text })) })
       }}
     >
-      <label htmlFor="own-source">넣은 글</label>
-      <textarea id="own-source" ref={ref} rows={6} value={source} onChange={(e) => setSource(e.target.value)}
-        placeholder="쇼더스에 넣은 기사나 블로그 글을 그대로 붙여 넣어 주세요. 대본의 사실을 이 글과 견줍니다." />
+      {/* 넓은 화면에서는 대본과 원래 글을 좌우로 나란히 둔다(style.css .own-grid) */}
+      <div className="own-grid">
+      <div className="own-col">
       <label htmlFor="own-scenes">대본</label>
-      <textarea id="own-scenes" rows={6} value={lines} onChange={(e) => setLines(e.target.value)} aria-describedby="own-hint"
+      <textarea id="own-scenes" ref={ref} rows={10} value={lines} onChange={(e) => setLines(e.target.value)} aria-describedby="own-hint"
         placeholder="장면마다 한 줄씩 넣어 주세요." />
-      <p id="own-hint" className="hint">장면 {SCENES_MAX}개, 장면 하나 {SCENE_MAX}자까지{scenes.length ? ` · 지금 장면 ${scenes.length}개` : ''}. 장면 길이는 글자 수로 어림합니다. 판정에는 30초쯤 걸리고, 보류·탈락이면 고친 대본까지 1분쯤 걸립니다.</p>
+      <p id="own-hint" className="hint">장면 {SCENES_MAX}개, 장면 하나 {SCENE_MAX}자까지{scenes.length ? ` · 지금 장면 ${scenes.length}개` : ''}. 장면 길이는 글자 수로 어림합니다.</p>
+      </div>
+      <div className="own-col">
+      <label htmlFor="own-source">원래 글 <span className="muted">(선택 · 대본을 만들 때 쓴 기사나 블로그 글)</span></label>
+      <textarea id="own-source" rows={10} value={source} onChange={(e) => setSource(e.target.value)} aria-describedby="own-source-hint"
+        placeholder="넣으면 대본이 원래 글과 같은 말을 하는지(틀린 내용이 없는지)도 봅니다." />
+      <p id="own-source-hint" className="hint">{src ? '원래 글과 견주어 틀린 내용까지 봅니다.' : '비워 두면 말투·길이·흐름만 보고, 내용이 맞는지는 보지 않습니다.'}</p>
+      </div>
+      </div>
+      <p className="hint">판정에는 30초쯤, 보류·탈락이면 고친 대본까지 1분쯤 걸립니다.</p>
       <div className="composer-actions">
-        <button type="submit" className="primary" disabled={!src || !scenes.length || !!why || disabled} aria-describedby={why ? 'own-why' : undefined}>판정하기</button>
+        <button type="submit" className="primary" disabled={!scenes.length || !!why || disabled} aria-describedby={why ? 'own-why' : undefined}>판정하기</button>
         <button type="button" className="ghost" onClick={onClose}>접기</button>
         {why && <span id="own-why" className="hint hint-error">{why}</span>}
       </div>
     </form>
   )
 }
+
 
 function TextForm({ onSubmit, onClose, disabled, preset }: { onSubmit: (spec: Spec) => void; onClose: () => void; disabled?: boolean; preset?: Preset | null }) {
   const [text, setText] = useState(preset?.text ?? '')
@@ -194,7 +229,7 @@ function TextForm({ onSubmit, onClose, disabled, preset }: { onSubmit: (spec: Sp
         else onSubmit({ kind: 'text', text: text.trim(), title: pastedTitle(text) })
       }}
     >
-      <label htmlFor="paste-text">쇼더스에 보낼 글</label>
+      <label htmlFor="paste-text">원래 글 <span className="muted">(쇼더스에 보낼 기사나 블로그 글)</span></label>
       <textarea id="paste-text" ref={ref} rows={8} value={text} onChange={(e) => setText(e.target.value)} aria-describedby="paste-text-hint"
         placeholder="기사나 블로그 글을 그대로 붙여 넣어 주세요. 첫 줄을 제목으로 씁니다." />
       <p id="paste-text-hint" className="hint">{TEXT_MIN}자 이상, {TEXT_MAX.toLocaleString()}자 이하{n ? ` · 지금 ${n.toLocaleString()}자` : ''}. 쇼더스가 대본을 만들면 이 글과 견주어 틀린 내용까지 확인합니다.</p>
@@ -284,7 +319,7 @@ function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy, full 
           : spec.kind === 'fresh' ? data.sources[spec.sourceId]?.text : spec.kind === 'text' ? spec.text : spec.source) || ''
         const what = [src ? `넣은 글 ${src.trim().length.toLocaleString()}자` : '', scenes.length ? `대본 ${scenes.length}장면` : ''].filter(Boolean).join(' · ')
         if (!what) return null
-        return f?.r
+        return f?.r && src
           ? <button type="button" className="ask-input" onClick={() => setQuery({ d: token, dt: 'source', dc: undefined })}>판정기에 넣은 것: {what} · 넣은 글 보기</button>
           : <p className="ask-input">판정기에 넣은 것: {what}</p>
       })()}
@@ -334,7 +369,8 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
 
   const submit = (spec: Spec) => addTurn(spec, query)
   // 첫 화면에서 입력 칸이 보이면(쇼더스 받기를 쓸 수 있으면) 단추는 그 대본의 원래 글을 칸에 채우기만 한다
-  const withFill = turns.length === 0 && !!live && !!freshOk && !full
+  // 첫 화면에서 입력 칸이 있으면(판정 서버가 있으면) 예시 단추는 칸을 채우기만 한다. 판정은 「판정하기」를 눌러야 시작한다
+  const withFill = turns.length === 0 && !!live
   // 확인이 끝났는지: 서버가 없다고 나왔거나, 쇼더스 받기 확인까지 끝났을 때
   const decided = live === false || (live !== undefined && freshOk !== undefined)
   const [preset, setPreset] = useState<Preset | null>(null)
@@ -348,7 +384,8 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
     const text = !src.title || firstLine.includes(src.title) ? body : `${src.title}\n\n${body}`
     // 판정 서버의 받기 목록(judge/fresh.py source_ids)은 모아 둔 대본(ordered)의 글과 같다(againOf 주석 참고)
     const freshable = list.some((x) => x.source_id === sid)
-    setPreset((p) => ({ n: (p?.n ?? 0) + 1, text, sourceId: freshable ? sid : undefined }))
+    const scenes = data.scripts.find((x) => x.id === scriptId)?.scenes.map((x) => x.text).join('\n') ?? ''
+    setPreset((p) => ({ n: (p?.n ?? 0) + 1, text, sourceId: freshable ? sid : undefined, scenes }))
   }
   const pick = (p: Pill) => (withFill && p.spec.kind === 'saved' ? fillFrom(p.spec.id) : addTurn(p.spec, query))
   let pills: Pill[]
@@ -387,9 +424,9 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
         {/* 판정 서버 확인(probeLive, probeFresh)이 끝나기 전에는 입력 칸과 단추 줄을 같이 숨긴다.
             어느 단추 줄인지(예시 글 넣기 / 바로 판정)가 확인 결과로 정해지기 때문. 끝나면 둘이 한 번에 나타난다 */}
         <div className={decided ? 'hero-below on' : 'hero-below'} aria-hidden={!decided} inert={!decided}>
-          {live && <Composer onSubmit={submit} preset={preset} full={full} direct={!freshOk || full} />}
+          {live && <Composer onSubmit={submit} preset={preset} full={full} canFresh={!!freshOk} />}
           <div className="saved-picks">
-            <p className="hint">{withFill ? '예시 글 넣기:' : '모아 둔 대본으로 바로 판정:'}</p>
+            <p className="hint">{withFill ? '예시 넣기:' : '모아 둔 대본으로 바로 판정:'}</p>
             <Pills pills={pills} onPick={pick} disabled={!decided} />
           </div>
         </div>
@@ -416,7 +453,7 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
       })}
       <div className="feed-bottom" ref={bottom}>
         <div className="feed-bottom-in">
-          {live && <Composer onSubmit={submit} disabled={busy} compact full={full} direct={!freshOk || full} />}
+          {live && <Composer onSubmit={submit} disabled={busy} compact full={full} canFresh={!!freshOk} />}
           <Pills pills={pills} onPick={pick} disabled={busy} row />
         </div>
       </div>

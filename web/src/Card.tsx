@@ -233,8 +233,9 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
   const v = r?.verdict
   const notChecked = r ? r.source_given === false || Object.values(r.criteria).some((c) => c.not_checked) : false
   const n = shownScenes.length
-  const lead = notChecked ? `대본 ${n}장면을 봤어요. 넣은 글이 없어서 내용은 못 맞춰 봤어요.` : `대본 ${n}장면을 넣은 글과 맞춰 봤어요.`
-  const end = !v ? '' : v === pass ? (r!.decision?.action === 'render_revised' ? '표기만 고친 대본으로 만들어요.' : r!.flagged.length ? '이 대본 그대로 만들어요.' : '고칠 곳이 없어요. 이 대본 그대로 만들어요.')
+  const lead = notChecked ? `대본 ${n}장면을 봤어요. 원래 글이 없어서 내용이 맞는지는 보지 않았어요.` : `대본 ${n}장면을 넣은 글과 맞춰 봤어요.`
+  const end = !v ? '' : v === pass ? (notChecked ? '말투·길이·흐름에는 걸린 곳이 없어요. 내용이 맞는지는 원래 글을 넣어야 볼 수 있어요.'
+      : r!.decision?.action === 'render_revised' ? '표기만 고친 대본으로 만들어요.' : r!.flagged.length ? '이 대본 그대로 만들어요.' : '고칠 곳이 없어요. 이 대본 그대로 만들어요.')
     : v === hold ? (p.count ? `${p.count}곳이 걸렸어요.` : '걸린 곳이 있어요.')
       : v === fail ? '넣은 글과 다른 내용이 있어 이대로는 안 돼요.'
         : '몇 가지를 판정하지 못했어요.'

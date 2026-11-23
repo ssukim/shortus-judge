@@ -202,13 +202,15 @@ def vote(results):
             "usage": usage, "error": None if ok else base["error"]}
 
 
-def run(model, sections, source, on_group=None):
-    """on_group(묶음, 결과): 묶음 하나의 답(여러 번 물으면 다수결까지)이 끝날 때마다 부른다. 판정 서버가 흘려보낼 때 쓴다."""
+def run(model, sections, source, on_group=None, groups=None):
+    """on_group(묶음, 결과): 묶음 하나의 답(여러 번 물으면 다수결까지)이 끝날 때마다 부른다. 판정 서버가 흘려보낼 때 쓴다.
+    groups: 물을 묶음(기본은 모두). 원래 글이 없으면 구성 묶음만 묻는다(judge/core.py)."""
     rubric = load_rubric()
-    jobs = [(g, k) for g in GROUPS for k in range(config.VOTES.get(g, 1))]
+    groups = groups or tuple(GROUPS)
+    jobs = [(g, k) for g in groups for k in range(config.VOTES.get(g, 1))]
     with ThreadPoolExecutor(max_workers=len(jobs)) as ex:
         futs = {ex.submit(ask_group, g, model, rubric, sections, source): (g, k) for g, k in jobs}
-        got, out = {g: {} for g in GROUPS}, {}
+        got, out = {g: {} for g in groups}, {}
         for f in as_completed(futs):
             g, k = futs[f]
             got[g][k] = f.result()
@@ -217,4 +219,4 @@ def run(model, sections, source, on_group=None):
                 out[g] = rs[0] if len(rs) == 1 else vote(rs)
                 if on_group:
                     on_group(g, out[g])
-        return {g: out[g] for g in GROUPS}
+        return {g: out[g] for g in groups}
