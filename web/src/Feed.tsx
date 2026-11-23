@@ -115,9 +115,12 @@ function Composer({ onSubmit, disabled, compact, preset, full, canFresh }: {
   const [fill, setFill] = useState<Preset | null>(null) // 접으면 비운다(다시 열면 빈 칸)
   // 쇼더스를 쓸 수 있는지는 화면을 그린 뒤에 알게 된다. 칸을 열기 전이면 그에 맞춰 기본 탭을 바꾼다
   useEffect(() => { if (!open || !freshOn) setMode(freshOn ? 'fresh' : 'own') }, [freshOn])
-  // 예시 단추: 지금 탭의 칸을 채운다(쇼더스 탭은 원래 글, 가진 대본 탭은 대본과 원래 글)
+  // 예시 단추: 지금 탭의 칸을 채운다(쇼더스 탭은 원래 글, 가진 대본 탭은 대본과 원래 글).
+  // 칸이 처음 그려질 때 이미 있던 예시(첫 화면에서 채우고 판정한 것)는 다시 열지 않는다
+  const seenPreset = useRef(preset?.n)
   useEffect(() => {
-    if (!preset) return
+    if (!preset || preset.n === seenPreset.current) return
+    seenPreset.current = preset.n
     setFill(preset)
     setOpen(true)
   }, [preset?.n])
@@ -370,7 +373,8 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
   const submit = (spec: Spec) => addTurn(spec, query)
   // 첫 화면에서 입력 칸이 보이면(쇼더스 받기를 쓸 수 있으면) 단추는 그 대본의 원래 글을 칸에 채우기만 한다
   // 첫 화면에서 입력 칸이 있으면(판정 서버가 있으면) 예시 단추는 칸을 채우기만 한다. 판정은 「판정하기」를 눌러야 시작한다
-  const withFill = turns.length === 0 && !!live
+  // 판정 서버가 있으면 예시 단추는 첫 화면이든 아래 고정 영역이든 입력 칸을 채우기만 한다. 판정은 「판정하기」를 눌러야 시작한다
+  const withFill = !!live
   // 확인이 끝났는지: 서버가 없다고 나왔거나, 쇼더스 받기 확인까지 끝났을 때
   const decided = live === false || (live !== undefined && freshOk !== undefined)
   const [preset, setPreset] = useState<Preset | null>(null)
@@ -386,7 +390,10 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
     const freshable = list.some((x) => x.source_id === sid)
     const scenes = data.scripts.find((x) => x.id === scriptId)?.scenes.map((x) => x.text).join('\n') ?? ''
     setPreset((p) => ({ n: (p?.n ?? 0) + 1, text, sourceId: freshable ? sid : undefined, scenes }))
+    setLastFilled(scriptId)
   }
+  // 아래 「다음 예시 넣기」가 마지막으로 채운 대본. 누를 때마다 그다음 예시로 넘어간다
+  const [lastFilled, setLastFilled] = useState<string | null>(null)
   const pick = (p: Pill) => (withFill && p.spec.kind === 'saved' ? fillFrom(p.spec.id) : addTurn(p.spec, query))
   let pills: Pill[]
   if (turns.length === 0) {
@@ -395,12 +402,13 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
     ]
   } else {
     const last = turns[turns.length - 1].spec
-    const lastSaved = last.kind === 'saved' ? last.id : undefined
-    const lastSource = last.kind === 'saved' ? data.scripts.find((x) => x.id === last.id)?.source_id : last.kind === 'fresh' ? last.sourceId : undefined
+    // 기준: 마지막으로 채운 예시, 없으면 마지막 차례
+    const lastSaved = lastFilled ?? (last.kind === 'saved' ? last.id : undefined)
+    const lastSource = lastSaved ? data.scripts.find((x) => x.id === lastSaved)?.source_id : last.kind === 'fresh' ? last.sourceId : undefined
     const i = lastSaved ? list.findIndex((x) => x.id === lastSaved) : -1
     // 다음 대본: 다른 글로 만든 것. 같은 글의 다른 대본은 차례 아래 「같은 글로 쇼더스 대본 한 번 더 받기」가 맡는다
     const next = [...list.slice(i + 1), ...list.slice(0, i + 1)].find((x) => x.source_id !== lastSource) ?? list[(i + 1) % list.length]
-    pills = [{ label: `모아 둔 다음 대본: ${titleOf(data, next)}`, spec: { kind: 'saved', id: next.id } }]
+    pills = [{ label: `${withFill ? '다음 예시 넣기' : '모아 둔 다음 대본'}: ${titleOf(data, next)}`, spec: { kind: 'saved', id: next.id } }]
   }
 
   // 아래 고정 영역의 실제 높이: feed 아래 여백과 따라가기(follow.ts)가 쓴다
@@ -453,7 +461,7 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
       })}
       <div className="feed-bottom" ref={bottom}>
         <div className="feed-bottom-in">
-          {live && <Composer onSubmit={submit} disabled={busy} compact full={full} canFresh={!!freshOk} />}
+          {live && <Composer onSubmit={submit} disabled={busy} compact preset={preset} full={full} canFresh={!!freshOk} />}
           <Pills pills={pills} onPick={pick} disabled={busy} row />
         </div>
       </div>
