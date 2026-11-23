@@ -1,0 +1,215 @@
+{
+ "id": "blog-16-g2",
+ "source_id": "blog-16",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  5,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "단 2만 원대로 줄어들었어요.",
+     "source_quote": "단, 이건 첫 7개월 할인 가격이고 8개월째부터는 32,000원으로 오른다고 해요.",
+     "reason": "넣은 글의 2만 원대 요금이 첫 7개월 할인 가격이라는 기한과 8개월째 인상 사실이 대본에서 빠져 요금이 계속 2만 원대라고 오해하게 된다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "89,000원을",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액",
+     "fix": "8만 9000원을"
+    },
+    {
+     "scene": 3,
+     "quote": "11GB밖에",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "11기가바이트밖에"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 무제한 요금제를 쓰면서 매달 큰 비용을 지불해 왔습니다.",
+     "source_quote": "저는 원래 통신사 무제한 요금제를 쓰면서 월 89,000원을 냈어요.",
+     "reason": "앞뒤 장면은 말하는 사람이 드러나지 않거나 '발견했죠'처럼 구어로 말하는데, 이 장면만 '글쓴이는'이라는 3인칭 문서체로 바뀌어 말하는 사람이 까닭 없이 달라진다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.0,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "지금 쓰는 요금제는 데이터 15GB에 통화·문자 기본 제공으로 월 24,900원이에요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "저는 원래 통신사 무제한 요금제를 쓰면서 월 89,000원을 냈어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "근데 제 데이터 사용량을 확인해 보니 지난 6개월 평균이 한 달 11GB밖에 안 되더라고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "옮기기 전에 꼭 확인하셔야 할 게 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "그래도 원래보다 월 5만 원 넘게 아끼는 셈이에요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "월 89,000원을 내던 통신비가 단 2만 원대로 줄어들었어요.",
+   "estimated_sec": 5.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 무제한 요금제를 쓰면서 매달 큰 비용을 지불해 왔습니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "데이터 사용량을 확인해 보니 한 달 평균 11GB밖에 안 쓴다는 사실을 발견했죠.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "알뜰폰으로 옮기기 전 약정 위약금과 가족 결합 할인 여부를 꼼꼼히 확인했습니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 월 5만 원 넘게 아끼는 요금제로 갈아탔습니다.",
+   "estimated_sec": 5.1
+  }
+ ],
+ "fixed_scenes": [
+  "월 팔만 구천원을 내던 통신비가 단 이만 원대로 줄어들었어요.",
+  "글쓴이는 무제한 요금제를 쓰면서 매달 큰 비용을 지불해 왔습니다.",
+  "데이터 사용량을 확인해 보니 한 달 평균 십일 기가바이트밖에 안 쓴다는 사실을 발견했죠.",
+  "알뜰폰으로 옮기기 전 약정 위약금과 가족 결합 할인 여부를 꼼꼼히 확인했습니다.",
+  "결국 월 오만 원 넘게 아끼는 요금제로 갈아탔습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.5,
+    "input_tokens": 2,
+    "output_tokens": 7181,
+    "cache_creation_input_tokens": 5051,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00422
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 27.0,
+    "input_tokens": 2,
+    "output_tokens": 6656,
+    "cache_creation_input_tokens": 5052,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00396
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.4,
+    "input_tokens": 2,
+    "output_tokens": 4762,
+    "cache_creation_input_tokens": 5052,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00301
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.3,
+    "input_tokens": 2,
+    "output_tokens": 2635,
+    "cache_creation_input_tokens": 3111,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00171
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 21234,
+   "cache_creation_input_tokens": 18266,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.0129,
+  "sec": 29.5
+ }
+}

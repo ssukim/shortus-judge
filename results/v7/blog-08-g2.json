@@ -1,0 +1,225 @@
+{
+ "id": "blog-08-g2",
+ "source_id": "blog-08",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  3,
+  5,
+  6,
+  8
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 한 달 동안 매일 9천 보 가까이 걷는 습관을 가졌습니다.",
+     "source_quote": "처음 일주일은 하루 평균 6천 보 정도였는데, 지금은 9천 보 가까이 걸어요.",
+     "reason": "9천 보가 한 달 내내 유지된 것처럼 들리지만 넣은 글은 첫 주 6천 보에서 늘어난 현재 수치라서 틀린 사실이 된다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "퇴근 후 30분씩 걷기만 시작했는데 잠드는 시간이 1시간에서 20분으로 줄었어요.",
+     "source_quote": "다만 이것도 걷기 때문인지, 휴대폰을 침대에 안 가져가기 시작해서인지는 잘 모르겠어요.",
+     "reason": "글쓴이가 원인을 모른다고 한 수면 개선을 '걷기만' 때문인 것처럼 단정하는 말이 되었다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "1.2kg",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "1.2킬로그램"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 한 달 동안 매일 9천 보 가까이 걷는 습관을 가졌습니다.",
+     "source_quote": "",
+     "reason": "장면 1은 '저'가 말하는 듯 쓰다가 장면 2에서 '글쓴이는'으로 말하는 사람이 까닭 없이 바뀐다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "퇴근 후 30분씩 걷기만 시작했는데 잠드는 시간이 1시간에서 20분으로 줄었어요.",
+     "source_quote": "다만 이것도 걷기 때문인지, 휴대폰을 침대에 안 가져가기 시작해서인지는 잘 모르겠어요.",
+     "reason": "장면 1이 던진 수면 변화의 궁금증을 장면 2~5에서 다시 다루지 않으며, 넣은 글의 원인 불확실성도 전하지 않고 '걷기만'으로 원인을 암시한다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "퇴근하고 30분씩 걷기를 시작한 지 한 달이 됐어요. 제일 달라진 건 잠이에요. 예전엔 누워서 한 시간 넘게 뒤척였는데, 요즘은 20분이면 잠들어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "처음 일주일은 하루 평균 6천 보 정도였는데, 지금은 9천 보 가까이 걸어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "식단은 따로 바꾸지 않았고, 야식만 주 5번에서 주 2번으로 줄였어요. 그래서 걷기만의 효과라고 하긴 어려워요. 체중은 한 달 동안 1.2kg 줄었어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "3주째부터 발바닥이 아파서 쿠션 있는 걷기용 신발로 바꿨어요. 7만 9천 원 들었고, 바꾼 뒤로는 통증이 없어졌어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다음 달 목표는 하루 1만 보예요. 비 오는 날엔 아파트 계단을 오르는 걸로 대신하려고요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "퇴근 후 30분씩 걷기만 시작했는데 잠드는 시간이 1시간에서 20분으로 줄었어요.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 한 달 동안 매일 9천 보 가까이 걷는 습관을 가졌습니다.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "식단 변화 없이 야식을 줄였고 체중도 1.2kg 정도 감량했죠.",
+   "estimated_sec": 5.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "걷기 운동 중 발바닥 통증이 생겨 7만 9천 원짜리 쿠션 운동화로 바꿨습니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "다음 달 목표는 비가 와도 계단을 오르며 하루 1만 보를 채우는 것이에요.",
+   "estimated_sec": 7.0
+  }
+ ],
+ "fixed_scenes": [
+  "퇴근 후 삼십 분씩 걷기만 시작했는데 잠드는 시간이 한 시간에서 이십 분으로 줄었어요.",
+  "글쓴이는 한 달 동안 매일 9천 보 가까이 걷는 습관을 가졌습니다.",
+  "식단 변화 없이 야식을 줄였고 체중도 일 점 이 킬로그램 정도 감량했죠.",
+  "걷기 운동 중 발바닥 통증이 생겨 칠만 구천 원짜리 쿠션 운동화로 바꿨습니다.",
+  "다음 달 목표는 비가 와도 계단을 오르며 하루 일만 보를 채우는 것이에요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 27.2,
+    "input_tokens": 2,
+    "output_tokens": 6654,
+    "cache_creation_input_tokens": 4938,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00394
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.0,
+    "input_tokens": 2,
+    "output_tokens": 5789,
+    "cache_creation_input_tokens": 4938,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00351
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 35.2,
+    "input_tokens": 2,
+    "output_tokens": 8543,
+    "cache_creation_input_tokens": 4939,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00489
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.0,
+    "input_tokens": 2,
+    "output_tokens": 2130,
+    "cache_creation_input_tokens": 2999,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00144
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 23116,
+   "cache_creation_input_tokens": 17814,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01378,
+  "sec": 35.2
+ }
+}

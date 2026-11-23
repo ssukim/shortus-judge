@@ -1,0 +1,218 @@
+{
+ "id": "blog-03-g2",
+ "source_id": "blog-03",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  5,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "5km를",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "5킬로미터를"
+    },
+    {
+     "scene": 3,
+     "quote": "1km만",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "1킬로미터만"
+    },
+    {
+     "scene": 4,
+     "quote": "10km",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "10킬로미터"
+    },
+    {
+     "scene": 5,
+     "quote": "7km씩",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "7킬로미터씩"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "무릎 통증이 줄어들며",
+     "source_quote": "확실히 무릎이 덜 아프다",
+     "reason": "\"~며\" 연결은 문서에서 쓰는 말투라 말하듯 쓴 문장이 아닙니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 27.7,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "러닝 시작한 지 딱 8주 됐다. … 오늘 처음으로 쉬지 않고 5km를 뛰었다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "주 3회, 월·수·토에 동네 하천 길을 뛰고 있다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "처음엔 1km만 뛰어도 숨이 차서 걷다 뛰다를 반복했는데"
+  },
+  {
+   "scene": 4,
+   "source_quote": "신발은 지난달에 8만 9,000원 주고 새로 샀는데 확실히 무릎이 덜 아프다. … 다음 목표는 12월 14일에 열리는 동네 10km 대회다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "남은 3주 동안은 토요일마다 7km씩 뛰어 볼 생각이다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "러닝을 시작한 지 8주 만에 쉬지 않고 5km를 완주했대요.",
+   "estimated_sec": 5.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "이 네티즌은 매주 월요일과 수요일 그리고 토요일에 하천 길을 뛰었습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "처음에는 1km만 뛰어도 숨이 차서 걷다 뛰다를 반복하는 수준이었죠.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "새로 산 신발 덕분에 무릎 통증이 줄어들며 목표인 10km 대회도 준비 중입니다.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "남은 3주 동안은 토요일마다 7km씩 뛰기로 했답니다.",
+   "estimated_sec": 5.3
+  }
+ ],
+ "fixed_scenes": [
+  "러닝을 시작한 지 팔 주 만에 쉬지 않고 오 킬로미터를 완주했대요.",
+  "이 네티즌은 매주 월요일과 수요일 그리고 토요일에 하천 길을 뛰었습니다.",
+  "처음에는 일 킬로미터만 뛰어도 숨이 차서 걷다 뛰다를 반복하는 수준이었죠.",
+  "새로 산 신발 덕분에 무릎 통증이 줄어들며 목표인 십 킬로미터 대회도 준비 중입니다.",
+  "남은 삼 주 동안은 토요일마다 칠 킬로미터씩 뛰기로 했답니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.7,
+    "input_tokens": 2,
+    "output_tokens": 3758,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4453,
+    "cost_usd": 0.00197
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.1,
+    "input_tokens": 2,
+    "output_tokens": 2694,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4453,
+    "cost_usd": 0.00144
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.5,
+    "input_tokens": 2,
+    "output_tokens": 3393,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4453,
+    "cost_usd": 0.00179
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.4,
+    "input_tokens": 2,
+    "output_tokens": 1635,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2513,
+    "cost_usd": 0.00089
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 11480,
+   "cache_creation_input_tokens": 1574,
+   "cache_read_input_tokens": 15872
+  },
+  "cost_usd_est": 0.00609,
+  "sec": 17.8
+ }
+}

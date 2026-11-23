@@ -1,0 +1,193 @@
+{
+ "id": "product-11-g2",
+ "source_id": "product-11",
+ "verdict": "보류",
+ "why": [
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "물에 강한 소재를 사용해 비 오는 날에도 안이 젖지 않고 손세척이 가능해요.",
+     "source_quote": "장바구니 천은 물에 강한 소재라 비 오는 날에도 안이 젖지 않아요.",
+     "reason": "\"사용해\", \"가능해요\"는 말하기보다 문서에서 쓰는 어휘라 듣기에 어색합니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.0,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "짐의 무게 때문에 이동이 번거롭고 힘들기 때문이죠.",
+     "source_quote": "",
+     "reason": "장면 1과 같은 요점인 '무거운 짐 때문에 이동이 힘들다'를 낱말만 바꿔 되풀이하고 새 사실을 더하지 않습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": ""
+  },
+  {
+   "scene": 2,
+   "source_quote": ""
+  },
+  {
+   "scene": 3,
+   "source_quote": "펼칠 때는 손잡이를 당기기만 하면 돼요. 바퀴가 네 개라 손을 놓아도 혼자 서 있고, 앞뒤로 밀고 끌 수 있어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "장바구니 천은 물에 강한 소재라 비 오는 날에도 안이 젖지 않아요. 떼어서 손으로 빨 수도 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "무거운 장보기, 이제 척척카트에 맡기세요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "무거운 장바구니를 들고 이동할 때 손목에 무리가 가는 상황은 늘 반복됐어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "장을 많이 보는 날에는 짐의 무게 때문에 이동이 번거롭고 힘들기 때문이죠.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "척척카트는 손잡이를 당기면 펼쳐지고 바퀴가 네 개라 혼자 서 있거나 밀고 끌 수 있습니다.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "물에 강한 소재를 사용해 비 오는 날에도 안이 젖지 않고 손세척이 가능해요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "무거운 장보기는 이제 척척카트에 맡기세요.",
+   "estimated_sec": 4.3
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.2,
+    "input_tokens": 2,
+    "output_tokens": 3876,
+    "cache_creation_input_tokens": 4764,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00253
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.4,
+    "input_tokens": 2,
+    "output_tokens": 2793,
+    "cache_creation_input_tokens": 4764,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00199
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.8,
+    "input_tokens": 2,
+    "output_tokens": 3852,
+    "cache_creation_input_tokens": 4765,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00252
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.0,
+    "input_tokens": 2,
+    "output_tokens": 2389,
+    "cache_creation_input_tokens": 2825,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00155
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 12910,
+   "cache_creation_input_tokens": 17118,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00859,
+  "sec": 16.8
+ }
+}

@@ -1,0 +1,209 @@
+{
+ "id": "community-07-g1",
+ "source_id": "community-07",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  6,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "지갑을 주워 드린 할아버지가 건네준 사탕 때문에 지하철을 놓쳤어요.",
+     "source_quote": "제가 주워서 따라 내렸는데 할아버지가 벌써 계단 쪽으로 가셔서 뛰어가서 겨우 드렸어요.",
+     "reason": "지하철을 놓친 원인은 지갑을 뛰어가 돌려드린 일인데, 대본은 사탕 때문이라고 원인을 바꿔 말했다."
+    },
+    {
+     "scene": 4,
+     "quote": "사탕을 하나 꺼내 주셨고 그 바람에 글쓴이는 열차를 놓쳤대요.",
+     "source_quote": "제가 주워서 따라 내렸는데 할아버지가 벌써 계단 쪽으로 가셔서 뛰어가서 겨우 드렸어요.",
+     "reason": "열차를 놓친 원인이 지갑을 돌려드리느라 뛰어간 일인데, 대본은 사탕을 받은 일 때문이라고 원인을 바꿔 말했다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "글쓴이는 지갑을 주워 할아버지를 뒤쫓아 달려가 건네드렸습니다.",
+     "source_quote": "",
+     "reason": "장면 2·4·5는 '~대요'로 전하다가 장면 3에서 까닭 없이 '글쓴이는'이라는 3인칭 문서체로 바뀝니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "할아버지는 고맙다며 사탕을 하나 꺼내 주셨고 그 바람에 글쓴이는 열차를 놓쳤대요.",
+     "source_quote": "",
+     "reason": "첫 장면의 '사탕 때문에 지하철을 놓쳤어요'와 같은 요점(사탕 받음 → 열차를 놓침)을 말만 바꿔 되풀이합니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "지하철에서 앞에 앉아 계시던 할아버지가 내리시면서 지갑을 떨어뜨리셨어요. 제가 주워서 따라 내렸는데 할아버지가 벌써 계단 쪽으로 가셔서 뛰어가서 겨우 드렸어요. 할아버지가 고맙다고 하시면서 주머니에서 사탕을 하나 꺼내 주시더라고요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지하철에서 앞에 앉아 계시던 할아버지가 내리시면서 지갑을 떨어뜨리셨어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "제가 주워서 따라 내렸는데 할아버지가 벌써 계단 쪽으로 가셔서 뛰어가서 겨우 드렸어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "할아버지가 고맙다고 하시면서 주머니에서 사탕을 하나 꺼내 주시더라고요. 괜찮다고 했는데 꼭 받으라고 하셔서 받았어요. 문제는 제가 그 바람에 타고 있던 지하철을 놓쳤다는 거예요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "팀장님께 사정을 말씀드렸더니 웃으면서 잘했다고 해 주셨어요. 사탕은 아직 책상 위에 두고 있어요. 아까워서 못 먹겠어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "지갑을 주워 드린 할아버지가 건네준 사탕 때문에 지하철을 놓쳤어요.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "출근길 지하철에서 앞좌석 할아버지가 지갑을 떨어뜨리는 걸 발견했대요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "글쓴이는 지갑을 주워 할아버지를 뒤쫓아 달려가 건네드렸습니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "할아버지는 고맙다며 사탕을 하나 꺼내 주셨고 그 바람에 글쓴이는 열차를 놓쳤대요.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "팀장님은 잘했다고 칭찬해 주셨고 사탕은 아까워서 책상에 두었대요.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.0,
+    "input_tokens": 2,
+    "output_tokens": 6221,
+    "cache_creation_input_tokens": 4872,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00372
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.1,
+    "input_tokens": 2,
+    "output_tokens": 5211,
+    "cache_creation_input_tokens": 4873,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00321
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.4,
+    "input_tokens": 2,
+    "output_tokens": 4023,
+    "cache_creation_input_tokens": 4875,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00262
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 16.8,
+    "input_tokens": 2,
+    "output_tokens": 3712,
+    "cache_creation_input_tokens": 2933,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00222
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 19167,
+   "cache_creation_input_tokens": 17553,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01177,
+  "sec": 24.0
+ }
+}

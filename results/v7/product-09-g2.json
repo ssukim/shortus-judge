@@ -1,0 +1,186 @@
+{
+ "id": "product-09-g2",
+ "source_id": "product-09",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "텀블러 뚜껑을 열고 닫을 때 한 손으로 조작하기 힘들면 불편합니다.",
+     "source_quote": "뚜껑은 한 손으로 열고 닫을 수 있고",
+     "reason": "한 손 개폐가 온기한잔의 기능이라는 말이 대본에 없어 시청자가 이 장면의 해결책을 알 수 없습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "가방에 넣어도 새지 않게 실리콘 마개가 들어 있어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "뚜껑은 한 손으로 열고 닫을 수 있고, 가방에 넣어도 새지 않게 실리콘 마개가 들어 있어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "온기한잔은 이중 진공 구조라 따뜻한 음료를 오래 따뜻하게 지켜 줘요. 가방에 넣어도 새지 않게 실리콘 마개가 들어 있어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "손이 작은 분도 잡기 편하게 가운데를 살짝 잘록하게 만들었어요. 바닥에는 미끄럼 방지 고무가 붙어 있어 책상 위에서도 안정적이에요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "색은 크림, 초록, 남색 세 가지가 있어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "가방에 텀블러를 넣었는데 내용물이 새서 엉망이 된 적이 있었죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "텀블러 뚜껑을 열고 닫을 때 한 손으로 조작하기 힘들면 불편합니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "온기한잔은 이중 진공 구조로 온도를 유지하고 실리콘 마개로 누수를 막아줍니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "가운데를 잘록하게 만들어 손이 작은 사람도 잡기 편하고 미끄럼 방지 고무도 붙었습니다.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 5,
+   "role": "point",
+   "text": "크림, 초록, 남색 세 가지 색상 중에서 선택할 수 있습니다.",
+   "estimated_sec": 5.2
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.7,
+    "input_tokens": 2,
+    "output_tokens": 4263,
+    "cache_creation_input_tokens": 4812,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00273
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.4,
+    "input_tokens": 2,
+    "output_tokens": 5214,
+    "cache_creation_input_tokens": 4813,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00321
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 11.7,
+    "input_tokens": 2,
+    "output_tokens": 2784,
+    "cache_creation_input_tokens": 4814,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00199
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.1,
+    "input_tokens": 2,
+    "output_tokens": 1767,
+    "cache_creation_input_tokens": 2874,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00124
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 14028,
+   "cache_creation_input_tokens": 17313,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00917,
+  "sec": 21.4
+ }
+}

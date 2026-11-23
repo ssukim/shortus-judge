@@ -1,0 +1,192 @@
+{
+ "id": "community-12-g1",
+ "source_id": "community-12",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "CCTV를",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "비가 와서 맡아두었다는 포스트잇이 붙어 있었답니다",
+     "source_quote": "비 와서 맡아 둠. 옆집.",
+     "reason": "장면 4에서 이미 말한 '비 오면 젖을까 봐 할머니가 대신 보관했다'는 요점을 포스트잇 내용으로 다시 말하고 있어 새 사실 없이 되풀이된다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "한 달 전부터 택배가 문 앞에 왔다고 문자가 오는데 막상 나가 보면 없는 거임."
+  },
+  {
+   "scene": 2,
+   "source_quote": "처음엔 배송 실수인 줄 알았는데 세 번째 되니까 너무 이상한 거야."
+  },
+  {
+   "scene": 3,
+   "source_quote": "화면 보는데 옆집 할머니가 내 택배 상자를 딱 들고 들어가시는 거..."
+  },
+  {
+   "scene": 4,
+   "source_quote": "알고 보니 우리 층 복도가 창문 쪽이라 비 오면 물이 들이친대. 상자 젖을까 봐 그때마다 들여놨다가"
+  },
+  {
+   "scene": 5,
+   "source_quote": "비 와서 맡아 둠. 옆집."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "문 앞에 온 택배가 매번 사라지는 일이 한 달 동안 반복됐어요.",
+   "estimated_sec": 5.7
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 배송 실수인 줄 알았지만 세 번째 반복되자 이상함을 느꼈죠.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "관리실에서 복도 CCTV를 확인한 결과 옆집 할머니가 상자를 들고 들어갔습니다.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "비가 오면 택배가 젖을까 봐 할머니가 대신 보관해 준 것이었죠.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "상자 위에는 비가 와서 맡아두었다는 포스트잇이 붙어 있었답니다.",
+   "estimated_sec": 6.4
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.0,
+    "input_tokens": 2,
+    "output_tokens": 4839,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4610,
+    "cost_usd": 0.00251
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.5,
+    "input_tokens": 2,
+    "output_tokens": 2986,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4610,
+    "cost_usd": 0.00159
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.0,
+    "input_tokens": 2,
+    "output_tokens": 4306,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4610,
+    "cost_usd": 0.00225
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.2,
+    "input_tokens": 2,
+    "output_tokens": 2000,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2670,
+    "cost_usd": 0.00108
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 14131,
+   "cache_creation_input_tokens": 1571,
+   "cache_read_input_tokens": 16500
+  },
+  "cost_usd_est": 0.00743,
+  "sec": 20.0
+ }
+}

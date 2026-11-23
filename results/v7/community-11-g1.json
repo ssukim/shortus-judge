@@ -1,0 +1,201 @@
+{
+ "id": "community-11-g1",
+ "source_id": "community-11",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "하지만 사장님은 손님이 없는 대기 시간은 근무로 인정하지 않는다는 입장입니다.",
+     "source_quote": "그럼 하루 5시간, 주 20시간인데 그래도 15시간 넘는 거 아닌가요ㅋㅋ",
+     "reason": "대기 시간을 빼도 주 20시간으로 15시간을 넘는다는 핵심 반박이 빠져 사장님 주장만 남는다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 34.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "하지만 사장님은 손님이 없는 대기 시간은 근무로 인정하지 않는다는 입장입니다.",
+     "source_quote": "근데 사장님 말로는 새벽 2시부터 4시까지는 손님이 거의 없어서 \"대기 시간\"이라 근무로 안 친대요.",
+     "reason": "장면 1에서 이미 말한 사장님의 새벽 2~4시 근무 제외를 말만 바꿔 같은 요점으로 되풀이하고 새 사실을 더하지 않았습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 사장님 말로는 새벽 2시부터 4시까지는 손님이 거의 없어서 \"대기 시간\"이라 근무로 안 친대요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "저 주 4일, 밤 10시부터 아침 6시까지 일해요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "제가 계산해 보면 하루 8시간 중에 쉬는 시간이 1시간이라 쳐도 7시간 곱하기 4일이면 28시간이거든요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "근데 사장님 말로는 새벽 2시부터 4시까지는 손님이 거의 없어서 \"대기 시간\"이라 근무로 안 친대요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "제가 다음 학기 등록금 때문에 12월까지는 꼭 일해야 해서 잘리면 안 되거든요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "편의점 사장님이 새벽 2시부터 4시까지는 근무 시간에서 빼겠다고 했습니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "주 4일 밤 10시부터 아침 6시까지 일하는 알바생은 주휴수당을 못 받았대요.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "글쓴이가 계산해보니 쉬는 시간을 빼도 주 28시간이라 15시간을 훨씬 넘는 상황입니다.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "하지만 사장님은 손님이 없는 대기 시간은 근무로 인정하지 않는다는 입장입니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "등록금 때문에 12월까지 잘리지 않고 버티는 게 맞을지 고민 중이라네요.",
+   "estimated_sec": 7.0
+  }
+ ],
+ "fixed_scenes": [
+  "편의점 사장님이 새벽 두 시부터 네 시까지는 근무 시간에서 빼겠다고 했습니다.",
+  "주 4일 밤 열 시부터 아침 여섯 시까지 일하는 알바생은 주휴수당을 못 받았대요.",
+  "글쓴이가 계산해보니 쉬는 시간을 빼도 주 스물여덟 시간이라 열다섯 시간을 훨씬 넘는 상황입니다.",
+  "하지만 사장님은 손님이 없는 대기 시간은 근무로 인정하지 않는다는 입장입니다.",
+  "등록금 때문에 12월까지 잘리지 않고 버티는 게 맞을지 고민 중이라네요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 37.2,
+    "input_tokens": 2,
+    "output_tokens": 9018,
+    "cache_creation_input_tokens": 5079,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00514
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 30.2,
+    "input_tokens": 2,
+    "output_tokens": 7185,
+    "cache_creation_input_tokens": 5083,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00423
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.2,
+    "input_tokens": 2,
+    "output_tokens": 5323,
+    "cache_creation_input_tokens": 5083,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0033
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.9,
+    "input_tokens": 2,
+    "output_tokens": 2314,
+    "cache_creation_input_tokens": 3143,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00155
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 23840,
+   "cache_creation_input_tokens": 18388,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01422,
+  "sec": 37.2
+ }
+}

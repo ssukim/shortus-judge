@@ -1,0 +1,207 @@
+{
+ "id": "community-03-g2",
+ "source_id": "community-03",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  4
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "병원비가 10만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요.",
+     "source_quote": "동네 병원은 기본 진료비가 1만 5,000원인데 피검사까지 하면 10만 원 넘게 나온다고 들었거든요.",
+     "reason": "10만 원은 피검사를 포함한 비용인데 병원비 전반으로 바뀌었고, 사료 교체 고민의 이유로 잘못 연결되었습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "몸무게가 한 달 만에 4.8킬로그램에서 4.5킬로그램으로 줄었죠.",
+     "source_quote": "몸무게는 지난달 동물병원에서 쟀을 때 4.8kg이었는데 어제 집에서 재 보니까 4.5kg이더라고요.",
+     "reason": "4.8kg은 동물병원, 4.5kg은 집에서 잰 값이라는 측정 조건이 빠져 같은 기준의 비교처럼 들립니다."
+    },
+    {
+     "scene": 5,
+     "quote": "사료를 다시 바꿀지 고민 중이래요.",
+     "source_quote": "아니면 그냥 병원 먼저 가 보는 게 맞을까요?",
+     "reason": "글쓴이의 질문 중 병원에 갈지를 고르는 부분이 빠져 있습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 27.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "저희 집 고양이 '두부'가 이제 4살인데, 요즘 밥을 잘 안 먹어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "원래 하루에 건사료 60g 정도 먹었는데 일주일 전부터 30g도 겨우 먹어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "몸무게는 지난달 동물병원에서 쟀을 때 4.8kg이었는데 어제 집에서 재 보니까 4.5kg이더라고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "2주 전에 다른 회사 사료로 바꿨는데, 처음 일주일은 잘 먹다가 그 뒤로 이러네요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "동네 병원은 기본 진료비가 1만 5,000원인데 피검사까지 하면 10만 원 넘게 나온다고 들었거든요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "4살 고양이 두부가 일주일 전부터 30그램도 겨우 먹고 있어요.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 평소 60그램을 먹던 고양이의 식욕 부진을 걱정했대요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "몸무게가 한 달 만에 4.8킬로그램에서 4.5킬로그램으로 줄었죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "그저 2주 전에 바꾼 다른 회사 사료 때문인지 궁금해하고 있습니다.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "병원비가 10만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요.",
+   "estimated_sec": 6.6
+  }
+ ],
+ "fixed_scenes": [
+  "네 살 고양이 두부가 일주일 전부터 삼십 그램도 겨우 먹고 있어요.",
+  "글쓴이는 평소 육십 그램을 먹던 고양이의 식욕 부진을 걱정했대요.",
+  "몸무게가 한 달 만에 사 점 팔 킬로그램에서 사 점 오 킬로그램으로 줄었죠.",
+  "그저 이 주 전에 바꾼 다른 회사 사료 때문인지 궁금해하고 있습니다.",
+  "병원비가 십만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 46.9,
+    "input_tokens": 2,
+    "output_tokens": 11442,
+    "cache_creation_input_tokens": 4936,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00634
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 37.6,
+    "input_tokens": 2,
+    "output_tokens": 9147,
+    "cache_creation_input_tokens": 4937,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00519
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 44.8,
+    "input_tokens": 2,
+    "output_tokens": 10825,
+    "cache_creation_input_tokens": 4935,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00603
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.2,
+    "input_tokens": 2,
+    "output_tokens": 1764,
+    "cache_creation_input_tokens": 2995,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00126
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 33178,
+   "cache_creation_input_tokens": 17803,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01882,
+  "sec": 46.9
+ }
+}

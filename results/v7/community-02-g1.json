@@ -1,0 +1,209 @@
+{
+ "id": "community-02-g1",
+ "source_id": "community-02",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  5,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "식구 셋이 먹을 계란이 총 90개나 생겨버렸대요.",
+     "source_quote": "이거 뭐 해 먹어야 함?",
+     "reason": "넣은 글의 핵심인 글쓴이의 질문(계란 90개를 뭐 해 먹을지)이 대본에 빠졌습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "6,980원",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액",
+     "fix": "6980원"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 퇴근길에 6,980원 할인을 받으려고 마트에 방문했대요.",
+     "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감.",
+     "reason": "장면 2만 '글쓴이는'으로 3인칭 전환이 일어나 앞뒤 장면의 말하는 사람과 어긋나고, 장면 3은 '가입했죠'로 다시 본인 말투로 돌아온다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "그래서 그 자리에서 앱 깔고 가입함. 5분 걸림."
+  },
+  {
+   "scene": 2,
+   "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감."
+  },
+  {
+   "scene": 3,
+   "source_quote": "할인은 앱 회원만 된대. 그래서 그 자리에서 앱 깔고 가입함."
+  },
+  {
+   "scene": 4,
+   "source_quote": "집에 와서 냉장고 열었더니 엄마가 어제 계란 두 판 사 놨음."
+  },
+  {
+   "scene": 5,
+   "source_quote": "식구 셋인데 우리 집 이제 계란 90개 있음. 이거 뭐 해 먹어야 함?"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "계란 한 판을 사려고 마트 계산대에서 5분 동안 앱을 깔았습니다.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 퇴근길에 6,980원 할인을 받으려고 마트에 방문했대요.",
+   "estimated_sec": 6.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "직원이 앱 회원만 할인된다고 하자 그 자리에서 바로 가입했죠.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "집에 도착해 냉장고를 열어보니 어머니가 어제 이미 두 판을 사 두셨습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "식구 셋이 먹을 계란이 총 90개나 생겨버렸대요.",
+   "estimated_sec": 4.7
+  }
+ ],
+ "fixed_scenes": [
+  "계란 한 판을 사려고 마트 계산대에서 오 분 동안 앱을 깔았습니다.",
+  "글쓴이는 퇴근길에 육천구백팔십 원 할인을 받으려고 마트에 방문했대요.",
+  "직원이 앱 회원만 할인된다고 하자 그 자리에서 바로 가입했죠.",
+  "집에 도착해 냉장고를 열어보니 어머니가 어제 이미 두 판을 사 두셨습니다.",
+  "식구 셋이 먹을 계란이 총 아흔 개나 생겨버렸대요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.9,
+    "input_tokens": 2,
+    "output_tokens": 3894,
+    "cache_creation_input_tokens": 4804,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00255
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.2,
+    "input_tokens": 2,
+    "output_tokens": 3741,
+    "cache_creation_input_tokens": 4805,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00247
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.6,
+    "input_tokens": 2,
+    "output_tokens": 5502,
+    "cache_creation_input_tokens": 4805,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00335
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 15.4,
+    "input_tokens": 2,
+    "output_tokens": 3203,
+    "cache_creation_input_tokens": 2863,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00196
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 16340,
+   "cache_creation_input_tokens": 17277,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01033,
+  "sec": 23.6
+ }
+}

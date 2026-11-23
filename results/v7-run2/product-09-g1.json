@@ -1,0 +1,187 @@
+{
+ "id": "product-09-g1",
+ "source_id": "product-09",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 37.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "가방에 넣어도 새지 않게 실리콘 마개가 들어 있어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "온기한잔은 이중 진공 구조라 따뜻한 음료를 오래 따뜻하게 지켜 줘요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "가방에 넣어도 새지 않게 실리콘 마개가 들어 있어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "크기는 일반 카페 톨 사이즈 한 잔이 딱 들어가는 정도예요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "색은 크림, 초록, 남색 세 가지가 있어요."
+  },
+  {
+   "scene": 6,
+   "source_quote": "환경도 지키고 따뜻한 음료도 오래 즐기세요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "따뜻한 음료를 마시려는데 가방 속에서 내용물이 새어버릴까 걱정된 적이 있나요.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "따뜻한 음료를 오래 유지하면서 가방에 넣어도 새지 않는 텀블러가 필요합니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "온기한잔은 이중 진공 구조로 온기를 지키고 실리콘 마개로 내용물이 새는 것을 막아줍니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "톨 사이즈가 딱 들어가는 크기에 손이 작은 사람도 잡기 편하게 가운데가 잘록합니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 5,
+   "role": "point",
+   "text": "크림과 초록 그리고 남색 세 가지 색상이 있습니다.",
+   "estimated_sec": 4.8
+  },
+  {
+   "scene": 6,
+   "role": "cta",
+   "text": "온기한잔과 함께 환경도 지키고 따뜻한 음료를 오래 즐겨보세요.",
+   "estimated_sec": 6.2
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.1,
+    "input_tokens": 2,
+    "output_tokens": 3520,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4480,
+    "cost_usd": 0.00185
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.8,
+    "input_tokens": 2,
+    "output_tokens": 3232,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4480,
+    "cost_usd": 0.00171
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.4,
+    "input_tokens": 2,
+    "output_tokens": 2977,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4480,
+    "cost_usd": 0.00158
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.4,
+    "input_tokens": 2,
+    "output_tokens": 1627,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2540,
+    "cost_usd": 0.00089
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 11356,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 15980
+  },
+  "cost_usd_est": 0.00603,
+  "sec": 14.1
+ }
+}

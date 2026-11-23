@@ -1,0 +1,176 @@
+{
+ "id": "news-01-g2",
+ "source_id": "news-01",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "제보된 내용 중 위법 소지가 있는 사안은 법률 검토를 거쳐 고발이나 수사의뢰 등 후속 조치를 추진합니다.",
+     "source_quote": "수험생과 학부모, 교직원 등 관련 사례를 알고 있는 국민 누구나 교육부 누리집 상단의 '국민참여·민원 탭'을 통해 신고할 수 있다.",
+     "reason": "신고센터를 알리면서 신고 방법(누리집 '국민참여·민원' 탭)이 빠져 시청자가 실제로 제보할 수 없다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 32.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "수험번호가 접수 순서대로 부여되는 것을 악용해 허위로 원서를 접수한 뒤, 수험번호를 통해 접수 인원 및 경쟁률을 유추하는 사례 등이다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "교육부는 11월 23일부터 2027년 2월 28일까지 교육부 누리집(moe.go.kr)에 '대입 허위 원서접수 신고센터'를 설치·운영한다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "주요 신고 대상은 경쟁률 파악 등 부정한 목적을 위해 허위로 원서접수를 한 경우, 또는 이를 의뢰하거나 알선하는 행위 등이다. 이러한 불공정 행위를 방지하고자 신고센터를 마련했다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "교육부는 접수된 제보에 대해 관련 대학 등 관계기관의 협조를 받아 사실관계를 확인하고, 위법 소지가 있는 사안은 법률 검토를 거쳐 고발 또는 수사의뢰 등 후속 조치를 추진한다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "수험번호가 순서대로 나오는 점을 이용해 경쟁률을 미리 알아내는 행위가 문제가 됐습니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "교육부는 11월 23일부터 2027년 2월 28일까지 대입 허위 원서접수 신고센터를 운영합니다.",
+   "estimated_sec": 9.2
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "부정한 목적의 허위 원서접수나 알선 행위를 막고 대입 전형의 공정성을 확보하려는 취지입니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "제보된 내용 중 위법 소지가 있는 사안은 법률 검토를 거쳐 고발이나 수사의뢰 등 후속 조치를 추진합니다.",
+   "estimated_sec": 10.0
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.8,
+    "input_tokens": 2,
+    "output_tokens": 3974,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 5039,
+    "cost_usd": 0.00209
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.3,
+    "input_tokens": 2,
+    "output_tokens": 6173,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 5039,
+    "cost_usd": 0.00319
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.7,
+    "input_tokens": 2,
+    "output_tokens": 4015,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 5039,
+    "cost_usd": 0.00211
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.7,
+    "input_tokens": 2,
+    "output_tokens": 2404,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 3099,
+    "cost_usd": 0.00128
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 16566,
+   "cache_creation_input_tokens": 1571,
+   "cache_read_input_tokens": 18216
+  },
+  "cost_usd_est": 0.00867,
+  "sec": 26.3
+ }
+}

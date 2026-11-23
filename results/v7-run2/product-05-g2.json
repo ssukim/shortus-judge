@@ -1,0 +1,186 @@
+{
+ "id": "product-05-g2",
+ "source_id": "product-05",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "무거운 선풍기를 가방에 넣으면 짐이 되고, 꺼내서 세워두기 번거로웠기 때문입니다.",
+     "source_quote": "",
+     "reason": "넣은 글에 없는 망설임의 원인을 단정했으며, 글쓴이가 알 수 없는 사람들의 속마음을 지어낸 내용입니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 32.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "가장 세게 틀면 한여름 버스 정류장에서도 시원합니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "바람솔은 무게가 가벼워서 가방에 넣어도 부담이 없어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "접으면 스마트폰보다 작아지고, 펼치면 책상 위에 세워 둘 수도 있습니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "바람 세기는 세 단계예요. 약하게 틀면 소리가 거의 들리지 않아서 도서관이나 사무실에서도 쓸 수 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "올여름, 바람솔과 함께 시원하게 다니세요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "여름철 버스 정류장에서 더위를 식히고 싶을 때 휴대용 선풍기를 꺼내기가 망설여졌어요.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "무거운 선풍기를 가방에 넣으면 짐이 되고, 꺼내서 세워두기 번거로웠기 때문입니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "바람솔은 접으면 스마트폰보다 작아지고 펼치면 책상 위에 세워둘 수도 있습니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "세 단계 바람 세기 중 가장 약한 단계는 소리가 거의 들리지 않아 도서관에서도 쓸 수 있습니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "올여름 바람솔과 함께 시원하게 다니세요.",
+   "estimated_sec": 4.0
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.3,
+    "input_tokens": 2,
+    "output_tokens": 4553,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4483,
+    "cost_usd": 0.00237
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.2,
+    "input_tokens": 2,
+    "output_tokens": 5123,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4483,
+    "cost_usd": 0.00266
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.7,
+    "input_tokens": 2,
+    "output_tokens": 5508,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4483,
+    "cost_usd": 0.00285
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.7,
+    "input_tokens": 2,
+    "output_tokens": 2251,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2543,
+    "cost_usd": 0.0012
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 17435,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 15992
+  },
+  "cost_usd_est": 0.00908,
+  "sec": 24.7
+ }
+}

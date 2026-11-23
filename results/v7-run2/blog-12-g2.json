@@ -1,0 +1,192 @@
+{
+ "id": "blog-12-g2",
+ "source_id": "blog-12",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬이나 김치와 젓갈류에서 발생합니다.",
+     "source_quote": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬에서 나와요.",
+     "reason": "\"발생합니다\"는 문서에서 쓰는 말이라 앞뒤 말하는 어투(\"~요\")와 어긋난다."
+    },
+    {
+     "scene": 5,
+     "quote": "효과적으로 줄일 수 있습니다.",
+     "source_quote": "",
+     "reason": "\"효과적으로 ~ 수 있습니다\"는 설명문 투여서 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 33.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "냉장고 문 열 때마다 묘한 냄새 나는 집 많죠. 저도 그랬어요. 탈취제를 사 봐도 그때뿐이더라고요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "둘째, 반찬통 뚜껑은 꼭 닫으세요. 당연한 말 같지만 냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬에서 나와요. 특히 김치랑 젓갈류는 꼭 따로 밀폐하세요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "첫째, 원두 찌꺼기를 버리지 말고 말려서 쓰세요. 커피 내리고 남은 찌꺼기를 넓은 접시에 펴서 하루 말린 다음, 작은 그릇에 담아 냉장고 칸마다 넣어 두면 냄새를 꽤 잘 잡아 줘요. 둘째, 반찬통 뚜껑은 꼭 닫으세요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "셋째, 일주일에 한 번 비우는 날을 정해 두세요. 저는 일요일 밤마다 냉장고를 쭉 훑어서 오래된 걸 정리해요. 마지막으로 선반은 식초 탄 물로 닦아 주면 끝."
+  },
+  {
+   "scene": 5,
+   "source_quote": "돈 거의 안 들고, 오늘 당장 해 볼 수 있어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "탈취제를 사서 넣어봤지만 냉장고 문을 열 때마다 묘한 냄새가 사라지지 않았어요.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬이나 김치와 젓갈류에서 발생합니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "커피 찌꺼기를 하루 말려 그릇에 담아 넣어두거나 반찬통 뚜껑을 꼭 닫으세요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "일주일에 한 번 비우는 날을 정해 오래된 음식을 정리하고 선반을 식초 탄 물로 닦으면 됩니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "비용을 거의 들이지 않고 냉장고 냄새를 효과적으로 줄일 수 있습니다.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.8,
+    "input_tokens": 2,
+    "output_tokens": 4553,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4663,
+    "cost_usd": 0.00237
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.3,
+    "input_tokens": 2,
+    "output_tokens": 4794,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4663,
+    "cost_usd": 0.00249
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.2,
+    "input_tokens": 2,
+    "output_tokens": 4358,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4663,
+    "cost_usd": 0.00227
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.0,
+    "input_tokens": 2,
+    "output_tokens": 2286,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2723,
+    "cost_usd": 0.00122
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15991,
+   "cache_creation_input_tokens": 1569,
+   "cache_read_input_tokens": 16712
+  },
+  "cost_usd_est": 0.00835,
+  "sec": 19.3
+ }
+}

@@ -1,0 +1,204 @@
+{
+ "id": "product-10-g2",
+ "source_id": "product-10",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  5,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "물걸레 기능도 포함되어 있으며 카펫이 있는 곳은 알아서 피해 가도록 설계되었습니다.",
+     "source_quote": "다만 물걸레를 달면 카펫은 자동으로 피해 가도록 되어 있어서, 카펫이 많은 집은 걸레를 떼고 쓰는 게 좋아요.",
+     "reason": "카펫이 많은 집은 물걸레를 떼고 써야 한다는 단서가 빠졌습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "5,000Pa의",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "5000파스칼의"
+    }
+   ],
+   "vague": [
+    {
+     "scene": 2,
+     "quote": "S7은",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "물걸레 기능도 포함되어 있으며 카펫이 있는 곳은 알아서 피해 가도록 설계되었습니다.",
+     "source_quote": "다만 물걸레를 달면 카펫은 자동으로 피해 가도록 되어 있어서",
+     "reason": "\"~이며\"와 \"설계되었습니다\"는 말하듯 쓴 문장이 아니라 문서에서 쓰는 말투입니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": ""
+  },
+  {
+   "scene": 2,
+   "source_quote": "흡입력은 5,000Pa로 카펫 위 먼지까지 빨아들여요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "물걸레 기능도 있어요. 다만 물걸레를 달면 카펫은 자동으로 피해 가도록 되어 있어서, 카펫이 많은 집은 걸레를 떼고 쓰는 게 좋아요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "정가는 89만 원이고, 다음 달 15일까지 사전 예약하면 10만 원 할인에 여분 걸레 4장을 드려요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "카펫 위로 흩어진 먼지를 치우려고 할 때마다 매번 걸레질과 청소기를 따로 돌려야 했어요.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "로봇청소기 말끔이 S7은 5,000Pa의 흡입력으로 카펫 위 먼지까지 한 번에 빨아들입니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "물걸레 기능도 포함되어 있으며 카펫이 있는 곳은 알아서 피해 가도록 설계되었습니다.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "다음 달 15일까지 사전 예약하면 10만 원 할인과 여분 걸레 4장을 증정합니다.",
+   "estimated_sec": 7.8
+  }
+ ],
+ "fixed_scenes": [
+  "카펫 위로 흩어진 먼지를 치우려고 할 때마다 매번 걸레질과 청소기를 따로 돌려야 했어요.",
+  "로봇청소기 말끔이 S7은 오천 파스칼의 흡입력으로 카펫 위 먼지까지 한 번에 빨아들입니다.",
+  "물걸레 기능도 포함되어 있으며 카펫이 있는 곳은 알아서 피해 가도록 설계되었습니다.",
+  "다음 달 15일까지 사전 예약하면 십만 원 할인과 여분 걸레 네 장을 증정합니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.9,
+    "input_tokens": 2,
+    "output_tokens": 3512,
+    "cache_creation_input_tokens": 4870,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00236
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.1,
+    "input_tokens": 2,
+    "output_tokens": 6100,
+    "cache_creation_input_tokens": 4870,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00366
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.4,
+    "input_tokens": 2,
+    "output_tokens": 4190,
+    "cache_creation_input_tokens": 4869,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0027
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.5,
+    "input_tokens": 2,
+    "output_tokens": 2081,
+    "cache_creation_input_tokens": 2930,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00141
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15883,
+   "cache_creation_input_tokens": 17539,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01013,
+  "sec": 26.1
+ }
+}

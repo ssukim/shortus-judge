@@ -62,3 +62,6 @@ LISTEN = os.environ.get("JUDGE_LISTEN", "") == "1"
 SURE_ONLY = os.environ.get("JUDGE_SURE_ONLY", "0") == "1"
 # 탈락 기준(1·2)은 확신 여부와 관계없이 걸림을 쓴다. 6판 첫 실행에서 기준 1까지 빼니 통과로 새는 탈락이 2 → 8로 늘었다(D30).
 SURE_EXEMPT = (1, 2)
+
+# 7판 실험(D32): 기준 3을 좁히는 지시. 일치는 오르고 보류는 줄지만 통과로 새는 탈락이 늘어 기본은 끔.
+C3_NARROW = os.environ.get("JUDGE_C3_NARROW", "0") == "1"

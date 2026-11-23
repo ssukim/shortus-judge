@@ -1,0 +1,209 @@
+{
+ "id": "community-10-g1",
+ "source_id": "community-10",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  4,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "등기 확인 후 이사할 계획까지 세웠습니다",
+     "source_quote": "",
+     "reason": "넣은 글에는 글쓴이가 이사 계획을 세웠다는 내용이 없고, 등기 확인 후 이사해야 한다는 것은 알아본 정보일 뿐이다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "다행히 10월 중순에 세입자가 구해져서 보증금을 전액 돌려받았습니다.",
+     "source_quote": "혹시 저처럼 불안하신 분들은 만료 두세 달 전에 미리 알리고, 문자 같은 기록을 꼭 남겨 두세요.",
+     "reason": "넣은 글의 핵심 조언인 '만료 두세 달 전 미리 알리고 문자 기록 남기기'가 대본 어디에도 없어 시청자가 따라 할 방법을 얻지 못합니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "대항력이 유지되기에",
+     "source_quote": "이걸 해 두면 이사를 나가도 대항력이 유지된다고 하더라고요.",
+     "reason": "\"유지되기에\"는 문서에서 쓰는 연결 표현이라 말하듯 쓴 문장이 아닙니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 31.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "집주인이 새 세입자가 들어와야 보증금을 줄 수 있다고 하시는 거예요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "계약 만료가 10월 31일이었고, 저는 두 달 전인 8월 말에 집주인한테 문자로 나간다고 알렸어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "보증금은 1억 2천만 원이었어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "이걸 해 두면 이사를 나가도 대항력이 유지된다고 하더라고요. 다만 등기가 실제로 끝난 걸 확인한 다음에 이사해야 한다고 해요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다행히 10월 중순에 새 세입자가 구해져서 만료일에 보증금을 다 받았어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "집주인이 새 세입자가 들어와야만 보증금을 돌려주겠다고 했어요.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 10월 말 전세 계약 만료를 앞두고 8월에 퇴거 의사를 밝혔습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "보증금이 1억 2천만 원이라 불안해진 글쓴이는 임차권등기명령을 알아봤죠.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "이걸 해두면 대항력이 유지되기에 등기 확인 후 이사할 계획까지 세웠습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "다행히 10월 중순에 세입자가 구해져서 보증금을 전액 돌려받았습니다.",
+   "estimated_sec": 7.0
+  }
+ ],
+ "fixed_scenes": [
+  "집주인이 새 세입자가 들어와야만 보증금을 돌려주겠다고 했어요.",
+  "글쓴이는 10월 말 전세 계약 만료를 앞두고 8월에 퇴거 의사를 밝혔습니다.",
+  "보증금이 일억 이천만 원이라 불안해진 글쓴이는 임차권등기명령을 알아봤죠.",
+  "이걸 해두면 대항력이 유지되기에 등기 확인 후 이사할 계획까지 세웠습니다.",
+  "다행히 10월 중순에 세입자가 구해져서 보증금을 전액 돌려받았습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 30.7,
+    "input_tokens": 2,
+    "output_tokens": 7224,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4499,
+    "cost_usd": 0.00371
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 43.9,
+    "input_tokens": 2,
+    "output_tokens": 10560,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4499,
+    "cost_usd": 0.00537
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.0,
+    "input_tokens": 2,
+    "output_tokens": 5020,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4499,
+    "cost_usd": 0.0026
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.0,
+    "input_tokens": 2,
+    "output_tokens": 1935,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2559,
+    "cost_usd": 0.00104
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 24739,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 16056
+  },
+  "cost_usd_est": 0.01272,
+  "sec": 43.9
+ }
+}

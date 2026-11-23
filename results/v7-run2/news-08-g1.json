@@ -1,0 +1,181 @@
+{
+ "id": "news-08-g1",
+ "source_id": "news-08",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "기초생활수급자 중 노인이나 장애인이 포함된 가구 등이 대상이며",
+     "source_quote": "",
+     "reason": "'~이며'는 문서에서 쓰는 말투라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "겨울철 난방비 부담을 덜기 위해 정부가 에너지바우처 지원을 이어 간다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "올해 겨울 지원액은 가구원 수에 따라 1인 가구 25만 원에서 4인 이상 가구 70만 원까지다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "에너지바우처는 기초생활수급자 가운데 노인, 영유아, 장애인, 임산부 등이 있는 가구에 난방비 등을 지원하는 제도다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "지난해 지원을 받은 가구 가운데 조건이 바뀌지 않은 가구는 따로 신청하지 않아도 자동으로 이어서 받는다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "겨울철 난방비가 걱정인 가구를 위해 정부가 지원 금액을 다르게 책정했어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "올해 겨울 에너지바우처 지원액은 1인 가구 25만 원에서 4인 이상 가구 70만 원까지입니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "기초생활수급자 중 노인이나 장애인이 포함된 가구 등이 대상이며 12월 31일까지 신청할 수 있습니다.",
+   "estimated_sec": 10.0
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "지난해 대상자 중 조건이 같은 가구는 따로 신청하지 않아도 자동으로 지원을 받습니다.",
+   "estimated_sec": 8.3
+  }
+ ],
+ "fixed_scenes": [
+  "겨울철 난방비가 걱정인 가구를 위해 정부가 지원 금액을 다르게 책정했어요.",
+  "올해 겨울 에너지바우처 지원액은 1인 가구 이십오만 원에서 4인 이상 가구 칠십만 원까지입니다.",
+  "기초생활수급자 중 노인이나 장애인이 포함된 가구 등이 대상이며 12월 31일까지 신청할 수 있습니다.",
+  "지난해 대상자 중 조건이 같은 가구는 따로 신청하지 않아도 자동으로 지원을 받습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.5,
+    "input_tokens": 2,
+    "output_tokens": 3744,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4456,
+    "cost_usd": 0.00197
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 11.9,
+    "input_tokens": 2,
+    "output_tokens": 2869,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4456,
+    "cost_usd": 0.00153
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.5,
+    "input_tokens": 2,
+    "output_tokens": 3483,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4456,
+    "cost_usd": 0.00184
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.1,
+    "input_tokens": 2,
+    "output_tokens": 1427,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2516,
+    "cost_usd": 0.00079
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 11523,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 15884
+  },
+  "cost_usd_est": 0.00613,
+  "sec": 15.5
+ }
+}

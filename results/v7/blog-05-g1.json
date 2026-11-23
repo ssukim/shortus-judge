@@ -1,0 +1,201 @@
+{
+ "id": "blog-05-g1",
+ "source_id": "blog-05",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  10
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "무릎이 약하신 분은 올라온 길로 다시 내려가는 걸 추천해요.",
+     "reason": "넣은 글의 무릎 약한 분에 대한 하산 추천이 빠져, 가파른 길 이용 내용만 남아 안전 관련 요점이 전달되지 않는다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요.",
+     "reason": "할머니와 쉼터 이야기를 맺지 않은 채 하산로라는 새 얘기를 꺼내고 그대로 끝난다."
+    }
+   ],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "제일 좋았던 건 정상 바로 아래에 있는 작은 쉼터였어요. 벤치에 앉아서 챙겨 간 귤을 까먹고 있으니까 옆에 계시던 할머니가 따뜻한 보리차를 한 잔 따라 주셨어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지난 주말에 처음으로 혼자 동네 뒷산에 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "입구에서 정상까지는 천천히 걸어서 40분 정도 걸렸어요. 길이 대부분 흙길이라 운동화로도 충분했고, 중간중간 나무 계단이 있어서 숨이 찰 때마다 쉬어 갔어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "매일 아침 여기 올라오신다고 하더라고요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요. 무릎이 약하신 분은 올라온 길로 다시 내려가는 걸 추천해요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "운동화로 충분한 흙길을 40분 정도 걸어 올라가 벤치에 앉았대요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+   "estimated_sec": 5.2
+  }
+ ],
+ "fixed_scenes": [
+  "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+  "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+  "운동화로 충분한 흙길을 사십 분 정도 걸어 올라가 벤치에 앉았대요.",
+  "옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다.",
+  "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.3,
+    "input_tokens": 2,
+    "output_tokens": 4779,
+    "cache_creation_input_tokens": 4956,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00301
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.8,
+    "input_tokens": 2,
+    "output_tokens": 3887,
+    "cache_creation_input_tokens": 4957,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00256
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.2,
+    "input_tokens": 2,
+    "output_tokens": 5338,
+    "cache_creation_input_tokens": 4958,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00329
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.1,
+    "input_tokens": 2,
+    "output_tokens": 2598,
+    "cache_creation_input_tokens": 3015,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00168
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 16602,
+   "cache_creation_input_tokens": 17886,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01054,
+  "sec": 23.2
+ }
+}

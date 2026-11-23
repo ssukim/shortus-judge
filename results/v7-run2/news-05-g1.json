@@ -1,0 +1,183 @@
+{
+ "id": "news-05-g1",
+ "source_id": "news-05",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "AI를",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 35.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "정부가 2027학년도 대학수학능력시험일인 오는 19일 전국에 '위급재난문자'를 발송한다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "정부가 2027학년도 대학수학능력시험일인 오는 19일 전국에 '위급재난문자'를 발송한다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "교육부와 행정안전부는 수능시험일에 AI를 활용한 부정행위를 예방·적발하기 위해 전국의 모든 국민과 국내 체류 중인 외국인 휴대전화에도 위급재난문자를 발송한다고 18일 밝혔다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "수능 시험장에서 감독관 휴대전화의 위급재난문자 알림은 울리지 않게 해 수험생에게는 지장이 없게 한다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "이번 경보음은 지진이나 공습 등 실제 재난 상황을 알리는 것이 아니므로 문자를 받더라도 대피 등 별도의 조치를 할 필요가 없다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "수능 날 갑자기 전국의 휴대전화에서 재난문자가 울릴 예정입니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "정부는 오는 19일 2027학년도 대학수학능력시험일에 위급재난문자를 발송합니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "AI를 활용한 부정행위를 예방하고 적발하기 위해 전 국민과 국내 체류 외국인에게 문자를 보냅니다.",
+   "estimated_sec": 9.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "시험장 감독관 휴대전화는 알림이 울리지 않게 설정하여 수험생에게 지장이 없도록 합니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "이번 문자는 실제 재난이 아니므로 대피 등 별도의 조치를 할 필요가 없습니다.",
+   "estimated_sec": 7.4
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.8,
+    "input_tokens": 2,
+    "output_tokens": 3465,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 5543,
+    "cost_usd": 0.00184
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.0,
+    "input_tokens": 2,
+    "output_tokens": 3040,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 5543,
+    "cost_usd": 0.00162
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.0,
+    "input_tokens": 2,
+    "output_tokens": 3719,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 5543,
+    "cost_usd": 0.00196
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.7,
+    "input_tokens": 2,
+    "output_tokens": 1641,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3603,
+    "cost_usd": 0.00091
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 11865,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 20232
+  },
+  "cost_usd_est": 0.00633,
+  "sec": 16.0
+ }
+}

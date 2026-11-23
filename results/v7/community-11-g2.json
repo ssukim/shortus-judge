@@ -1,0 +1,207 @@
+{
+ "id": "community-11-g2",
+ "source_id": "community-11",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "하지만 사장님은 손님이 없는 대기 시간은 근무에서 뺀다며 거부했습니다.",
+     "source_quote": "그럼 하루 5시간, 주 20시간인데 그래도 15시간 넘는 거 아닌가요ㅋㅋ",
+     "reason": "대기 시간을 빼도 주 20시간으로 15시간을 넘는다는 글쓴이의 반박이 빠져 수당 대상이라는 주장의 근거가 드러나지 않음"
+    },
+    {
+     "scene": 5,
+     "quote": "등록금 때문에 당분간은 버티는 게 맞을지 고민 중이라네요.",
+     "source_quote": "제가 다음 학기 등록금 때문에 12월까지는 꼭 일해야 해서 잘리면 안 되거든요.",
+     "reason": "버틸 기한인 12월까지가 '당분간'으로 바뀌어 고민의 핵심 기간이 빠짐"
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 31.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "하지만 사장님은 손님이 없는 대기 시간은 근무에서 뺀다며 거부했습니다.",
+     "source_quote": "근데 사장님 말로는 새벽 2시부터 4시까지는 손님이 거의 없어서 \"대기 시간\"이라 근무로 안 친대요.",
+     "reason": "장면 1에서 이미 말한 '새벽 2시부터 4시까지는 근무로 인정하지 않는다'는 요점을 같은 사장님 주장으로 다시 말하고 있다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 사장님 말로는 새벽 2시부터 4시까지는 손님이 거의 없어서 \"대기 시간\"이라 근무로 안 친대요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "근데 사장님이 이번 달 월급 주시면서 \"주휴수당은 주 15시간 이상일 때만 나가는 건데 너는 쉬는 시간 빼면 애매하다\"고 하시면서 안 주셨어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "제가 계산해 보면 하루 8시간 중에 쉬는 시간이 1시간이라 쳐도 7시간 곱하기 4일이면 28시간이거든요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "근데 사장님 말로는 새벽 2시부터 4시까지는 손님이 거의 없어서 \"대기 시간\"이라 근무로 안 친대요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "제가 다음 학기 등록금 때문에 12월까지는 꼭 일해야 해서 잘리면 안 되거든요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "새벽 2시부터 4시까지는 근무 시간으로 인정하지 않는다는 편의점 사장님이 있었어요.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "야간 알바를 하는 글쓴이는 사장님으로부터 주휴수당을 받지 못했습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "글쓴이는 쉬는 시간을 빼도 주 28시간을 일해서 수당 대상이라고 생각했죠.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "하지만 사장님은 손님이 없는 대기 시간은 근무에서 뺀다며 거부했습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "등록금 때문에 당분간은 버티는 게 맞을지 고민 중이라네요.",
+   "estimated_sec": 5.7
+  }
+ ],
+ "fixed_scenes": [
+  "새벽 두 시부터 네 시까지는 근무 시간으로 인정하지 않는다는 편의점 사장님이 있었어요.",
+  "야간 알바를 하는 글쓴이는 사장님으로부터 주휴수당을 받지 못했습니다.",
+  "글쓴이는 쉬는 시간을 빼도 주 스물여덟 시간을 일해서 수당 대상이라고 생각했죠.",
+  "하지만 사장님은 손님이 없는 대기 시간은 근무에서 뺀다며 거부했습니다.",
+  "등록금 때문에 당분간은 버티는 게 맞을지 고민 중이라네요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 34.9,
+    "input_tokens": 2,
+    "output_tokens": 8367,
+    "cache_creation_input_tokens": 5063,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00482
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.3,
+    "input_tokens": 2,
+    "output_tokens": 5429,
+    "cache_creation_input_tokens": 5064,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00335
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 36.5,
+    "input_tokens": 2,
+    "output_tokens": 9008,
+    "cache_creation_input_tokens": 5064,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00514
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 14.2,
+    "input_tokens": 2,
+    "output_tokens": 2957,
+    "cache_creation_input_tokens": 3122,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00187
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 25761,
+   "cache_creation_input_tokens": 18313,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01518,
+  "sec": 36.5
+ }
+}

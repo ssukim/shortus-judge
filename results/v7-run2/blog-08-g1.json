@@ -1,0 +1,215 @@
+{
+ "id": "blog-08-g1",
+ "source_id": "blog-08",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [
+  5,
+  10
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "걷기 운동을 한 달간 시작한 결과 수면 시간이 급격히 변했습니다.",
+     "source_quote": "다만 이것도 걷기 때문인지, 휴대폰을 침대에 안 가져가기 시작해서인지는 잘 모르겠어요.",
+     "reason": "글쓴이는 수면 변화의 원인이 걷기인지 잘 모르겠다고 했는데 대본은 걷기의 결과라고 단정했습니다."
+    },
+    {
+     "scene": 3,
+     "quote": "식단 변화 없이 야식을 줄인 것과 걷기 운동이 병행된 결과였습니다.",
+     "source_quote": "그래서 걷기만의 효과라고 하긴 어려워요.",
+     "reason": "글쓴이는 걷기만의 효과라고 하기 어렵다고 했을 뿐인데 대본은 야식 감소와 걷기가 함께 낸 결과라고 확정했습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "1.2kg",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "1.2킬로그램"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.2,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "신발을 쿠션 있는 제품으로 바꾸고 발바닥 통증까지 사라졌습니다.",
+     "source_quote": "바꾼 뒤로는 통증이 없어졌어요.",
+     "reason": "신발 이야기는 마지막 장면에서 처음 나오고 그 장면에서 끝나, 앞서 다룬 수면·체중 이야기를 맺지 않고 새 얘기로 끝납니다."
+    }
+   ],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "제일 달라진 건 잠이에요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "처음 일주일은 하루 평균 6천 보 정도였는데, 지금은 9천 보 가까이 걸어요. 체중은 한 달 동안 1.2kg 줄었어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "식단은 따로 바꾸지 않았고, 야식만 주 5번에서 주 2번으로 줄였어요. 그래서 걷기만의 효과라고 하긴 어려워요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "예전엔 누워서 한 시간 넘게 뒤척였는데, 요즘은 20분이면 잠들어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "3주째부터 발바닥이 아파서 쿠션 있는 걷기용 신발로 바꿨어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "퇴근 후 걷기 운동을 한 달간 시작한 결과 수면 시간이 급격히 변했습니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "이 네티즌은 하루 평균 6천 보에서 9천 보까지 걸으며 체중을 1.2kg 줄였대요.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "식단 변화 없이 야식을 줄인 것과 걷기 운동이 병행된 결과였습니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "잠들기까지 한 시간 넘게 뒤척이던 예전과 달리 요즘은 20분이면 잠든다네요.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "신발을 쿠션 있는 제품으로 바꾸고 발바닥 통증까지 사라졌습니다.",
+   "estimated_sec": 6.4
+  }
+ ],
+ "fixed_scenes": [
+  "퇴근 후 걷기 운동을 한 달간 시작한 결과 수면 시간이 급격히 변했습니다.",
+  "이 네티즌은 하루 평균 6천 보에서 9천 보까지 걸으며 체중을 일 점 이 킬로그램 줄였대요.",
+  "식단 변화 없이 야식을 줄인 것과 걷기 운동이 병행된 결과였습니다.",
+  "잠들기까지 한 시간 넘게 뒤척이던 예전과 달리 요즘은 이십 분이면 잠든다네요.",
+  "신발을 쿠션 있는 제품으로 바꾸고 발바닥 통증까지 사라졌습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 27.0,
+    "input_tokens": 2,
+    "output_tokens": 6334,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4547,
+    "cost_usd": 0.00326
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.1,
+    "input_tokens": 2,
+    "output_tokens": 6001,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4547,
+    "cost_usd": 0.0031
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.7,
+    "input_tokens": 2,
+    "output_tokens": 7231,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4547,
+    "cost_usd": 0.00371
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.3,
+    "input_tokens": 2,
+    "output_tokens": 2394,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2607,
+    "cost_usd": 0.00127
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 21960,
+   "cache_creation_input_tokens": 1574,
+   "cache_read_input_tokens": 16248
+  },
+  "cost_usd_est": 0.01134,
+  "sec": 29.8
+ }
+}

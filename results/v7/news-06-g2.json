@@ -1,0 +1,209 @@
+{
+ "id": "news-06-g2",
+ "source_id": "news-06",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  9,
+  10
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "고용노동부가 청주와 전주에서 청년고용정책 팝업스토어를 운영합니다.",
+     "source_quote": "청년고용정책 팝업스토어를 20~21일 청주, 27~28일 전주에서 운영한다고 밝혔다.",
+     "reason": "팝업스토어를 알리면서 청주·전주의 운영 일정(20~21일, 27~28일)이 대본 전체에서 빠져 시청자가 언제 방문할지 알 수 없다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 33.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "청년들이 정책을 체험하고 기업 설명회와 일대일 컨설팅을 한자리에서 받을 수 있습니다.",
+     "source_quote": "",
+     "reason": "장면 1에서 이미 말한 '인사담당자를 만나 취업 상담을 받는 장소'를 기업 설명회와 일대일 컨설팅이라는 같은 요점으로 되풀이하고 새 사실을 더해 앞으로 나아가지 않습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "취업 경험이 없는 청년도 구직촉진수당과 지원 서비스를 받는 제도가 신설됩니다.",
+     "source_quote": "청년 첫 취업지원제도(K-유스개런티)를 신설(3793억 원, 16만 명)",
+     "reason": "앞 장면들의 팝업스토어와 예산 이야기를 맺지 않고 앞에서 다루지 않은 청년 취업지원 제도를 새로 꺼내며 끝납니다."
+    }
+   ],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "청년들이 청년고용 지원정책을 직접 찾아보고 지역 유망기업의 채용정보와 일대일 취업상담까지 한자리에서 받을 수 있는 체험형 공간이 운영된다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "고용노동부는 청년고용정책에 대한 접근성을 높이고 지역 청년에게 기업·취업정보를 제공하기 위해 청년고용정책 팝업스토어를 20~21일 청주, 27~28일 전주에서 운영한다고 밝혔다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "청년이 직접 참여하는 플레이존, 맞춤형 정책 정보를 제공하는 정책안내존, 지역 유망기업과 만나는 기업설명회, 취업 준비를 지원하는 1:1 취업컨설팅 등 다양한 프로그램을 운영하며, 체험을 완료하고 스탬프 미션에 참여한 청년을 대상으로 경품행사도 한다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "한편 노동부는 청년일자리 어려움 해소를 위해 청년일자리 예산을 올해 2조 6000억 원에서 내년 3조 3000억 원으로 늘렸다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "사업별로 살펴보면, 청년 첫 취업지원제도(K-유스개런티)를 신설(3793억 원, 16만 명)해 취업 경험이 없는 청년도 구직촉진수당(월 65만 원)과 전문기관의 취업지원 서비스를 받을 수 있게 된다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "청년들이 지역 유망기업 인사담당자를 직접 만나서 취업 상담을 받는 장소가 생겨요.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "고용노동부가 청주와 전주에서 청년고용정책 팝업스토어를 운영합니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "청년들이 정책을 체험하고 기업 설명회와 일대일 컨설팅을 한자리에서 받을 수 있습니다.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 4,
+   "role": "stat",
+   "text": "노동부는 내년 청년일자리 예산을 3조 3000억 원으로 늘릴 계획입니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "취업 경험이 없는 청년도 구직촉진수당과 지원 서비스를 받는 제도가 신설됩니다.",
+   "estimated_sec": 7.9
+  }
+ ],
+ "fixed_scenes": [
+  "청년들이 지역 유망기업 인사담당자를 직접 만나서 취업 상담을 받는 장소가 생겨요.",
+  "고용노동부가 청주와 전주에서 청년고용정책 팝업스토어를 운영합니다.",
+  "청년들이 정책을 체험하고 기업 설명회와 일대일 컨설팅을 한자리에서 받을 수 있습니다.",
+  "노동부는 내년 청년일자리 예산을 삼조 삼천억 원으로 늘릴 계획입니다.",
+  "취업 경험이 없는 청년도 구직촉진수당과 지원 서비스를 받는 제도가 신설됩니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.3,
+    "input_tokens": 2,
+    "output_tokens": 5992,
+    "cache_creation_input_tokens": 6265,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00378
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.2,
+    "input_tokens": 2,
+    "output_tokens": 5977,
+    "cache_creation_input_tokens": 6265,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00377
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 31.3,
+    "input_tokens": 2,
+    "output_tokens": 8080,
+    "cache_creation_input_tokens": 6263,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00482
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 14.0,
+    "input_tokens": 2,
+    "output_tokens": 3062,
+    "cache_creation_input_tokens": 4324,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00207
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 23111,
+   "cache_creation_input_tokens": 23117,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01444,
+  "sec": 31.3
+ }
+}

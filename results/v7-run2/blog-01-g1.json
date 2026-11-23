@@ -1,0 +1,215 @@
+{
+ "id": "blog-01-g1",
+ "source_id": "blog-01",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림"
+ ],
+ "diagnostics": [
+  8,
+  10
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "돌아오는 기차 시간에 맞춰 렌터카 반납 장소에서 1시간을 기다려야 했대요.",
+     "source_quote": "돌아오는 KTX는 오후 5시 10분 차였는데, 렌터카 반납이 4시까지라 역 근처에서 1시간을 기다려야 했어요.",
+     "reason": "대기의 원인인 렌터카 반납 마감 4시가 빠져 시청자가 왜 기다렸는지 알 수 없고, 반납 시간 확인이라는 핵심 교훈이 사라졌다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "KTX와",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "강릉 여행을 다녀온 부부가 여행 경비로 총 61만 원을 썼어요.",
+     "source_quote": "전체 경비는 교통, 숙박, 식비 다 합쳐서 두 명 61만 원 정도 들었네요.",
+     "reason": "첫 장면이 던진 총 경비 61만 원의 궁금증을 대본은 내역으로 풀지 않고, 교통·숙박·식비 금액을 어디에서도 밝히지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "돌아오는 기차 시간에 맞춰 렌터카 반납 장소에서 1시간을 기다려야 했대요.",
+     "source_quote": "돌아오는 KTX는 오후 5시 10분 차였는데, 렌터카 반납이 4시까지라 역 근처에서 1시간을 기다려야 했어요.",
+     "reason": "마지막 장면이 앞 장면들에서 다루지 않은 기차 대기 얘기를 새로 꺼내고, 첫 장면의 61만 원 얘기를 맺지 않은 채 끝난다."
+    }
+   ],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "전체 경비는 교통, 숙박, 식비 다 합쳐서 두 명 61만 원 정도 들었네요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지난달 말에 남편이랑 강릉으로 2박 3일 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "숙소는 안목해변 근처 '바다솔 게스트하우스'였어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "저희는 대게 대신 오징어회랑 가자미회를 3만 5,000원어치 사서 2층 식당에서 상차림비 1인 5,000원을 내고 먹었어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "돌아오는 KTX는 오후 5시 10분 차였는데, 렌터카 반납이 4시까지라 역 근처에서 1시간을 기다려야 했어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "강릉 여행을 다녀온 부부가 여행 경비로 총 61만 원을 썼어요.",
+   "estimated_sec": 5.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 남편과 2박 3일 일정으로 강릉 바다를 보러 다녀왔습니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "KTX와 렌터카를 이용하고 안목해변 근처 게스트하우스에 머물렀죠.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "주문진 수산시장에서 대게 대신 오징어회와 가자미회를 사서 먹었습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "돌아오는 기차 시간에 맞춰 렌터카 반납 장소에서 1시간을 기다려야 했대요.",
+   "estimated_sec": 7.5
+  }
+ ],
+ "fixed_scenes": [
+  "강릉 여행을 다녀온 부부가 여행 경비로 총 육십일만 원을 썼어요.",
+  "글쓴이는 남편과 2박 3일 일정으로 강릉 바다를 보러 다녀왔습니다.",
+  "KTX와 렌터카를 이용하고 안목해변 근처 게스트하우스에 머물렀죠.",
+  "주문진 수산시장에서 대게 대신 오징어회와 가자미회를 사서 먹었습니다.",
+  "돌아오는 기차 시간에 맞춰 렌터카 반납 장소에서 한 시간을 기다려야 했대요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.1,
+    "input_tokens": 2,
+    "output_tokens": 3823,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4995,
+    "cost_usd": 0.00201
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.7,
+    "input_tokens": 2,
+    "output_tokens": 4630,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4995,
+    "cost_usd": 0.00241
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.9,
+    "input_tokens": 2,
+    "output_tokens": 5549,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4995,
+    "cost_usd": 0.00287
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 18.5,
+    "input_tokens": 2,
+    "output_tokens": 3585,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3055,
+    "cost_usd": 0.00187
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 17587,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 18040
+  },
+  "cost_usd_est": 0.00916,
+  "sec": 24.9
+ }
+}

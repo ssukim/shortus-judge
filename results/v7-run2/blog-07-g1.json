@@ -1,0 +1,198 @@
+{
+ "id": "blog-07-g1",
+ "source_id": "blog-07",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 4,
+     "quote": "2~3분",
+     "reason": "애매한 표기 — 범위 기호"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 주말에 동네 공방에서 4만 5천 원을 내고 원데이 베이킹 클래스에 참여했습니다.",
+     "source_quote": "주말에 처음으로 베이킹 클래스에 다녀왔어요.",
+     "reason": "장면 1과 5는 말하는 사람이 직접 말하는 어투인데 장면 2에서만 '글쓴이는'이라는 제3자 서술로 까닭 없이 바뀐다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 35.2,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "선생님 말로는 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 하셨어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "수업은 2시간이었고 참가비는 재료비 포함 4만 5천 원이었어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "선생님 말로는 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 하셨어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "다만 집 오븐은 공방 오븐보다 약할 수 있으니 처음엔 2~3분 더 두고 색을 보라고 하셨어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "집에 오자마자 가족들이 반을 먹어 버렸어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "마들렌을 구울 때 반죽을 30분 동안 쉬게 해야 하는 이유가 있었어요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 주말에 동네 공방에서 4만 5천 원을 내고 원데이 베이킹 클래스에 참여했습니다.",
+   "estimated_sec": 9.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "선생님은 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 설명해주었죠.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "오븐 성능이 다를 수 있으니 처음엔 색을 보며 2~3분 더 구우라는 팁도 전해주었습니다.",
+   "estimated_sec": 8.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "집에 오자마자 가족들이 마들렌을 반이나 먹어버려서 다음 달 휘낭시에 수업도 신청했답니다.",
+   "estimated_sec": 9.0
+  }
+ ],
+ "fixed_scenes": [
+  "마들렌을 구울 때 반죽을 삼십 분 동안 쉬게 해야 하는 이유가 있었어요.",
+  "글쓴이는 주말에 동네 공방에서 사만 오천 원을 내고 원데이 베이킹 클래스에 참여했습니다.",
+  "선생님은 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 설명해주었죠.",
+  "오븐 성능이 다를 수 있으니 처음엔 색을 보며 2~삼 분 더 구우라는 팁도 전해주었습니다.",
+  "집에 오자마자 가족들이 마들렌을 반이나 먹어버려서 다음 달 휘낭시에 수업도 신청했답니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.1,
+    "input_tokens": 2,
+    "output_tokens": 3492,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4572,
+    "cost_usd": 0.00184
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.1,
+    "input_tokens": 2,
+    "output_tokens": 4187,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4572,
+    "cost_usd": 0.00219
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.7,
+    "input_tokens": 2,
+    "output_tokens": 5582,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4572,
+    "cost_usd": 0.00289
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.1,
+    "input_tokens": 2,
+    "output_tokens": 2088,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2632,
+    "cost_usd": 0.00112
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15349,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 16348
+  },
+  "cost_usd_est": 0.00804,
+  "sec": 23.7
+ }
+}
