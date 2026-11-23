@@ -1,0 +1,54 @@
+{
+ "id": "community-04-g2",
+ "source_id": "community-04",
+ "type": "community",
+ "collected_at": "2026-11-23T17:38:37+09:00",
+ "script": {
+  "id": "188bc9e6-e2c1-4b48-b162-ae51b64e8d90",
+  "text_source_id": "3a4d96a6-3479-4d36-944a-465cd11009ea",
+  "status": "draft",
+  "full_text": "캠핑 의자를 중고로 팔기로 했는데 약속 시간보다 40분 늦게 나타난 구매자가 있었어요. 글쓴이는 새 제품을 3만 5,000원에 샀던 의자 두 개를 4만 원에 올렸습니다. 만난 구매자는 긁힌 자국을 이유로 3만 원에 해달라고 계속 깎으려 했죠. 글쓴이는 귀찮아서 3만 5,000원에 팔았는데, 구매자는 후기에 친절하다는 평가를 남겼습니다. 약속을 어기고 가격까지 깎은 사람에게 받은 칭찬이라 황당했대요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "캠핑 의자를 중고로 팔기로 했는데 약속 시간보다 40분 늦게 나타난 구매자가 있었어요.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 새 제품을 3만 5,000원에 샀던 의자 두 개를 4만 원에 올렸습니다.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "만난 구매자는 긁힌 자국을 이유로 3만 원에 해달라고 계속 깎으려 했죠.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 귀찮아서 3만 5,000원에 팔았는데, 구매자는 후기에 친절하다는 평가를 남겼습니다.",
+    "estimated_sec": 9.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "약속을 어기고 가격까지 깎은 사람에게 받은 칭찬이라 황당했대요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 38.3,
+  "narration_sec": 31.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "news-03-g1",
+ "source_id": "news-03",
+ "type": "news",
+ "collected_at": "2026-11-23T17:39:49+09:00",
+ "script": {
+  "id": "a56abad1-edaf-4630-bd9a-851dd4cb0faf",
+  "text_source_id": "4a4786f4-bfba-4d57-b9e7-2b4199228bc1",
+  "status": "draft",
+  "full_text": "K-시푸드가 유럽과 할랄 시장을 공략하며 수출 지형을 바꾸고 있어요. 해양수산부는 올해 10월까지 수산식품 누적 수출액이 전년 동기 대비 11.9% 증가한 30억 3000만 달러로 역대 최대 실적을 달성했다고 밝혔습니다. 특히 유럽연합 수출은 36.6% 급증했고 할랄 시장은 20.3% 늘어나는 등 해외시장 다변화 성과가 뚜렷했습니다. 정부는 수산물 해외시장 개척 사업 예산을 807억 원 규모로 편성해 유망상품화와 시장 다변화를 전략적으로 지원하고 있습니다. 황종우 해수부 장관은 수출기업의 노력에 감사하며 지속적인 확대 지원을 약속했습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "K-시푸드가 유럽과 할랄 시장을 공략하며 수출 지형을 바꾸고 있어요.",
+    "estimated_sec": 6.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "해양수산부는 올해 10월까지 수산식품 누적 수출액이 전년 동기 대비 11.9% 증가한 30억 3000만 달러로 역대 최대 실적을 달성했다고 밝혔습니다.",
+    "estimated_sec": 13.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "특히 유럽연합 수출은 36.6% 급증했고 할랄 시장은 20.3% 늘어나는 등 해외시장 다변화 성과가 뚜렷했습니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "정부는 수산물 해외시장 개척 사업 예산을 807억 원 규모로 편성해 유망상품화와 시장 다변화를 전략적으로 지원하고 있습니다.",
+    "estimated_sec": 12.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "황종우 해수부 장관은 수출기업의 노력에 감사하며 지속적인 확대 지원을 약속했습니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 51.5,
+  "narration_sec": 42.857142857142854,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

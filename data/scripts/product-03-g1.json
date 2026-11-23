@@ -1,0 +1,54 @@
+{
+ "id": "product-03-g1",
+ "source_id": "product-03",
+ "type": "product",
+ "collected_at": "2026-11-23T17:42:02+09:00",
+ "script": {
+  "id": "52920bfc-c8f6-417e-bc61-9694241b8373",
+  "text_source_id": "bdb1af85-1b84-490f-adf4-c0eea559ca8e",
+  "status": "draft",
+  "full_text": "한 번만 써봐도 다른 수건은 아예 못 쓰겠다는 말이 나오는 이유가 있었어요. 처음 써도 보풀이 거의 없고 세탁할수록 부드러운 촉감을 유지하기 때문입니다. 결고운 호텔수건 40수 세트는 면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다. 한 장 무게 180g으로 적당하며 5장 세트를 2만 9000원에 구매할 수 있습니다. 2세트 이상 구매하면 무료배송이 적용됩니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "한 번만 써봐도 다른 수건은 아예 못 쓰겠다는 말이 나오는 이유가 있었어요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "처음 써도 보풀이 거의 없고 세탁할수록 부드러운 촉감을 유지하기 때문입니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "결고운 호텔수건 40수 세트는 면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "한 장 무게 180g으로 적당하며 5장 세트를 2만 9000원에 구매할 수 있습니다.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "2세트 이상 구매하면 무료배송이 적용됩니다.",
+    "estimated_sec": 4.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.0,
+  "narration_sec": 29.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

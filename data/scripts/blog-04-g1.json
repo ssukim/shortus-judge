@@ -1,0 +1,54 @@
+{
+ "id": "blog-04-g1",
+ "source_id": "blog-04",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:36:31+09:00",
+ "script": {
+  "id": "e1b193f6-c258-43ad-83f8-787da101d2bb",
+  "text_source_id": "c51995b5-e7dd-40ae-a47c-577294e89ddd",
+  "status": "draft",
+  "full_text": "이사 후 전입신고를 마쳤음에도 자동차 보험사에는 따로 연락해야 하는 상황이 발생합니다. 전입신고를 하면 자동차 주소가 자동으로 바뀌는 경우가 많지만 보험사 정보는 별도로 수정해야 합니다. 가스는 새집 연결을 위해 보통 2에서 3일 전에 예약해야 하며 주말에는 출장비가 붙는 곳도 있습니다. 인터넷 이전 설치는 원하는 날짜를 확보하기 위해 최소 10일 전에는 신청하는 것이 좋습니다. 이사 후에는 공과금 정리와 통신사 예약 등 세부적인 행정 절차를 꼼꼼히 챙겨야 합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "이사 후 전입신고를 마쳤음에도 자동차 보험사에는 따로 연락해야 하는 상황이 발생합니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "전입신고를 하면 자동차 주소가 자동으로 바뀌는 경우가 많지만 보험사 정보는 별도로 수정해야 합니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가스는 새집 연결을 위해 보통 2에서 3일 전에 예약해야 하며 주말에는 출장비가 붙는 곳도 있습니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "인터넷 이전 설치는 원하는 날짜를 확보하기 위해 최소 10일 전에는 신청하는 것이 좋습니다.",
+    "estimated_sec": 8.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "이사 후에는 공과금 정리와 통신사 예약 등 세부적인 행정 절차를 꼼꼼히 챙겨야 합니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 46.1,
+  "narration_sec": 36.857142857142854,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

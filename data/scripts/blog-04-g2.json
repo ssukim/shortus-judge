@@ -1,0 +1,47 @@
+{
+ "id": "blog-04-g2",
+ "source_id": "blog-04",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:36:44+09:00",
+ "script": {
+  "id": "f806c7c2-9aa0-47bd-a84d-40be58b752fc",
+  "text_source_id": "cebdaafb-eb2e-4379-a8ed-0bf4aba4f428",
+  "status": "draft",
+  "full_text": "전입신고를 마쳤는데도 자동차 보험사에 따로 연락하지 않으면 곤란한 상황이 생길 수 있어요. 이사 후 전입신고는 14일 이내에 해야 하며 확정일자도 함께 챙기는 것이 좋습니다. 가스 연결은 2~3일 전에 예약해야 하며 인터넷 이전은 최소 10일 전에 신청해야 원하는 날짜를 잡을 수 있습니다. 이사 후에는 행정 절차부터 공과금과 통신사 예약까지 세심하게 확인해야 합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "전입신고를 마쳤는데도 자동차 보험사에 따로 연락하지 않으면 곤란한 상황이 생길 수 있어요.",
+    "estimated_sec": 9.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이사 후 전입신고는 14일 이내에 해야 하며 확정일자도 함께 챙기는 것이 좋습니다.",
+    "estimated_sec": 8.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가스 연결은 2~3일 전에 예약해야 하며 인터넷 이전은 최소 10일 전에 신청해야 원하는 날짜를 잡을 수 있습니다.",
+    "estimated_sec": 10.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "이사 후에는 행정 절차부터 공과금과 통신사 예약까지 세심하게 확인해야 합니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.6,
+  "narration_sec": 29.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

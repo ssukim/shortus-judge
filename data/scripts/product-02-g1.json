@@ -1,0 +1,54 @@
+{
+ "id": "product-02-g1",
+ "source_id": "product-02",
+ "type": "product",
+ "collected_at": "2026-11-23T17:41:25+09:00",
+ "script": {
+  "id": "6a848779-911c-44ff-89dc-b47bd9122564",
+  "text_source_id": "f3dfa059-f9a2-4c79-9317-3584ced3e936",
+  "status": "draft",
+  "full_text": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요. 대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다. 솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리 가능합니다. 1,700W 고출력 히터로 예열 없이 바로 조리하며 80도부터 200도까지 5도 단위로 세밀하게 조절됩니다. 12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리 가능합니다.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "1,700W 고출력 히터로 예열 없이 바로 조리하며 80도부터 200도까지 5도 단위로 세밀하게 조절됩니다.",
+    "estimated_sec": 9.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+    "estimated_sec": 10.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 45.3,
+  "narration_sec": 38.857142857142854,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "product-02-g2",
+ "source_id": "product-02",
+ "type": "product",
+ "collected_at": "2026-11-23T17:41:43+09:00",
+ "script": {
+  "id": "51cadf1f-7de0-41a7-a707-742c47c45fcd",
+  "text_source_id": "7fcc654c-816f-4609-99bd-6c11929448c5",
+  "status": "draft",
+  "full_text": "통닭 한 마리를 통째로 넣고 싶어도 크기가 작아 여러 번 나눠 굽는 일이 반복됐어요. 가족 한 끼 분량을 한 번에 조리하기 어려워 번거로움을 느꼈기 때문입니다. 솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 한 번에 조리합니다. 1,700W 고출력 히터로 예열 없이 바로 조리하며 8가지 자동 메뉴 기능을 제공합니다. 12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "통닭 한 마리를 통째로 넣고 싶어도 크기가 작아 여러 번 나눠 굽는 일이 반복됐어요.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "가족 한 끼 분량을 한 번에 조리하기 어려워 번거로움을 느꼈기 때문입니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 한 번에 조리합니다.",
+    "estimated_sec": 8.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "1,700W 고출력 히터로 예열 없이 바로 조리하며 8가지 자동 메뉴 기능을 제공합니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+    "estimated_sec": 10.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 41.4,
+  "narration_sec": 35.857142857142854,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

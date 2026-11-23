@@ -1,0 +1,54 @@
+{
+ "id": "community-02-g2",
+ "source_id": "community-02",
+ "type": "community",
+ "collected_at": "2026-11-23T17:37:43+09:00",
+ "script": {
+  "id": "556424a0-74c9-4698-9804-7fcd54901b0f",
+  "text_source_id": "ef004c87-adb4-404b-bc1d-f45e5408493b",
+  "status": "draft",
+  "full_text": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다. 글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요. 하지만 할인은 앱 회원만 가능해서 그 자리에서 가입을 마쳤습니다. 집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요. 결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "하지만 할인은 앱 회원만 가능해서 그 자리에서 가입을 마쳤습니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+    "estimated_sec": 5.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 33.1,
+  "narration_sec": 27.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

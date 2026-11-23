@@ -1,0 +1,47 @@
+{
+ "id": "blog-02-g2",
+ "source_id": "blog-02",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:35:39+09:00",
+ "script": {
+  "id": "64a21cf9-9f54-4999-ba7a-6a5acc3c9db8",
+  "text_source_id": "49ed6064-28e4-462a-9214-367f1178bbcf",
+  "status": "draft",
+  "full_text": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다. 김치가 덜 익었을 때는 설탕 대신 식초를 1큰술 넣으면 신맛을 살릴 수 있어요. 고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다. 설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "김치가 덜 익었을 때는 설탕 대신 식초를 1큰술 넣으면 신맛을 살릴 수 있어요.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+    "estimated_sec": 7.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 29.1,
+  "narration_sec": 24.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

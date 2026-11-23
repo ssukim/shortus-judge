@@ -1,0 +1,54 @@
+{
+ "id": "product-01-g2",
+ "source_id": "product-01",
+ "type": "product",
+ "collected_at": "2026-11-23T17:41:11+09:00",
+ "script": {
+  "id": "55e81ac2-cf67-4e2f-8b85-09689c1d6f5d",
+  "text_source_id": "d03ac349-992f-499b-9a23-95c96d0d325d",
+  "status": "draft",
+  "full_text": "해외여행 중 캐리어에 넣을 전기포트 부피가 너무 커서 고민이었죠. 일반적인 전기포트는 부피가 커서 짐을 챙길 때 큰 짐이 되곤 하죠. 폴드케틀은 실리콘 몸체를 접으면 높이가 4.5cm까지 줄어듭니다. 600W 출력으로 4분이면 물을 끓이고 110V와 220V를 모두 지원합니다. 12월 31일까지 출시 기념 20% 할인가인 31,200원에 판매합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "해외여행 중 캐리어에 넣을 전기포트 부피가 너무 커서 고민이었죠.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "일반적인 전기포트는 부피가 커서 짐을 챙길 때 큰 짐이 되곤 하죠.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "폴드케틀은 실리콘 몸체를 접으면 높이가 4.5cm까지 줄어듭니다.",
+    "estimated_sec": 6.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "600W 출력으로 4분이면 물을 끓이고 110V와 220V를 모두 지원합니다.",
+    "estimated_sec": 6.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "12월 31일까지 출시 기념 20% 할인가인 31,200원에 판매합니다.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.2,
+  "narration_sec": 27.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

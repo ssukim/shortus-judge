@@ -1,0 +1,47 @@
+{
+ "id": "news-02-g2",
+ "source_id": "news-02",
+ "type": "news",
+ "collected_at": "2026-11-23T17:39:30+09:00",
+ "script": {
+  "id": "38193807-5d87-4bc1-bdc6-3be04b336c50",
+  "text_source_id": "d3cfc5db-0314-4e03-aa46-307e3c44de87",
+  "status": "draft",
+  "full_text": "농업 외 종합소득금액 기준이 17년 만에 바뀌면서 직불금 수령 대상에 변화가 생겼어요. 올해부터 지급 제한 기준이 3700만 원에서 4700만 원으로 상향되어 더 많은 농업인이 혜택을 받습니다. 농림축산식품부는 11월 중순부터 총 2조 3788억 원을 순차적으로 지급한다고 밝혔습니다. 실제 입금일은 각 지방정부의 지급 일정에 따라 달라질 수 있습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "농업 외 종합소득금액 기준이 17년 만에 바뀌면서 직불금 수령 대상에 변화가 생겼어요.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "올해부터 지급 제한 기준이 3700만 원에서 4700만 원으로 상향되어 더 많은 농업인이 혜택을 받습니다.",
+    "estimated_sec": 9.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "농림축산식품부는 11월 중순부터 총 2조 3788억 원을 순차적으로 지급한다고 밝혔습니다.",
+    "estimated_sec": 9.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "실제 입금일은 각 지방정부의 지급 일정에 따라 달라질 수 있습니다.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 33.4,
+  "narration_sec": 27.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

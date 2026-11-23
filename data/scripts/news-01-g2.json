@@ -1,0 +1,47 @@
+{
+ "id": "news-01-g2",
+ "source_id": "news-01",
+ "type": "news",
+ "collected_at": "2026-11-23T17:39:04+09:00",
+ "script": {
+  "id": "92e86ad7-d02a-4d7b-8a42-df028397085a",
+  "text_source_id": "fd98e590-bf66-4141-930a-3fbdb41d1a1e",
+  "status": "draft",
+  "full_text": "수험번호가 순서대로 나오는 점을 이용해 경쟁률을 미리 알아내는 행위가 문제가 됐습니다. 교육부는 11월 23일부터 2027년 2월 28일까지 대입 허위 원서접수 신고센터를 운영합니다. 부정한 목적의 허위 원서접수나 알선 행위를 막고 대입 전형의 공정성을 확보하려는 취지입니다. 제보된 내용 중 위법 소지가 있는 사안은 법률 검토를 거쳐 고발이나 수사의뢰 등 후속 조치를 추진합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "수험번호가 순서대로 나오는 점을 이용해 경쟁률을 미리 알아내는 행위가 문제가 됐습니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "교육부는 11월 23일부터 2027년 2월 28일까지 대입 허위 원서접수 신고센터를 운영합니다.",
+    "estimated_sec": 9.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "부정한 목적의 허위 원서접수나 알선 행위를 막고 대입 전형의 공정성을 확보하려는 취지입니다.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "제보된 내용 중 위법 소지가 있는 사안은 법률 검토를 거쳐 고발이나 수사의뢰 등 후속 조치를 추진합니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 37.3,
+  "narration_sec": 30.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

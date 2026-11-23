@@ -1,0 +1,54 @@
+{
+ "id": "blog-02-g1",
+ "source_id": "blog-02",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:35:25+09:00",
+ "script": {
+  "id": "5dce6cac-dce6-41bf-8752-86741e44b34d",
+  "text_source_id": "4ad968f4-9680-4b55-b351-b18119692888",
+  "status": "draft",
+  "full_text": "신김치가 없을 때 덜 익은 김치로 김치찌개를 끓이면 맛이 이상해질 수 있다는 사실을 알고 계신가요. 설탕을 많이 넣으면 찌개가 달아져서 오히려 맛이 이상해질 수 있습니다. 대신 식초를 1큰술 넣으면 신맛을 살릴 수 있고 설탕은 반 작은술만 넣는 것이 좋습니다. 냉동 보관 시에는 두부를 빼고 얼려야 식감이 변하지 않습니다. 김치가 덜 익었다면 식초와 약간의 설탕으로 간을 조절해 보세요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "신김치가 없을 때 덜 익은 김치로 김치찌개를 끓이면 맛이 이상해질 수 있다는 사실을 알고 계신가요.",
+    "estimated_sec": 9.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "설탕을 많이 넣으면 찌개가 달아져서 오히려 맛이 이상해질 수 있습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "대신 식초를 1큰술 넣으면 신맛을 살릴 수 있고 설탕은 반 작은술만 넣는 것이 좋습니다.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "냉동 보관 시에는 두부를 빼고 얼려야 식감이 변하지 않습니다.",
+    "estimated_sec": 6.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "김치가 덜 익었다면 식초와 약간의 설탕으로 간을 조절해 보세요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 37.0,
+  "narration_sec": 30.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

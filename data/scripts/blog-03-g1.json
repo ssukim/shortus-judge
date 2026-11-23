@@ -1,0 +1,54 @@
+{
+ "id": "blog-03-g1",
+ "source_id": "blog-03",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:35:58+09:00",
+ "script": {
+  "id": "fb7a7e19-ce4a-4416-acfa-d72e2515d086",
+  "text_source_id": "ac5cefe9-6115-4b43-a44c-abe6c09d4e30",
+  "status": "draft",
+  "full_text": "8주 만에 처음으로 쉬지 않고 5km를 달린 기록은 34분 12초였어요. 글쓴이는 월요일과 수요일 그리고 토요일에 동네 하천 길을 뛰고 있습니다. 처음엔 1km만 뛰어도 숨이 차서 걷다 뛰다를 반복하는 상황이었죠. 최근에는 8만 9천 원을 들여 새로 산 운동화 덕분에 무릎 통증이 줄었습니다. 이제 12월 14일에 열리는 10km 대회 완주를 목표로 7km씩 뛸 계획이랍니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "8주 만에 처음으로 쉬지 않고 5km를 달린 기록은 34분 12초였어요.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 월요일과 수요일 그리고 토요일에 동네 하천 길을 뛰고 있습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "처음엔 1km만 뛰어도 숨이 차서 걷다 뛰다를 반복하는 상황이었죠.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "최근에는 8만 9천 원을 들여 새로 산 운동화 덕분에 무릎 통증이 줄었습니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "이제 12월 14일에 열리는 10km 대회 완주를 목표로 7km씩 뛸 계획이랍니다.",
+    "estimated_sec": 7.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 35.0,
+  "narration_sec": 29.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "id": "community-03-g1",
+ "source_id": "community-03",
+ "type": "community",
+ "collected_at": "2026-11-23T17:37:56+09:00",
+ "script": {
+  "id": "090c2250-d8d7-476b-9aee-6071d3c55374",
+  "text_source_id": "8f7f9f3e-72d0-4a41-8d76-de2406aa3728",
+  "status": "draft",
+  "full_text": "4살 된 고양이가 하루에 먹던 사료 양이 절반으로 줄어들었어요. 집사들은 몸무게가 4.8kg에서 4.5kg으로 빠진 것을 확인했대요. 물과 화장실 이용은 평소와 같아서 병원 방문을 고민하고 있었습니다. 두 주 전 사료를 바꾼 뒤 일주일은 잘 먹다가 그 뒤로 식욕이 없었대요. 사료를 예전으로 바꾸는 게 좋을지 병원을 먼저 가야 할지 묻고 있습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "4살 된 고양이가 하루에 먹던 사료 양이 절반으로 줄어들었어요.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "집사들은 몸무게가 4.8kg에서 4.5kg으로 빠진 것을 확인했대요.",
+    "estimated_sec": 5.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "물과 화장실 이용은 평소와 같아서 병원 방문을 고민하고 있었습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "두 주 전 사료를 바꾼 뒤 일주일은 잘 먹다가 그 뒤로 식욕이 없었대요.",
+    "estimated_sec": 6.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "사료를 예전으로 바꾸는 게 좋을지 병원을 먼저 가야 할지 묻고 있습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 32.1,
+  "narration_sec": 27.142857142857142,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

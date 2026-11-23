@@ -1,0 +1,54 @@
+{
+ "id": "blog-01-g2",
+ "source_id": "blog-01",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:35:07+09:00",
+ "script": {
+  "id": "aee7204b-d802-4c44-a59a-801435692935",
+  "text_source_id": "69f0bff6-27cc-4f28-b509-b9ae78397e20",
+  "status": "draft",
+  "full_text": "강릉 여행을 다녀온 네티즌이 렌터카 반납 시간 때문에 1시간을 기다렸습니다. 글쓴이는 남편과 2박 3일 일정으로 강릉 여행을 다녀왔대요. KTX와 숙소 및 식비를 포함해 총 61만 원 정도의 경비가 들었습니다. 돌아오는 기차는 오후 5시 10분인데 렌터카 반납은 4시까지였죠. 시간 맞춰 예약할 분들은 반납 시간부터 꼭 확인하라고 당부했습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "강릉 여행을 다녀온 네티즌이 렌터카 반납 시간 때문에 1시간을 기다렸습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 남편과 2박 3일 일정으로 강릉 여행을 다녀왔대요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "KTX와 숙소 및 식비를 포함해 총 61만 원 정도의 경비가 들었습니다.",
+    "estimated_sec": 6.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "돌아오는 기차는 오후 5시 10분인데 렌터카 반납은 4시까지였죠.",
+    "estimated_sec": 6.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "시간 맞춰 예약할 분들은 반납 시간부터 꼭 확인하라고 당부했습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 33.9,
+  "narration_sec": 26.857142857142858,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "id": "news-01-g1",
+ "source_id": "news-01",
+ "type": "news",
+ "collected_at": "2026-11-23T17:38:50+09:00",
+ "script": {
+  "id": "3e68ac93-742f-4bee-933c-cfff7cc75cdf",
+  "text_source_id": "be06935b-5e70-4059-b85b-b39adf55c128",
+  "status": "draft",
+  "full_text": "수험번호를 이용해 경쟁률을 몰래 파악하는 부정한 행위가 포착되었어요. 교육부는 11월 23일부터 대입 허위 원서접수 신고센터를 운영합니다. 수험번호 순서를 악용해 접수 인원을 유추하는 등의 불공정 행위를 막으려는 조치예요. 신고된 사례 중 위법 소지가 있으면 법률 검토를 거쳐 고발이나 수사를 의뢰할 계획입니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "수험번호를 이용해 경쟁률을 몰래 파악하는 부정한 행위가 포착되었어요.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "교육부는 11월 23일부터 대입 허위 원서접수 신고센터를 운영합니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "수험번호 순서를 악용해 접수 인원을 유추하는 등의 불공정 행위를 막으려는 조치예요.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "신고된 사례 중 위법 소지가 있으면 법률 검토를 거쳐 고발이나 수사를 의뢰할 계획입니다.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.0,
+  "narration_sec": 24.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

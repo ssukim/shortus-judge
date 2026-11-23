@@ -1,0 +1,54 @@
+{
+ "id": "news-04-g1",
+ "source_id": "news-04",
+ "type": "news",
+ "collected_at": "2026-11-23T17:40:21+09:00",
+ "script": {
+  "id": "36a15411-603e-4fc9-a6ed-a3f187c7e98e",
+  "text_source_id": "43d2b7ed-6eec-44e3-b583-2cf3a856b6c7",
+  "status": "draft",
+  "full_text": "카카오페이와 토스에서 비대면으로 신분증을 확인할 때, 이제는 주민등록증 진위까지 확인하게 됐어요. 행정안전부는 23일부터 카카오페이와 토스에서 주민등록증 진위확인 서비스를 시행한다고 밝혔습니다. 이번 서비스는 위변조 신분증을 이용한 금융범죄를 예방하고 전자금융거래의 안전성을 높이기 위해 추진됐습니다. 2025년 한 해 카카오페이에서는 약 750만 건, 토스에서는 약 1000만 건의 비대면 고객확인이 이뤄졌습니다. 네이버페이는 12월 중 서비스를 시작할 예정입니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "카카오페이와 토스에서 비대면으로 신분증을 확인할 때, 이제는 주민등록증 진위까지 확인하게 됐어요.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "행정안전부는 23일부터 카카오페이와 토스에서 주민등록증 진위확인 서비스를 시행한다고 밝혔습니다.",
+    "estimated_sec": 10.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이번 서비스는 위변조 신분증을 이용한 금융범죄를 예방하고 전자금융거래의 안전성을 높이기 위해 추진됐습니다.",
+    "estimated_sec": 11.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "stat",
+    "text": "2025년 한 해 카카오페이에서는 약 750만 건, 토스에서는 약 1000만 건의 비대면 고객확인이 이뤄졌습니다.",
+    "estimated_sec": 9.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "네이버페이는 12월 중 서비스를 시작할 예정입니다.",
+    "estimated_sec": 5.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 46.6,
+  "narration_sec": 36.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

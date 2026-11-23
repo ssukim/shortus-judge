@@ -1,0 +1,54 @@
+{
+ "id": "product-04-g1",
+ "source_id": "product-04",
+ "type": "product",
+ "collected_at": "2026-11-23T17:42:39+09:00",
+ "script": {
+  "id": "54ae338a-1484-44bf-98fd-ddecfb4b2400",
+  "text_source_id": "8e3efc79-4b58-4aea-9238-8fbbfea99c33",
+  "status": "draft",
+  "full_text": "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠. 단 음료 대신 줄 건강한 간식을 찾거나 부모님 선물을 고르는 일이 번거로웠죠. 들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다. 한 포에 사과 약 1.5개가 들어있고 열량은 1포당 58칼로리입니다. 1박스 3만 2000원이며 3박스 묶음은 8만 7000원에 구매할 수 있습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "단 음료 대신 줄 건강한 간식을 찾거나 부모님 선물을 고르는 일이 번거로웠죠.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다.",
+    "estimated_sec": 10.0,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "한 포에 사과 약 1.5개가 들어있고 열량은 1포당 58칼로리입니다.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "1박스 3만 2000원이며 3박스 묶음은 8만 7000원에 구매할 수 있습니다.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 38.8,
+  "narration_sec": 32.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

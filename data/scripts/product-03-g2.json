@@ -1,0 +1,54 @@
+{
+ "id": "product-03-g2",
+ "source_id": "product-03",
+ "type": "product",
+ "collected_at": "2026-11-23T17:42:20+09:00",
+ "script": {
+  "id": "18cf34b0-5b27-4eca-8f62-12b16b0f268c",
+  "text_source_id": "8bd3316e-5c20-4c60-b9a4-1c34a9abf63d",
+  "status": "draft",
+  "full_text": "한 번 써보면 다른 수건은 못 쓰게 된다는 말이 나오는 수건이 있습니다. 이 수건은 면 100% 40수 코마사로 짜여서 보풀이 거의 없고 세탁할수록 부드러워집니다. 결고운 호텔수건 40수 세트는 면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다. 한 장 무게 180g으로 적당하며 화이트나 그레이 중 5장 세트를 2만 9천 원에 구매할 수 있습니다. 2세트 이상 구매 시 무료배송이며 수령 후 7일 이내엔 사용 전 제품에 한해 교환이나 반품이 가능합니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "한 번 써보면 다른 수건은 못 쓰게 된다는 말이 나오는 수건이 있습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이 수건은 면 100% 40수 코마사로 짜여서 보풀이 거의 없고 세탁할수록 부드러워집니다.",
+    "estimated_sec": 8.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "결고운 호텔수건 40수 세트는 면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다.",
+    "estimated_sec": 8.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "한 장 무게 180g으로 적당하며 화이트나 그레이 중 5장 세트를 2만 9천 원에 구매할 수 있습니다.",
+    "estimated_sec": 9.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "2세트 이상 구매 시 무료배송이며 수령 후 7일 이내엔 사용 전 제품에 한해 교환이나 반품이 가능합니다.",
+    "estimated_sec": 10.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 43.0,
+  "narration_sec": 36.142857142857146,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

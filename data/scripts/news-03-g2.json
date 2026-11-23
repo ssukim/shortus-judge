@@ -1,0 +1,71 @@
+{
+ "id": "news-03-g2",
+ "source_id": "news-03",
+ "type": "news",
+ "collected_at": "2026-11-23T17:40:07+09:00",
+ "script": {
+  "id": "a272d3a9-f9ff-4d3e-ad01-c8e8b1855dbf",
+  "text_source_id": "2147338d-1d49-4d5e-aeeb-3c48f0a208c7",
+  "status": "draft",
+  "full_text": "수산식품 수출이 전년보다 두 자릿수 성장세를 기록하며 예상 밖의 성과를 냈어요. 해양수산부는 올해 10월까지 수산식품 누적 수출액이 30억 3000만 달러를 달성해 역대 최대 실적을 기록했다고 발표했습니다. 특히 유럽연합 수출은 36.6% 급증했고 할랄 시장도 20.3% 늘어나며 시장 다변화가 두드러졌죠. 정부는 수산물 해외시장 개척 사업 예산을 807억 원 규모로 편성해 유망상품화와 시장 다변화를 지원하고 있습니다. 현장의 노력을 바탕으로 대한민국 수출 1조 달러 시대에 힘을 보태고 있습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "수산식품 수출이 전년보다 두 자릿수 성장세를 기록하며 예상 밖의 성과를 냈어요.",
+    "estimated_sec": 7.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "해양수산부는 올해 10월까지 수산식품 누적 수출액이 30억 3000만 달러를 달성해 역대 최대 실적을 기록했다고 발표했습니다.",
+    "estimated_sec": 12.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": [
+     {
+      "kind": "superlative",
+      "term": "해양수산부"
+     },
+     {
+      "kind": "superlative",
+      "term": "10월"
+     },
+     {
+      "kind": "superlative",
+      "term": "누적"
+     },
+     {
+      "kind": "superlative",
+      "term": "수출액"
+     }
+    ]
+   },
+   {
+    "role": "stat",
+    "text": "특히 유럽연합 수출은 36.6% 급증했고 할랄 시장도 20.3% 늘어나며 시장 다변화가 두드러졌죠.",
+    "estimated_sec": 8.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "정부는 수산물 해외시장 개척 사업 예산을 807억 원 규모로 편성해 유망상품화와 시장 다변화를 지원하고 있습니다.",
+    "estimated_sec": 11.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "현장의 노력을 바탕으로 대한민국 수출 1조 달러 시대에 힘을 보태고 있습니다.",
+    "estimated_sec": 7.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 47.6,
+  "narration_sec": 39.285714285714285,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

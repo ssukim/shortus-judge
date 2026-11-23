@@ -1,0 +1,47 @@
+{
+ "id": "news-02-g1",
+ "source_id": "news-02",
+ "type": "news",
+ "collected_at": "2026-11-23T17:39:17+09:00",
+ "script": {
+  "id": "c906cbed-16c7-4c93-968f-5e11c82b1063",
+  "text_source_id": "3a645bbf-aaf3-4b34-9f34-ea49603f1a3f",
+  "status": "draft",
+  "full_text": "농업 외 소득이 일정 금액을 넘으면 직불금을 못 받는데, 이 기준이 17년 만에 바뀌었어요. 올해부터 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향됩니다. 농식품부는 이번 기준 완화를 통해 더 많은 농업인이 공익직불금 혜택을 받게 된다고 밝혔습니다. 지급대상은 지난해보다 1만 1000건 증가한 129만 6000건이며 11월 중순부터 순차 지급됩니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "농업 외 소득이 일정 금액을 넘으면 직불금을 못 받는데, 이 기준이 17년 만에 바뀌었어요.",
+    "estimated_sec": 8.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "올해부터 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향됩니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "농식품부는 이번 기준 완화를 통해 더 많은 농업인이 공익직불금 혜택을 받게 된다고 밝혔습니다.",
+    "estimated_sec": 9.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "지급대상은 지난해보다 1만 1000건 증가한 129만 6000건이며 11월 중순부터 순차 지급됩니다.",
+    "estimated_sec": 9.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.6,
+  "narration_sec": 29.428571428571427,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

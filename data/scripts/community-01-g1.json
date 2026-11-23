@@ -1,0 +1,54 @@
+{
+ "id": "community-01-g1",
+ "source_id": "community-01",
+ "type": "community",
+ "collected_at": "2026-11-23T17:36:58+09:00",
+ "script": {
+  "id": "9fcbfe0f-9873-4c60-8915-3605c7c9c888",
+  "text_source_id": "fff0f0c9-7556-4724-b215-b7b980f8e958",
+  "status": "draft",
+  "full_text": "팀장님이 주말에 보고서 초안을 요청했는데 돌아온 대답은 예상 밖이었어요. 직장 2년 차인 글쓴이는 친구 결혼식 때문에 월요일 오전까지 제출하겠다고 양해를 구했습니다. 팀장님은 알겠다며 수락했지만 사실은 다른 계획을 세우고 있었습니다. 팀장님은 단톡방에 동료에게 대신 정리해달라고 부탁해 주말 내내 업무를 시켰습니다. 월요일 회의에서 팀장님은 동료 덕분에 살았다며 글쓴이에게는 아무 말도 하지 않았습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "팀장님이 주말에 보고서 초안을 요청했는데 돌아온 대답은 예상 밖이었어요.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "직장 2년 차인 글쓴이는 친구 결혼식 때문에 월요일 오전까지 제출하겠다고 양해를 구했습니다.",
+    "estimated_sec": 9.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "팀장님은 알겠다며 수락했지만 사실은 다른 계획을 세우고 있었습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "팀장님은 단톡방에 동료에게 대신 정리해달라고 부탁해 주말 내내 업무를 시켰습니다.",
+    "estimated_sec": 8.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "월요일 회의에서 팀장님은 동료 덕분에 살았다며 글쓴이에게는 아무 말도 하지 않았습니다.",
+    "estimated_sec": 8.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 40.8,
+  "narration_sec": 31.571428571428573,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

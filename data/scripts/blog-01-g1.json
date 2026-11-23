@@ -1,0 +1,54 @@
+{
+ "id": "blog-01-g1",
+ "source_id": "blog-01",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:34:53+09:00",
+ "script": {
+  "id": "76af8bc4-a1ab-416a-85d5-5508ea7a90c9",
+  "text_source_id": "d7f5a0ce-47c5-48d7-95fb-70e7a1d9ff8a",
+  "status": "draft",
+  "full_text": "강릉 여행을 다녀온 부부가 여행 경비로 총 61만 원을 썼어요. 글쓴이는 남편과 2박 3일 일정으로 강릉 바다를 보러 다녀왔습니다. KTX와 렌터카를 이용하고 안목해변 근처 게스트하우스에 머물렀죠. 주문진 수산시장에서 대게 대신 오징어회와 가자미회를 사서 먹었습니다. 돌아오는 기차 시간에 맞춰 렌터카 반납 장소에서 1시간을 기다려야 했대요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "강릉 여행을 다녀온 부부가 여행 경비로 총 61만 원을 썼어요.",
+    "estimated_sec": 5.8,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 남편과 2박 3일 일정으로 강릉 바다를 보러 다녀왔습니다.",
+    "estimated_sec": 6.9,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "KTX와 렌터카를 이용하고 안목해변 근처 게스트하우스에 머물렀죠.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "주문진 수산시장에서 대게 대신 오징어회와 가자미회를 사서 먹었습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "돌아오는 기차 시간에 맞춰 렌터카 반납 장소에서 1시간을 기다려야 했대요.",
+    "estimated_sec": 7.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 34.0,
+  "narration_sec": 26.714285714285715,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

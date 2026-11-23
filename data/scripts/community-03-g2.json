@@ -1,0 +1,54 @@
+{
+ "id": "community-03-g2",
+ "source_id": "community-03",
+ "type": "community",
+ "collected_at": "2026-11-23T17:38:10+09:00",
+ "script": {
+  "id": "d356e442-8f30-4097-9d4e-206871fe5f71",
+  "text_source_id": "f1593c11-29e4-49cd-9637-8a9b0d4c2bf9",
+  "status": "draft",
+  "full_text": "4살 고양이 두부가 일주일 전부터 30그램도 겨우 먹고 있어요. 글쓴이는 평소 60그램을 먹던 고양이의 식욕 부진을 걱정했대요. 몸무게가 한 달 만에 4.8킬로그램에서 4.5킬로그램으로 줄었죠. 그저 2주 전에 바꾼 다른 회사 사료 때문인지 궁금해하고 있습니다. 병원비가 10만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "4살 고양이 두부가 일주일 전부터 30그램도 겨우 먹고 있어요.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 평소 60그램을 먹던 고양이의 식욕 부진을 걱정했대요.",
+    "estimated_sec": 6.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "몸무게가 한 달 만에 4.8킬로그램에서 4.5킬로그램으로 줄었죠.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "그저 2주 전에 바꾼 다른 회사 사료 때문인지 궁금해하고 있습니다.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "병원비가 10만 원 넘게 나올까 봐 사료를 다시 바꿀지 고민 중이래요.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.9,
+  "narration_sec": 26.0,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

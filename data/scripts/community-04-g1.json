@@ -1,0 +1,54 @@
+{
+ "id": "community-04-g1",
+ "source_id": "community-04",
+ "type": "community",
+ "collected_at": "2026-11-23T17:38:23+09:00",
+ "script": {
+  "id": "5bea2eec-a603-4948-a15c-e8f2b58aa5d5",
+  "text_source_id": "61de4515-dbad-4a77-890c-782757ee1b69",
+  "status": "draft",
+  "full_text": "중고 거래 현장에서 40분이나 기다린 글쓴이에게 구매자가 남긴 후기가 황당했대요. 글쓴이는 사용감 있는 캠핑 의자 2개를 4만 원에 올렸습니다. 약속 장소에 늦게 나타난 구매자는 현장에서 가격을 더 깎아달라고 요구했죠. 글쓴이는 귀찮아서 요구대로 3만 5,000원에 물건을 넘겨주었습니다. 그런데 구매자는 후기에 친절하고 시간 약속을 잘 지킨다고 평가를 남겼습니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "중고 거래 현장에서 40분이나 기다린 글쓴이에게 구매자가 남긴 후기가 황당했대요.",
+    "estimated_sec": 8.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 사용감 있는 캠핑 의자 2개를 4만 원에 올렸습니다.",
+    "estimated_sec": 6.2,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "약속 장소에 늦게 나타난 구매자는 현장에서 가격을 더 깎아달라고 요구했죠.",
+    "estimated_sec": 7.4,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "글쓴이는 귀찮아서 요구대로 3만 5,000원에 물건을 넘겨주었습니다.",
+    "estimated_sec": 6.7,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "그런데 구매자는 후기에 친절하고 시간 약속을 잘 지킨다고 평가를 남겼습니다.",
+    "estimated_sec": 7.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 36.1,
+  "narration_sec": 28.571428571428573,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}

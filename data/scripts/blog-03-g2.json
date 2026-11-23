@@ -1,0 +1,54 @@
+{
+ "id": "blog-03-g2",
+ "source_id": "blog-03",
+ "type": "blog",
+ "collected_at": "2026-11-23T17:36:12+09:00",
+ "script": {
+  "id": "f036d456-7a0c-42bb-8f3b-47ee049eb3ed",
+  "text_source_id": "a74a0d26-0fdd-423d-a13d-8dbedb218e81",
+  "status": "draft",
+  "full_text": "러닝을 시작한 지 8주 만에 쉬지 않고 5km를 완주했대요. 이 네티즌은 매주 월요일과 수요일 그리고 토요일에 하천 길을 뛰었습니다. 처음에는 1km만 뛰어도 숨이 차서 걷다 뛰다를 반복하는 수준이었죠. 새로 산 신발 덕분에 무릎 통증이 줄어들며 목표인 10km 대회도 준비 중입니다. 남은 3주 동안은 토요일마다 7km씩 뛰기로 했답니다.",
+  "sections": [
+   {
+    "role": "hook",
+    "text": "러닝을 시작한 지 8주 만에 쉬지 않고 5km를 완주했대요.",
+    "estimated_sec": 5.5,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "이 네티즌은 매주 월요일과 수요일 그리고 토요일에 하천 길을 뛰었습니다.",
+    "estimated_sec": 7.1,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "처음에는 1km만 뛰어도 숨이 차서 걷다 뛰다를 반복하는 수준이었죠.",
+    "estimated_sec": 6.6,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "point",
+    "text": "새로 산 신발 덕분에 무릎 통증이 줄어들며 목표인 10km 대회도 준비 중입니다.",
+    "estimated_sec": 7.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   },
+   {
+    "role": "cta",
+    "text": "남은 3주 동안은 토요일마다 7km씩 뛰기로 했답니다.",
+    "estimated_sec": 5.3,
+    "ungrounded_numbers": [],
+    "ungrounded_facts": []
+   }
+  ],
+  "estimated_duration_sec": 31.7,
+  "narration_sec": 26.571428571428573,
+  "narration_max_sec": 100.0,
+  "provider": "llamacpp",
+  "error": null
+ }
+}
