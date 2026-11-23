@@ -69,7 +69,8 @@ export function VerdictBadge({ data, verdict }: { data: Data; verdict?: string }
 }
 
 // ---- 결정 표시 ----
-// 통과 → 원래 대본 그대로(표기를 고쳤으면 고친 대본으로), 보류 → 사람이 보고 정함, 탈락 → 만들지 않음 (judge/view.py decision_of)
+// 통과 → 원래 대본 그대로(표기를 고쳤으면 고친 대본으로), 보류·탈락 → 고쳐 다시 판정해 통과하면 고친 대본으로,
+// 끝까지 보류면 사람이 보고 정함, 모두 탈락이면 만들지 않음 (judge/view.py decision_of, judge/revise.py choose)
 export type DecisionKind = 'original' | 'revised' | 'review' | 'none'
 type WithDecision = { verdict: string; decision?: { action: string } }
 
@@ -79,9 +80,9 @@ export function decisionKind(r?: WithDecision): DecisionKind | null {
     : a === 'do_not_render' ? 'none' : null
 }
 export const DECISION_WORD: Record<DecisionKind, string> = {
-  original: '그대로 만들어도 됨', revised: '고친 대본으로 만듦', review: '사람이 보고 정함', none: '만들지 않음 · 사실 틀림',
+  original: '그대로 만들어도 됨', revised: '고친 대본으로 만듦', review: '사람이 보고 정함', none: '만들지 않음 · 사실 틀림이 남음',
 }
-const DECISION_CLASS: Record<DecisionKind, string> = { original: 'pass', revised: 'pass', review: 'hold', none: 'fail' }
+const DECISION_CLASS: Record<DecisionKind, string> = { original: 'pass', revised: 'hold', review: 'hold', none: 'fail' }
 
 export function decisionWord(data: Data, r: WithDecision): string {
   const k = decisionKind(r)
@@ -89,7 +90,14 @@ export function decisionWord(data: Data, r: WithDecision): string {
 }
 export function decisionClass(data: Data, r: WithDecision): string {
   const k = decisionKind(r)
+  // 통과한 대본의 표기만 고친 것은 통과 색
+  if (k === 'revised' && r.verdict === data.verdicts[0]) return 'pass'
   return k ? DECISION_CLASS[k] : verdictClass(data, r.verdict)
+}
+
+/** 원래 판정이 탈락이면 붙이는 작은 빨간 표시. 「만들지 않음 · 사실 틀림이 남음」에는 겹쳐 붙이지 않는다 */
+export function factMark(data: Data, r: WithDecision): boolean {
+  return r.verdict === data.verdicts[2] && decisionKind(r) !== 'none'
 }
 
 export function DecisionBadge({ data, r }: { data: Data; r?: WithDecision }) {
@@ -97,6 +105,7 @@ export function DecisionBadge({ data, r }: { data: Data; r?: WithDecision }) {
   return (
     <span className="dbadge">
       <span className={`vtext v-${decisionClass(data, r)}`}>{decisionWord(data, r)}</span>
+      {factMark(data, r) && <span className="fact-mark">사실 틀림</span>}
     </span>
   )
 }

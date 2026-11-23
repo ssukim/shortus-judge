@@ -5,8 +5,10 @@
   to_view(r)      결과 하나 → 화면 결과 (칸은 web/src/types.ts의 Result)
   redecide(r)     저장한 결과에 지금 판정 선을 다시 적용(tools/evaluate.py의 redecide와 같은 셈)
 
-판정기는 모델로 문장을 고쳐 쓰지 않는다. 「고친 대본」(fixed_scenes)은 코드가 표기와 위험한 숫자만 목소리가 바로 읽게 바꾼 것이라
-revision 칸에 method "reading_only"로 넣는다.
+「고친 대본」은 두 가지다.
+  reading_only  통과한 대본: 코드가 표기와 위험한 숫자만 목소리가 바로 읽게 바꾼 것(fixed_scenes)
+  model         보류·탈락 대본: 걸린 곳을 모델이 고치고 다시 판정한 것(judge/revise.py의 revisions). 문장은 다시 판정에서
+                코드가 표기를 고친 것(그 판의 fixed_scenes)이 렌더링에 들어간다
 """
 import copy
 import difflib
@@ -165,6 +167,42 @@ def _add_pinned(c5, scenes, texts):
     c5["marks"] = [{"scene": h["scene"], "quote": h["text"], "fix": h["fix"]} for h in hits]
 
 
+def model_revision_view(rev):
+    """모델로 고친 대본 한 판(revisions의 한 판) → revision 칸. 화면(web/src/revision.ts)이 읽는 모양.
+    after는 고친 글자, reading은 다시 판정에서 코드가 읽는 법을 고친 문장(after와 다를 때만, 렌더링에 들어감)."""
+    res = rev["result"]
+    fixed = (res.get("fixed_scenes") or None) if res else None
+    scenes = []
+    for s in rev["scenes"] or []:
+        reading = fixed[s["n"] - 1] if fixed and fixed[s["n"] - 1] != s["after"] else None
+        scenes.append({"n": s["n"], "before": s["before"], "after": s["after"],
+                       "changed": s["changed"] or reading is not None, "why": s["why"] if s["changed"] else
+                       ("읽는 법만 바꿈: " + ", ".join(f"「{a}」 → 「{b}」" for a, b in changes(s["after"], reading))
+                        if reading else ""), **({"reading": reading} if reading else {})})
+    out = {"method": "model", "round": rev["round"], "scenes": scenes, "new_numbers": [], "error": rev["error"],
+           "reverted": rev["reverted"], "verdict": None, "flagged": [], "criteria": None, "why": []}
+    if res:
+        crit = {k: criterion_view(int(k), c, res["scenes"]) for k, c in res["criteria"].items()}
+        out.update(verdict=res["verdict"], why=list(res["why"]), criteria=crit,
+                   flagged=[int(k) for k, c in crit.items() if c["flagged"] and int(k) not in (res.get("diagnostics") or [])
+                            and int(k) not in verdict.DIAG_ONLY])
+    return out
+
+
+def _revised(r):
+    """고쳐 다시 판정한 결과 → {revision, revision_2, decision}"""
+    d = r["decision"]
+    revs = r["revisions"]
+    dec = {"action": d["action"], "script": f"revision {d['round']}" if d["round"] else
+           ("original" if d["action"] == "review" else None),
+           "round": d["round"], "reason": d["reason"],
+           "remaining": [{"criterion": n, "name": NAMES[n]} for n in d["remaining"]], "tried": len(revs)}
+    out = {"decision": dec, "revision": model_revision_view(revs[0])}
+    if len(revs) > 1:
+        out["revision_2"] = model_revision_view(revs[1])
+    return out
+
+
 def to_view(r, judged_at=None):
     """판정 결과 하나 → 화면 결과. r의 verdict·why·diagnostics를 그대로 쓴다(저장한 결과는 먼저 redecide)."""
     scenes = r["scenes"]
@@ -192,11 +230,16 @@ def to_view(r, judged_at=None):
         "undecided": [{"criterion": int(k), "why": c.get("error") or ""} for k, c in r["criteria"].items()
                       if c["result"] == config.UNKNOWN],
         "source_given": True,
-        "cost_usd": run.get("cost_usd_est", 0), "elapsed_sec": run.get("sec"), "model": run.get("model"),
+        "cost_usd": round(run.get("cost_usd_est", 0) + run.get("revise_cost_usd", 0), 5), "elapsed_sec": round((run.get("sec") or 0) + run.get("revise_sec", 0), 1) if run.get("sec") is not None else None, "model": run.get("model"),
         "calls": run.get("calls"), "judged_at": judged_at,
-        "decision": decision_of(r["verdict"], r.get("why") or [], rev is not None, remaining),
-        "revision": rev,
+        **_decision_and_revision(r, rev, remaining),
     }
+
+
+def _decision_and_revision(r, rev, remaining):
+    if r.get("revisions"):
+        return _revised(r)
+    return {"decision": decision_of(r["verdict"], r.get("why") or [], rev is not None, remaining), "revision": rev}
 
 
 def criteria_meta(rubric=None):

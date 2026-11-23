@@ -5,12 +5,15 @@
   GET  /api/judge           판정 서버가 있는지와 새로 판정할 수 있는지 {"judge": true, "ready", "model", "criteria"}
   POST /api/judge           판정. 본문 {"source": 넣은 글, "scenes": [{"text": 장면 문장, "sec": 쇼더스 예상 초(없어도 됨)}]}
                             → judge/view.py의 to_view 모양에 "input", "request_id"를 더한 것. 한 번에 받는 응답(JSON)만 낸다
+                            Accept: application/x-ndjson이면 한 요청 안에서 줄 단위 JSON으로 흘려보낸다(아래 STREAM)
+  GET  /api/fresh           {"fresh": true, "ready": 쇼더스 키가 있고 판정할 수 있는지}
+  POST /api/fresh           쇼더스에서 새 대본 받기. {"step": "start", "source_id" | "text"} / {"step": "poll", "script_id"} (judge/fresh.py)
   GET  /api/tts             {"tts": true, "ready": 쇼더스 키(SHORTUS_API_KEY)가 있는지}
   POST /api/tts             본문 {"text"} → 쇼더스 목소리 미리 듣기(크레딧 0)로 받은 WAV. judge/listen.py의 tts(같은 문장은 한 번만 받음)
 
-모델 호출 경로는 판정기와 같다(JUDGE_BACKEND, judge/backends.py). 판정 한 번은 대본 하나에 약 30초, 약 $0.01입니다.
+모델 호출 경로는 판정기와 같다(JUDGE_BACKEND, judge/backends.py). 판정 한 번은 대본 하나에 약 30초, 약 $0.01이고, 보류·탈락이면 고쳐 다시 판정(judge/revise.py)까지 약 1분이 걸린다(결론은 흘려보내기로 먼저 낸다).
 판정할 수 없어도(claude 명령이나 키가 없음) 서버는 뜨고, 화면은 저장해 둔 결과를 보여 준다. 판정 요청에만 503으로 답한다.
-쇼더스에서 새 대본을 받는 길은 두지 않는다(대본 만들기는 하루 한도가 있다. 받으려면 tools/collect.py).
+쇼더스에서 새 대본 받기(/api/fresh)는 쇼더스 하루 한도를 쓰므로 이 서버도 하루 FRESH_DAILY_LIMIT번(기본 20)까지만 보낸다.
 화면을 npm run dev로 따로 띄우면 출처가 달라지므로 JUDGE_ALLOW_ORIGINS=http://localhost:5173 을 같이 준다.
 Host 머리글이 이 컴퓨터 주소(127.0.0.1·localhost·[::1]와 띄운 포트)가 아니면 403으로 막는다(DNS 재바인딩 방어).
 다른 이름으로 열어야 하면 JUDGE_ALLOWED_HOSTS=이름:포트 를 준다.
@@ -29,11 +32,23 @@ import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import unquote
 
-from . import backends, config, core, listen, view
+import queue
+
+from . import backends, config, core, fresh, listen, view
 
 DIST = config.ROOT / "web" / "dist"
 PATH_JUDGE = "/api/judge"
 PATH_TTS = "/api/tts"
+PATH_FRESH = "/api/fresh"
+
+# ---- 흘려보내기 (STREAM) ----
+# 판정 요청에 Accept: application/x-ndjson이 있으면 한 요청 안에서 줄 단위 JSON으로 답한다.
+#   {"type": "criterion", "n": 기준 번호, "result": 그 기준의 결과(judge/view.py의 criterion_view)}   기준 하나가 끝날 때마다
+#   {"type": "judged", "body": 원래 대본의 결과}   기준 10개가 끝났을 때(고치기 전). 결정(decision)과 고친 대본은 비워 둔다.
+#                                                     화면은 이 결론을 먼저 보이고 고친 대본은 done에서 이어 붙인다
+#   {"type": "step", "text": 단계 글}   보류·탈락 뒤 고친 대본 만들기, 다시 판정하기를 시작할 때 (judge/revise.py)
+#   {"type": "done", "status": 200, "body": 한 번에 받는 응답과 같은 본문}   마지막 한 줄
+STREAM_TYPE = "application/x-ndjson"
 NO_DIST = "화면이 아직 빌드되지 않았습니다. web 폴더에서 npm install, npm run build를 한 번 실행해 주세요."
 
 # ---- 입력 한도 ----
@@ -120,15 +135,30 @@ def parse_payload(payload):
     return source, d, estimated
 
 
-def judge_payload(payload):
-    """판정 요청 본문 하나 → 화면이 읽는 결과. 입력이 틀리면 InputError."""
-    source, d, estimated = parse_payload(payload)
-    r = core.judge_script(d, source)
-    out = view.to_view(r, judged_at=dt.datetime.now().astimezone().isoformat(timespec="seconds"))
+def _with_input(out, d, estimated):
     out["input"] = {"sec_estimated_scenes": estimated,
                     "scenes": [{"n": i, "text": s["text"], "sec": s["estimated_sec"]}
                                for i, s in enumerate(d["script"]["sections"], 1)]}
     return out
+
+
+def judge_payload(payload, on_criterion=None, on_step=None, on_judged=None):
+    """판정 요청 본문 하나 → 화면이 읽는 결과. 입력이 틀리면 InputError.
+    on_criterion(번호, 화면 기준 결과), on_step(글), on_judged(고치기 전 결과): 흘려보낼 때(STREAM)."""
+    source, d, estimated = parse_payload(payload)
+    scenes = d["script"]["sections"]
+    tell = (lambda n, c: on_criterion(n, view.criterion_view(n, c, scenes))) if on_criterion else None
+    now = lambda: dt.datetime.now().astimezone().isoformat(timespec="seconds")
+
+    def judged(r):   # 고치기 전 결론: 고칠 것이 있으면(보류·탈락) 결정과 고친 대본은 아직 비워 둔다
+        if not on_judged:
+            return
+        out = view.to_view(r, judged_at=now())
+        if r["verdict"] != config.PASS:
+            out.update(decision=None, revision=None)
+        on_judged(_with_input(out, d, estimated))
+    r = core.judge_script(d, source, on_criterion=tell, on_step=on_step, on_judged=judged)
+    return _with_input(view.to_view(r, judged_at=now()), d, estimated)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -220,7 +250,9 @@ class Handler(BaseHTTPRequestHandler):
         route = self._route()
         if route == PATH_JUDGE:
             return self._send(200, {"judge": True, "ready": judge_ready(), "model": config.MODEL,
-                                    "backend": config.BACKEND, "criteria": view.criteria_meta()})
+                                    "backend": config.BACKEND, "criteria": view.criteria_meta(), "stream": STREAM_TYPE})
+        if route == PATH_FRESH:
+            return self._send(200, {"fresh": True, "ready": judge_ready() and fresh.ready()})
         if route == PATH_TTS:
             return self._send(200, {"tts": True, "ready": tts_ready()})
         if route.startswith("/api/"):
@@ -251,6 +283,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._judge()
             if route == PATH_TTS:
                 return self._tts()
+            if route == PATH_FRESH:
+                return self._fresh()
             self._send(404, {"error": "없는 주소입니다."})
         except (socket.timeout, TimeoutError, ConnectionError):
             self.close_connection = True
@@ -270,6 +304,8 @@ class Handler(BaseHTTPRequestHandler):
         if not _slots.acquire(blocking=False):
             return self._send(429, {"error": "지금 판정하는 대본이 많습니다. 잠시 뒤 다시 눌러 주세요."})
         try:
+            if STREAM_TYPE in (self.headers.get("Accept") or ""):
+                return self._judge_stream(payload)
             out = judge_payload(payload)
         except Exception as e:  # noqa: BLE001  글은 밖으로 내지 않고 서버 창에만 남긴다
             self.log_error("판정 실패: %r", e)
@@ -278,6 +314,58 @@ class Handler(BaseHTTPRequestHandler):
             _slots.release()
         out["request_id"] = uuid.uuid4().hex[:12]
         self._send(200, out)
+
+    def _fresh(self):
+        payload, err = self._body(64 * 1024)
+        if err:
+            return self._send(*err)
+        if not judge_ready():
+            return self._send(503, {"error": fresh.FAIL})
+        self._send(*fresh.handle(payload, self.client_address[0]))
+
+    def _judge_stream(self, payload):
+        """판정을 일꾼 스레드에서 돌리고, 기준 하나·단계 하나가 끝날 때마다 이 스레드에서 한 줄씩 써 보낸다."""
+        q = queue.Queue()
+
+        def work():
+            try:
+                q.put(("done", 200, judge_payload(payload, on_criterion=lambda n, c: q.put(("criterion", n, c)),
+                                                  on_step=lambda text: q.put(("step", text)),
+                                                  on_judged=lambda body: q.put(("judged", body)))))
+            except Exception as e:  # noqa: BLE001  글은 밖으로 내지 않고 서버 창에만 남긴다
+                self.log_error("판정 실패: %r", e)
+                q.put(("done", 500, {"error": "판정에 실패했습니다. 잠시 뒤 다시 눌러 주세요."}))
+
+        threading.Thread(target=work, daemon=True).start()
+        self.send_response(200)
+        self.send_header("Content-Type", STREAM_TYPE + "; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Accel-Buffering", "no")
+        self.send_header("Connection", "close")
+        for k, v in self._cors().items():
+            self.send_header(k, v)
+        self.end_headers()
+        self.close_connection = True
+        gone = False
+        while True:
+            item = q.get()
+            if item[0] == "criterion":
+                obj = {"type": "criterion", "n": item[1], "result": item[2]}
+            elif item[0] == "step":
+                obj = {"type": "step", "text": item[1]}
+            elif item[0] == "judged":
+                obj = {"type": "judged", "body": item[1]}
+            else:
+                body = item[2] if item[1] != 200 else {**item[2], "request_id": uuid.uuid4().hex[:12]}
+                obj = {"type": "done", "status": item[1], "body": body}
+            if not gone:
+                try:
+                    self.wfile.write((json.dumps(obj, ensure_ascii=False) + "\n").encode("utf-8"))
+                    self.wfile.flush()
+                except OSError:   # 화면이 연결을 끊음. 판정은 끝까지 돈다
+                    gone = True
+            if item[0] == "done":
+                return
 
     def _tts(self):
         payload, err = self._body(4096)
@@ -306,6 +394,7 @@ def main():
     print(f"판정: POST {PATH_JUDGE} · 모델 {config.MODEL} · 호출 {config.BACKEND} · "
           + ("판정 가능" if judge_ready() else "판정 못 함(claude 명령이나 키가 없음), 저장해 둔 결과만")
           + f" · 1분 {PER_MINUTE}번, 동시에 {MAX_CONCURRENT}건", flush=True)
+    print(f"새 대본: POST {PATH_FRESH} · " + (f"쇼더스에서 받기(하루 {fresh.DAILY_LIMIT}번까지)" if fresh.ready() else "SHORTUS_API_KEY가 없어 끔"), flush=True)
     print(f"소리: POST {PATH_TTS} · " + ("쇼더스 미리 듣기(크레딧 0)" if tts_ready() else "SHORTUS_API_KEY가 없어 끔"), flush=True)
     try:
         server.serve_forever()
