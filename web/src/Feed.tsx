@@ -278,6 +278,16 @@ function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy, full 
   return (
     <article className="turn" id={`turn-${token}`}>
       <p className="ask">{turnLabel(data, spec, freshNo)}</p>
+      {/* 판정기에 실제로 들어간 것: 넣은 글 전체와 대본 장면. 판정이 끝나면 눌러서 보고서의 「넣은 글」 탭을 연다 */}
+      {(() => {
+        const src = f?.sourceText || (spec.kind === 'saved' ? data.sources[data.scripts.find((x) => x.id === spec.id)?.source_id ?? '']?.text
+          : spec.kind === 'fresh' ? data.sources[spec.sourceId]?.text : spec.kind === 'text' ? spec.text : spec.source) || ''
+        const what = [src ? `넣은 글 ${src.trim().length.toLocaleString()}자` : '', scenes.length ? `대본 ${scenes.length}장면` : ''].filter(Boolean).join(' · ')
+        if (!what) return null
+        return f?.r
+          ? <button type="button" className="ask-input" onClick={() => setQuery({ d: token, dt: 'source', dc: undefined })}>판정기에 넣은 것: {what} · 넣은 글 보기</button>
+          : <p className="ask-input">판정기에 넣은 것: {what}</p>
+      })()}
       <p className="sr-only" role="status">{f ? (f.revising ? '결론이 나왔습니다. 고친 대본을 만드는 중입니다.' : f.r ? '판정이 끝났습니다.' : f.error ?? '') : ''}</p>
       <Card title={spec.kind === 'own' ? '가진 대본' : spec.kind === 'text' ? spec.title : spec.kind === 'saved' ? titleOf(data, data.scripts.find((x) => x.id === spec.id)!) : data.sources[spec.sourceId]?.title}
         data={data} scenes={scenes} final={f} checks={checks} pre={steps.filter((s) => !s.judge && !s.checks)}
