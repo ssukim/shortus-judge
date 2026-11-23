@@ -250,7 +250,9 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
   // 없거나 실패면 견주기를 숨긴다 (revision.ts)
   const act = r?.decision?.action
   const readingOnly = !!v && v === pass && act === 'render_revised'
-  const rev = r && (v === fail || v === hold || readingOnly) && (r.revision_2 || r.revision) ? shownRevision(r) : null
+  // 탈락·보류는 판정봇이 실제로 고쳐 다시 판정한 것(method model)만. 고치기 전에 저장한 결과의 표기만 고친 대본은 보이지 않는다
+  const byModel = (r?.revision as { method?: string } | null | undefined)?.method === 'model'
+  const rev = r && (((v === fail || v === hold) && byModel) || readingOnly) && (r.revision_2 || r.revision) ? shownRevision(r) : null
   const revOk = rev && !rev.error && rev.scenes.some((x) => x.changed) ? rev : null
   const revClip = (x: RevScene): Clip | null => {
     const key = `${sheetKey}-r${x.n}`
