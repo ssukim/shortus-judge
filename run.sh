@@ -3,6 +3,8 @@
 #
 # 사용법:
 #   ./run.sh                       선택 메뉴
+#   ./run.sh chat                  Claude 새 대화 (원격 접속 가능)
+#   ./run.sh resume [검색어]       이전 세션 이어서 (원격 접속 가능)
 #   ./run.sh judge [대본 파일]     대본 하나 판정 (기본: data/scripts/blog-04-g1.json)
 #   ./run.sh all [결과 폴더]       개발용 22개 판정, 5개씩 동시에 (기본: results/latest)
 #   ./run.sh test [결과 폴더]      시험용 10개 판정 (기본: results/latest-test)
@@ -39,6 +41,26 @@ title() {
 }
 
 case "$ARG1" in
+  chat)
+    echo ""
+    echo "  Claude 대화형 세션 (원격 접속 가능, 파일 수정 자동)"
+    echo "  ━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    caffeinate -i claude --remote-control "shortus-judge-chat" --permission-mode acceptEdits
+    ;;
+
+  resume)
+    echo ""
+    echo "  Claude 세션 이어서 (원격 접속 가능, 파일 수정 자동)"
+    echo "  ━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    if [[ -n "${REMAINING_ARGS[1]:-}" ]]; then
+      caffeinate -i claude --remote-control "shortus-judge-resume" --resume "${REMAINING_ARGS[1]}" --permission-mode acceptEdits
+    else
+      caffeinate -i claude --remote-control "shortus-judge-resume" --resume --permission-mode acceptEdits
+    fi
+    ;;
+
   judge)
     FILE="${REMAINING_ARGS[1]:-data/scripts/blog-04-g1.json}"
     [[ -f "$FILE" ]] || { echo "  대본 파일이 없어요: $FILE"; exit 1; }
@@ -83,6 +105,8 @@ case "$ARG1" in
     echo "  쇼더스 대본 판정기"
     echo "  ━━━━━━━━━━━━━━━━━━━━"
     echo ""
+    echo "  c. chat    — Claude 새 대화 (원격 접속)"
+    echo "  r. resume  — Claude 세션 이어서 (원격 접속)"
     echo "  1. judge   — 대본 하나 판정"
     echo "  2. all     — 개발용 22개 판정하고 합의와 견주기"
     echo "  3. test    — 시험용 10개 판정하고 합의와 견주기"
@@ -93,6 +117,8 @@ case "$ARG1" in
     read -r MENU
 
     case "$MENU" in
+      c|chat)   exec "$0" chat ;;
+      r|resume) exec "$0" resume ;;
       1|judge)  exec "$0" judge ;;
       2|all)    exec "$0" all ;;
       3|test)   exec "$0" test ;;
@@ -108,7 +134,7 @@ case "$ARG1" in
   *)
     echo ""
     echo "  알 수 없는 명령: $ARG1"
-    echo "  사용법: ./run.sh [judge [대본]|all [폴더]|test [폴더]|eval [폴더]|labels]"
+    echo "  사용법: ./run.sh [chat|resume [검색어]|judge [대본]|all [폴더]|test [폴더]|eval [폴더]|labels]"
     exit 1
     ;;
 esac
