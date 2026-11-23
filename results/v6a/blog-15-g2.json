@@ -1,0 +1,197 @@
+{
+ "id": "blog-15-g2",
+ "source_id": "blog-15",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  8
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "간장은 팬 가장자리에 둘러 태우듯 넣어야 불맛이 납니다.",
+     "source_quote": "간장은 팬 가장자리에 둘러서 살짝 태우듯 넣으면 불맛 비슷한 향이 나요.",
+     "reason": "'불맛 비슷한 향'을 '불맛이 난다'로 단정하고, '넣으면'을 '넣어야'로 필수처럼 말해 원문보다 세게 말했다."
+    }
+   ],
+   "unsure": true,
+   "votes": "1/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "바닥이 살짝 눌을 때까지 기다려야 하며",
+     "source_quote": "",
+     "reason": "'~하며' 연결 어미가 문서에서 쓰는 '~이며'처럼 글투로 들린다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 27.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "찬밥을 넣고 바로 휘저으면 볶음밥이 질척해지는 이유가 있었어요.",
+     "source_quote": "여기서 밥을 너무 빨리 뒤적이면 질척해지니까",
+     "reason": "첫 장면이 '질척해지는 이유'가 있다고 열었지만, 넣은 글에 있는 그 이유를 대본 어느 장면도 말하지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "여기서 밥을 너무 빨리 뒤적이면 질척해지니까, 바닥이 살짝 눌을 때까지 기다리는 게 포인트예요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "계란이 반쯤 익었을 때 찬밥을 넣고 주걱으로 꾹꾹 눌러 가며 펴 주세요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "간장은 팬 가장자리에 둘러서 살짝 태우듯 넣으면 불맛 비슷한 향이 나요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "파 기름이 생기면 계란을 깨 넣고 바로 휘저어 스크램블을 만들어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "찬밥을 넣고 바로 휘저으면 볶음밥이 질척해지는 이유가 있었어요.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "계란이 반쯤 익었을 때 찬밥을 넣고 주걱으로 꾹꾹 눌러가며 펴야 합니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "바닥이 살짝 눌을 때까지 기다려야 하며 간장은 팬 가장자리에 둘러 태우듯 넣어야 불맛이 납니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "파 기름에 스크램블을 하고 밥을 눌이며 볶으면 10분 만에 맛있는 볶음밥이 완성됩니다.",
+   "estimated_sec": 8.5
+  }
+ ],
+ "fixed_scenes": [
+  "찬밥을 넣고 바로 휘저으면 볶음밥이 질척해지는 이유가 있었어요.",
+  "계란이 반쯤 익었을 때 찬밥을 넣고 주걱으로 꾹꾹 눌러가며 펴야 합니다.",
+  "바닥이 살짝 눌을 때까지 기다려야 하며 간장은 팬 가장자리에 둘러 태우듯 넣어야 불맛이 납니다.",
+  "파 기름에 스크램블을 하고 밥을 눌이며 볶으면 십 분 만에 맛있는 볶음밥이 완성됩니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.5,
+    "input_tokens": 2,
+    "output_tokens": 4133,
+    "cache_creation_input_tokens": 4853,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00267
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.8,
+    "input_tokens": 2,
+    "output_tokens": 3979,
+    "cache_creation_input_tokens": 4853,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0026
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.8,
+    "input_tokens": 2,
+    "output_tokens": 4800,
+    "cache_creation_input_tokens": 4853,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00301
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 15.1,
+    "input_tokens": 2,
+    "output_tokens": 3057,
+    "cache_creation_input_tokens": 3256,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00194
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15969,
+   "cache_creation_input_tokens": 17815,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01022,
+  "sec": 19.8
+ }
+}

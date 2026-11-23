@@ -1,0 +1,202 @@
+{
+ "id": "community-05-g2",
+ "source_id": "community-05",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "집사에 퇴근한 이 고양이는",
+     "source_quote": "어제 퇴근하고 왔는데",
+     "reason": "퇴근한 주체가 고양이로 읽혀 넣은 글의 글쓴이(집사)가 퇴근했다는 내용과 다르다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "거실에 들어간 집사는 바닥에 엎어져 흙이 퍼진 화분을 발견했습니다.",
+     "source_quote": "범인은 너무 뻔했죠.",
+     "reason": "넣은 글은 고양이가 화분을 엎은 범인으로 암시하는데, 대본 어디에서도 고양이가 화분을 쓰러뜨렸다는 점이 드러나지 않는다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.2,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "신발장 위에 앉아 계속 시선을 보냈대요",
+     "source_quote": "신발장 위에 앉아서 저를 계속 쳐다보는 거예요",
+     "reason": "장면 1에서 이미 말한 '고양이가 현관에서 빤히 쳐다봄'을 장소와 퇴근 상황만 더해 다시 말하고 있어 요점이 같습니다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "평소엔 소파에서 자고 있다가 제가 부르면 겨우 고개만 드는 애거든요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "신발장 위에 앉아서 저를 계속 쳐다보는 거예요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "뭔가 이상해서 거실에 들어갔더니 화분 하나가 바닥에 엎어져 있었어요. 흙이 거실 반쯤 퍼져 있고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "그런데 웃긴 건 제가 흙을 치우는 동안 고양이가 계속 옆에 와서 제 팔에 머리를 비비는 거예요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "결국 화분은 높은 선반으로 옮겼고, 고양이는 간식 하나 받고 다시 소파로 돌아갔습니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "평소엔 부르면 겨우 고개만 들던 고양이가 현관에서 빤히 쳐다보고 있었어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "집사에 퇴근한 이 고양이는 신발장 위에 앉아 계속 시선을 보냈대요.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "거실에 들어간 집사는 바닥에 엎어져 흙이 퍼진 화분을 발견했습니다.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "고양이는 흙을 치우는 집사의 팔에 머리를 비비며 애교를 부렸죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "화분은 높은 곳으로 옮겼고 고양이는 간식을 받고 소파로 돌아갔습니다.",
+   "estimated_sec": 6.9
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.0,
+    "input_tokens": 2,
+    "output_tokens": 4575,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4405,
+    "cost_usd": 0.00238
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.9,
+    "input_tokens": 2,
+    "output_tokens": 6837,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4405,
+    "cost_usd": 0.00351
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.5,
+    "input_tokens": 2,
+    "output_tokens": 4953,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4405,
+    "cost_usd": 0.00257
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.7,
+    "input_tokens": 2,
+    "output_tokens": 2541,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2807,
+    "cost_usd": 0.00135
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 18906,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 16022
+  },
+  "cost_usd_est": 0.00981,
+  "sec": 29.9
+ }
+}

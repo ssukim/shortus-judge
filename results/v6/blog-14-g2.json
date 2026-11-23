@@ -1,0 +1,191 @@
+{
+ "id": "blog-14-g2",
+ "source_id": "blog-14",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "재료가 소진되면 마감 전이라도 문을 닫는다는 사실이 있었어요.",
+     "source_quote": "단, 재료가 떨어지면 마감 전에도 문을 닫는대요.",
+     "reason": "넣은 글은 주인이 그렇게 했다는 들은 말(~대요)인데, 대본은 이를 확정된 사실처럼 말했습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 27.2,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "제가 간 토요일엔 6시 반쯤 마감 안내가 붙었어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "테이블이 6개밖에 없는 작은 집이에요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "주말 점심엔 대기 30분은 각오하세요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "단, 재료가 떨어지면 마감 전에도 문을 닫는대요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "제가 간 토요일엔 6시 반쯤 마감 안내가 붙었어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "줄 서는 맛집인 할매손칼국수에는 예상 밖의 마감 안내가 붙어 있었어요.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "동네 골목에 숨은 이 집은 테이블이 6개뿐인 작은 가게입니다.",
+   "estimated_sec": 6.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "주말 점심에는 30분 정도 대기해야 할 만큼 인기가 많았죠.",
+   "estimated_sec": 5.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "그런데 재료가 소진되면 마감 전이라도 문을 닫는다는 사실이 있었어요.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "방문한 토요일에는 오후 6시 반쯤 마감 안내가 붙었답니다.",
+   "estimated_sec": 5.8
+  }
+ ],
+ "fixed_scenes": [
+  "줄 서는 맛집인 할매손칼국수에는 예상 밖의 마감 안내가 붙어 있었어요.",
+  "동네 골목에 숨은 이 집은 테이블이 여섯 개뿐인 작은 가게입니다.",
+  "주말 점심에는 삼십 분 정도 대기해야 할 만큼 인기가 많았죠.",
+  "그런데 재료가 소진되면 마감 전이라도 문을 닫는다는 사실이 있었어요.",
+  "방문한 토요일에는 오후 여섯 시 반쯤 마감 안내가 붙었답니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 9.1,
+    "input_tokens": 2,
+    "output_tokens": 1946,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4481,
+    "cost_usd": 0.00107
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.2,
+    "input_tokens": 2,
+    "output_tokens": 3700,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4481,
+    "cost_usd": 0.00194
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.4,
+    "input_tokens": 2,
+    "output_tokens": 3327,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4481,
+    "cost_usd": 0.00176
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 7.7,
+    "input_tokens": 2,
+    "output_tokens": 1415,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2883,
+    "cost_usd": 0.00079
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 10388,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 16326
+  },
+  "cost_usd_est": 0.00556,
+  "sec": 16.2
+ }
+}

@@ -1,0 +1,183 @@
+{
+ "id": "community-02-g1",
+ "source_id": "community-02",
+ "verdict": "보류",
+ "why": [
+  "기준 5 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "6,980원",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "그 자리에서 앱 깔고 가입함. 5분 걸림."
+  },
+  {
+   "scene": 2,
+   "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감."
+  },
+  {
+   "scene": 3,
+   "source_quote": "직원분한테 할인 아니냐고 했더니 할인은 앱 회원만 된대. 그래서 그 자리에서 앱 깔고 가입함."
+  },
+  {
+   "scene": 4,
+   "source_quote": "집에 와서 냉장고 열었더니 엄마가 어제 계란 두 판 사 놨음."
+  },
+  {
+   "scene": 5,
+   "source_quote": "유통기한 보니까 셋 다 12월 5일까지임. 식구 셋인데 우리 집 이제 계란 90개 있음."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "계란 한 판을 사려고 마트 계산대에서 5분 동안 앱을 깔았습니다.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 퇴근길에 6,980원 할인을 받으려고 마트에 방문했대요.",
+   "estimated_sec": 6.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "직원이 앱 회원만 할인된다고 하자 그 자리에서 바로 가입했죠.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "집에 도착해 냉장고를 열어보니 어머니가 어제 이미 두 판을 사 두셨습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "식구 셋이 먹을 계란이 총 90개나 생겨버렸대요.",
+   "estimated_sec": 4.7
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.0,
+    "input_tokens": 2,
+    "output_tokens": 4469,
+    "cache_creation_input_tokens": 4463,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00279
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.0,
+    "input_tokens": 2,
+    "output_tokens": 4714,
+    "cache_creation_input_tokens": 4458,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00291
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.7,
+    "input_tokens": 2,
+    "output_tokens": 3031,
+    "cache_creation_input_tokens": 4462,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00207
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 7.7,
+    "input_tokens": 2,
+    "output_tokens": 1397,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2471,
+    "cost_usd": 0.00077
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 13611,
+   "cache_creation_input_tokens": 13776,
+   "cache_read_input_tokens": 2471
+  },
+  "cost_usd_est": 0.00854,
+  "sec": 20.0
+ }
+}

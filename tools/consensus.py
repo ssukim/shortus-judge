@@ -4,10 +4,12 @@
 
 읽는 것: data/labels/viewer-*.csv
 고치는 것: data/labels/overrides.csv (합의를 넣은 글과 대조해 받아들이지 않은 기준. 까닭과 함께 적음)
+쓰는 것: data/labels/consensus-sure.csv (채점자가 「애매」를 달지 않은 걸림만 센 확신 정답, D29)
 쓰는 것: data/labels/consensus.csv (기준별 다수결과 판정), data/labels/review.md (사람이 확인할 대본 목록)
 """
 
 import csv
+import re
 import sys
 from pathlib import Path
 
@@ -84,6 +86,23 @@ def main() -> None:
         if len(set(each)) > 1 or v == "탈락":
             review.append((i, v, each, split))
 
+    # 확신 정답(D29): 근거 칸에서 그 기준의 근거가 모두 「(애매」인 걸림은 세지 않는다
+    def sure(row, c):
+        if int(row[c]) != 1:
+            return 0
+        segs = [x for x in re.split(r" / ", row.get("근거") or "") if x.strip().startswith(c[1:] + ":")]
+        return 0 if segs and all("(애매" in x for x in segs) else 1
+    out_sure = []
+    for i in ids:
+        hit = {c: fix.get((i, c), sum(sure(raters[n][i], c) for n in names) * 2 > k) if c != "c5" else bool(c5[i])
+               for c in CRITERIA}
+        hit["c5_unfixable"] = c5_unfixable[i]
+        out_sure.append({"id": i, "verdict": verdict(hit), **{c: int(hit[c]) for c in CRITERIA}})
+    with (LABELS / "consensus-sure.csv").open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["id", "verdict", *CRITERIA])
+        w.writeheader()
+        w.writerows(out_sure)
+
     with (LABELS / "consensus.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["id", "verdict", *CRITERIA])
         w.writeheader()
@@ -91,6 +110,7 @@ def main() -> None:
 
     dist = {x: sum(1 for r in out if r["verdict"] == x) for x in ("통과", "보류", "탈락")}
     print(f"\n합의 판정: {dist}")
+    print("확신 정답(애매 뺌): " + str({x: sum(1 for r in out_sure if r["verdict"] == x) for x in ("통과", "보류", "탈락")}))
     if fix:
         print(f"합의를 고친 기준: {len(fix)}개 (data/labels/overrides.csv)")
     print(f"사람이 확인할 대본(채점자 판정이 갈림 또는 합의 탈락): {len(review)}개")

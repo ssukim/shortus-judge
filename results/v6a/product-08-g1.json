@@ -1,0 +1,199 @@
+{
+ "id": "product-08-g1",
+ "source_id": "product-08",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "예약 기능을 활용하면 최대 13시간 뒤에 완성되도록 설정할 수 있습니다.",
+     "source_quote": "단, 우유나 달걀이 들어가는 반죽은 상할 수 있어 예약 기능을 쓰지 말라고 안내하고 있어요.",
+     "reason": "예약 기능의 예외(우유·달걀 반죽은 예약 금지)가 빠져 시청자가 안전하지 않은 용도로 쓸 수 있습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "1/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 36.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "반죽부터 굽기까지 모든 과정을 수동으로 하면 아침 시간이 매우 번거롭습니다.",
+     "source_quote": "",
+     "reason": "장면 1에서 이미 말한 '직접 반죽하고 굽기엔 시간이 부족하다'는 같은 요점을 낱말만 바꿔 되풀이했습니다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "예약 기능을 쓰면 최대 13시간 뒤에 빵이 완성되게 맞출 수 있어 아침에 갓 구운 빵을 먹을 수 있습니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "재료를 넣고 버튼만 누르면 반죽부터 굽기까지 알아서 해 줍니다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "재료를 넣고 버튼만 누르면 반죽부터 굽기까지 알아서 해 줍니다. 메뉴는 식빵, 잡곡빵, 떡, 잼 등 15가지예요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "예약 기능을 쓰면 최대 13시간 뒤에 빵이 완성되게 맞출 수 있어 아침에 갓 구운 빵을 먹을 수 있습니다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "정가는 18만 9천 원이고, 이달 말까지 공식몰에서 사면 식빵 믹스 3봉을 함께 드립니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "아침마다 갓 구운 빵을 먹고 싶지만 매번 반죽과 굽는 과정을 직접 하기엔 시간이 부족했어요.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "반죽부터 굽기까지 모든 과정을 수동으로 하면 아침 시간이 매우 번거롭습니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "아침빵 메이커는 재료를 넣고 버튼만 누르면 식빵과 떡 등 15가지 메뉴를 알아서 만들어 줍니다.",
+   "estimated_sec": 9.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "예약 기능을 활용하면 최대 13시간 뒤에 완성되도록 설정할 수 있습니다.",
+   "estimated_sec": 7.0
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "정가 18만 9천 원인 제품을 이달 말까지 공식몰에서 구매하면 식빵 믹스 3봉을 증정합니다.",
+   "estimated_sec": 9.2
+  }
+ ],
+ "fixed_scenes": [
+  "아침마다 갓 구운 빵을 먹고 싶지만 매번 반죽과 굽는 과정을 직접 하기엔 시간이 부족했어요.",
+  "반죽부터 굽기까지 모든 과정을 수동으로 하면 아침 시간이 매우 번거롭습니다.",
+  "아침빵 메이커는 재료를 넣고 버튼만 누르면 식빵과 떡 등 열다섯 가지 메뉴를 알아서 만들어 줍니다.",
+  "예약 기능을 활용하면 최대 열세 시간 뒤에 완성되도록 설정할 수 있습니다.",
+  "정가 십팔만 구천 원인 제품을 이달 말까지 공식몰에서 구매하면 식빵 믹스 3봉을 증정합니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.0,
+    "input_tokens": 2,
+    "output_tokens": 5820,
+    "cache_creation_input_tokens": 4850,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00352
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.4,
+    "input_tokens": 2,
+    "output_tokens": 5527,
+    "cache_creation_input_tokens": 4849,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00337
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.9,
+    "input_tokens": 2,
+    "output_tokens": 5380,
+    "cache_creation_input_tokens": 4849,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0033
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.8,
+    "input_tokens": 2,
+    "output_tokens": 2615,
+    "cache_creation_input_tokens": 3250,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00171
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 19342,
+   "cache_creation_input_tokens": 17798,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.0119,
+  "sec": 24.0
+ }
+}

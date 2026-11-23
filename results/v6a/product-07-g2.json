@@ -1,0 +1,191 @@
+{
+ "id": "product-07-g2",
+ "source_id": "product-07",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.9,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "아이의 수면을 방해하지 않으면서 조명을 관리하기가 쉽지 않았습니다.",
+     "source_quote": "",
+     "reason": "장면 1의 '아이를 깨우지 않고 조명을 끄기 어려웠다'는 요점을 낱말만 바꿔 다시 말했고 새 사실이 없습니다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "30분 뒤에 저절로 꺼지는 기능도 있어서, 아이가 잠들고 나서 끄러 들어갈 필요가 없어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "가장 어둡게 두면 자는 동안 켜 둬도 방해가 되지 않아요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "30분 뒤에 저절로 꺼지는 기능도 있어서, 아이가 잠들고 나서 끄러 들어갈 필요가 없어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "몸통은 말랑한 실리콘이라 떨어뜨려도 깨지지 않아요. 충전식이라 선 없이 침대 옆 어디에나 둘 수 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "색은 하얀 곰과 갈색 곰 두 가지예요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "아이가 잠든 뒤 조명을 끄러 방에 들어갈 때마다 아이가 깨어버리는 일이 반복됐어요.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "아이의 수면을 방해하지 않으면서 조명을 관리하기가 쉽지 않았습니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "달빛곰은 30분 뒤에 저절로 꺼지는 기능과 눈이 편한 노란빛을 제공합니다.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "말랑한 실리콘 몸통이라 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있습니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "하얀 곰과 갈색 곰 두 가지 색상으로 만나보세요.",
+   "estimated_sec": 4.5
+  }
+ ],
+ "fixed_scenes": [
+  "아이가 잠든 뒤 조명을 끄러 방에 들어갈 때마다 아이가 깨어버리는 일이 반복됐어요.",
+  "아이의 수면을 방해하지 않으면서 조명을 관리하기가 쉽지 않았습니다.",
+  "달빛곰은 삼십 분 뒤에 저절로 꺼지는 기능과 눈이 편한 노란빛을 제공합니다.",
+  "말랑한 실리콘 몸통이라 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있습니다.",
+  "하얀 곰과 갈색 곰 두 가지 색상으로 만나보세요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.7,
+    "input_tokens": 2,
+    "output_tokens": 5496,
+    "cache_creation_input_tokens": 4745,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00334
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.0,
+    "input_tokens": 2,
+    "output_tokens": 6741,
+    "cache_creation_input_tokens": 4746,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00396
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.9,
+    "input_tokens": 2,
+    "output_tokens": 4628,
+    "cache_creation_input_tokens": 4746,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00291
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.7,
+    "input_tokens": 2,
+    "output_tokens": 1823,
+    "cache_creation_input_tokens": 3148,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00131
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 18688,
+   "cache_creation_input_tokens": 17385,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01152,
+  "sec": 29.0
+ }
+}

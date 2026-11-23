@@ -1,0 +1,214 @@
+{
+ "id": "blog-09-g1",
+ "source_id": "blog-09",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "밤에는 기온이 3도까지 내려가 추웠지만",
+     "source_quote": "새벽엔 3도까지 내려갔대요.",
+     "reason": "넣은 글은 들은 말(「내려갔대요」)로 적었는데 대본은 이를 확인된 사실처럼 단정했습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 평일 수요일을 이용해 국립 자연휴양림으로 혼자 캠핑을 떠났습니다.",
+     "source_quote": "처음으로 혼자 캠핑을 다녀왔어요.",
+     "reason": "장면 1은 자기가 직접 말하듯 \"있었어요\"로 쓰다가 장면 2에서 까닭 없이 \"글쓴이는\"으로 바뀌어 말하는 사람이 달라진다."
+    },
+    {
+     "scene": 5,
+     "quote": "다시 가고 싶어졌대요.",
+     "source_quote": "또 가고 싶어졌어요.",
+     "reason": "넣은 글은 글쓴이가 직접 한 말인데 \"~대요\"로 남의 말을 전하는 투로 바뀌어 말투가 흔들린다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 32.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "텐트를 설치하는 데 40분이나 걸리는 고전 끝에 마주한 풍경이 있었어요.",
+     "source_quote": "텐트는 친구한테 빌렸는데 설치하는 데 40분 넘게 걸렸어요.",
+     "reason": "첫 장면이 캠핑 전체가 아니라 텐트 설치라는 곁가지로 시작해 글의 중심 얘기가 바로 드러나지 않는다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "텐트는 친구한테 빌렸는데 설치하는 데 40분 넘게 걸렸어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "주말은 예약이 빨리 차서 저는 평일 수요일로 잡았어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "유튜브 영상을 세 번이나 돌려 봤네요. 저녁은 간단하게 라면이랑 소시지를 구워 먹었어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "낮 기온은 15도였는데 새벽엔 3도까지 내려갔대요. 침낭을 하나 더 챙겨 간 게 정말 다행이었어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "아침에 텐트 문을 열었을 때 안개 낀 숲이 보이는데, 그 순간 때문에 또 가고 싶어졌어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "텐트를 설치하는 데 40분이나 걸리는 고전 끝에 마주한 풍경이 있었어요.",
+   "estimated_sec": 7.0
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 평일 수요일을 이용해 국립 자연휴양림으로 혼자 캠핑을 떠났습니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "유튜브를 세 번이나 돌려보며 겨우 텐트를 치고 숯불에 소시지를 구워 먹었죠.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "밤에는 기온이 3도까지 내려가 추웠지만 침낭을 챙겨간 덕분에 잘 견뎠습니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "아침에 텐트 문을 열었을 때 펼쳐진 안개 낀 숲 풍경에 다시 가고 싶어졌대요.",
+   "estimated_sec": 7.1
+  }
+ ],
+ "fixed_scenes": [
+  "텐트를 설치하는 데 사십 분이나 걸리는 고전 끝에 마주한 풍경이 있었어요.",
+  "글쓴이는 평일 수요일을 이용해 국립 자연휴양림으로 혼자 캠핑을 떠났습니다.",
+  "유튜브를 세 번이나 돌려보며 겨우 텐트를 치고 숯불에 소시지를 구워 먹었죠.",
+  "밤에는 기온이 삼 도까지 내려가 추웠지만 침낭을 챙겨간 덕분에 잘 견뎠습니다.",
+  "아침에 텐트 문을 열었을 때 펼쳐진 안개 낀 숲 풍경에 다시 가고 싶어졌대요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.5,
+    "input_tokens": 2,
+    "output_tokens": 3295,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4429,
+    "cost_usd": 0.00174
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.6,
+    "input_tokens": 2,
+    "output_tokens": 3558,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4429,
+    "cost_usd": 0.00187
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.9,
+    "input_tokens": 2,
+    "output_tokens": 3401,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4429,
+    "cost_usd": 0.00179
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 15.8,
+    "input_tokens": 2,
+    "output_tokens": 3358,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2831,
+    "cost_usd": 0.00176
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 13612,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 16118
+  },
+  "cost_usd_est": 0.00716,
+  "sec": 15.8
+ }
+}

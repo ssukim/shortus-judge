@@ -1,0 +1,208 @@
+{
+ "id": "community-02-g2",
+ "source_id": "community-02",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  5
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "할인은 앱 회원만 가능해서",
+     "source_quote": "할인은 앱 회원만 된대",
+     "reason": "직원이 한 말이라는 들은 말의 표지(\"~대\")를 빼고 할인 조건을 단정 사실로 말했다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+     "source_quote": "이거 뭐 해 먹어야 함?",
+     "reason": "넣은 글은 계란 90개를 어떻게 먹을지 묻는 사연인데, 대본에는 글쓴이의 질문이 빠져 있습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "6,980원",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액",
+     "fix": "6980원"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 계산대에서 9,800원 찍힘."
+  },
+  {
+   "scene": 2,
+   "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감."
+  },
+  {
+   "scene": 3,
+   "source_quote": "할인은 앱 회원만 된대. 그래서 그 자리에서 앱 깔고 가입함."
+  },
+  {
+   "scene": 4,
+   "source_quote": "집에 와서 냉장고 열었더니 엄마가 어제 계란 두 판 사 놨음."
+  },
+  {
+   "scene": 5,
+   "source_quote": "식구 셋인데 우리 집 이제 계란 90개 있음."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "하지만 할인은 앱 회원만 가능해서 그 자리에서 가입을 마쳤습니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+   "estimated_sec": 5.1
+  }
+ ],
+ "fixed_scenes": [
+  "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+  "글쓴이는 퇴근길에 육천구백팔십 원 할인이라는 안내를 보고 마트로 향했대요.",
+  "하지만 할인은 앱 회원만 가능해서 그 자리에서 가입을 마쳤습니다.",
+  "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+  "결국 식구 셋이 먹을 계란이 아흔 개나 생겨버렸습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.6,
+    "input_tokens": 2,
+    "output_tokens": 4564,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4315,
+    "cost_usd": 0.00237
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.5,
+    "input_tokens": 2,
+    "output_tokens": 5278,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4315,
+    "cost_usd": 0.00273
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.0,
+    "input_tokens": 2,
+    "output_tokens": 3710,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4315,
+    "cost_usd": 0.00195
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.4,
+    "input_tokens": 2,
+    "output_tokens": 1466,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 2717,
+    "cost_usd": 0.00081
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15018,
+   "cache_creation_input_tokens": 1569,
+   "cache_read_input_tokens": 15662
+  },
+  "cost_usd_est": 0.00786,
+  "sec": 23.5
+ }
+}

@@ -1,0 +1,207 @@
+{
+ "id": "community-10-g2",
+ "source_id": "community-10",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림",
+  "기준 4 걸림",
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "이 절차를 해두면 이사를 가더라도 대항력이 유지된다는 사실을 알게 되었습니다.",
+     "source_quote": "이걸 해 두면 이사를 나가도 대항력이 유지된다고 하더라고요.",
+     "reason": "넣은 글은 들은 말('~고 하더라고요')인데 대본은 이를 확정된 사실로 단정해 말했습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "이 절차를 해두면 이사를 가더라도 대항력이 유지된다는 사실을 알게 되었습니다.",
+     "source_quote": "다만 등기가 실제로 끝난 걸 확인한 다음에 이사해야 한다고 해요.",
+     "reason": "핵심 조건인 '등기 완료를 확인한 뒤에 이사해야 한다'는 내용이 빠졌습니다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "이 절차를 해두면 이사를 가더라도 대항력이 유지된다는 사실을 알게 되었습니다.",
+     "source_quote": "",
+     "reason": "'~된다는 사실을 알게 되었습니다'는 말하듯 쓴 문장이 아니라 문서에서 쓰는 설명체 표현이다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 36.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "새 세입자가 들어와야 돈을 줄 수 있다는 말에 불안해하며",
+     "source_quote": "집주인이 새 세입자가 들어와야 보증금을 줄 수 있다고 하시는 거예요.",
+     "reason": "장면 1의 '보증금을 못 돌려준다는 집주인의 말'과 같은 요점인 집주인 말에 대한 불안을 다시 말하고 있어 되풀이된다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "그런데 집주인이 새 세입자가 들어와야 보증금을 줄 수 있다고 하시는 거예요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "계약 만료가 10월 31일이었고, 저는 두 달 전인 8월 말에 집주인한테 문자로 나간다고 알렸어요. 보증금은 1억 2천만 원이었어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "불안해서 알아보니 계약이 끝났는데 보증금을 못 받으면 '임차권등기명령'이라는 걸 신청할 수 있대요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "이걸 해 두면 이사를 나가도 대항력이 유지된다고 하더라고요. 다만 등기가 실제로 끝난 걸 확인한 다음에 이사해야 한다고 해요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다행히 10월 중순에 새 세입자가 구해져서 만료일에 보증금을 다 받았어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "계약이 끝났는데 보증금을 못 돌려준다는 집주인의 말에 글쓴이는 법적 절차를 알아봤어요.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 1억 2천만 원의 보증금을 돌려받기 위해 두 달 전부터 퇴거 의사를 밝혔습니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "새 세입자가 들어와야 돈을 줄 수 있다는 말에 불안해하며 임차권등기명령을 확인했대요.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "이 절차를 해두면 이사를 가더라도 대항력이 유지된다는 사실을 알게 되었습니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "다행히 10월 중순에 세입자가 구해져서 만료일에 보증금을 모두 돌려받았습니다.",
+   "estimated_sec": 8.0
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.0,
+    "input_tokens": 2,
+    "output_tokens": 7442,
+    "cache_creation_input_tokens": 4585,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00429
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 31.0,
+    "input_tokens": 2,
+    "output_tokens": 7674,
+    "cache_creation_input_tokens": 4585,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00441
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 27.9,
+    "input_tokens": 2,
+    "output_tokens": 6931,
+    "cache_creation_input_tokens": 4584,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00404
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.4,
+    "input_tokens": 2,
+    "output_tokens": 2485,
+    "cache_creation_input_tokens": 2986,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00162
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 24532,
+   "cache_creation_input_tokens": 16740,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01436,
+  "sec": 31.0
+ }
+}

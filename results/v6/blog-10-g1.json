@@ -1,0 +1,200 @@
+{
+ "id": "blog-10-g1",
+ "source_id": "blog-10",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "아이의 기억 속에 가장 강렬하게 남은 것은 전시 내용이 아니었습니다.",
+     "source_quote": "단풍이 예뻐서 그게 더 기억에 남네요.",
+     "reason": "넣은 글에서 산책 풍경이 더 기억에 남은 사람은 글쓴이인데, 대본은 이를 아이의 기억으로 바꿔 말했다."
+    },
+    {
+     "scene": 5,
+     "quote": "단풍이 너무 예뻐서 그 풍경이 아이에게 더 기억에 남았답니다.",
+     "source_quote": "단풍이 예뻐서 그게 더 기억에 남네요.",
+     "reason": "글쓴이의 느낌을 아이의 속마음으로 바꿔 지어낸 말이다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "다 보고 나온 뒤에 아이의 기억 속에 가장 강렬하게 남은 것은 전시 내용이 아니었습니다.",
+     "source_quote": "다 보고 나서 바로 옆 거울못 산책로를 한 바퀴 돌았는데, 단풍이 예뻐서 그게 더 기억에 남네요.",
+     "reason": "첫 장면이 무엇에 대한 얘기인지(박물관 방문) 이름을 대지 않고 '전시 내용'으로만 미루며, 던진 궁금증의 답은 넣은 글의 단풍 산책로에 있어 곁가지로 시작한 것처럼 보인다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "단풍이 예뻐서 그게 더 기억에 남네요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "아이랑 처음으로 국립중앙박물관 어린이박물관에 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "아이는 옛날 도구를 직접 만져 보는 체험을 제일 좋아했어요. 맷돌을 돌려 보고, 짚신 모형을 신어 보고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "다 보고 나서 바로 옆 거울못 산책로를 한 바퀴 돌았는데"
+  },
+  {
+   "scene": 5,
+   "source_quote": "단풍이 예뻐서 그게 더 기억에 남네요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "다 보고 나온 뒤에 아이의 기억 속에 가장 강렬하게 남은 것은 전시 내용이 아니었습니다.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 아이와 처음으로 국립중앙박물관 어린이박물관을 방문했대요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "아이는 맷돌을 돌리고 짚신 모형을 신어 보는 체험에 매우 즐거워했습니다.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "전시를 모두 관람한 뒤에는 바로 옆 거울못 산책로를 한 바퀴 돌았죠.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "단풍이 너무 예뻐서 그 풍경이 아이에게 더 기억에 남았답니다.",
+   "estimated_sec": 6.0
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.8,
+    "input_tokens": 2,
+    "output_tokens": 3421,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4393,
+    "cost_usd": 0.0018
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.0,
+    "input_tokens": 2,
+    "output_tokens": 4144,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4393,
+    "cost_usd": 0.00217
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.7,
+    "input_tokens": 2,
+    "output_tokens": 4895,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4393,
+    "cost_usd": 0.00254
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.8,
+    "input_tokens": 2,
+    "output_tokens": 2726,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2795,
+    "cost_usd": 0.00144
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15186,
+   "cache_creation_input_tokens": 1571,
+   "cache_read_input_tokens": 15974
+  },
+  "cost_usd_est": 0.00795,
+  "sec": 20.7
+ }
+}

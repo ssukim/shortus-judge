@@ -1,0 +1,199 @@
+{
+ "id": "product-07-g1",
+ "source_id": "product-07",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "조명을 끄러 들어가는 과정에서 아이의 잠을 방해할까 봐 걱정되기도 하죠.",
+     "source_quote": "가장 어둡게 두면 자는 동안 켜 둬도 방해가 되지 않아요.",
+     "reason": "잠 방해 걱정을 던졌지만 넣은 글의 해결(가장 어둡게 두면 방해 없음)이 대본 어디에도 없다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 32.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "조명을 끄러 들어가는 과정에서 아이의 잠을 방해할까 봐 걱정되기도 하죠.",
+     "source_quote": "",
+     "reason": "장면 1의 '방에 들어가 조명을 꺼야 하는 번거로움'과 같은 요점을 되풀이하며, 잠 방해 걱정이라는 말만 더했습니다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "아이가 잠들고 나서 끄러 들어갈 필요가 없어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "가장 어둡게 두면 자는 동안 켜 둬도 방해가 되지 않아요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "30분 뒤에 저절로 꺼지는 기능도 있어서, 아이가 잠들고 나서 끄러 들어갈 필요가 없어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "몸통은 말랑한 실리콘이라 떨어뜨려도 깨지지 않아요. 충전식이라 선 없이 침대 옆 어디에나 둘 수 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "색은 하얀 곰과 갈색 곰 두 가지예요. 아이의 첫 조명으로 달빛곰을 만나 보세요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "아이가 잠든 뒤에 매번 방에 들어가 조명을 꺼줘야 하는 일이 번거로웠습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "조명을 끄러 들어가는 과정에서 아이의 잠을 방해할까 봐 걱정되기도 하죠.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "달빛곰은 머리를 톡 치면 불이 켜지고 30분 뒤에 저절로 꺼지는 기능이 있습니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "말랑한 실리콘 몸통이라 떨어뜨려도 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있어요.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "하얀 곰과 갈색 곰 두 가지 색상으로 아이의 첫 조명을 만나 보세요.",
+   "estimated_sec": 6.2
+  }
+ ],
+ "fixed_scenes": [
+  "아이가 잠든 뒤에 매번 방에 들어가 조명을 꺼줘야 하는 일이 번거로웠습니다.",
+  "조명을 끄러 들어가는 과정에서 아이의 잠을 방해할까 봐 걱정되기도 하죠.",
+  "달빛곰은 머리를 톡 치면 불이 켜지고 삼십 분 뒤에 저절로 꺼지는 기능이 있습니다.",
+  "말랑한 실리콘 몸통이라 떨어뜨려도 깨지지 않고 충전식이라 선 없이 어디든 둘 수 있어요.",
+  "하얀 곰과 갈색 곰 두 가지 색상으로 아이의 첫 조명을 만나 보세요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.0,
+    "input_tokens": 2,
+    "output_tokens": 5761,
+    "cache_creation_input_tokens": 4771,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00348
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.0,
+    "input_tokens": 2,
+    "output_tokens": 3682,
+    "cache_creation_input_tokens": 4772,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00244
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.4,
+    "input_tokens": 2,
+    "output_tokens": 4240,
+    "cache_creation_input_tokens": 4770,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00272
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.3,
+    "input_tokens": 2,
+    "output_tokens": 2282,
+    "cache_creation_input_tokens": 3173,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00154
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15965,
+   "cache_creation_input_tokens": 17486,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01018,
+  "sec": 24.0
+ }
+}

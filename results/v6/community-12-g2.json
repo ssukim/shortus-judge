@@ -1,0 +1,183 @@
+{
+ "id": "community-12-g2",
+ "source_id": "community-12",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "CCTV에는",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 34.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "한 달 전부터 택배가 문 앞에 왔다고 문자가 오는데 막상 나가 보면 없는 거임."
+  },
+  {
+   "scene": 2,
+   "source_quote": "처음엔 배송 실수인 줄 알았는데 세 번째 되니까 너무 이상한 거야."
+  },
+  {
+   "scene": 3,
+   "source_quote": "화면 보는데 옆집 할머니가 내 택배 상자를 딱 들고 들어가시는 거..."
+  },
+  {
+   "scene": 4,
+   "source_quote": "알고 보니 우리 층 복도가 창문 쪽이라 비 오면 물이 들이친대. 상자 젖을까 봐 그때마다 들여놨다가 내가 오면 주려고 했는데"
+  },
+  {
+   "scene": 5,
+   "source_quote": "다음 날 귤 한 봉지 사서 갖다드렸다. 할머니가 귤 반은 다시 나 주심ㅋㅋ"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "택배가 문 앞에 왔다는 문자를 받았는데 막상 나가 보면 상자가 없었어요.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "한 달 전부터 반복되는 상황에 글쓴이는 배송 실수가 아닌 도난을 의심했답니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "관리실에 요청해 확인한 CCTV에는 옆집 할머니가 택배를 들고 들어가는 장면이 찍혔죠.",
+   "estimated_sec": 8.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "사실은 비가 오면 물이 들이치는 복도 때문에 상자가 젖을까 봐 할머니가 대신 보관해 주신 거였습니다.",
+   "estimated_sec": 9.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "나중에 할머니가 귤을 절반이나 다시 나눠주시는 상황이 벌어졌대요.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.2,
+    "input_tokens": 2,
+    "output_tokens": 2968,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4529,
+    "cost_usd": 0.00158
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.6,
+    "input_tokens": 2,
+    "output_tokens": 3063,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4529,
+    "cost_usd": 0.00163
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.5,
+    "input_tokens": 2,
+    "output_tokens": 4500,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4529,
+    "cost_usd": 0.00234
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 6.3,
+    "input_tokens": 2,
+    "output_tokens": 1067,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2931,
+    "cost_usd": 0.00061
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 11598,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 16518
+  },
+  "cost_usd_est": 0.00616,
+  "sec": 19.5
+ }
+}

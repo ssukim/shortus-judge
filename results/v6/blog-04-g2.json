@@ -1,0 +1,221 @@
+{
+ "id": "blog-04-g2",
+ "source_id": "blog-04",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  6,
+  8
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "확정일자도 함께 챙기는 것이 좋습니다",
+     "source_quote": "전세나 월세라면 전입신고할 때 같이 받는 게 좋아요.",
+     "reason": "넣은 글의 '전세나 월세라면' 조건이 빠져 자가에도 확정일자가 필요한 것처럼 대상이 넓어졌다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "10일 전에 신청해야 원하는 날짜를 잡을 수 있습니다",
+     "source_quote": "최소 10일 전에는 신청하세요.",
+     "reason": "넣은 글은 최소 권장 기한만 말할 뿐 원하는 날짜를 확보한다고 보장하지 않는데, 대본은 그렇게 확정적으로 말한다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "2~3일",
+     "reason": "애매한 표기 — 범위 기호"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "이사 후 전입신고는 14일 이내에 해야 하며 확정일자도 함께 챙기는 것이 좋습니다.",
+     "source_quote": "",
+     "reason": "\"해야 하며\"처럼 문서에서 쓰는 연결형 \"~하며\"를 써서 말하듯 쓴 문장이 아니다."
+    },
+    {
+     "scene": 3,
+     "quote": "가스 연결은 2~3일 전에 예약해야 하며 인터넷 이전은 최소 10일 전에 신청해야 원하는 날짜를 잡을 수 있습니다.",
+     "source_quote": "",
+     "reason": "\"예약해야 하며\"처럼 문서체 연결형 \"~하며\"를 써서 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 31.0,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "전입신고를 마쳤는데도 자동차 보험사에 따로 연락하지 않으면 곤란한 상황이 생길 수 있어요.",
+     "source_quote": "자동차 주소 변경: 차가 있다면 전입신고하면 자동으로 바뀌는 경우가 많지만, 보험사에는 따로 알려야 해요.",
+     "reason": "글의 곁가지인 자동차 보험 연락으로 시작했고, 이 훅이 던진 '곤란한 상황'은 뒤 장면에서 한 번도 풀리지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "이사 후에는 행정 절차부터 공과금과 통신사 예약까지 세심하게 확인해야 합니다.",
+     "source_quote": "",
+     "reason": "앞 장면들에서 말한 전입신고, 공과금, 통신사 예약을 다시 묶어 '확인하라'는 같은 요점을 새 사실 없이 되풀이한 것으로 볼 여지가 있다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "차가 있다면 전입신고하면 자동으로 바뀌는 경우가 많지만, 보험사에는 따로 알려야 해요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "이사한 날부터 14일 안에 해야 해요. 전세나 월세라면 전입신고할 때 같이 받는 게 좋아요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "연결 기사님 방문은 보통 2~3일 전에 예약해야 하고 주말에는 출장비가 붙는 곳도 있어요. 최소 10일 전에는 신청하세요."
+  },
+  {
+   "scene": 4,
+   "source_quote": ""
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "전입신고를 마쳤는데도 자동차 보험사에 따로 연락하지 않으면 곤란한 상황이 생길 수 있어요.",
+   "estimated_sec": 9.0
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "이사 후 전입신고는 14일 이내에 해야 하며 확정일자도 함께 챙기는 것이 좋습니다.",
+   "estimated_sec": 8.0
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "가스 연결은 2~3일 전에 예약해야 하며 인터넷 이전은 최소 10일 전에 신청해야 원하는 날짜를 잡을 수 있습니다.",
+   "estimated_sec": 10.7
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "이사 후에는 행정 절차부터 공과금과 통신사 예약까지 세심하게 확인해야 합니다.",
+   "estimated_sec": 7.9
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.1,
+    "input_tokens": 2,
+    "output_tokens": 6978,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4528,
+    "cost_usd": 0.00358
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.7,
+    "input_tokens": 2,
+    "output_tokens": 4676,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4528,
+    "cost_usd": 0.00243
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.4,
+    "input_tokens": 2,
+    "output_tokens": 5486,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4528,
+    "cost_usd": 0.00284
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 14.5,
+    "input_tokens": 2,
+    "output_tokens": 3090,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2930,
+    "cost_usd": 0.00162
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 20230,
+   "cache_creation_input_tokens": 1571,
+   "cache_read_input_tokens": 16514
+  },
+  "cost_usd_est": 0.01047,
+  "sec": 29.1
+ }
+}

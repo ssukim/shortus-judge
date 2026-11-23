@@ -1,0 +1,191 @@
+{
+ "id": "community-13-g2",
+ "source_id": "community-13",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+     "source_quote": "",
+     "reason": "넣은 글은 긁힘을 이유로 3만 원을 요구했다고만 적었는데, 대본은 '핑계'라고 구매자의 속마음을 단정해 말하고 있어 경계에 걸친다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 35.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 당일 2시 40분에 연락 와서 역 말고 자기 집 앞으로 와 달래요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "글에 분명히 \"직거래만, 단 역 근처 5분 거리일 때만 가능\"이라고 써 놨거든요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "갔더니 의자 하나 다리에 긁힌 자국 있다고 3만 원에 하재요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "결국 실랑이하다가 3만 3천 원 받고 왔는데"
+  },
+  {
+   "scene": 5,
+   "source_quote": "이런 후기도 신고하면 지워 주나요?"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "캠핑 의자를 중고로 팔기로 했는데 구매자가 갑자기 집 앞으로 오라고 했어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 직거래 장소를 역 근처로 제한했지만 구매자는 20분 거리의 자기 집으로 오라고 요구했습니다.",
+   "estimated_sec": 10.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "막상 도착하니 구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "결국 실랑이 끝에 3만 3천 원을 받고 왔는데 구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다.",
+   "estimated_sec": 10.7
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "글쓴이는 이 후기를 신고해야 할지 고민 중이에요.",
+   "estimated_sec": 4.8
+  }
+ ],
+ "fixed_scenes": [
+  "캠핑 의자를 중고로 팔기로 했는데 구매자가 갑자기 집 앞으로 오라고 했어요.",
+  "글쓴이는 직거래 장소를 역 근처로 제한했지만 구매자는 이십 분 거리의 자기 집으로 오라고 요구했습니다.",
+  "막상 도착하니 구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+  "결국 실랑이 끝에 삼만 삼천 원을 받고 왔는데 구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다.",
+  "글쓴이는 이 후기를 신고해야 할지 고민 중이에요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 27.6,
+    "input_tokens": 2,
+    "output_tokens": 6623,
+    "cache_creation_input_tokens": 4958,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00393
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.2,
+    "input_tokens": 2,
+    "output_tokens": 6313,
+    "cache_creation_input_tokens": 4957,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00378
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.9,
+    "input_tokens": 2,
+    "output_tokens": 6132,
+    "cache_creation_input_tokens": 4959,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00369
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.7,
+    "input_tokens": 2,
+    "output_tokens": 1591,
+    "cache_creation_input_tokens": 3359,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00122
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 20659,
+   "cache_creation_input_tokens": 18233,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01262,
+  "sec": 27.6
+ }
+}

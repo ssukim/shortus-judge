@@ -1,0 +1,223 @@
+{
+ "id": "news-07-g2",
+ "source_id": "news-07",
+ "verdict": "보류",
+ "why": [
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [
+  7
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "백신 접종은 중증 및 사망 위험을 최대 5분의 1 수준으로 낮출 수 있어",
+     "source_quote": "아울러 인플루엔자 예방접종의 연령에 따른 중증 및 사망 위험을 최대 1/5 수준으로 낮출 수 있다고 확인된 만큼, 고령층은 중증 및 사망 예방을 위해 인플루엔자 예방접종을 받는 것이 중요하다.",
+     "reason": "넣은 글은 '연령에 따른' 위험 감소라고 한정했는데, 대본은 조건 없이 백신 접종 전반의 효과로 말해 적용 대상이 넓어진다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "병원급 입원환자는 전주 대비 1.5배 늘었으며",
+     "source_quote": "병원급 표본감시 의료기관(223곳)의 입원환자는 46주차 기준 926명으로, 전주(639명) 대비 1.5배 늘었으며",
+     "reason": "'~며'로 잇는 문서체 어미라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "질병관리청은 46주차 인플루엔자 의사환자 분율이 4주 ",
+     "reason": "장면 읽는 시간 10.8초 > 10초"
+    }
+   ],
+   "total_sec": 43.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "지난 절기 정점을 넘어서며 입원환자와 양성 사망 신고가 동시에 늘고 있어요.",
+     "source_quote": "인플루엔자 의사환자가 4주 연속 증가하고",
+     "reason": "첫 장면에 주제인 인플루엔자가 이름 없이 나와 무슨 얘기인지 분명하지 않다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "아직 접종하지 않은 어르신과 어린이 그리고 임신부는 신속하게 예방접종을 받아야 합니다.",
+     "source_quote": "아직 접종하지 않으신 65세 이상 어르신과 어린이, 임신부는 신속히 예방접종을 해 달라",
+     "reason": "2장면의 고위험군 신속 예방접종 권고와 같은 요점을 말만 바꿔 되풀이하며 새 사실을 더하지 않았다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "인플루엔자 의사환자가 4주 연속 증가하고 입원환자 수와 양성 사망 신고도 지난 절기 정점을 넘어서고 있는 것으로 나타났다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "질병관리청은 이에 따라 65세 이상 어르신과 어린이, 임신부 등 고위험군은 신속하게 예방접종을 받아야 한다고 20일 권고했다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "병원급 표본감시 의료기관(223곳)의 입원환자는 46주차 기준 926명으로, 전주(639명) 대비 1.5배 늘었으며 전년 동기간(490명)보다 2배가량 높다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "인플루엔자 예방접종의 연령에 따른 중증 및 사망 위험을 최대 1/5 수준으로 낮출 수 있다고 확인된 만큼, 고령층은 중증 및 사망 예방을 위해 인플루엔자 예방접종을 받는 것이 중요하다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "아직 접종하지 않으신 65세 이상 어르신과 어린이, 임신부는 신속히 예방접종을 해 달라"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "지난 절기 정점을 넘어서며 입원환자와 양성 사망 신고가 동시에 늘고 있어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "질병관리청은 46주차 인플루엔자 의사환자 분율이 4주 연속 증가함에 따라 고위험군에게 신속한 예방접종을 권고했습니다.",
+   "estimated_sec": 12.4
+  },
+  {
+   "scene": 3,
+   "role": "stat",
+   "text": "병원급 입원환자는 전주 대비 1.5배 늘었으며 특히 65세 이상 고령층이 전체의 65.4퍼센트를 차지합니다.",
+   "estimated_sec": 10.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "백신 접종은 중증 및 사망 위험을 최대 5분의 1 수준으로 낮출 수 있어 고령층과 어린이의 접종이 중요합니다.",
+   "estimated_sec": 10.7
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "아직 접종하지 않은 어르신과 어린이 그리고 임신부는 신속하게 예방접종을 받아야 합니다.",
+   "estimated_sec": 8.8
+  }
+ ],
+ "fixed_scenes": [
+  "지난 절기 정점을 넘어서며 입원환자와 양성 사망 신고가 동시에 늘고 있어요.",
+  "질병관리청은 사십육 주차 인플루엔자 의사환자 분율이 사 주 연속 증가함에 따라 고위험군에게 신속한 예방접종을 권고했습니다.",
+  "병원급 입원환자는 전주 대비 한 배 반 늘었으며 특히 65세 이상 고령층이 전체의 육십오 점 사 퍼센트를 차지합니다.",
+  "백신 접종은 중증 및 사망 위험을 최대 오 분의 1 수준으로 낮출 수 있어 고령층과 어린이의 접종이 중요합니다.",
+  "아직 접종하지 않은 어르신과 어린이 그리고 임신부는 신속하게 예방접종을 받아야 합니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.9,
+    "input_tokens": 2,
+    "output_tokens": 6767,
+    "cache_creation_input_tokens": 6078,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00414
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.3,
+    "input_tokens": 2,
+    "output_tokens": 5564,
+    "cache_creation_input_tokens": 6076,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00354
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.2,
+    "input_tokens": 2,
+    "output_tokens": 6058,
+    "cache_creation_input_tokens": 6077,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00379
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 15.0,
+    "input_tokens": 2,
+    "output_tokens": 3318,
+    "cache_creation_input_tokens": 4479,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00222
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 21707,
+   "cache_creation_input_tokens": 22710,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01369,
+  "sec": 26.9
+ }
+}

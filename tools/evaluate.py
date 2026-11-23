@@ -65,12 +65,14 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("result_dir")
     ap.add_argument("--set", choices=["dev", "test", "all"], default="dev")
+    ap.add_argument("--gold", choices=["all", "sure"], default="all",
+                    help="all: 다수결 정답(기본), sure: 채점자가 확신한 걸림만 센 정답(D29)")
     ap.add_argument("--test-list", default=str(LABELS / "test.txt"), help="시험용 대본 목록 파일")
     ap.add_argument("--redecide", action="store_true", help="저장한 표 수로 지금 판정 선을 다시 적용")
     a = ap.parse_args()
 
     test_ids = set(Path(a.test_list).read_text().split())
-    gold = {r["id"]: r for r in csv.DictReader((LABELS / "consensus.csv").open())}
+    gold = {r["id"]: r for r in csv.DictReader((LABELS / ("consensus-sure.csv" if a.gold == "sure" else "consensus.csv")).open())}
     pred = (redecide(Path(a.result_dir)) if a.redecide else
             {r["id"]: r for r in csv.DictReader((Path(a.result_dir) / "summary.csv").open())})
     ids = sorted(i for i in pred if i in gold and (

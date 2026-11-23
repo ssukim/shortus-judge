@@ -57,15 +57,22 @@ def _scenes_text(sections):
 _FINDING = '{"scene": 장면 번호, "quote": "대본에서 그대로 옮긴 부분", "source_quote": "넣은 글에서 그대로 옮긴 부분 또는 \\"\\"", "reason": "왜 걸리는지 한 문장"}'
 
 
+SURE_NOTE = ("걸 때는 sure에 확신하는지 적습니다. 「걸리는 예」에 분명히 해당하고 시청자가 실제로 잘못 알거나 불편할 때만 "
+             "sure를 true로 둡니다. 기준표의 경계에 걸쳐 판단이 갈릴 만하면 hit는 true로 두되 sure를 false로 둡니다. "
+             "sure가 false인 걸림은 판정에 쓰지 않고 진단으로만 남습니다. 걸지 않으면 sure는 true입니다.\n")   # 6판 실험(D29·D30)
+
+
 def build_prompt(group, rubric, sections, source):
     nums = GROUPS[group]
     crit = _criteria_text(rubric, nums)
-    keys = ", ".join(f'"{n}": {{"hit": true 또는 false, "findings": [{_FINDING}, ...]}}' for n in nums)
+    sure_key = '"sure": true 또는 false, ' if config.SURE_ONLY else ""
+    keys = ", ".join(f'"{n}": {{"hit": true 또는 false, {sure_key}"findings": [{_FINDING}, ...]}}' for n in nums)
     head = ("쇼더스(AI 쇼츠 서비스)가 넣은 글로 만든 쇼츠 대본을 검사합니다. 보는 것은 장면마다 목소리가 읽는 문장입니다. "
             "화면 제목, 배경, 음악은 보지 않습니다.\n"
             "아래 기준마다 대본이 걸리는지 「걸림/안 걸림」으로만 답합니다. 점수를 매기지 않습니다. "
             "기준의 「걸리는 예」와 「걸리지 않는 예」를 경계로 삼습니다. 「걸리지 않는 예」에 해당하면 걸지 않습니다.\n"
-            "걸면 findings에 장면 번호와 대본 인용을 넣습니다. 걸지 않으면 findings는 빈 목록입니다.\n")
+            "걸면 findings에 장면 번호와 대본 인용을 넣습니다. 걸지 않으면 findings는 빈 목록입니다.\n"
+            + (SURE_NOTE if config.SURE_ONLY else ""))
     if group == "fact":
         task = ("먼저 장면마다 그 장면의 내용을 받치는 넣은 글의 문장을 그대로 옮겨 grounding에 적습니다. "
                 "받치는 문장이 없으면 \"\"로 둡니다. 그다음 그 대조를 바탕으로 기준을 판단합니다. "
@@ -119,7 +126,11 @@ def parse(text, group, n_scenes):
                 fs.append({"scene": sc if isinstance(sc, int) and 1 <= sc <= n_scenes else None,
                            "quote": str(f.get("quote") or ""), "source_quote": str(f.get("source_quote") or ""),
                            "reason": str(f.get("reason") or "")})
-        crit[n] = {"result": config.HIT if c["hit"] else config.OK, "findings": fs}
+        sure = c.get("sure") is not False   # 답에 없으면 확신으로 봄(5판 이전 결과와 같게)
+        use = c["hit"] and (sure or not config.SURE_ONLY or n in config.SURE_EXEMPT)   # 탈락 기준은 애매해도 씀
+        crit[n] = {"result": config.HIT if use else config.OK, "findings": fs}
+        if c["hit"] and not sure and not use:
+            crit[n]["unsure"] = True
     grounding = data.get("grounding") if group == "fact" else None
     return {"criteria": crit, "grounding": grounding if isinstance(grounding, list) else None}
 
@@ -171,6 +182,8 @@ def vote(results):
         hit = hits == len(ok) if n in config.UNANIMOUS else major
         doubt = major and not hit
         src = next((r for r in ok if r["criteria"][n]["result"] == config.HIT), base) if major else base
+        if not major:   # 확신하지 못한 걸림이 있으면 근거를 진단으로 남김
+            src = next((r for r in ok if r["criteria"][n].get("unsure")), src)
         crit[n] = {**src["criteria"][n], "result": config.HIT if hit else config.OK, "votes": f"{hits}/{len(ok)}"}
         if doubt:
             crit[n]["doubt"] = True

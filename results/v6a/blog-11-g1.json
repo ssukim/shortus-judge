@@ -1,0 +1,208 @@
+{
+ "id": "blog-11-g1",
+ "source_id": "blog-11",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  5
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "맞벌이 부부는 낮에 물을 주기 힘들어서 키우기 어려울 것 같다고 했어요.",
+     "source_quote": "다만 생각보다 손이 많이 가서, 맞벌이라 낮에 물을 못 주는 집은 힘들 것 같아요.",
+     "reason": "넣은 글은 '낮에 물을 못 주는 맞벌이 집'이라는 조건부 상황인데, 대본은 맞벌이 부부 전체가 낮에 물 주기 힘들다고 넓혀 말해 대상이 바뀐 것으로 읽힐 수 있다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "500g",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "500그램"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 마트에서 산 콩 500g 중 한 컵을 꺼내 집에서 키우기 시작했죠.",
+     "source_quote": "마트에서 콩나물 콩 500g을 4천 원에 샀고, 그중 한 컵만 썼어요.",
+     "reason": "장면 1·3은 글쓴이 자신이 말하는 투인데 장면 2에서 까닭 없이 '글쓴이는'으로 말하는 사람이 바뀌어 듣기에 어색하다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.9,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "수확해서 무쳐 먹었는데 마트 콩나물보다 고소했어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "마트에서 콩나물 콩 500g을 4천 원에 샀고, 그중 한 컵만 썼어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "물은 하루에 대여섯 번 위에서 부어 줬어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "일주일쯤 지나니 손가락 길이만큼 자랐어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다만 생각보다 손이 많이 가서, 맞벌이라 낮에 물을 못 주는 집은 힘들 것 같아요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "직접 키운 콩나물을 무쳐 먹었더니 마트에서 파는 것보다 고소했어요.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 마트에서 산 콩 500g 중 한 컵을 꺼내 집에서 키우기 시작했죠.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "검은 천을 덮고 하루에 대여섯 번씩 물을 주며 일주일 동안 정성껏 돌봤습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "손가락 길이만큼 자란 콩나물을 수확했는데 생각보다 손이 많이 가는 일이었어요.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "맞벌이 부부는 낮에 물을 주기 힘들어서 키우기 어려울 것 같다고 했어요.",
+   "estimated_sec": 6.9
+  }
+ ],
+ "fixed_scenes": [
+  "직접 키운 콩나물을 무쳐 먹었더니 마트에서 파는 것보다 고소했어요.",
+  "글쓴이는 마트에서 산 콩 오백 그램 중 한 컵을 꺼내 집에서 키우기 시작했죠.",
+  "검은 천을 덮고 하루에 대여섯 번씩 물을 주며 일주일 동안 정성껏 돌봤습니다.",
+  "손가락 길이만큼 자란 콩나물을 수확했는데 생각보다 손이 많이 가는 일이었어요.",
+  "맞벌이 부부는 낮에 물을 주기 힘들어서 키우기 어려울 것 같다고 했어요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.6,
+    "input_tokens": 2,
+    "output_tokens": 3609,
+    "cache_creation_input_tokens": 4738,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0024
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.0,
+    "input_tokens": 2,
+    "output_tokens": 3247,
+    "cache_creation_input_tokens": 4739,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00222
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.8,
+    "input_tokens": 2,
+    "output_tokens": 3257,
+    "cache_creation_input_tokens": 4739,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00222
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.7,
+    "input_tokens": 2,
+    "output_tokens": 2628,
+    "cache_creation_input_tokens": 3140,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00171
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 12741,
+   "cache_creation_input_tokens": 17356,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00855,
+  "sec": 15.6
+ }
+}

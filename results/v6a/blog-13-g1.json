@@ -1,0 +1,245 @@
+{
+ "id": "blog-13-g1",
+ "source_id": "blog-13",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  3,
+  5,
+  6,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "퇴근 후 매일 1시간씩 걷기만 해서",
+     "source_quote": "평일 저녁에 하루 1시간씩 걷기만 했어요. 주말은 쉬었고요.",
+     "reason": "넣은 글은 평일만 걷고 주말은 쉬었다고 했는데 대본은 매일 걸었다고 말해 사실이 달라진다."
+    },
+    {
+     "scene": 3,
+     "quote": "하루 평균 9천 보에서 1만 2천 보를 걸으며",
+     "source_quote": "걸음 수로 치면 평일 하루 평균 9천 보에서 1만 2천 보 정도였어요.",
+     "reason": "평일이라는 조건이 빠져 주말을 포함한 매일의 걸음 수처럼 들린다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "지켰더니 첫 달에 4kg이 빠졌죠.",
+     "source_quote": "아마 처음엔 붓기랑 수분이 많이 빠진 게 아닌가 싶은데, 이건 제 추측이에요.",
+     "reason": "글쓴이가 붓기와 수분 탓일 수 있다고 추측한 것을 식단 효과로 단정해 말했다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "무릎이 건강하다면 하루 1시간 걷기가 효과적이라고 전했어요.",
+     "source_quote": "처음엔 30분부터 시작하는 게 좋을 것 같아요.",
+     "reason": "무릎이 약한 시청자가 1시간 대신 30분부터 시작해야 한다는 안내가 빠짐"
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "7kg을",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "7킬로그램을"
+    },
+    {
+     "scene": 4,
+     "quote": "4kg이",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "4킬로그램이"
+    }
+   ],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+     "source_quote": "헬스장은 안 다녔고, 평일 저녁에 하루 1시간씩 걷기만 했어요.",
+     "reason": "장면 1은 writer 본인의 말투로 시작했는데 장면 2에서 '글쓴이는~대요'로 말하는 사람이 까닭 없이 바뀌었다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+     "source_quote": "헬스장은 안 다녔고, 평일 저녁에 하루 1시간씩 걷기만 했어요.",
+     "reason": "장면 1의 '매일 1시간씩 걷기만 해서 7kg 감량'과 같은 요점(걷기만으로 감량)을 말만 바꿔 되풀이했다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "평일 저녁에 하루 1시간씩 걷기만 했어요. 주말은 쉬었고요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "헬스장은 안 다녔고, 평일 저녁에 하루 1시간씩 걷기만 했어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "걸음 수로 치면 평일 하루 평균 9천 보에서 1만 2천 보 정도였어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "첫 달에 4kg이 확 빠졌고, 둘째 달엔 2kg, 셋째 달엔 1kg밖에 안 빠졌어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "주의하실 점은, 저는 원래 무릎이 튼튼한 편이라 괜찮았는데 무릎 안 좋으신 분은 하루 1시간이 무리일 수 있어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "퇴근 후 매일 1시간씩 걷기만 해서 3개월 만에 7kg을 감량했어요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "하루 평균 9천 보에서 1만 2천 보를 걸으며 식단도 두 가지만 지켰습니다.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "저녁 8시 이후 금식과 주 1회 야식 허용을 지켰더니 첫 달에 4kg이 빠졌죠.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "무릎이 건강하다면 하루 1시간 걷기가 효과적이라고 전했어요.",
+   "estimated_sec": 6.3
+  }
+ ],
+ "fixed_scenes": [
+  "퇴근 후 매일 한 시간씩 걷기만 해서 삼 개월 만에 칠 킬로그램을 감량했어요.",
+  "글쓴이는 헬스장에 가지 않고 평일 저녁에 걷는 것만으로 체중을 줄였대요.",
+  "하루 평균 9천 보에서 일만 이천 보를 걸으며 식단도 두 가지만 지켰습니다.",
+  "저녁 여덟 시 이후 금식과 주 일 회 야식 허용을 지켰더니 첫 달에 사 킬로그램이 빠졌죠.",
+  "무릎이 건강하다면 하루 한 시간 걷기가 효과적이라고 전했어요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 34.3,
+    "input_tokens": 2,
+    "output_tokens": 8131,
+    "cache_creation_input_tokens": 4922,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00468
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 32.1,
+    "input_tokens": 2,
+    "output_tokens": 7595,
+    "cache_creation_input_tokens": 4923,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00441
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.9,
+    "input_tokens": 2,
+    "output_tokens": 6557,
+    "cache_creation_input_tokens": 4921,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00389
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 13.2,
+    "input_tokens": 2,
+    "output_tokens": 2842,
+    "cache_creation_input_tokens": 3324,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00184
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 25125,
+   "cache_creation_input_tokens": 18090,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01482,
+  "sec": 34.3
+ }
+}

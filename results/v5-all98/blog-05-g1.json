@@ -1,0 +1,191 @@
+{
+ "id": "blog-05-g1",
+ "source_id": "blog-05",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요.",
+     "reason": "넣은 글은 반대쪽 길이 '조금 더' 가팔랐다고 비교해서 말했는데, 대본은 그 길을 그냥 '경사가 가파른' 길로 말해 표현이 세졌습니다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "무릎이 약하신 분은 올라온 길로 다시 내려가는 걸 추천해요.",
+     "reason": "대본은 가파른 반대쪽 길을 내리막으로 소개하면서 무릎이 약한 사람에게 올라온 길로 내려가라는 넣은 글의 권고를 빠뜨려, 시청자가 위험할 수 있는 길을 골라 내려가게 됩니다."
+    }
+   ],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "옆에 계시던 할머니가 따뜻한 보리차를 한 잔 따라 주셨어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지난 주말에 처음으로 혼자 동네 뒷산에 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "입구에서 정상까지는 천천히 걸어서 40분 정도 걸렸어요. 길이 대부분 흙길이라 운동화로도 충분했고"
+  },
+  {
+   "scene": 4,
+   "source_quote": "매일 아침 여기 올라오신다고 하더라고요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "운동화로 충분한 흙길을 40분 정도 걸어 올라가 벤치에 앉았대요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+   "estimated_sec": 5.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.3,
+    "input_tokens": 2,
+    "output_tokens": 4258,
+    "cache_creation_input_tokens": 4616,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00271
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.8,
+    "input_tokens": 2,
+    "output_tokens": 3873,
+    "cache_creation_input_tokens": 4615,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00251
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.0,
+    "input_tokens": 2,
+    "output_tokens": 5212,
+    "cache_creation_input_tokens": 4616,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00318
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 14.0,
+    "input_tokens": 2,
+    "output_tokens": 2842,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2624,
+    "cost_usd": 0.0015
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 16185,
+   "cache_creation_input_tokens": 14240,
+   "cache_read_input_tokens": 2624
+  },
+  "cost_usd_est": 0.0099,
+  "sec": 22.0
+ }
+}

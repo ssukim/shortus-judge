@@ -1,0 +1,200 @@
+{
+ "id": "blog-07-g2",
+ "source_id": "blog-07",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟아오른다는 사실을 배웠습니다",
+     "source_quote": "선생님 말로는 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 하셨어요.",
+     "reason": "선생님이 한 말이라고 밝힌 내용을 '사실'이라는 단정으로 바꿔 더 세게 말했습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 주말에 동네 공방에서 4만 5천 원을 내고 원데이 클래스에 참여했답니다.",
+     "source_quote": "주말에 처음으로 베이킹 클래스에 다녀왔어요.",
+     "reason": "장면 1과 3~5는 말하는 사람이 자기 얘기를 하듯 쓰다가, 장면 2에서만 까닭 없이 '글쓴이는'이라는 3인칭으로 바뀌었다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 31.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "냉장고에서 30분 쉬게 하는 게 전부예요"
+  },
+  {
+   "scene": 2,
+   "source_quote": "참가비는 재료비 포함 4만 5천 원이었어요"
+  },
+  {
+   "scene": 3,
+   "source_quote": "정원은 6명인데 그날은 4명만 와서 선생님이 한 명씩 자세히 봐 주셨어요"
+  },
+  {
+   "scene": 4,
+   "source_quote": "선생님 말로는 반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟는다고 하셨어요"
+  },
+  {
+   "scene": 5,
+   "source_quote": "한 사람당 12개씩 가져왔는데, 집에 오자마자 가족들이 반을 먹어 버렸어요"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "마들렌을 만들 때 반죽을 굳이 냉장고에서 30분이나 쉬게 했어요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 주말에 동네 공방에서 4만 5천 원을 내고 원데이 클래스에 참여했답니다.",
+   "estimated_sec": 8.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "정원은 6명이었지만 4명만 와서 선생님이 한 명씩 아주 자세하게 봐 주었죠.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟아오른다는 사실을 배웠습니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "직접 만든 마들렌은 집에 오자마자 가족들이 반이나 먹어 버렸대요.",
+   "estimated_sec": 6.4
+  }
+ ],
+ "fixed_scenes": [
+  "마들렌을 만들 때 반죽을 굳이 냉장고에서 삼십 분이나 쉬게 했어요.",
+  "글쓴이는 주말에 동네 공방에서 사만 오천 원을 내고 원데이 클래스에 참여했답니다.",
+  "정원은 여섯 명이었지만 네 명만 와서 선생님이 한 명씩 아주 자세하게 봐 주었죠.",
+  "반죽을 쉬게 해야 마들렌 가운데가 볼록하게 솟아오른다는 사실을 배웠습니다.",
+  "직접 만든 마들렌은 집에 오자마자 가족들이 반이나 먹어 버렸대요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.2,
+    "input_tokens": 2,
+    "output_tokens": 2935,
+    "cache_creation_input_tokens": 4821,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00207
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.0,
+    "input_tokens": 2,
+    "output_tokens": 3475,
+    "cache_creation_input_tokens": 4822,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00234
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.3,
+    "input_tokens": 2,
+    "output_tokens": 6184,
+    "cache_creation_input_tokens": 4822,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00369
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.1,
+    "input_tokens": 2,
+    "output_tokens": 2385,
+    "cache_creation_input_tokens": 3224,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0016
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 14979,
+   "cache_creation_input_tokens": 17689,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.0097,
+  "sec": 25.3
+ }
+}

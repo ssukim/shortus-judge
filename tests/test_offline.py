@@ -116,6 +116,27 @@ class Parse(unittest.TestCase):
         self.assertEqual(out["criteria"][6]["result"], H)
         self.assertIsNone(out["criteria"][6]["findings"][0]["scene"])  # 없는 장면 번호는 버림
 
+    def setUp(self):
+        self._sure = config.SURE_ONLY
+        config.SURE_ONLY = True   # 6판 실험 기능을 켠 채로 시험(기본은 끔, D30)
+
+    def tearDown(self):
+        config.SURE_ONLY = self._sure
+
+    def test_unsure_hit_not_used(self):
+        text = '{"6": {"hit": true, "sure": false, "findings": [{"scene": 1, "quote": "a"}]}, "8": {"hit": true}, ' \
+               '"9": {"hit": false}, "10": {"hit": false}}'
+        out = parse(text, "flow", n_scenes=5)
+        self.assertEqual((out["criteria"][6]["result"], out["criteria"][6].get("unsure")), (O, True))
+        self.assertEqual(out["criteria"][8]["result"], H)   # sure가 없으면 확신으로 봄
+
+    def test_unsure_fail_criterion_still_used(self):
+        text = '{"1": {"hit": true, "sure": false, "findings": []}, "2": {"hit": false}, "3": {"hit": true, "sure": false}, ' \
+               '"4": {"hit": false}}'
+        out = parse(text, "fact", n_scenes=5)
+        self.assertEqual(out["criteria"][1]["result"], H)   # 탈락 기준은 애매해도 씀(D30)
+        self.assertEqual(out["criteria"][3]["result"], O)
+
     def test_missing_hit_raises(self):
         with self.assertRaises(ValueError):
             parse('{"6": {}}', "flow", 5)

@@ -1,0 +1,195 @@
+{
+ "id": "news-09-g2",
+ "source_id": "news-09",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "요금과 환승 할인은 기존과 동일합니다.",
+     "source_quote": "요금은 교통카드와 같고, 환승 할인도 똑같이 받을 수 있다. 다만 지하철과의 환승은 내년 3월부터 적용된다.",
+     "reason": "넣은 글은 지하철 환승 할인이 내년 3월부터라고 한정했는데, 대본은 환승 할인을 기존과 동일하다고만 말해 지금도 지하철 환승이 된다고 오해하게 한다."
+    }
+   ],
+   "unsure": true,
+   "votes": "1/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [
+    {
+     "scene": 2,
+     "quote": "QR코드로",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "시 교통 앱에 결제 수단을 등록해 만들 수 있으며 요금과 환승 할인은 기존과 동일합니다.",
+     "source_quote": "",
+     "reason": "'~있으며'처럼 문서에서 쓰는 연결형 어미를 써서 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": ""
+  },
+  {
+   "scene": 2,
+   "source_quote": "시는 시범 사업으로 12월 1일부터 시내버스 12개 노선에서 QR코드 결제를 시작한다고 밝혔다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "요금은 교통카드와 같고, 환승 할인도 똑같이 받을 수 있다. 다만 지하철과의 환승은 내년 3월부터 적용된다. QR코드는 시 교통 앱에 결제 수단을 등록하면 만들 수 있다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "시는 석 달 동안 시범 운영한 뒤 이용 결과를 보고 모든 노선으로 넓힐지 정할 계획이다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "시내버스를 탈 때 교통카드가 없어서 당황했던 경험이 있으신가요?",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "다음 달 12월 1일부터 시내버스 12개 노선에서 휴대폰 QR코드로 요금을 낼 수 있습니다.",
+   "estimated_sec": 8.9
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "시 교통 앱에 결제 수단을 등록해 만들 수 있으며 요금과 환승 할인은 기존과 동일합니다.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "3개월간 시범 운영을 거쳐 모든 노선으로 확대할지 결정할 계획입니다.",
+   "estimated_sec": 7.0
+  }
+ ],
+ "fixed_scenes": [
+  "시내버스를 탈 때 교통카드가 없어서 당황했던 경험이 있으신가요?",
+  "다음 달 12월 1일부터 시내버스 열두 개 노선에서 휴대폰 QR코드로 요금을 낼 수 있습니다.",
+  "시 교통 앱에 결제 수단을 등록해 만들 수 있으며 요금과 환승 할인은 기존과 동일합니다.",
+  "삼 개월간 시범 운영을 거쳐 모든 노선으로 확대할지 결정할 계획입니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.5,
+    "input_tokens": 2,
+    "output_tokens": 4502,
+    "cache_creation_input_tokens": 4653,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00283
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.2,
+    "input_tokens": 2,
+    "output_tokens": 4301,
+    "cache_creation_input_tokens": 4652,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00273
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.5,
+    "input_tokens": 2,
+    "output_tokens": 4394,
+    "cache_creation_input_tokens": 4652,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00278
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.4,
+    "input_tokens": 2,
+    "output_tokens": 1838,
+    "cache_creation_input_tokens": 3055,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0013
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15035,
+   "cache_creation_input_tokens": 17012,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00964,
+  "sec": 19.5
+ }
+}

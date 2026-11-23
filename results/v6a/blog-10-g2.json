@@ -1,0 +1,200 @@
+{
+ "id": "blog-10-g2",
+ "source_id": "blog-10",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 아이와 함께 국립중앙박물관 어린이박물관을 방문했습니다.",
+     "source_quote": "아이랑 처음으로 국립중앙박물관 어린이박물관에 다녀왔어요.",
+     "reason": "앞 장면까지 말하는 사람 없이 이어지다가 이 장면에서 까닭 없이 '글쓴이는'이라는 제3자 화자로 바뀐다."
+    },
+    {
+     "scene": 4,
+     "quote": "박물관 안에서는 음식 섭취가 금지되어 간식은 밖에서 먹여야 합니다.",
+     "source_quote": "그리고 음식은 안에서 못 먹으니 간식은 밖에서 먹이고 들어가세요.",
+     "reason": "'섭취가 금지되어'처럼 문서에서 쓰는 말투라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "아이와 박물관에 갈 때 유모차를 입구에서 맡겨야 했습니다.",
+     "source_quote": "유모차는 입구 옆 보관소에 맡겨야 해요.",
+     "reason": "넣은 글의 주제인 어린이박물관 관람 경험이 아니라 유모차 보관이라는 곁가지로 시작한다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "유모차는 입구 옆 보관소에 맡겨야 해요. 안으로는 가지고 들어갈 수 없어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "아이랑 처음으로 국립중앙박물관 어린이박물관에 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "아이는 옛날 도구를 직접 만져 보는 체험을 제일 좋아했어요. 맷돌을 돌려 보고, 짚신 모형을 신어 보고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "그리고 음식은 안에서 못 먹으니 간식은 밖에서 먹이고 들어가세요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다 보고 나서 바로 옆 거울못 산책로를 한 바퀴 돌았는데, 단풍이 예뻐서 그게 더 기억에 남네요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "아이와 박물관에 갈 때 유모차를 입구에서 맡겨야 했습니다.",
+   "estimated_sec": 5.7
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 아이와 함께 국립중앙박물관 어린이박물관을 방문했습니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "다섯 살 아이는 옛 도구를 만져보고 짚신을 신는 체험을 즐겼죠.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "박물관 안에서는 음식 섭취가 금지되어 간식은 밖에서 먹여야 합니다.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "관람 후 산책로의 예쁜 단풍이 더 기억에 남는다고 했어요.",
+   "estimated_sec": 5.5
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.2,
+    "input_tokens": 2,
+    "output_tokens": 3253,
+    "cache_creation_input_tokens": 4754,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00222
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 11.7,
+    "input_tokens": 2,
+    "output_tokens": 2551,
+    "cache_creation_input_tokens": 4756,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00187
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.2,
+    "input_tokens": 2,
+    "output_tokens": 3877,
+    "cache_creation_input_tokens": 4757,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00253
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 15.1,
+    "input_tokens": 2,
+    "output_tokens": 3101,
+    "cache_creation_input_tokens": 3157,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00195
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 12782,
+   "cache_creation_input_tokens": 17424,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00857,
+  "sec": 16.2
+ }
+}

@@ -1,0 +1,197 @@
+{
+ "id": "blog-06-g1",
+ "source_id": "blog-06",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "작년보다 난방비가 39%나 줄어든 비결이 있었어요.",
+     "source_quote": "참고로 올해 12월은 작년보다 평균 기온이 1.8℃ 높았다고 해서, 줄어든 금액이 전부 제 노력 덕분은 아닐 수도 있어요.",
+     "reason": "넣은 글은 기온 차이 때문에 감소분 전부가 노력 덕분은 아닐 수 있다고 했는데, 대본은 감소를 '비결'이라는 원인으로 단정했다."
+    },
+    {
+     "scene": 5,
+     "quote": "결국 작년보다 약 7만 원 정도의 난방비를 아꼈습니다.",
+     "source_quote": "참고로 올해 12월은 작년보다 평균 기온이 1.8℃ 높았다고 해서, 줄어든 금액이 전부 제 노력 덕분은 아닐 수도 있어요.",
+     "reason": "'결국'이라는 말로 약 7만 원 절감을 노력의 결과로 단정했지만, 넣은 글은 기온 영향 때문에 전부 노력 덕분은 아닐 수 있다고 했다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "작년 12월 관리비 중 난방비가 18만 4천 원이었어요. 올해는 같은 달 기준으로 11만 2천 원이 나와서 약 39% 줄었습니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "우리 집은 전용 59㎡ 아파트이고, 작년 12월 관리비 중 난방비가 18만 4천 원이었어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "거실 창에 뽁뽁이를 붙이고 문풍지를 둘렀더니 실내 온도가 1.5℃ 정도 올랐어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "참고로 올해 12월은 작년보다 평균 기온이 1.8℃ 높았다고 해서, 줄어든 금액이 전부 제 노력 덕분은 아닐 수도 있어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "작년 12월 관리비 중 난방비가 18만 4천 원이었어요. 올해는 같은 달 기준으로 11만 2천 원이 나와서 약 39% 줄었습니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "작년보다 난방비가 39%나 줄어든 비결이 있었어요.",
+   "estimated_sec": 4.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "전용 59제곱미터 아파트에 사는 이 집은 전기요금이 부담되어 난방비를 줄여봤답니다.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "거실 창에 뽁뽁이를 붙이고 문풍지를 둘러 실내 온도를 1.5도 올렸고 보일러 온도를 낮췄죠.",
+   "estimated_sec": 8.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "하지만 올해 12월은 작년보다 평균 기온이 1.8도 높았던 것도 한몫을 했다고 해요.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 작년보다 약 7만 원 정도의 난방비를 아꼈습니다.",
+   "estimated_sec": 5.4
+  }
+ ],
+ "fixed_scenes": [
+  "작년보다 난방비가 삼십구 퍼센트나 줄어든 비결이 있었어요.",
+  "전용 59제곱미터 아파트에 사는 이 집은 전기요금이 부담되어 난방비를 줄여봤답니다.",
+  "거실 창에 뽁뽁이를 붙이고 문풍지를 둘러 실내 온도를 일 점 오 도 올렸고 보일러 온도를 낮췄죠.",
+  "하지만 올해 12월은 작년보다 평균 기온이 일 점 팔 도 높았던 것도 한몫을 했다고 해요.",
+  "결국 작년보다 약 칠만 원 정도의 난방비를 아꼈습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.8,
+    "input_tokens": 2,
+    "output_tokens": 5650,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4456,
+    "cost_usd": 0.00292
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.4,
+    "input_tokens": 2,
+    "output_tokens": 4557,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4456,
+    "cost_usd": 0.00237
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 45.9,
+    "input_tokens": 2,
+    "output_tokens": 11123,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4456,
+    "cost_usd": 0.00566
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.2,
+    "input_tokens": 2,
+    "output_tokens": 1445,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2858,
+    "cost_usd": 0.0008
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 22775,
+   "cache_creation_input_tokens": 1572,
+   "cache_read_input_tokens": 16226
+  },
+  "cost_usd_est": 0.01175,
+  "sec": 45.9
+ }
+}

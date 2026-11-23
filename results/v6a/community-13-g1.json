@@ -1,0 +1,207 @@
+{
+ "id": "community-13-g1",
+ "source_id": "community-13",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "거기 도착하니 사진에 있던 긁힘을 핑계 삼아 3만 원에 깎아달라고 실랑이를 벌였죠.",
+     "source_quote": "그 자국은 사진에도 올렸고, 설명에도 \"왼쪽 다리 긁힘 있음\"이라고 적어 놨었어요.",
+     "reason": "넣은 글에는 구매자가 긁힘을 핑계로 삼았다는 내용이 없고, 글쓴이의 추측을 구매자의 속마음처럼 단정했다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "구매자는 후기에 설명과 다름이라고 남겼습니다.",
+     "source_quote": "이런 후기도 신고하면 지워 주나요? 아니면 그냥 넘어가는 게 정신 건강에 좋을까요?",
+     "reason": "넣은 글은 글쓴이가 후기 신고 가능 여부를 묻는 사연인데, 대본에는 그 질문이 전혀 없다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 역 근처 직거래 조건으로 의자 2개를 3만 7천 원에 팔기로 약속했대요.",
+     "source_quote": "",
+     "reason": "장면 1과 3~5는 말하는 사람이 드러나지 않는데 장면 2만 '글쓴이는'으로 제3자를 지칭해 서술 시점이 까닭 없이 바뀐다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 33.7,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "중고거래 하다가 진짜 어이없는 일 겪어서 써 봐요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "글에 분명히 \"직거래만, 단 역 근처 5분 거리일 때만 가능\"이라고 써 놨거든요. 구매자분이 3만 5천 원에 안 되냐고 해서 그럼 3만 7천 원에 하자고 했고"
+  },
+  {
+   "scene": 3,
+   "source_quote": "근데 당일 2시 40분에 연락 와서 역 말고 자기 집 앞으로 와 달래요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "갔더니 의자 하나 다리에 긁힌 자국 있다고 3만 원에 하재요. 그 자국은 사진에도 올렸고, 설명에도 \"왼쪽 다리 긁힘 있음\"이라고 적어 놨었어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "결국 실랑이하다가 3만 3천 원 받고 왔는데, 오는 길 기름값 생각하면 거의 3만 원 받은 거나 마찬가지 같아요. 그리고 오늘 그분이 후기에 \"설명과 다름\"이라고 남겼어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "중고거래로 캠핑 의자를 팔기로 했는데 구매자가 말도 안 되는 요구를 했어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 역 근처 직거래 조건으로 의자 2개를 3만 7천 원에 팔기로 약속했대요.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "그런데 구매자는 당일 갑자기 자기 집 앞으로 와 달라고 요구했습니다.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "거기 도착하니 사진에 있던 긁힘을 핑계 삼아 3만 원에 깎아달라고 실랑이를 벌였죠.",
+   "estimated_sec": 8.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 3만 3천 원을 받고 왔는데 구매자는 후기에 설명과 다름이라고 남겼습니다.",
+   "estimated_sec": 8.1
+  }
+ ],
+ "fixed_scenes": [
+  "중고거래로 캠핑 의자를 팔기로 했는데 구매자가 말도 안 되는 요구를 했어요.",
+  "글쓴이는 역 근처 직거래 조건으로 의자 두 개를 삼만 칠천 원에 팔기로 약속했대요.",
+  "그런데 구매자는 당일 갑자기 자기 집 앞으로 와 달라고 요구했습니다.",
+  "거기 도착하니 사진에 있던 긁힘을 핑계 삼아 삼만 원에 깎아달라고 실랑이를 벌였죠.",
+  "결국 삼만 삼천 원을 받고 왔는데 구매자는 후기에 설명과 다름이라고 남겼습니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 31.5,
+    "input_tokens": 2,
+    "output_tokens": 7447,
+    "cache_creation_input_tokens": 4947,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00434
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.4,
+    "input_tokens": 2,
+    "output_tokens": 5926,
+    "cache_creation_input_tokens": 4946,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00358
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.8,
+    "input_tokens": 2,
+    "output_tokens": 3576,
+    "cache_creation_input_tokens": 4946,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00241
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.4,
+    "input_tokens": 2,
+    "output_tokens": 2162,
+    "cache_creation_input_tokens": 3348,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0015
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 19111,
+   "cache_creation_input_tokens": 18187,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01183,
+  "sec": 31.6
+ }
+}

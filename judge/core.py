@@ -67,7 +67,9 @@ def render(r):
         L.append(f"기준 {n:>2} [{who}] {c['result']}" + (f"  — {c['error']}" if c.get("error") else ""))
         if c.get("doubt"):
             L[-1] += f"  (탈락 의심 — {c['votes']}번 걸림)"
-        if c["result"] == config.HIT or c.get("doubt"):
+        if c.get("unsure") and c["result"] != config.HIT:
+            L[-1] += "  (애매한 걸림이 있어 판정에는 안 씀)"
+        if c["result"] == config.HIT or c.get("doubt") or c.get("unsure"):
             for f in c["findings"]:
                 sc = f"장면 {f['scene']}" if f.get("scene") else "전체"
                 L.append(f"    · {sc}: 「{f['quote']}」 {f['reason']}" + (f" → 「{f['fix']}」로" if f.get("fix") else ""))

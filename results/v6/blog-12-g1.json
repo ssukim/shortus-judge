@@ -1,0 +1,193 @@
+{
+ "id": "blog-12-g1",
+ "source_id": "blog-12",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "밀폐와 정기적인 비우기만으로 냉장고를 쾌적하게 관리하세요.",
+     "source_quote": "이것만 해도 냄새가 확 줄어요.",
+     "reason": "넣은 글은 밀폐와 비우기가 냄새를 줄인다고만 했는데, 대본은 '만으로' 냉장고 관리가 충분하다고 말해 원문보다 강하게 단정했다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 31.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "밀폐와 정기적인 비우기만으로 냉장고를 쾌적하게 관리하세요.",
+     "source_quote": "",
+     "reason": "장면 2·3에서 말한 밀폐와 비우기를 새 사실 없이 요약해 같은 요점을 되풀이한다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "둘째, 반찬통 뚜껑은 꼭 닫으세요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬에서 나와요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "특히 김치랑 젓갈류는 꼭 따로 밀폐하세요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "마지막으로 선반은 식초 탄 물로 닦아 주면 끝."
+  },
+  {
+   "scene": 5,
+   "source_quote": "이것만 해도 냄새가 확 줄어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "탈취제를 써도 냉장고 냄새가 사라지지 않는다면 반찬통 뚜껑을 확인해 보세요.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "냄새의 대부분은 뚜껑을 살짝 걸쳐 둔 반찬에서 나오기 때문입니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "특히 김치나 젓갈류는 반드시 따로 밀폐하고 일주일에 한 번은 오래된 음식을 정리하세요.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "선반은 식초 탄 물로 닦아 주면 돈을 거의 들이지 않고 냄새를 잡을 수 있습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "밀폐와 정기적인 비우기만으로 냉장고를 쾌적하게 관리하세요.",
+   "estimated_sec": 6.2
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.4,
+    "input_tokens": 2,
+    "output_tokens": 5190,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4527,
+    "cost_usd": 0.00269
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.7,
+    "input_tokens": 2,
+    "output_tokens": 4800,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4527,
+    "cost_usd": 0.00249
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.9,
+    "input_tokens": 2,
+    "output_tokens": 3743,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4527,
+    "cost_usd": 0.00197
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.8,
+    "input_tokens": 2,
+    "output_tokens": 1929,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2929,
+    "cost_usd": 0.00104
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15662,
+   "cache_creation_input_tokens": 1575,
+   "cache_read_input_tokens": 16510
+  },
+  "cost_usd_est": 0.00819,
+  "sec": 21.4
+ }
+}

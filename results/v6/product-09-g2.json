@@ -1,0 +1,193 @@
+{
+ "id": "product-09-g2",
+ "source_id": "product-09",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "텀블러 뚜껑을 열고 닫을 때 한 손으로 조작하기 힘들면 불편합니다.",
+     "source_quote": "뚜껑은 한 손으로 열고 닫을 수 있고",
+     "reason": "문제만 말하고 온기한잔이 한 손으로 뚜껑을 열고 닫을 수 있다는 핵심 정보가 빠져 있습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "크림, 초록, 남색 세 가지 색상 중에서 선택할 수 있습니다.",
+     "source_quote": "색은 크림, 초록, 남색 세 가지가 있어요.",
+     "reason": "앞 장면들의 특징 설명을 색상이라는 새 항목으로 이어 가며 끝나고, 소개를 맺는 마무리 문장이 없어 끝을 맺었다고 보기 어렵다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": ""
+  },
+  {
+   "scene": 2,
+   "source_quote": "뚜껑은 한 손으로 열고 닫을 수 있고"
+  },
+  {
+   "scene": 3,
+   "source_quote": "이중 진공 구조라 따뜻한 음료를 오래 따뜻하게 지켜 줘요. 뚜껑은 한 손으로 열고 닫을 수 있고, 가방에 넣어도 새지 않게 실리콘 마개가 들어 있어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "손이 작은 분도 잡기 편하게 가운데를 살짝 잘록하게 만들었어요. 바닥에는 미끄럼 방지 고무가 붙어 있어 책상 위에서도 안정적이에요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "색은 크림, 초록, 남색 세 가지가 있어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "가방에 텀블러를 넣었는데 내용물이 새서 엉망이 된 적이 있었죠.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "텀블러 뚜껑을 열고 닫을 때 한 손으로 조작하기 힘들면 불편합니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "온기한잔은 이중 진공 구조로 온도를 유지하고 실리콘 마개로 누수를 막아줍니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "가운데를 잘록하게 만들어 손이 작은 사람도 잡기 편하고 미끄럼 방지 고무도 붙었습니다.",
+   "estimated_sec": 8.6
+  },
+  {
+   "scene": 5,
+   "role": "point",
+   "text": "크림, 초록, 남색 세 가지 색상 중에서 선택할 수 있습니다.",
+   "estimated_sec": 5.2
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 14.4,
+    "input_tokens": 2,
+    "output_tokens": 3177,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4304,
+    "cost_usd": 0.00168
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.9,
+    "input_tokens": 2,
+    "output_tokens": 4368,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4304,
+    "cost_usd": 0.00228
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.8,
+    "input_tokens": 2,
+    "output_tokens": 4341,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4304,
+    "cost_usd": 0.00226
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.4,
+    "input_tokens": 2,
+    "output_tokens": 1965,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2706,
+    "cost_usd": 0.00106
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 13851,
+   "cache_creation_input_tokens": 1573,
+   "cache_read_input_tokens": 15618
+  },
+  "cost_usd_est": 0.00728,
+  "sec": 18.9
+ }
+}

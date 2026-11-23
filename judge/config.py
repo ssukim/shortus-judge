@@ -56,3 +56,9 @@ UNANIMOUS = ()  # 5판부터 비움(D19). 지시문이 「확실할 때만 기�
 
 # 듣기 검사(judge/listen.py): JUDGE_LISTEN=1일 때만. 받아쓰기 모델이 .venv에 있어 .venv/bin/python으로 실행한다(D27).
 LISTEN = os.environ.get("JUDGE_LISTEN", "") == "1"
+
+# 6판 실험(D29, D30): 모델이 확신한다고 답한 걸림만 판정에 쓴다. 치명 오류가 새어 기본은 끔(5판 그대로).
+# 켜면(JUDGE_SURE_ONLY=1) 지시문에 sure 설명이 들어가고, 확신 못 한 걸림은 진단(unsure)으로만 남는다.
+SURE_ONLY = os.environ.get("JUDGE_SURE_ONLY", "0") == "1"
+# 탈락 기준(1·2)은 확신 여부와 관계없이 걸림을 쓴다. 6판 첫 실행에서 기준 1까지 빼니 통과로 새는 탈락이 2 → 8로 늘었다(D30).
+SURE_EXEMPT = (1, 2)

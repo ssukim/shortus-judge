@@ -1,0 +1,191 @@
+{
+ "id": "community-08-g2",
+ "source_id": "community-08",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "결국 공사비 항목을 미처 확인하지 못해 당황했던 것이었네요.",
+     "source_quote": "결국 제가 잘못 쓴 건 아니었네요.",
+     "reason": "넣은 글은 관리비 상승이 난방비와 공사비라는 실제 원인 때문이었고 글쓴이 잘못은 아니라고 했는데, 대본은 확인하지 않은 본인 탓으로 돌려 뜻이 바뀌었다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "지난달 관리비가 32만 원이었는데 이번 달에 41만 원이 나왔어요. 9만 원이나 오른 거라"
+  },
+  {
+   "scene": 2,
+   "source_quote": "9만 원이나 오른 거라 관리사무소에 전화해 봤어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "설명을 들어 보니 이유가 두 가지였어요. 하나는 겨울이라 난방비가 올랐다는 거고, 다른 하나는 이번 달에만 승강기 교체 공사비가 세대당 5만 원씩 한 번 붙었다는 거예요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "난방비는 저희 집만 많이 나온 게 아니라 같은 동 평균도 비슷하게 올랐다고 하셨어요. 혹시 몰라서 계량기 숫자도 사진 찍어 보내 드렸더니 이상은 없다고 하셨고요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "결국 제가 잘못 쓴 건 아니었네요. 다들 관리비 갑자기 오르면 고지서 항목별로 한번 보세요. 저는 공사비 항목을 못 보고 지나쳤었어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "아파트 관리비가 한 달 만에 9만 원이나 갑자기 올랐어요.",
+   "estimated_sec": 5.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "이 네티즌은 지난달보다 많이 나온 고지서를 보고 관리사무소에 문의했습니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "난방비 인상 외에도 이번 달에만 승강기 교체 공사비가 포함된 사실을 확인했습니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "계량기 수치까지 확인해 보았지만 집 자체의 문제는 아니었다고 합니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 공사비 항목을 미처 확인하지 못해 당황했던 것이었네요.",
+   "estimated_sec": 6.0
+  }
+ ],
+ "fixed_scenes": [
+  "아파트 관리비가 한 달 만에 구만 원이나 갑자기 올랐어요.",
+  "이 네티즌은 지난달보다 많이 나온 고지서를 보고 관리사무소에 문의했습니다.",
+  "난방비 인상 외에도 이번 달에만 승강기 교체 공사비가 포함된 사실을 확인했습니다.",
+  "계량기 수치까지 확인해 보았지만 집 자체의 문제는 아니었다고 합니다.",
+  "결국 공사비 항목을 미처 확인하지 못해 당황했던 것이었네요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.9,
+    "input_tokens": 2,
+    "output_tokens": 5825,
+    "cache_creation_input_tokens": 4758,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00351
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.9,
+    "input_tokens": 2,
+    "output_tokens": 6032,
+    "cache_creation_input_tokens": 4759,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00361
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 30.3,
+    "input_tokens": 2,
+    "output_tokens": 7397,
+    "cache_creation_input_tokens": 4757,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00429
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 7.7,
+    "input_tokens": 2,
+    "output_tokens": 1332,
+    "cache_creation_input_tokens": 3160,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00106
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 20586,
+   "cache_creation_input_tokens": 17434,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01247,
+  "sec": 30.3
+ }
+}

@@ -1,0 +1,185 @@
+{
+ "id": "community-09-g2",
+ "source_id": "community-09",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "점심을 따로 먹게 된 팀원들의 표정은 이전보다 밝아졌습니다.",
+     "source_quote": "여러분 회사는 점심 어떻게 드세요?",
+     "reason": "넣은 글의 끝 질문(시청자에게 회사 점심 방식을 묻는 말)이 대본에 없어 사연의 마무리 질문이 빠졌으나, 시청자가 잘못 알거나 불편해지는 정도는 아니어서 판단이 갈릴 만함."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "오늘 새로 온 신입이 조심스럽게 혼자 먹어도 되냐고 묻더라고요. 운동하러 가고 싶다고요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "우리 팀은 점심을 항상 다 같이 먹는데"
+  },
+  {
+   "scene": 3,
+   "source_quote": "팀장님이 잠깐 생각하시더니 괜찮다고, 오히려 좋다고 하셨어요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "다음 주부터는 점심을 각자 먹는 날을 일주일에 두 번 정하자고 하셨어요. 화요일이랑 목요일이요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "회의 끝나고 다들 표정이 밝더라고요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "새로 온 신입이 점심시간에 운동을 가겠다며 혼자 밥을 먹겠다고 했어요.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "항상 다 같이 점심을 먹던 팀에 신입이 들어온 상황이었죠.",
+   "estimated_sec": 5.5
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "신입의 말에 팀장님은 오히려 좋다고 하며 흔쾌히 허락했습니다.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "그 덕분에 화요일과 목요일은 각자 점심을 먹는 날로 정해졌어요.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "점심을 따로 먹게 된 팀원들의 표정은 이전보다 밝아졌습니다.",
+   "estimated_sec": 6.0
+  }
+ ],
+ "fixed_scenes": null,
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 21.0,
+    "input_tokens": 2,
+    "output_tokens": 4736,
+    "cache_creation_input_tokens": 4686,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00295
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.6,
+    "input_tokens": 2,
+    "output_tokens": 4107,
+    "cache_creation_input_tokens": 4686,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00264
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.1,
+    "input_tokens": 2,
+    "output_tokens": 4338,
+    "cache_creation_input_tokens": 4685,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00275
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 6.0,
+    "input_tokens": 2,
+    "output_tokens": 919,
+    "cache_creation_input_tokens": 3087,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00085
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 14100,
+   "cache_creation_input_tokens": 17144,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.00919,
+  "sec": 21.0
+ }
+}

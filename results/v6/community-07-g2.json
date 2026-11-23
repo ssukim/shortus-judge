@@ -1,0 +1,191 @@
+{
+ "id": "community-07-g2",
+ "source_id": "community-07",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "아까워서 책상 위에 둔 사탕은 아직도 못 먹고 있어요.",
+     "source_quote": "사탕은 아직 책상 위에 두고 있어요. 아까워서 못 먹겠어요.",
+     "reason": "장면 2에서는 '글쓴이는'으로 3인칭을 썼는데 장면 5에서는 까닭 없이 1인칭처럼 말하는 목소리로 바뀐다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.6,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "앞에 앉아 계시던 할아버지가 내리시면서 지갑을 떨어뜨리셨어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "제가 주워서 따라 내렸는데 할아버지가 벌써 계단 쪽으로 가셔서 뛰어가서 겨우 드렸어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "할아버지가 고맙다고 하시면서 주머니에서 사탕을 하나 꺼내 주시더라고요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "문제는 제가 그 바람에 타고 있던 지하철을 놓쳤다는 거예요. 다음 차는 7분 뒤에 왔고, 회사엔 5분 늦었어요. 팀장님께 사정을 말씀드렸더니 웃으면서 잘했다고 해 주셨어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "사탕은 아직 책상 위에 두고 있어요. 아까워서 못 먹겠어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "지하철에서 할아버지가 내리시며 지갑을 떨어뜨리셨어요.",
+   "estimated_sec": 5.7
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 주운 지갑을 돌려드리려 할아버지 뒤를 따라 뛰었습니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "할아버지는 고맙다며 주머니에서 사탕 하나를 꺼내 주셨죠.",
+   "estimated_sec": 5.7
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "그 바람에 지하철을 놓쳐 회사에 5분 늦었지만 팀장님은 잘했다고 하셨습니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "아까워서 책상 위에 둔 사탕은 아직도 못 먹고 있어요.",
+   "estimated_sec": 5.0
+  }
+ ],
+ "fixed_scenes": [
+  "지하철에서 할아버지가 내리시며 지갑을 떨어뜨리셨어요.",
+  "글쓴이는 주운 지갑을 돌려드리려 할아버지 뒤를 따라 뛰었습니다.",
+  "할아버지는 고맙다며 주머니에서 사탕 하나를 꺼내 주셨죠.",
+  "그 바람에 지하철을 놓쳐 회사에 오 분 늦었지만 팀장님은 잘했다고 하셨습니다.",
+  "아까워서 책상 위에 둔 사탕은 아직도 못 먹고 있어요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 7.5,
+    "input_tokens": 2,
+    "output_tokens": 1663,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4335,
+    "cost_usd": 0.00092
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 9.7,
+    "input_tokens": 2,
+    "output_tokens": 2298,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4335,
+    "cost_usd": 0.00124
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 10.0,
+    "input_tokens": 2,
+    "output_tokens": 2314,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4335,
+    "cost_usd": 0.00125
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.7,
+    "input_tokens": 2,
+    "output_tokens": 2124,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2737,
+    "cost_usd": 0.00114
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 8399,
+   "cache_creation_input_tokens": 1574,
+   "cache_read_input_tokens": 15742
+  },
+  "cost_usd_est": 0.00455,
+  "sec": 10.7
+ }
+}

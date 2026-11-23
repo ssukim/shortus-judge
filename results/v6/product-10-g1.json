@@ -1,0 +1,231 @@
+{
+ "id": "product-10-g1",
+ "source_id": "product-10",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  5,
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "한 번 충전으로 최대 180분 동안 사용 가능하며",
+     "source_quote": "한 번 충전하면 최대 180분 쓸 수 있는데, 이건 가장 약한 흡입 모드 기준이고 최대 모드에서는 약 60분이에요.",
+     "reason": "가장 약한 흡입 모드 기준인 180분이 조건 없이 '최대'로 말해져, 최대 모드(약 60분)와 달리 들린다."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "로봇청소기 말끔이 S7은 물걸레를 달면 카펫을 자동으로 피해 가기 때문입니다.",
+     "source_quote": "카펫이 많은 집은 걸레를 떼고 쓰는 게 좋아요.",
+     "reason": "카펫이 많은 집에 필요한 대처(걸레 분리)가 빠져 문제만 제시되고 해결이 없다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "5000Pa의",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호",
+     "fix": "5000파스칼의"
+    }
+   ],
+   "vague": [
+    {
+     "scene": 2,
+     "quote": "S7은",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "한 번 충전으로 최대 180분 동안 사용 가능하며",
+     "source_quote": "",
+     "reason": "\"사용 가능하며\"는 문서체 표현으로, 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 34.5,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "카펫이 많은 집에서 물걸레질을 할 때 로봇청소기가 카펫을 피해 가는 상황이 발생했습니다.",
+     "source_quote": "물걸레 기능도 있어요. 다만 물걸레를 달면 카펫은 자동으로 피해 가도록 되어 있어서",
+     "reason": "첫 장면이 넣은 글의 흡입력이나 제품 소개가 아닌 물걸레 사용 시 카펫 회피라는 곁가지 주의사항으로 시작한다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "물걸레를 달면 카펫은 자동으로 피해 가도록 되어 있어서, 카펫이 많은 집은 걸레를 떼고 쓰는 게 좋아요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "다만 물걸레를 달면 카펫은 자동으로 피해 가도록 되어 있어서"
+  },
+  {
+   "scene": 3,
+   "source_quote": "흡입력은 5,000Pa로 카펫 위 먼지까지 빨아들여요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "한 번 충전하면 최대 180분 쓸 수 있는데, 이건 가장 약한 흡입 모드 기준이고 최대 모드에서는 약 60분이에요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "다음 달 15일까지 사전 예약하면 10만 원 할인에 여분 걸레 4장을 드려요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "카펫이 많은 집에서 물걸레질을 할 때 로봇청소기가 카펫을 피해 가는 상황이 발생했습니다.",
+   "estimated_sec": 8.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "로봇청소기 말끔이 S7은 물걸레를 달면 카펫을 자동으로 피해 가기 때문입니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "이 제품은 5000Pa의 흡입력으로 카펫 위 먼지를 빨아들이는 기능을 갖추고 있습니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "한 번 충전으로 최대 180분 동안 사용 가능하며 자동 비움 스테이션도 포함됩니다.",
+   "estimated_sec": 7.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "다음 달 15일까지 사전 예약하면 10만 원 할인과 여분 걸레 4장을 드립니다.",
+   "estimated_sec": 7.5
+  }
+ ],
+ "fixed_scenes": [
+  "카펫이 많은 집에서 물걸레질을 할 때 로봇청소기가 카펫을 피해 가는 상황이 발생했습니다.",
+  "로봇청소기 말끔이 S7은 물걸레를 달면 카펫을 자동으로 피해 가기 때문입니다.",
+  "이 제품은 오천 파스칼의 흡입력으로 카펫 위 먼지를 빨아들이는 기능을 갖추고 있습니다.",
+  "한 번 충전으로 최대 백팔십 분 동안 사용 가능하며 자동 비움 스테이션도 포함됩니다.",
+  "다음 달 15일까지 사전 예약하면 십만 원 할인과 여분 걸레 네 장을 드립니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.7,
+    "input_tokens": 2,
+    "output_tokens": 6952,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4409,
+    "cost_usd": 0.00357
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 33.1,
+    "input_tokens": 2,
+    "output_tokens": 7743,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4409,
+    "cost_usd": 0.00396
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.7,
+    "input_tokens": 2,
+    "output_tokens": 5640,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 4409,
+    "cost_usd": 0.00291
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.5,
+    "input_tokens": 2,
+    "output_tokens": 2665,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2811,
+    "cost_usd": 0.00141
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 23000,
+   "cache_creation_input_tokens": 1570,
+   "cache_read_input_tokens": 16038
+  },
+  "cost_usd_est": 0.01185,
+  "sec": 33.1
+ }
+}

@@ -1,0 +1,224 @@
+{
+ "id": "blog-05-g1",
+ "source_id": "blog-05",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [
+  8
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요.",
+     "reason": "넣은 글은 반대쪽 길이 '조금 더' 가팔랐다고 상대적으로 말했는데, 대본은 '가파른'이라고 절대적으로 말해 경사를 더 세게 전한다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "무릎이 약하신 분은 올라온 길로 다시 내려가는 걸 추천해요.",
+     "reason": "원문의 핵심 추천인 '무릎이 약한 분은 올라온 길로 내려가라'는 권유가 대본에 빠져 있습니다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+     "source_quote": "지난 주말에 처음으로 혼자 동네 뒷산에 다녀왔어요.",
+     "reason": "장면 1과 3~5는 화자가 직접 말하는 투인데 장면 2에서만 '글쓴이는'으로 남처럼 가리켜, 장면 사이에 말하는 사람이 까닭 없이 바뀐 것처럼 들린다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 26.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+     "source_quote": "벤치에 앉아서 챙겨 간 귤을 까먹고 있으니까 옆에 계시던 할머니가 따뜻한 보리차를 한 잔 따라 주셨어요.",
+     "reason": "'갑자기'라는 궁금증을 첫 장면에서 던졌는데, 넣은 글에는 귤을 먹고 있었다는 답이 있으나 대본은 끝까지 그 이유를 말하지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+     "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요.",
+     "reason": "첫 장면에서 연 할머니 이야기는 맺지 않고, 끝 장면이 내려간 길이라는 사소한 사실로 흐지부지 끝나 마무리가 되지 않는다."
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "옆에 계시던 할머니가 따뜻한 보리차를 한 잔 따라 주셨어요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "지난 주말에 처음으로 혼자 동네 뒷산에 다녀왔어요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "입구에서 정상까지는 천천히 걸어서 40분 정도 걸렸어요. 길이 대부분 흙길이라 운동화로도 충분했고"
+  },
+  {
+   "scene": 4,
+   "source_quote": "매일 아침 여기 올라오신다고 하더라고요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "내려올 때는 반대쪽 길로 왔는데 그쪽은 경사가 조금 더 가팔랐어요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+   "estimated_sec": 6.0
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "운동화로 충분한 흙길을 40분 정도 걸어 올라가 벤치에 앉았대요.",
+   "estimated_sec": 6.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다.",
+   "estimated_sec": 5.2
+  }
+ ],
+ "fixed_scenes": [
+  "등산로 정상 아래 쉼터에서 할머니가 갑자기 보리차를 한 잔 따라주셨어요.",
+  "글쓴이는 지난 주말 혼자 동네 뒷산에 처음으로 다녀왔습니다.",
+  "운동화로 충분한 흙길을 사십 분 정도 걸어 올라가 벤치에 앉았대요.",
+  "옆에 있던 할머니는 매일 아침 여기에 올라오신다고 말했습니다.",
+  "내려갈 때는 경사가 가파른 반대쪽 길을 이용했답니다."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.9,
+    "input_tokens": 2,
+    "output_tokens": 3735,
+    "cache_creation_input_tokens": 4842,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00247
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.1,
+    "input_tokens": 2,
+    "output_tokens": 4387,
+    "cache_creation_input_tokens": 4840,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0028
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.1,
+    "input_tokens": 2,
+    "output_tokens": 4868,
+    "cache_creation_input_tokens": 4841,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00304
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 19.1,
+    "input_tokens": 2,
+    "output_tokens": 4145,
+    "cache_creation_input_tokens": 3242,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00248
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 17135,
+   "cache_creation_input_tokens": 17765,
+   "cache_read_input_tokens": 0
+  },
+  "cost_usd_est": 0.01079,
+  "sec": 20.1
+ }
+}

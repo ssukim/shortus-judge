@@ -1,0 +1,204 @@
+{
+ "id": "community-13-g2",
+ "source_id": "community-13",
+ "verdict": "통과",
+ "why": [],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠",
+     "source_quote": "갔더니 의자 하나 다리에 긁힌 자국 있다고 3만 원에 하재요.",
+     "reason": "넣은 글에는 구매자가 핑계를 댔다는 판단이 없고 긁힘을 근거로 가격을 낮춰 달라고 했다는 내용뿐이라, 구매자의 속마음을 단정한 것으로 볼 여지가 있습니다."
+    }
+   ],
+   "votes": "1/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+     "source_quote": "갔더니 의자 하나 다리에 긁힌 자국 있다고 3만 원에 하재요.",
+     "reason": "넣은 글은 구매자가 긁힘을 근거로 가격을 낮춘 사실만 적었고, '핑계'라는 구매자의 속셈은 적지 않아 단정이 다소 세다."
+    },
+    {
+     "scene": 4,
+     "quote": "구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다.",
+     "source_quote": "오늘 그분이 후기에 \"설명과 다름\"이라고 남겼어요.",
+     "reason": "넣은 글은 후기 문구만 옮겼고 그것을 '사실과 다른 말'이라고 확정하지 않아 단정이 다소 세다."
+    }
+   ],
+   "unsure": true,
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 35.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 당일 2시 40분에 연락 와서 역 말고 자기 집 앞으로 와 달래요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "역 말고 자기 집 앞으로 와 달래요. 차로 20분 거리요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "갔더니 의자 하나 다리에 긁힌 자국 있다고 3만 원에 하재요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "결국 실랑이하다가 3만 3천 원 받고 왔는데"
+  },
+  {
+   "scene": 5,
+   "source_quote": "이런 후기도 신고하면 지워 주나요?"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "캠핑 의자를 중고로 팔기로 했는데 구매자가 갑자기 집 앞으로 오라고 했어요.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 직거래 장소를 역 근처로 제한했지만 구매자는 20분 거리의 자기 집으로 오라고 요구했습니다.",
+   "estimated_sec": 10.1
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "막상 도착하니 구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "결국 실랑이 끝에 3만 3천 원을 받고 왔는데 구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다.",
+   "estimated_sec": 10.7
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "글쓴이는 이 후기를 신고해야 할지 고민 중이에요.",
+   "estimated_sec": 4.8
+  }
+ ],
+ "fixed_scenes": [
+  "캠핑 의자를 중고로 팔기로 했는데 구매자가 갑자기 집 앞으로 오라고 했어요.",
+  "글쓴이는 직거래 장소를 역 근처로 제한했지만 구매자는 이십 분 거리의 자기 집으로 오라고 요구했습니다.",
+  "막상 도착하니 구매자는 사진에도 있던 긁힘 자국을 핑계로 가격을 깎으려 했죠.",
+  "결국 실랑이 끝에 삼만 삼천 원을 받고 왔는데 구매자는 후기에 설명과 다르다며 사실과 다른 말을 남겼습니다.",
+  "글쓴이는 이 후기를 신고해야 할지 고민 중이에요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.1,
+    "input_tokens": 2,
+    "output_tokens": 5956,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4565,
+    "cost_usd": 0.00307
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 24.6,
+    "input_tokens": 2,
+    "output_tokens": 5889,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4565,
+    "cost_usd": 0.00304
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.3,
+    "input_tokens": 2,
+    "output_tokens": 4270,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4565,
+    "cost_usd": 0.00223
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 14.3,
+    "input_tokens": 2,
+    "output_tokens": 3002,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2967,
+    "cost_usd": 0.00158
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 19117,
+   "cache_creation_input_tokens": 1569,
+   "cache_read_input_tokens": 16662
+  },
+  "cost_usd_est": 0.00992,
+  "sec": 25.1
+ }
+}

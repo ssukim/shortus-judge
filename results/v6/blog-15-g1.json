@@ -1,0 +1,200 @@
+{
+ "id": "blog-15-g1",
+ "source_id": "blog-15",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 1,
+     "quote": "찬밥을 넣고 바로 볶으면 밥이 질척해지는 이유가 따로 있었어요.",
+     "source_quote": "여기서 밥을 너무 빨리 뒤적이면 질척해지니까, 바닥이 살짝 눌을 때까지 기다리는 게 포인트예요.",
+     "reason": "질척해지는 원인을 '바로 볶기'로 말했으나 넣은 글은 '너무 빨리 뒤적이기'를 원인으로 든다."
+    }
+   ],
+   "votes": "2/3",
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "unfixable": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.7,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "기다림과 팬 가장자리를 활용해 10분 만에 맛있는 볶음밥을 완성하세요.",
+     "source_quote": "",
+     "reason": "장면 3·4에서 한 요점(기다리기, 팬 가장자리에 간장 두르기)을 요약으로 다시 말하며 새 사실은 '10분' 정도만 더해져 되풀이로 볼 수 있음"
+    }
+   ],
+   "unsure": true,
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "여기서 밥을 너무 빨리 뒤적이면 질척해지니까, 바닥이 살짝 눌을 때까지 기다리는 게 포인트예요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "여기서 밥을 너무 빨리 뒤적이면 질척해지니까, 바닥이 살짝 눌을 때까지 기다리는 게 포인트예요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "계란이 반쯤 익었을 때 찬밥을 넣고 주걱으로 꾹꾹 눌러 가며 펴 주세요. 여기서 밥을 너무 빨리 뒤적이면 질척해지니까, 바닥이 살짝 눌을 때까지 기다리는 게 포인트예요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "간장은 팬 가장자리에 둘러서 살짝 태우듯 넣으면 불맛 비슷한 향이 나요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "프라이팬 하나로 10분 만에 만드는 계란 볶음밥 레시피 공유해요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "찬밥을 넣고 바로 볶으면 밥이 질척해지는 이유가 따로 있었어요.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "볶음밥을 만들 때 밥을 너무 빨리 뒤적이면 질척해지기 때문입니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "밥을 넣은 뒤 주걱으로 꾹꾹 눌러 펴고 바닥이 살짝 눌을 때까지 기다려야 합니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "간장을 팬 가장자리에 둘러 살짝 태우듯 넣으면 불맛 비슷한 향이 납니다.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "기다림과 팬 가장자리를 활용해 10분 만에 맛있는 볶음밥을 완성하세요.",
+   "estimated_sec": 7.0
+  }
+ ],
+ "fixed_scenes": [
+  "찬밥을 넣고 바로 볶으면 밥이 질척해지는 이유가 따로 있었어요.",
+  "볶음밥을 만들 때 밥을 너무 빨리 뒤적이면 질척해지기 때문입니다.",
+  "밥을 넣은 뒤 주걱으로 꾹꾹 눌러 펴고 바닥이 살짝 눌을 때까지 기다려야 합니다.",
+  "간장을 팬 가장자리에 둘러 살짝 태우듯 넣으면 불맛 비슷한 향이 납니다.",
+  "기다림과 팬 가장자리를 활용해 십 분 만에 맛있는 볶음밥을 완성하세요."
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.5,
+    "input_tokens": 2,
+    "output_tokens": 4521,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 4495,
+    "cost_usd": 0.00235
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 13.5,
+    "input_tokens": 2,
+    "output_tokens": 2993,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4495,
+    "cost_usd": 0.00159
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 16.2,
+    "input_tokens": 2,
+    "output_tokens": 4020,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 4495,
+    "cost_usd": 0.0021
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.5,
+    "input_tokens": 2,
+    "output_tokens": 2273,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2897,
+    "cost_usd": 0.00121
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 13807,
+   "cache_creation_input_tokens": 1569,
+   "cache_read_input_tokens": 16382
+  },
+  "cost_usd_est": 0.00725,
+  "sec": 18.5
+ }
+}
