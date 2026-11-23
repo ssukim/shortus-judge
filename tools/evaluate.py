@@ -42,8 +42,9 @@ def redecide(result_dir: Path) -> dict:
                 if major and not hit:
                     doubt.append(n)
             res[n] = v
-        from judge.checks_code import suggest
-        unfixable = [f["quote"] for f in r["criteria"]["5"].get("findings", []) if not suggest(f["quote"])]
+        from judge.checks_code import fixable
+        unfixable = [f["quote"] for f in r["criteria"]["5"].get("findings", [])
+                     if f.get("heard") is not None or not fixable(f["quote"])]   # 듣기 검사 항목은 늘 못 고침
         code = {config.HIT: "1", config.OK: "0"}
         out[r["id"]] = {"id": r["id"], "verdict": verdict.decide(res, doubt=doubt, unfixable=unfixable)[0],
                         **{f"c{n}": code.get(res[n], "NA") for n in res}}

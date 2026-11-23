@@ -53,3 +53,6 @@ HIT, OK, UNKNOWN = "걸림", "안 걸림", "판정 못 함"
 VOTES = {"fact": int(os.environ.get("JUDGE_FACT_VOTES", "3")), "flow": 1}
 # 탈락 기준(1·2)은 여러 번 물은 답이 모두 걸림일 때만 건다. 과반이지만 갈렸으면 「탈락 의심」으로 두고 보류로 낸다(D15).
 UNANIMOUS = ()  # 5판부터 비움(D19). 지시문이 「확실할 때만 기준 1」을 맡음
+
+# 듣기 검사(judge/listen.py): JUDGE_LISTEN=1일 때만. 받아쓰기 모델이 .venv에 있어 .venv/bin/python으로 실행한다(D27).
+LISTEN = os.environ.get("JUDGE_LISTEN", "") == "1"

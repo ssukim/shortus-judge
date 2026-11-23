@@ -3,7 +3,7 @@ import json
 import time
 from pathlib import Path
 
-from . import checks_code, checks_llm, config, verdict
+from . import checks_code, checks_llm, config, listen, verdict
 
 
 def load_script(path):
@@ -31,10 +31,18 @@ def judge_file(path, model=None):
             usage[k] = usage.get(k, 0) + v
     criteria = dict(sorted(criteria.items()))
 
+    fixed = checks_code.fix_script(sections, criteria[5]["findings"])
+    if config.LISTEN:
+        heard = listen.check(fixed, [x["text"] for x in sections])
+        criteria[5]["listen"] = heard
+        for f in heard["findings"]:
+            criteria[5]["findings"].append(f)
+            criteria[5]["unfixable"].append(f"장면 {f['scene']} 「{f['heard']}」")
+        if heard["findings"]:
+            criteria[5]["result"] = config.HIT
     v, why, diag = verdict.decide({n: c["result"] for n, c in criteria.items()},
                                   doubt=[n for n, c in criteria.items() if c.get("doubt")],
                                   unfixable=criteria[5]["unfixable"])
-    fixed = checks_code.fix_script(sections, criteria[5]["findings"])
     cost = sum(c.get("cost_usd", 0) for c in calls)
     return {
         "id": d["id"], "source_id": d["source_id"], "verdict": v, "why": why,
@@ -68,6 +76,10 @@ def render(r):
         if n == "5" and c.get("vague"):
             L.append("    (애매, 걸지 않음) " + ", ".join(f"장면 {v['scene']} 「{v['quote']}」 {v['reason'].split('— ')[-1]}"
                                                 for v in c["vague"]))
+        if n == "5" and c.get("listen"):
+            h = c["listen"]
+            L.append("    (듣기 검사) " + (f"건너뜀: {h['skipped']}" if h["skipped"] else
+                                        f"숫자가 든 장면 {len(h['heard'])}개를 들음, 다르게 들린 장면 {len(h['findings'])}개"))
         if n == "7":
             L.append(f"    읽는 시간 추정 {c['total_sec']}초")
     if r.get("fixed_scenes"):

@@ -14,11 +14,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LABELS = ROOT / "data" / "labels"
 sys.path.insert(0, str(ROOT))
-from judge.checks_code import suggest  # noqa: E402
+from judge.checks_code import fixable  # noqa: E402
 CRITERIA = ["c1", "c2", "c3", "c4", "c5", "c6", "c8", "c9", "c10"]
 FACT = {"c1", "c2"}          # 걸리면 탈락
 HOLD = {"c3", "c4"}          # 하나라도 걸리면 보류
-# c5(data/labels/c5.csv)는 2.3판부터 자동으로 못 고치는 표기가 있을 때만 보류(D25)
+# c5(data/labels/c5.csv)는 2.3판부터 자동으로 못 고치는 표기가 있을 때만 보류(D25). 한글로 풀어 쓸 수 있으면 고칠 수 있음(D27)
 STYLE = {"c6", "c8", "c9"}   # 2개 이상이면 보류 (c10은 진단만, c7은 코드로 셈)
 
 
@@ -51,7 +51,7 @@ def main() -> None:
     c5rows = {r["id"]: r for r in csv.DictReader((LABELS / "c5.csv").open())}
     c5 = {i: int(r["c5"]) for i, r in c5rows.items()}
     # 걸린 표기 칸: 「s3 1,800W의 / s5 124,020원에」 → 자동으로 못 고치는 표기가 있나
-    c5_unfixable = {i: any(q.strip() and not suggest(q.strip().split(" ", 1)[-1])
+    c5_unfixable = {i: any(q.strip() and not fixable(q.strip().split(" ", 1)[-1])
                            for q in (r.get("걸린 표기") or "").split(" / ")) for i, r in c5rows.items()}
     for n in names:
         for i in ids:

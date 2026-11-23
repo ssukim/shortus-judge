@@ -13,6 +13,7 @@
 #   JUDGE_MODEL    기본 claude-haiku-5-5. claude-sonnet-5-5 로 바꿀 수 있다.
 #   JUDGE_BACKEND  기본 claude-cli(이 컴퓨터에 로그인한 Claude Code). api 로 두면 .env의 ANTHROPIC_API_KEY.
 #   JUDGE_WORKERS  동시에 판정할 대본 수 (기본 6)
+#   JUDGE_LISTEN   1이면 듣기 검사(숫자 든 장면을 쇼더스 목소리로 읽혀 받아쓰기로 대조)를 더한다. .venv의 파이썬으로 돈다.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
@@ -20,6 +21,8 @@ cd "$SCRIPT_DIR"
 CMD="${1:-}"
 ARG="${2:-}"
 WORKERS="${JUDGE_WORKERS:-6}"
+PY=python3
+[[ "${JUDGE_LISTEN:-}" == "1" ]] && PY=.venv/bin/python
 
 check() {
   command -v python3 >/dev/null || { echo "  python3가 없어요 (3.11 이상)"; exit 1; }
@@ -35,7 +38,7 @@ title() {
   echo ""
   echo "  $1"
   echo "  ━━━━━━━━━━━━━━━━━━━━"
-  echo "  모델 ${JUDGE_MODEL:-claude-haiku-5-5} · 호출 ${JUDGE_BACKEND:-claude-cli} · 동시 ${WORKERS}개"
+  echo "  모델 ${JUDGE_MODEL:-claude-haiku-5-5} · 호출 ${JUDGE_BACKEND:-claude-cli} · 동시 ${WORKERS}개 · 듣기 검사 ${JUDGE_LISTEN:-0}"
   echo ""
 }
 
@@ -45,14 +48,14 @@ case "$CMD" in
     [[ -f "$FILE" ]] || { echo "  대본 파일이 없어요: $FILE"; exit 1; }
     check
     title "대본 하나 판정 — $FILE"
-    python3 -m judge "$FILE"
+    $PY -m judge "$FILE"
     ;;
 
   dev)
     OUT="${ARG:-results/latest}"
     check
     title "개발용 대본 판정 → $OUT"
-    python3 -m judge.run_all --out "$OUT" --set dev --workers "$WORKERS" || exit 1
+    $PY -m judge.run_all --out "$OUT" --set dev --workers "$WORKERS" || exit 1
     echo ""
     python3 tools/evaluate.py "$OUT"
     ;;
@@ -61,7 +64,7 @@ case "$CMD" in
     OUT="${ARG:-results/latest-test}"
     check
     title "시험용 대본 판정 → $OUT"
-    python3 -m judge.run_all --out "$OUT" --set test --workers "$WORKERS" || exit 1
+    $PY -m judge.run_all --out "$OUT" --set test --workers "$WORKERS" || exit 1
     echo ""
     python3 tools/evaluate.py "$OUT" --set test
     ;;

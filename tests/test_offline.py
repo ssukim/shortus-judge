@@ -85,7 +85,22 @@ class Notation(unittest.TestCase):
         r = checks_code.check_notation(secs)
         self.assertEqual(r["unfixable"], [])
         self.assertEqual(checks_code.fix_script(secs, r["findings"]),
-                         ["무게는 1.2킬로그램이고 12만 4020원에 팝니다", "그대로"])
+                         ["무게는 일 점 이 킬로그램이고 십이만 사천이십원에 팝니다", "그대로"])
+
+    def test_pin_reading(self):
+        """발음 고정(D27): 읽을 때마다 틀리던 숫자를 한글로. 날짜와 「2박 3일」은 그대로."""
+        p = checks_code.pin_reading
+        self.assertEqual(p("총 61만 원을 썼어요"), "총 육십일만 원을 썼어요")
+        self.assertEqual(p("3700만 원에서 4700만 원으로"), "삼천칠백만 원에서 사천칠백만 원으로")
+        self.assertEqual(p("8가지 자동 메뉴"), "여덟 가지 자동 메뉴")
+        self.assertEqual(p("사과 약 1.5개가 들어"), "사과 약 한 개 반이 들어")
+        self.assertEqual(p("12월 31일까지 2박 3일"), "12월 31일까지 2박 3일")
+        self.assertEqual(p("오후 8시까지"), "오후 여덟 시까지")
+        self.assertEqual(p("3개월 만에 5킬로미터"), "삼 개월 만에 오 킬로미터")
+        self.assertEqual(p("6980원 할인"), "육천구백팔십 원 할인")
+        self.assertEqual(p("2027년 2월"), "2027년 2월")
+        self.assertEqual(checks_code.sino(37000000), "삼천칠백만")
+        self.assertEqual(checks_code.native(21), "스물한")
 
     def test_vague_is_not_hit(self):
         r = self.check("KTX로 2~3일 걸려요")
@@ -134,6 +149,43 @@ class Vote(unittest.TestCase):
     def test_errors_left_out(self):
         r = vote([self.one(True), self.one(False, error="x"), self.one(False, error="x")])
         self.assertEqual((r["criteria"][1]["result"], r["criteria"][1]["votes"]), (H, "1/1"))
+
+
+class Listen(unittest.TestCase):
+    def test_values(self):
+        from judge.listen import values
+        self.assertEqual(values("3만 5,000원"), {35000.0})
+        self.assertEqual(values("3만 5천 원"), {35000.0})
+        self.assertEqual(values("61만 원을"), {610000.0})
+
+    def test_hangul_values(self):
+        from judge.listen import hangul_values as h
+        self.assertEqual(h("총 육십일만 원을"), {610000.0})
+        self.assertEqual(h("두 배나 늘어"), {2.0})
+        self.assertEqual(h("사과 약 한 개 반이"), {1.5})
+        self.assertEqual(h("이 점 오 퍼센트"), {2.5})
+        self.assertEqual(h("이사를 가서 일을 했다"), set())   # 흔한 낱말은 숫자로 읽지 않음
+        self.assertEqual(h("사과 약 1개 반이"), {1.5})
+
+    def test_check_flags_number_heard_differently(self):
+        import sys
+        import types
+        from judge import listen
+        heard = {"총 61만 원을 썼어요": "총 62만 원을 썼어요", "2박 3일 다녀왔어요": "2박 3일 다녀왔어요"}
+        saved = (listen.tts, listen.transcribe, sys.modules.get("mlx_whisper"))
+        try:
+            sys.modules["mlx_whisper"] = types.ModuleType("mlx_whisper")
+            listen.tts = lambda text: text
+            listen.transcribe = lambda text: heard[text]
+            r = listen.check(["총 61만 원을 썼어요", "2박 3일 다녀왔어요", "숫자 없음"])
+        finally:
+            listen.tts, listen.transcribe = saved[0], saved[1]
+            if saved[2] is None:
+                sys.modules.pop("mlx_whisper", None)
+            else:
+                sys.modules["mlx_whisper"] = saved[2]
+        self.assertEqual([f["scene"] for f in r["findings"]], [1])
+        self.assertEqual(sorted(r["heard"]), [1, 2])   # 숫자 없는 장면은 듣지 않음
 
 
 class Failed(unittest.TestCase):
