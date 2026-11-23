@@ -1,0 +1,174 @@
+{
+ "id": "product-03-g1",
+ "source_id": "product-03",
+ "verdict": "보류",
+ "why": [
+  "기준 5 걸림",
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "180g으로",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "한 장 무게 180g으로 적당하며",
+     "source_quote": "한 장 무게는 180g으로 너무 얇지도 무겁지도 않아",
+     "reason": "\"~이며\"는 문서에서 쓰는 말투라 말하듯 쓴 문장이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "세탁할수록 더 부드러워집니다",
+     "source_quote": "세탁할수록 더 부드러워집니다.",
+     "reason": "장면 2의 \"세탁할수록 부드러운 촉감을 유지\"와 같은 요점을 말만 바꿔 되풀이한다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "한 번 쓰면 다른 수건은 못 씁니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "처음 써도 보풀이 거의 없고, 세탁할수록 더 부드러워집니다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "면 100% 40수 코마사로 짜서 처음 써도 보풀이 거의 없고, 세탁할수록 더 부드러워집니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "한 장 무게는 180g으로 너무 얇지도 무겁지도 않아 매일 쓰기 좋습니다. / 구성: 5장 1세트(화이트, 그레이 중 선택) / 가격: 2만 9,000원(2세트 이상 구매 시 무료배송)"
+  },
+  {
+   "scene": 5,
+   "source_quote": "2세트 이상 구매 시 무료배송"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "한 번만 써봐도 다른 수건은 아예 못 쓰겠다는 말이 나오는 이유가 있었어요.",
+   "estimated_sec": 7.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "처음 써도 보풀이 거의 없고 세탁할수록 부드러운 촉감을 유지하기 때문입니다.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "결고운 호텔수건 40수 세트는 면 100% 코마사로 짜서 세탁할수록 더 부드러워집니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "한 장 무게 180g으로 적당하며 5장 세트를 2만 9000원에 구매할 수 있습니다.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "2세트 이상 구매하면 무료배송이 적용됩니다.",
+   "estimated_sec": 4.7
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.5,
+    "input_tokens": 2,
+    "output_tokens": 4656,
+    "cache_creation_input_tokens": 4044,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00283
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.4,
+    "input_tokens": 2,
+    "output_tokens": 1721,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2494,
+    "cost_usd": 0.00093
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 6377,
+   "cache_creation_input_tokens": 4437,
+   "cache_read_input_tokens": 2494
+  },
+  "cost_usd_est": 0.00376,
+  "sec": 18.5
+ }
+}

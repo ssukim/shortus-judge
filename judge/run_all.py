@@ -15,6 +15,7 @@ def main():
     ap.add_argument("--out", required=True, help="결과 폴더, 예: results/v1")
     ap.add_argument("--set", choices=["dev", "test", "all"], default="dev",
                     help="dev: data/labels/test.txt에 없는 대본(기본), test: 시험용만, all: 모두")
+    ap.add_argument("--ids", nargs="*", help="이 대본만 판정(시험용 대본은 넣을 수 없음)")
     ap.add_argument("--workers", type=int, default=5, help="동시에 판정할 대본 수(기본 5)")
     a = ap.parse_args()
     out = Path(a.out)
@@ -25,6 +26,10 @@ def main():
         files = [f for f in files if f.stem not in test_ids]
     elif a.set == "test":
         files = [f for f in files if f.stem in test_ids]
+    if a.ids:
+        if a.set == "dev" and set(a.ids) & test_ids:
+            raise SystemExit(f"시험용 대본은 개발 중에 판정하지 않습니다: {sorted(set(a.ids) & test_ids)}")
+        files = [f for f in files if f.stem in set(a.ids)]
     todo = [f for f in files if not (out / f.name).exists()]
     print(f"대본 {len(files)}개 중 판정할 것 {len(todo)}개, 동시에 {a.workers}개", flush=True)
     total_cost = 0.0

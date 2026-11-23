@@ -1,0 +1,159 @@
+{
+ "id": "news-02-g2",
+ "source_id": "news-02",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [
+  6
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "더 많은 농업인이 혜택을 받습니다",
+     "source_quote": "더 많은 농업인이 직불금을 받을 수 있게 된다",
+     "reason": "넣은 글의 '받을 수 있게 된다'를 '받습니다'로 확정하여 넣은 글보다 세게 말했습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "올해부터 지급 제한 기준이 3700만 원에서 4700만 원으로 상향되어 더 많은 농업인이 혜택을 받습니다.",
+     "source_quote": "",
+     "reason": "\"상향되어\"와 긴 명사구 구조가 \"~되며\"처럼 문서에서 쓰는 피동형 문체이고, 말하듯 풀어 쓰지 않았습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 29.1,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "농식품부는 지난 5월 12일 '농업·농촌 공익기능 증진 직접지불제도 운영에 관한 법률'을 개정해 해당 기준을 17년 만에 상향했다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "올해부터 기본형 공익직불금 지급을 제한하는 농업 외 종합소득금액 기준이 3700만 원에서 4700만 원으로 상향돼 더 많은 농업인이 직불금을 받을 수 있게 된다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "농림축산식품부는 2026년 기본형 공익직불금 지급대상과 금액을 확정하고, 11월 중순부터 총 2조 3788억 원을 순차적으로 지급한다고 밝혔다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "실제 입금일은 지방정부별 지급 일정에 따라 달라질 수 있습니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "농업 외 종합소득금액 기준이 17년 만에 바뀌면서 직불금 수령 대상에 변화가 생겼어요.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "올해부터 지급 제한 기준이 3700만 원에서 4700만 원으로 상향되어 더 많은 농업인이 혜택을 받습니다.",
+   "estimated_sec": 9.6
+  },
+  {
+   "scene": 3,
+   "role": "stat",
+   "text": "농림축산식품부는 11월 중순부터 총 2조 3788억 원을 순차적으로 지급한다고 밝혔습니다.",
+   "estimated_sec": 9.0
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "실제 입금일은 각 지방정부의 지급 일정에 따라 달라질 수 있습니다.",
+   "estimated_sec": 6.4
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.3,
+    "input_tokens": 2,
+    "output_tokens": 4901,
+    "cache_creation_input_tokens": 4804,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00305
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.8,
+    "input_tokens": 2,
+    "output_tokens": 2128,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3255,
+    "cost_usd": 0.00115
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 7029,
+   "cache_creation_input_tokens": 5198,
+   "cache_read_input_tokens": 3255
+  },
+  "cost_usd_est": 0.0042,
+  "sec": 20.3
+ }
+}

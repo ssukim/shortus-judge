@@ -1,0 +1,196 @@
+{
+ "id": "product-01-g1",
+ "source_id": "product-01",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  5,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 4,
+     "quote": "600W 출력으로 4분이면 물이 끓고 110V와 220V를 모두 지원합니다.",
+     "source_quote": "600W 출력으로 컵라면 하나 분량의 물을 약 4분이면 끓입니다.",
+     "reason": "'컵라면 하나 분량'이라는 조건이 빠져 4분이 물의 양과 무관하게 붙어 0.6L를 4분에 끓일 수 있는 것처럼 틀린 말이 되었습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "4.5cm까지",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "600W",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "110V와",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "220V를",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 5,
+     "quote": "31,200원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 30.4,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "부피를 많이 차지하는 전기포트는 짐을 챙길 때 큰 부담이 되곤 합니다.",
+     "source_quote": "",
+     "reason": "장면 1과 같이 전기포트의 부피가 짐 싸기에 부담이 된다는 같은 요점을 낱말만 바꿔 되풀이했습니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "실리콘 몸체를 접으면 높이가 4.5cm까지 줄어 캐리어 구석에 쏙 들어갑니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": ""
+  },
+  {
+   "scene": 3,
+   "source_quote": "실리콘 몸체를 접으면 높이가 4.5cm까지 줄어 캐리어 구석에 쏙 들어갑니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "600W 출력으로 컵라면 하나 분량의 물을 약 4분이면 끓입니다. 110V와 220V를 모두 지원해 해외여행에서도 변압기 없이 쓸 수 있습니다."
+  },
+  {
+   "scene": 5,
+   "source_quote": "출시 기념으로 12월 31일까지 정가 39,000원에서 20% 할인한 31,200원에 판매합니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "해외여행을 갈 때 부피를 차지하는 전기포트를 캐리어에 넣으려니 공간이 부족해 고민이 생겼습니다.",
+   "estimated_sec": 9.8
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "부피를 많이 차지하는 전기포트는 짐을 챙길 때 큰 부담이 되곤 합니다.",
+   "estimated_sec": 6.7
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "폴드케틀은 실리콘 몸체를 접으면 높이가 4.5cm까지 줄어듭니다.",
+   "estimated_sec": 6.1
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "600W 출력으로 4분이면 물이 끓고 110V와 220V를 모두 지원합니다.",
+   "estimated_sec": 6.2
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "12월 31일까지 출시 기념으로 20% 할인된 31,200원에 판매합니다.",
+   "estimated_sec": 6.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 15.3,
+    "input_tokens": 2,
+    "output_tokens": 3348,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 3624,
+    "cost_usd": 0.00176
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.4,
+    "input_tokens": 2,
+    "output_tokens": 1778,
+    "cache_creation_input_tokens": 392,
+    "cache_read_input_tokens": 2467,
+    "cost_usd": 0.00096
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 5126,
+   "cache_creation_input_tokens": 785,
+   "cache_read_input_tokens": 6091
+  },
+  "cost_usd_est": 0.00272,
+  "sec": 15.3
+ }
+}

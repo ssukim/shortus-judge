@@ -47,3 +47,7 @@ MAX_SCENE_SEC = 10
 # ---- 판정 ----
 PASS, HOLD, FAIL = "통과", "보류", "탈락"
 HIT, OK, UNKNOWN = "걸림", "안 걸림", "판정 못 함"
+
+# 같은 묶음을 몇 번 물어 다수결로 정할지. 사실 묶음은 걸리면 탈락이 되는 기준 1·2가 있어
+# 실행마다 흔들리는 것을 줄이려고 3번 묻는다(2판을 세 번 돌리니 22개 중 5개의 판정이 바뀜).
+VOTES = {"fact": int(os.environ.get("JUDGE_FACT_VOTES", "3")), "flow": 1}

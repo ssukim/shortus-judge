@@ -70,8 +70,22 @@ def build_prompt(group, rubric, sections, source):
         task = ("먼저 장면마다 그 장면의 내용을 받치는 넣은 글의 문장을 그대로 옮겨 grounding에 적습니다. "
                 "받치는 문장이 없으면 \"\"로 둡니다. 그다음 그 대조를 바탕으로 기준을 판단합니다. "
                 "기준 1·2·3에서 걸 때는 source_quote에 대조한 넣은 글 문장을 넣습니다(넣은 글에 없어서 걸면 \"\"). "
-                "기준 4는 빠진 내용이 넣은 글의 어디에 있는지 source_quote에 넣고, scene에는 그 내용이 들어갔어야 할 장면 번호를 넣습니다.\n")
-        shape = ('{"grounding": [{"scene": 1, "source_quote": "..."}, ...], ' + keys + "}")
+                "기준 4는 빠진 내용이 넣은 글의 어디에 있는지 source_quote에 넣고, scene에는 그 내용이 들어갔어야 할 장면 번호를 넣습니다.\n"
+                "\n## 판단 순서 (기준끼리 헷갈릴 때)\n"
+                "1. 기준 2는 넣은 글과 대본에 적힌 숫자·날짜·이름이 서로 다를 때만 겁니다. "
+                "말을 확실하게 바꾼 것(「받을 수 있다」 → 「받는다」)은 기준 2가 아니라 기준 3에서 봅니다.\n"
+                "2. 넣은 글의 조건이 대본에서 빠졌으면 차례로 묻습니다. "
+                "(가) 조건이 빠진 탓에 숫자나 주장이 다른 대상·범위에 붙어 틀린 말이 되었나 → 기준 1. "
+                "(나) 그렇지 않고, 대본이 말한 것의 조건만 빠졌나 → 기준 4. "
+                "(다) 대본이 말하지 않은 곁가지라면 → 걸지 않습니다. 하나를 고르고 같은 내용을 두 기준에 함께 걸지 않습니다. "
+                "(가)와 (나)를 가를 때는 빠진 조건이 어디에 달렸는지 봅니다. 대본의 중심 내용(무엇을, 누가, 얼마에, 언제까지)에 달린 조건이면 (가), "
+                "덤으로 붙은 내용(사은품, 경품, 부가 혜택)에 달린 조건이면 (나)입니다.\n"
+                "3. 기준 4는 먼저 넣은 글에서 대본이 다루는 얘기의 핵심 정보를 3개 이하로 골라 core에 적습니다. "
+                "핵심은 그 정보가 없으면 시청자가 대본의 요점을 잘못 알거나 쓰지 못하는 것입니다. "
+                "core에 고른 것이 대본에 없을 때만 기준 4를 겁니다. 핵심이 아닌 세부는 빠져도 걸지 않습니다.\n"
+                "4. 첫 장면(hook)도 다른 장면과 똑같이 넣은 글과 대조합니다. 「흔한 상황을 한 줄 깔아 줌」으로 넘기는 것은 "
+                "누구에게나 있을 법한 고민이나 상황만입니다. 「~하면 ~된다」처럼 원인과 결과, 사실을 말하면 넣은 글에 그 말이 있는지 봅니다.\n")
+        shape = ('{"grounding": [{"scene": 1, "source_quote": "..."}, ...], "core": ["핵심 정보", ...], ' + keys + "}")
     else:
         task = ("기준 8은 넣은 글을 함께 보고 판단합니다(첫 장면이 던진 궁금증의 답이 넣은 글에 있는지). "
                 "다른 기준은 대본 문장만 봅니다.\n")
@@ -134,8 +148,32 @@ def ask_group(group, model, rubric, sections, source):
     return {"criteria": crit, "grounding": None, "calls": calls, "usage": usage, "error": error}
 
 
+def vote(results):
+    """같은 묶음을 여러 번 물은 결과를 기준마다 다수결로 합친다. 걸림이 과반이면 걸림이고, 근거는 걸림이라 답한 첫 결과에서 가져온다."""
+    ok = [r for r in results if not r["error"]]
+    base = ok[0] if ok else results[0]
+    crit = {}
+    for n in base["criteria"]:
+        votes = [r["criteria"][n]["result"] for r in ok]
+        hits = sum(v == config.HIT for v in votes)
+        if not ok:
+            crit[n] = base["criteria"][n]
+            continue
+        hit = hits * 2 > len(ok)
+        src = next((r for r in ok if r["criteria"][n]["result"] == config.HIT), base) if hit else base
+        crit[n] = {**src["criteria"][n], "result": config.HIT if hit else config.OK, "votes": f"{hits}/{len(ok)}"}
+    usage = {k: sum(r["usage"][k] for r in results) for k in base["usage"]}
+    return {"criteria": crit, "grounding": base.get("grounding"), "calls": [c for r in results for c in r["calls"]],
+            "usage": usage, "error": None if ok else base["error"]}
+
+
 def run(model, sections, source):
     rubric = load_rubric()
-    with ThreadPoolExecutor(max_workers=len(GROUPS)) as ex:
-        futs = {g: ex.submit(ask_group, g, model, rubric, sections, source) for g in GROUPS}
-        return {g: f.result() for g, f in futs.items()}
+    jobs = [(g, k) for g in GROUPS for k in range(config.VOTES.get(g, 1))]
+    with ThreadPoolExecutor(max_workers=len(jobs)) as ex:
+        futs = {(g, k): ex.submit(ask_group, g, model, rubric, sections, source) for g, k in jobs}
+        out = {}
+        for g in GROUPS:
+            rs = [futs[(g, k)].result() for k in range(config.VOTES.get(g, 1))]
+            out[g] = rs[0] if len(rs) == 1 else vote(rs)
+        return out

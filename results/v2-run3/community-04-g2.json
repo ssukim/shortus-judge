@@ -1,0 +1,189 @@
+{
+ "id": "community-04-g2",
+ "source_id": "community-04",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  4,
+  5,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "글쓴이는 새 제품을 3만 5,000원에 샀던 의자 두 개를 4만 원에 올렸습니다.",
+     "source_quote": "새 거 살 때는 하나에 3만 5,000원 줬던 거예요.",
+     "reason": "'하나에'라는 조건이 빠져 3만 5,000원이 두 의자 전체의 가격처럼 읽힌다."
+    }
+   ],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "약속을 어기고 가격까지 깎은 사람에게 받은 칭찬이라 황당했대요.",
+     "source_quote": "이거 웃어야 하나요, 울어야 하나요? 다음부턴 가격 흥정 들어오면 그냥 거절하는 게 맞겠죠?",
+     "reason": "질문으로 끝나는 사연인데 글쓴이의 질문이 대본 어디에도 나오지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "5,000원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    },
+    {
+     "scene": 4,
+     "quote": "5,000원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 33.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "약속을 어기고 가격까지 깎은 사람에게 받은 칭찬이라 황당했대요.",
+     "source_quote": "",
+     "reason": "장면 1의 '약속 늦음'과 장면 3의 '가격 깎음'을 다시 말하면서 장면 4의 '칭찬' 얘기를 되풀이하고 새 사실을 더하지 않는다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 그분이 7시 40분에 오셨어요. 연락도 없이요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "제가 안 쓰는 캠핑 의자 2개를 4만 원에 올렸거든요. 새 거 살 때는 하나에 3만 5,000원 줬던 거예요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "다리 쪽에 긁힌 자국이 있다고 3만 원에 해 달라는 거예요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "솔직히 그 자리에서 다시 들고 집에 가기도 싫어서 3만 5,000원에 드렸어요."
+  },
+  {
+   "scene": 5,
+   "source_quote": "40분 기다리고 5,000원 깎아 준 거잖아요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "캠핑 의자를 중고로 팔기로 했는데 약속 시간보다 40분 늦게 나타난 구매자가 있었어요.",
+   "estimated_sec": 8.5
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 새 제품을 3만 5,000원에 샀던 의자 두 개를 4만 원에 올렸습니다.",
+   "estimated_sec": 7.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "만난 구매자는 긁힌 자국을 이유로 3만 원에 해달라고 계속 깎으려 했죠.",
+   "estimated_sec": 7.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "글쓴이는 귀찮아서 3만 5,000원에 팔았는데, 구매자는 후기에 친절하다는 평가를 남겼습니다.",
+   "estimated_sec": 9.1
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "약속을 어기고 가격까지 깎은 사람에게 받은 칭찬이라 황당했대요.",
+   "estimated_sec": 6.4
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 29.3,
+    "input_tokens": 2,
+    "output_tokens": 7037,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 3925,
+    "cost_usd": 0.00361
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 12.9,
+    "input_tokens": 2,
+    "output_tokens": 2594,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2768,
+    "cost_usd": 0.00137
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 9631,
+   "cache_creation_input_tokens": 787,
+   "cache_read_input_tokens": 6693
+  },
+  "cost_usd_est": 0.00498,
+  "sec": 29.3
+ }
+}

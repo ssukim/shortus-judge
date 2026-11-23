@@ -1,0 +1,204 @@
+{
+ "id": "product-02-g1",
+ "source_id": "product-02",
+ "verdict": "보류",
+ "why": [
+  "기준 4 걸림",
+  "기준 5 걸림",
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "4": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+     "source_quote": "사은품은 선착순 500명까지이며 소진되면 조기 종료됩니다.",
+     "reason": "사은품을 조건 없이 증정한다고 말했지만, 넣은 글의 선착순 500명 한정과 조기 종료 조건이 빠져 시청자가 모두 받을 수 있다고 오해하게 됩니다."
+    }
+   ],
+   "by": "model"
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "5.5L",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "1,700W",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 5,
+     "quote": "4,000원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "AF-55는",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "조리 가능합니다",
+     "source_quote": "",
+     "reason": "\"사용 가능합니다\"처럼 문서에서 쓰는 말투라 말하듯 쓴 문장이 아니다."
+    },
+    {
+     "scene": 4,
+     "quote": "세밀하게 조절됩니다",
+     "source_quote": "",
+     "reason": "\"~되며\"와 같은 피동형 문서체로, 말하는 사람이 쓰는 표현이 아니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 39.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다.",
+     "source_quote": "",
+     "reason": "장면 1의 \"한꺼번에 조리하려고 할 때 고민\"과 같은 요점(한 번에 굽기 어려운 대용량 조리의 불편함)을 말만 바꿔 되풀이한다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "5.5L 대용량 바스켓으로 통닭 한 마리(약 1.2kg)도 자르지 않고 한 번에 조리할 수 있습니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "3~4인 가족 한 끼 분량을 나눠 굽지 않아도 됩니다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "5.5L 대용량 바스켓으로 통닭 한 마리(약 1.2kg)도 자르지 않고 한 번에 조리할 수 있습니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "소비전력 1,700W 고출력 히터로 예열 없이 바로 조리"
+  },
+  {
+   "scene": 5,
+   "source_quote": "12월 31일까지 정가 15만 9,000원에서 22% 할인된 12만 4,000원에 판매합니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리 가능합니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "1,700W 고출력 히터로 예열 없이 바로 조리하며 80도부터 200도까지 5도 단위로 세밀하게 조절됩니다.",
+   "estimated_sec": 9.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+   "estimated_sec": 10.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 2,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.6,
+    "input_tokens": 2,
+    "output_tokens": 5517,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4158,
+    "cost_usd": 0.00285
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 11.9,
+    "input_tokens": 2,
+    "output_tokens": 2373,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 3001,
+    "cost_usd": 0.00127
+   }
+  ],
+  "usage": {
+   "input_tokens": 4,
+   "output_tokens": 7890,
+   "cache_creation_input_tokens": 784,
+   "cache_read_input_tokens": 7159
+  },
+  "cost_usd_est": 0.00412,
+  "sec": 22.6
+ }
+}
