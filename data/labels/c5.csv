@@ -1,0 +1,33 @@
+id,c5,걸린 표기
+blog-01-g1,1,s1 61만 원을
+blog-01-g2,0,
+blog-02-g1,0,
+blog-02-g2,0,
+blog-03-g1,1,s1 5km를 / s3 1km만 / s5 10km / s5 7km씩
+blog-03-g2,1,s1 5km를 / s3 1km만 / s4 10km / s5 7km씩
+blog-04-g1,0,
+blog-04-g2,0,
+community-01-g1,0,
+community-01-g2,1,s1 7시간
+community-02-g1,1,"s2 6,980원"
+community-02-g2,1,"s2 6,980원"
+community-03-g1,1,s2 4.8kg에서 / s2 4.5kg으로
+community-03-g2,0,
+community-04-g1,1,"s4 3만 5,000원에"
+community-04-g2,1,"s2 3만 5,000원에 / s4 3만 5,000원에"
+news-01-g1,0,
+news-01-g2,0,
+news-02-g1,1,s2 3700만 원에서 / s2 4700만 원으로
+news-02-g2,0,
+news-03-g1,1,s2 11.9% / s3 36.6% / s3 20.3%
+news-03-g2,1,s3 36.6% / s3 20.3%
+news-04-g1,0,
+news-04-g2,0,
+product-01-g1,1,"s3 4.5cm까지 / s4 600W / s4 110V와 / s4 220V를 / s5 31,200원에"
+product-01-g2,1,"s3 4.5cm까지 / s4 600W / s4 110V와 / s4 220V를 / s5 31,200원에"
+product-02-g1,1,"s3 5.5L / s4 1,700W / s5 12만 4,000원에"
+product-02-g2,1,"s3 5.5L / s4 1,700W / s4 8가지 / s5 12만 4,000원에"
+product-03-g1,1,s4 180g으로
+product-03-g2,1,s4 180g으로 / s4 5장
+product-04-g1,1,s4 1.5개가
+product-04-g2,1,s4 1.5개가
