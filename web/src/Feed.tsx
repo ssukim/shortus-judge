@@ -310,13 +310,9 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
     const lastSaved = last.kind === 'saved' ? last.id : undefined
     const lastSource = last.kind === 'saved' ? data.scripts.find((x) => x.id === last.id)?.source_id : last.kind === 'fresh' ? last.sourceId : undefined
     const i = lastSaved ? list.findIndex((x) => x.id === lastSaved) : -1
-    // 다음 대본: 다른 글로 만든 것 (같은 글의 다른 대본은 따로 버튼)
+    // 다음 대본: 다른 글로 만든 것. 같은 글의 다른 대본은 차례 아래 「같은 글로 쇼더스 대본 한 번 더 받기」가 맡는다
     const next = [...list.slice(i + 1), ...list.slice(0, i + 1)].find((x) => x.source_id !== lastSource) ?? list[(i + 1) % list.length]
-    const siblings = list.filter((x) => x.source_id === lastSource && x.id !== lastSaved)
-    pills = [
-      { label: `모아 둔 다음 대본: ${titleOf(data, next)}`, spec: { kind: 'saved', id: next.id } },
-      ...siblings.map((x) => ({ label: `모아 둔 같은 글의 ${x.nth} 대본`, spec: { kind: 'saved', id: x.id } as Spec })),
-    ]
+    pills = [{ label: `모아 둔 다음 대본: ${titleOf(data, next)}`, spec: { kind: 'saved', id: next.id } }]
   }
 
   // 아래 고정 영역의 실제 높이: feed 아래 여백과 따라가기(follow.ts)가 쓴다
