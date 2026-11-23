@@ -12,6 +12,8 @@
 판정할 수 없어도(claude 명령이나 키가 없음) 서버는 뜨고, 화면은 저장해 둔 결과를 보여 준다. 판정 요청에만 503으로 답한다.
 쇼더스에서 새 대본을 받는 길은 두지 않는다(대본 만들기는 하루 한도가 있다. 받으려면 tools/collect.py).
 화면을 npm run dev로 따로 띄우면 출처가 달라지므로 JUDGE_ALLOW_ORIGINS=http://localhost:5173 을 같이 준다.
+Host 머리글이 이 컴퓨터 주소(127.0.0.1·localhost·[::1]와 띄운 포트)가 아니면 403으로 막는다(DNS 재바인딩 방어).
+다른 이름으로 열어야 하면 JUDGE_ALLOWED_HOSTS=이름:포트 를 준다.
 """
 import argparse
 import datetime as dt
@@ -146,6 +148,29 @@ class Handler(BaseHTTPRequestHandler):
         except Exception:  # noqa: BLE001  이상한 경로
             return "/\0"
 
+    def _allowed_hosts(self):
+        """받는 Host 머리글. DNS 재바인딩(다른 사이트가 자기 도메인을 127.0.0.1로 돌려 이 서버에 판정·소리 요청을 보내
+        비용을 쓰게 하는 것)을 막으려고, 이 컴퓨터 주소와 띄운 포트, JUDGE_ALLOWED_HOSTS로 준 호스트만 받는다."""
+        bound_host, port = self.server.server_address[:2]
+        names = {"127.0.0.1", "localhost", "[::1]"}
+        if bound_host not in ("0.0.0.0", "::", ""):
+            names.add(bound_host if ":" not in bound_host else f"[{bound_host}]")
+        hosts = {f"{h}:{port}" for h in names}
+        hosts |= {h.strip().lower() for h in os.environ.get("JUDGE_ALLOWED_HOSTS", "").split(",") if h.strip()}
+        return hosts
+
+    def _origin_ok(self):
+        """Host가 허용 목록에 있고, Origin이 있으면 그 Host와 같거나 JUDGE_ALLOW_ORIGINS에 있어야 한다."""
+        hosts = self._allowed_hosts()
+        host = (self.headers.get("Host") or "").strip().lower()
+        if host not in hosts:
+            return False
+        origin = (self.headers.get("Origin") or "").strip()
+        if not origin or origin == "null" and self.command in ("GET", "HEAD"):
+            return True
+        allow = {o.strip() for o in os.environ.get("JUDGE_ALLOW_ORIGINS", "").split(",") if o.strip()}
+        return origin in allow or origin.lower() in {f"http://{h}" for h in hosts}
+
     def _cors(self):
         allow = [o.strip() for o in os.environ.get("JUDGE_ALLOW_ORIGINS", "").split(",") if o.strip()]
         origin = self.headers.get("Origin")
@@ -182,12 +207,16 @@ class Handler(BaseHTTPRequestHandler):
             return None, (400, {"error": "요청을 읽지 못했습니다. JSON으로 보내 주세요."})
 
     def do_OPTIONS(self):
+        if not self._origin_ok():
+            return self._send(403, {"error": "이 주소로는 받지 않습니다. http://127.0.0.1:<포트>로 열어 주세요."})
         self._send(204, b"", ctype="text/plain")
 
     def do_HEAD(self):
         self.do_GET()
 
     def do_GET(self):
+        if not self._origin_ok():
+            return self._send(403, {"error": "이 주소로는 받지 않습니다. http://127.0.0.1:<포트>로 열어 주세요."})
         route = self._route()
         if route == PATH_JUDGE:
             return self._send(200, {"judge": True, "ready": judge_ready(), "model": config.MODEL,
@@ -214,6 +243,8 @@ class Handler(BaseHTTPRequestHandler):
         self._send(200, target.read_bytes(), ctype=ctype, cache="no-cache")
 
     def do_POST(self):
+        if not self._origin_ok():
+            return self._send(403, {"error": "이 주소로는 받지 않습니다. http://127.0.0.1:<포트>로 열어 주세요."})
         route = self._route()
         try:
             if route == PATH_JUDGE:

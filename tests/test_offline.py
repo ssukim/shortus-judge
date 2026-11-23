@@ -342,3 +342,23 @@ class PinnedMarks(unittest.TestCase):
         self.assertEqual(v["decision"].get("remaining"), [])
         self.assertIn(5, v["diagnostics"])
 
+
+class HostCheck(unittest.TestCase):
+    """판정 서버는 이 컴퓨터 주소로 온 요청만 받는다(DNS 재바인딩 방어)."""
+    def ok(self, host, origin=None, command="POST"):
+        from judge.serve import Handler
+        h = Handler.__new__(Handler)
+        h.server = type("S", (), {"server_address": ("127.0.0.1", 8787)})()
+        h.headers = {"Host": host, **({"Origin": origin} if origin else {})}
+        h.command = command
+        return h._origin_ok()
+
+    def test_local_hosts(self):
+        self.assertTrue(self.ok("127.0.0.1:8787"))
+        self.assertTrue(self.ok("localhost:8787", "http://localhost:8787"))
+
+    def test_rebinding_and_foreign_origin_blocked(self):
+        self.assertFalse(self.ok("evil.example:8787"))
+        self.assertFalse(self.ok("127.0.0.1:8787", "http://evil.example"))
+        self.assertFalse(self.ok("127.0.0.1:9999"))
+
