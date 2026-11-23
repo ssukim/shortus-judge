@@ -1,0 +1,467 @@
+{
+ "id": "community-02-g2",
+ "source_id": "community-02",
+ "verdict": "보류",
+ "why": [
+  "기준 3 걸림"
+ ],
+ "diagnostics": [
+  5
+ ],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "3": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "하지만 할인은 앱 회원만 가능해서",
+     "source_quote": "할인은 앱 회원만 된대.",
+     "reason": "넣은 글은 직원에게 들은 말(「된대」)이라고 남겼는데 대본은 이를 사실로 단정함."
+    }
+   ],
+   "votes": "3/3",
+   "by": "model",
+   "doubt": false
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "6,980원",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 28.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "근데 계산대에서 9,800원 찍힘"
+  },
+  {
+   "scene": 2,
+   "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감."
+  },
+  {
+   "scene": 3,
+   "source_quote": "할인은 앱 회원만 된대. 그래서 그 자리에서 앱 깔고 가입함."
+  },
+  {
+   "scene": 4,
+   "source_quote": "근데 반전은 집에 와서 냉장고 열었더니 엄마가 어제 계란 두 판 사 놨음."
+  },
+  {
+   "scene": 5,
+   "source_quote": "식구 셋인데 우리 집 이제 계란 90개 있음."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+   "estimated_sec": 8.1
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "하지만 할인은 앱 회원만 가능해서 그 자리에서 가입을 마쳤습니다.",
+   "estimated_sec": 6.4
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+   "estimated_sec": 6.9
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+   "estimated_sec": 5.1
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 20.4,
+    "input_tokens": 2,
+    "output_tokens": 4737,
+    "cache_creation_input_tokens": 4482,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00293
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.7,
+    "input_tokens": 2,
+    "output_tokens": 3954,
+    "cache_creation_input_tokens": 4481,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00254
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 22.9,
+    "input_tokens": 2,
+    "output_tokens": 5086,
+    "cache_creation_input_tokens": 4482,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0031
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 8.9,
+    "input_tokens": 2,
+    "output_tokens": 1654,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 2491,
+    "cost_usd": 0.0009
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 15431,
+   "cache_creation_input_tokens": 13838,
+   "cache_read_input_tokens": 2491
+  },
+  "cost_usd_est": 0.00947,
+  "sec": 22.9,
+  "revise_cost_usd": 0.00917,
+  "revise_sec": 23.7
+ },
+ "revisions": [
+  {
+   "round": 1,
+   "error": null,
+   "scenes": [
+    {
+     "n": 1,
+     "before": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+     "after": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 2,
+     "before": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+     "after": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 3,
+     "before": "하지만 할인은 앱 회원만 가능해서 그 자리에서 가입을 마쳤습니다.",
+     "after": "하지만 직원분이 할인은 앱 회원만 된다고 해서 그 자리에서 가입을 마쳤습니다.",
+     "changed": true,
+     "why": "넣은 글에서 직원에게 들은 말이라고 남긴 내용을 사실로 단정한 표현이라, '직원분이 ~된다고 해서'로 전해 들은 말이라는 점을 살렸습니다.",
+     "too_long": false
+    },
+    {
+     "n": 4,
+     "before": "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+     "after": "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 5,
+     "before": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+     "after": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    }
+   ],
+   "reverted": [],
+   "result": {
+    "id": "community-02-g2",
+    "source_id": "community-02",
+    "verdict": "통과",
+    "why": [],
+    "diagnostics": [
+     5,
+     6
+    ],
+    "criteria": {
+     "1": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "2": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "3": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "4": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "5": {
+      "result": "걸림",
+      "findings": [
+       {
+        "scene": 2,
+        "quote": "6,980원",
+        "reason": "잘못 읽는 표기 — 쉼표 든 금액",
+        "fix": "6980원"
+       }
+      ],
+      "vague": [],
+      "unfixable": [],
+      "by": "code"
+     },
+     "6": {
+      "result": "걸림",
+      "findings": [
+       {
+        "scene": 2,
+        "quote": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+        "source_quote": "",
+        "reason": "장면 2만 '글쓴이는'으로 제3자를 가리키며, 앞뒤 장면은 화자 시점으로 바뀌어 까닭 없이 말하는 사람이 달라진다."
+       }
+      ],
+      "by": "model"
+     },
+     "7": {
+      "result": "안 걸림",
+      "findings": [],
+      "total_sec": 29.8,
+      "by": "code"
+     },
+     "8": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "9": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "10": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     }
+    },
+    "grounding": [
+     {
+      "scene": 1,
+      "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감. 근데 계산대에서 9,800원 찍힘."
+     },
+     {
+      "scene": 2,
+      "source_quote": "마트에서 계란 한 판 6,980원 할인한다길래 퇴근하고 바로 감."
+     },
+     {
+      "scene": 3,
+      "source_quote": "직원분한테 할인 아니냐고 했더니 할인은 앱 회원만 된대. 그래서 그 자리에서 앱 깔고 가입함."
+     },
+     {
+      "scene": 4,
+      "source_quote": "집에 와서 냉장고 열었더니 엄마가 어제 계란 두 판 사 놨음."
+     },
+     {
+      "scene": 5,
+      "source_quote": "식구 셋인데 우리 집 이제 계란 90개 있음."
+     }
+    ],
+    "scenes": [
+     {
+      "scene": 1,
+      "role": "hook",
+      "text": "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+      "estimated_sec": 8.1
+     },
+     {
+      "scene": 2,
+      "role": "point",
+      "text": "글쓴이는 퇴근길에 6,980원 할인이라는 안내를 보고 마트로 향했대요.",
+      "estimated_sec": 6.6
+     },
+     {
+      "scene": 3,
+      "role": "point",
+      "text": "하지만 직원분이 할인은 앱 회원만 된다고 해서 그 자리에서 가입을 마쳤습니다.",
+      "estimated_sec": 7.6
+     },
+     {
+      "scene": 4,
+      "role": "point",
+      "text": "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+      "estimated_sec": 6.9
+     },
+     {
+      "scene": 5,
+      "role": "cta",
+      "text": "결국 식구 셋이 먹을 계란이 90개나 생겨버렸습니다.",
+      "estimated_sec": 5.1
+     }
+    ],
+    "fixed_scenes": [
+     "마트에서 계란 한 판을 사려고 줄을 섰는데 계산대에서 예상 밖의 금액이 찍혔습니다.",
+     "글쓴이는 퇴근길에 육천구백팔십 원 할인이라는 안내를 보고 마트로 향했대요.",
+     "하지만 직원분이 할인은 앱 회원만 된다고 해서 그 자리에서 가입을 마쳤습니다.",
+     "집에 와서 확인해 보니 어머니가 어제 이미 계란 두 판을 사 두셨더라고요.",
+     "결국 식구 셋이 먹을 계란이 아흔 개나 생겨버렸습니다."
+    ],
+    "run": {
+     "model": "claude-haiku-5-5",
+     "backend": "claude-cli",
+     "effort": "medium",
+     "calls": 4,
+     "call_log": [
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 12.8,
+       "input_tokens": 2,
+       "output_tokens": 2887,
+       "cache_creation_input_tokens": 4484,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.002
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 14.2,
+       "input_tokens": 2,
+       "output_tokens": 3025,
+       "cache_creation_input_tokens": 4486,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00207
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 18.4,
+       "input_tokens": 2,
+       "output_tokens": 4323,
+       "cache_creation_input_tokens": 4485,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00272
+      },
+      {
+       "group": "flow",
+       "attempt": 1,
+       "sec": 14.2,
+       "input_tokens": 2,
+       "output_tokens": 2821,
+       "cache_creation_input_tokens": 2887,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00177
+      }
+     ],
+     "usage": {
+      "input_tokens": 8,
+      "output_tokens": 13056,
+      "cache_creation_input_tokens": 16342,
+      "cache_read_input_tokens": 0
+     },
+     "cost_usd_est": 0.00856,
+     "sec": 18.4
+    }
+   },
+   "calls": [
+    {
+     "group": "revise",
+     "attempt": 1,
+     "sec": 5.3,
+     "input_tokens": 2,
+     "output_tokens": 719,
+     "cache_creation_input_tokens": 2026,
+     "cache_read_input_tokens": 0,
+     "cost_usd": 0.00061
+    }
+   ],
+   "cost_usd": 0.00917,
+   "sec": 23.7
+  }
+ ],
+ "decision": {
+  "action": "render_revised",
+  "round": 1,
+  "remaining": [],
+  "reason": "1번째 고친 대본이 다시 판정에서 통과해 그 대본으로 만듭니다."
+ }
+}

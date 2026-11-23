@@ -26,6 +26,8 @@ def main():
                     help="dev: data/labels/test.txt에 없는 대본(기본), test: 시험용만, all: 모두")
     ap.add_argument("--ids", nargs="*", help="이 대본만 판정(시험용 대본은 넣을 수 없음)")
     ap.add_argument("--workers", type=int, default=5, help="동시에 판정할 대본 수(기본 5)")
+    ap.add_argument("--revise", action="store_true",
+                    help="보류·탈락이면 고쳐 다시 판정(judge/revise.py). 기본은 원래 대본의 판정만 잰다")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -46,14 +48,14 @@ def main():
     total_cost = 0.0
 
     def one(f):
-        r = core.judge_file(f)
+        r = core.judge_file(f, fix=a.revise)
         (out / f.name).write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
         return f, r
 
     with ThreadPoolExecutor(max_workers=a.workers) as pool:
         for i, fut in enumerate(as_completed([pool.submit(one, f) for f in todo]), 1):
             f, r = fut.result()
-            total_cost += r["run"]["cost_usd_est"]
+            total_cost += r["run"]["cost_usd_est"] + r["run"].get("revise_cost_usd", 0)
             print(f"[{i}/{len(todo)}] {f.stem} {r['verdict']} · {r['run']['sec']}초 · ${r['run']['cost_usd_est']:.4f}",
                   flush=True)
     with open(out / "summary.csv", "w", newline="", encoding="utf-8") as fp:

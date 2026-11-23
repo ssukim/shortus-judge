@@ -65,3 +65,10 @@ SURE_EXEMPT = (1, 2)
 
 # 7판 실험(D32): 기준 3을 좁히는 지시. 일치는 오르고 보류는 줄지만 통과로 새는 탈락이 늘어 기본은 끔.
 C3_NARROW = os.environ.get("JUDGE_C3_NARROW", "0") == "1"
+
+# 고쳐 다시 판정하기(judge/revise.py, D35): 보류·탈락이면 걸린 곳만 모델로 고쳐 다시 판정한다. 끄려면 JUDGE_REVISE=0.
+# 개발용·시험용을 재는 judge.run_all은 원래 대본의 판정만 재므로 --revise를 줄 때만 고친다.
+REVISE = os.environ.get("JUDGE_REVISE", "1") != "0"
+# 고치기는 한 번만 한다(D37). 개발용 보류·탈락 12개에서 첫 번째 고친 대본이 11개 통과했고, 두 번째까지 간 1개는 두 번째도
+# 실패했다(results/v5-revise). 두 번째 고치기는 약 35초를 더 쓴다. 2로 두면 남은 곳만 한 번 더 고친다
+REVISE_ROUNDS = int(os.environ.get("JUDGE_REVISE_ROUNDS", "1"))

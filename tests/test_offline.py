@@ -362,3 +362,117 @@ class HostCheck(unittest.TestCase):
         self.assertFalse(self.ok("127.0.0.1:8787", "http://evil.example"))
         self.assertFalse(self.ok("127.0.0.1:9999"))
 
+
+
+class Revise(unittest.TestCase):
+    """보류·탈락 대본을 고쳐 다시 판정하기(judge/revise.py, D35). 모델 호출은 가짜로 바꾼다."""
+    SOURCE = "600W 출력으로 컵라면 하나 분량의 물을 약 4분이면 끓입니다. 가격은 31,200원입니다."
+
+    def setUp(self):
+        from judge import revise
+        self.revise = revise
+
+    def judged(self, verdict_, texts, **crit):
+        cr = {str(n): {"result": O, "findings": []} for n in range(1, 11)}
+        for k, c in crit.items():
+            cr[k[1:]] = c
+        return {"id": "t", "verdict": verdict_, "why": [], "diagnostics": [], "criteria": cr,
+                "scenes": [{"scene": n, "text": t} for n, t in enumerate(texts, 1)], "fixed_scenes": None,
+                "run": {"cost_usd_est": 0.001, "sec": 1.0}}
+
+    def test_guard_reverts(self):
+        secs = [{"text": "600W로 4분이면 끓어요."}, {"text": "31,200원이에요."}, {"text": "그대로"}]
+        proposed = {1: {"text": "600W로 컵라면 한 개 물을 4분이면 끓여요.", "why": "조건을 더함"},
+                    2: {"text": "가격은 착해요.", "why": "숫자를 뺌"},          # 넣은 글에 있는 숫자가 빠짐
+                    3: {"text": "바뀐 장면", "why": ""}}                       # 걸린 곳이 없는 장면
+        texts, scenes, reverted = self.revise.guard(secs, proposed, {1, 2}, self.SOURCE)
+        self.assertEqual(texts, ["600W로 컵라면 한 개 물을 4분이면 끓여요.", "31,200원이에요.", "그대로"])
+        self.assertEqual([x["scene"] for x in reverted], [2, 3])
+        _, _, rev = self.revise.guard(secs, {1: {"text": "600W로 3분이면 끓어요.", "why": ""}}, {1}, self.SOURCE)
+        self.assertEqual(rev[0]["why"], "넣은 글에도 있는 숫자가 빠짐: 4")   # 4가 빠지고 3이 들어감 → 빠진 것부터 걸림
+        _, _, rev = self.revise.guard(secs, {1: {"text": "600W로 4분, 2인분은 8분이면 끓어요.", "why": ""}}, {1}, self.SOURCE)
+        self.assertEqual(rev[0]["why"], "넣은 글에 없는 숫자가 들어감: 2, 8")
+
+    def test_issues_and_needed(self):
+        f = {"scene": 1, "quote": "4분", "source_quote": "", "reason": "조건 빠짐"}
+        r = self.judged(config.FAIL, ["a"], c1={"result": H, "findings": [f]}, c6={"result": H, "findings": [f]})
+        self.assertEqual([x["n"] for x in self.revise.issues(r)], [1])   # 6 하나만은 판정을 정하지 않음
+        r = self.judged(config.HOLD, ["a"], c5={"result": H, "findings": [f]})
+        self.assertFalse(self.revise.needed(r))   # 표기는 코드가 고침
+        r = self.judged(config.HOLD, ["a"], c4={"result": U, "findings": []})
+        self.assertFalse(self.revise.needed(r))   # 판정 못 함은 사람이 봄
+        self.assertEqual(self.revise.allowed_scenes([{"scene": None}], 3), {1, 2, 3})
+
+    def run_with(self, answers, verdicts):
+        """answers: 고치기 호출의 답(차례로), verdicts: 다시 판정 결과(차례로)"""
+        from judge import backends
+        calls = iter(answers)
+        orig = backends.call
+        backends.call = lambda m, p: (next(calls), {"input_tokens": 1, "output_tokens": 1,
+                                                   "cache_creation_input_tokens": 0, "cache_read_input_tokens": 0})
+        vs = iter(verdicts)
+        f = {"scene": 1, "quote": "4분이면", "source_quote": "", "reason": "조건 빠짐"}
+        rejudge = lambda secs: self.judged(next(vs), [s["text"] for s in secs], c1={"result": H, "findings": [f]})
+        try:
+            r = self.judged(config.FAIL, ["600W로 4분이면 끓어요.", "끝"], c1={"result": H, "findings": [f]})
+            d = {"id": "t", "script": {"sections": [{"text": "600W로 4분이면 끓어요.", "estimated_sec": 3.0},
+                                                    {"text": "끝", "estimated_sec": 1.0}]}}
+            return self.revise.run(r, d, self.SOURCE, "claude-haiku-5-5", rejudge)
+        finally:
+            backends.call = orig
+
+    def ans(self, text):
+        return json.dumps({"scenes": [{"scene": 1, "text": text, "why": "조건을 더함"}]}, ensure_ascii=False)
+
+    def test_pass_after_first_round(self):
+        r = self.run_with([self.ans("600W로 컵라면 하나 물이 4분이면 끓어요.")], [config.PASS])
+        self.assertEqual(len(r["revisions"]), 1)
+        self.assertEqual(r["decision"]["action"], "render_revised")
+        self.assertEqual(r["verdict"], config.FAIL)   # 원래 판정은 그대로
+        from judge import view
+        v = view.to_view(r)
+        self.assertEqual((v["revision"]["method"], v["revision"]["verdict"]), ("model", config.PASS))
+        self.assertEqual(v["decision"]["script"], "revision 1")
+
+    def test_one_round_by_default(self):
+        r = self.run_with([self.ans("600W로 한 컵 물이 4분이면 끓어요.")], [config.HOLD])
+        self.assertEqual([x["round"] for x in r["revisions"]], [1])   # 기본은 한 번만 고친다(D37)
+        self.assertEqual((r["decision"]["action"], r["decision"]["round"]), ("review", 1))
+
+    def test_second_round_then_review(self):
+        old = config.REVISE_ROUNDS
+        config.REVISE_ROUNDS = 2
+        self.addCleanup(setattr, config, "REVISE_ROUNDS", old)
+        r = self.run_with([self.ans("600W로 한 컵 물이 4분이면 끓어요."), self.ans("600W로 컵라면 하나 물이 4분이면 끓어요.")],
+                          [config.FAIL, config.HOLD])
+        self.assertEqual([x["round"] for x in r["revisions"]], [1, 2])
+        self.assertEqual(r["revisions"][1]["scenes"][0]["before"], "600W로 4분이면 끓어요.")   # 원래 대본과 견줌
+        self.assertEqual((r["decision"]["action"], r["decision"]["round"]), ("review", 2))   # 보류는 사람이 봄
+
+    def test_all_fail_not_rendered(self):
+        r = self.run_with([self.ans("600W로 한 컵 물이 4분이면 끓어요."), self.ans("600W로 두 컵 물이 4분이면 끓어요.")],
+                          [config.FAIL, config.FAIL])
+        self.assertEqual(r["decision"]["action"], "do_not_render")
+        self.assertEqual(r["decision"]["remaining"], [1])
+
+    def test_all_reverted_is_error(self):
+        r = self.run_with([self.ans("가격이 착해요.")], [])   # 600·4가 빠져 되돌림 → 다시 판정 없음
+        self.assertEqual(r["revisions"][0]["error"], "고친 장면이 없음 (모두 되돌림)")
+        self.assertEqual(r["decision"]["action"], "do_not_render")
+
+
+class Fresh(unittest.TestCase):
+    """쇼더스에서 새 대본 받기(judge/fresh.py, D36)의 입력 검사. 쇼더스를 부르지 않는다."""
+    def test_rejects_before_calling(self):
+        from judge import fresh
+        self.assertEqual(fresh.handle({"step": "all"})[0], 400)          # 모르는 step으로 대본을 만들지 않음
+        self.assertEqual(fresh.handle({"step": "start", "text": "짧음"})[0], 400)
+        self.assertEqual(fresh.handle({"step": "start", "source_id": "없는-글"})[0], 400)
+        self.assertEqual(fresh.handle({"step": "start", "text": "가" * 200, "source_id": "blog-01"})[0], 400)
+        self.assertEqual(fresh.handle({"step": "poll", "script_id": "0123456789ab"})[0], 400)   # 이 서버가 만든 id만
+
+    def test_pasted_title_is_first_line(self):
+        from judge import fresh
+        err, title, body = fresh.pasted("  첫 줄 제목\n\n" + "본문" * 60)
+        self.assertIsNone(err)
+        self.assertEqual(title, "첫 줄 제목")
