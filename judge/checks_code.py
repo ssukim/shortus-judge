@@ -1,4 +1,4 @@
-"""코드가 보는 기준: 5(표기), 7(길이)."""
+"""코드가 보는 기준: 5(표기), 7(길이). 둘 다 진단만 내고, 표기는 고칠 표기를 함께 낸다."""
 import re
 
 from . import config
@@ -15,6 +15,29 @@ VAGUE_RULES = [
     ("범위 기호", re.compile(r"\d\s?~\s?\d")),
     ("영문 약어", re.compile(r"(?<![0-9A-Za-z.,])[A-Za-z][A-Za-z0-9-]*")),
 ]
+
+
+UNIT_READ = {"km": "킬로미터", "cm": "센티미터", "mm": "밀리미터", "m": "미터", "kg": "킬로그램", "g": "그램",
+             "ml": "밀리리터", "mL": "밀리리터", "L": "리터", "l": "리터", "kW": "킬로와트", "W": "와트",
+             "GB": "기가바이트", "MB": "메가바이트", "TB": "테라바이트", "Pa": "파스칼", "dB": "데시벨", "kcal": "킬로칼로리",
+             "V": "볼트", "A": "암페어", "Hz": "헤르츠", "mAh": "밀리암페어시", "Wh": "와트시"}
+
+
+def _man(n):
+    """정수를 「만」 단위로: 124020 → 「12만 4020」, 25900 → 「2만 5900」, 9000 → 「9000」."""
+    man, rest = divmod(n, 10000)
+    if not man:
+        return str(rest)
+    return f"{man}만" + (f" {rest}" if rest else "")
+
+
+def suggest(word):
+    """잘못 읽는 표기 하나를 목소리가 바로 읽는 표기로. 못 고치면 None."""
+    out = re.sub(r"(\d+(?:\.\d+)?)\s?%", r"\1퍼센트", word)
+    out = re.sub(r"\d{1,3}(?:,\d{3})+", lambda m: _man(int(m.group().replace(",", ""))), out)
+    out = re.sub(r"(\d(?:\.\d+)?)([A-Za-z]+)",
+                 lambda m: m.group(1) + UNIT_READ[m.group(2)] if m.group(2) in UNIT_READ else m.group(), out)
+    return out if out != word else None
 
 
 def _words_with(text, pat):
@@ -40,13 +63,27 @@ def check_notation(sections):
                 if w in taken:
                     continue
                 taken.add(w)
-                findings.append({"scene": n, "quote": w, "reason": f"잘못 읽는 표기 — {rule}"})
+                f = {"scene": n, "quote": w, "reason": f"잘못 읽는 표기 — {rule}"}
+                if suggest(w):
+                    f["fix"] = suggest(w)
+                findings.append(f)
         for rule, pat in VAGUE_RULES:
             for w in _words_with(text, pat):
                 if w in taken:
                     continue
                 vague.append({"scene": n, "quote": w, "reason": f"애매한 표기 — {rule}"})
-    return {"result": config.HIT if findings else config.OK, "findings": findings, "vague": vague}
+    unfixable = [f["quote"] for f in findings if not f.get("fix")]
+    return {"result": config.HIT if findings else config.OK, "findings": findings, "vague": vague,
+            "unfixable": unfixable}
+
+
+def fix_script(sections, findings):
+    """잘못 읽는 표기를 고친 표기로 바꾼 장면 문장들. 렌더링에는 이 문장을 쓴다."""
+    texts = [s["text"] for s in sections]
+    for f in findings:
+        if f.get("fix") and f.get("scene"):
+            texts[f["scene"] - 1] = texts[f["scene"] - 1].replace(f["quote"], f["fix"])
+    return texts
 
 
 def check_length(sections):

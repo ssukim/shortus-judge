@@ -10,6 +10,15 @@ from . import config, core
 CODE = {config.HIT: 1, config.OK: 0, config.UNKNOWN: "NA"}
 
 
+def _failed(path):
+    """모델 호출이 오류로 끝나 저장된 결과(중간에 끊김 등)인가. 이런 결과는 다시 판정한다."""
+    try:
+        r = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return True
+    return any(c.get("error") for c in r.get("criteria", {}).values())
+
+
 def main():
     ap = argparse.ArgumentParser(prog="python -m judge.run_all")
     ap.add_argument("--out", required=True, help="결과 폴더, 예: results/v1")
@@ -30,8 +39,10 @@ def main():
         if a.set == "dev" and set(a.ids) & test_ids:
             raise SystemExit(f"시험용 대본은 개발 중에 판정하지 않습니다: {sorted(set(a.ids) & test_ids)}")
         files = [f for f in files if f.stem in set(a.ids)]
-    todo = [f for f in files if not (out / f.name).exists()]
-    print(f"대본 {len(files)}개 중 판정할 것 {len(todo)}개, 동시에 {a.workers}개", flush=True)
+    todo = [f for f in files if not (out / f.name).exists() or _failed(out / f.name)]
+    redo = sum((out / f.name).exists() for f in todo)
+    print(f"대본 {len(files)}개 중 판정할 것 {len(todo)}개(오류 나서 다시 하는 것 {redo}개), 동시에 {a.workers}개",
+          flush=True)
     total_cost = 0.0
 
     def one(f):

@@ -74,6 +74,14 @@ def call(key, method, path, body=None):
             raise RuntimeError(f"{method} {path} -> {e.code} {text}") from None
 
 
+def daily_left(key):
+    """오늘 더 만들 수 있는 대본 수(daily_t2s_starts)와 풀리는 시각."""
+    q = call(key, "GET", "/v1/meta/quota-status").get("daily_t2s_starts") or {}
+    if "limit" not in q:
+        return None, ""
+    return max(0, q["limit"] - q.get("used", 0)), q.get("resets_at", "")
+
+
 def credits(key):
     return call(key, "GET", "/v1/meta/quota-status")["credits"]["remaining"]
 
@@ -153,6 +161,14 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     start = credits(key)
     print(f"시작 잔액 {start}")
+    left, resets = daily_left(key)
+    if left is not None:
+        print(f"오늘 남은 대본 만들기 {left}번 (풀리는 시각 {resets})")
+        if left == 0:
+            sys.exit("하루 대본 만들기 한도를 다 썼습니다. 풀린 뒤에 다시 실행하세요.")
+        if left < len(todo):
+            print(f"할 일 {len(todo)}개 가운데 앞의 {left}개만 받습니다.")
+            todo = todo[:left]
     done = 0
     try:
         for i, (out_id, p) in enumerate(todo):

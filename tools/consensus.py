@@ -3,24 +3,29 @@
     python tools/consensus.py
 
 읽는 것: data/labels/viewer-*.csv
+고치는 것: data/labels/overrides.csv (합의를 넣은 글과 대조해 받아들이지 않은 기준. 까닭과 함께 적음)
 쓰는 것: data/labels/consensus.csv (기준별 다수결과 판정), data/labels/review.md (사람이 확인할 대본 목록)
 """
 
 import csv
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LABELS = ROOT / "data" / "labels"
+sys.path.insert(0, str(ROOT))
+from judge.checks_code import suggest  # noqa: E402
 CRITERIA = ["c1", "c2", "c3", "c4", "c5", "c6", "c8", "c9", "c10"]
 FACT = {"c1", "c2"}          # 걸리면 탈락
-HOLD = {"c3", "c4", "c5"}    # 하나라도 걸리면 보류 (c5는 data/labels/c5.csv에서 읽음)
+HOLD = {"c3", "c4"}          # 하나라도 걸리면 보류
+# c5(data/labels/c5.csv)는 2.3판부터 자동으로 못 고치는 표기가 있을 때만 보류(D25)
 STYLE = {"c6", "c8", "c9"}   # 2개 이상이면 보류 (c10은 진단만, c7은 코드로 셈)
 
 
 def verdict(hit: dict) -> str:
     if any(hit.get(c) for c in FACT):
         return "탈락"
-    if any(hit.get(c) for c in HOLD) or sum(bool(hit.get(c)) for c in STYLE) >= 2:
+    if any(hit.get(c) for c in HOLD) or hit.get("c5_unfixable") or sum(bool(hit.get(c)) for c in STYLE) >= 2:
         return "보류"
     return "통과"
 
@@ -43,7 +48,11 @@ def main() -> None:
     raters = {f.stem: {r["id"]: r for r in csv.DictReader(f.open())} for f in files}
     names = list(raters)
     ids = sorted(set.intersection(*(set(v) for v in raters.values())))
-    c5 = {r["id"]: int(r["c5"]) for r in csv.DictReader((LABELS / "c5.csv").open())}
+    c5rows = {r["id"]: r for r in csv.DictReader((LABELS / "c5.csv").open())}
+    c5 = {i: int(r["c5"]) for i, r in c5rows.items()}
+    # 걸린 표기 칸: 「s3 1,800W의 / s5 124,020원에」 → 자동으로 못 고치는 표기가 있나
+    c5_unfixable = {i: any(q.strip() and not suggest(q.strip().split(" ", 1)[-1])
+                           for q in (r.get("걸린 표기") or "").split(" / ")) for i, r in c5rows.items()}
     for n in names:
         for i in ids:
             raters[n][i]["c5"] = c5[i]
@@ -59,11 +68,16 @@ def main() -> None:
         kappa = fleiss_kappa(rows, k)
         print(f"| {c} | {' / '.join(map(str, counts))} | {same}/{len(ids)} | {'-' if kappa is None else f'{kappa:.2f}'} |")
 
+    fix = {}
+    if (LABELS / "overrides.csv").exists():
+        for r in csv.DictReader((LABELS / "overrides.csv").open()):
+            fix[(r["id"], r["기준"])] = bool(int(r["값"]))
     out, review = [], []
     for i in ids:
         votes = {c: sum(int(raters[n][i][c]) for n in names) for c in CRITERIA}
-        hit = {c: votes[c] * 2 > k for c in CRITERIA}
-        each = [verdict({c: int(raters[n][i][c]) for c in CRITERIA}) for n in names]
+        hit = {c: fix.get((i, c), votes[c] * 2 > k) for c in CRITERIA}
+        hit["c5_unfixable"] = c5_unfixable[i]
+        each = [verdict({**{c: int(raters[n][i][c]) for c in CRITERIA}, "c5_unfixable": c5_unfixable[i]}) for n in names]
         v = verdict(hit)
         out.append({"id": i, "verdict": v, **{c: int(hit[c]) for c in CRITERIA}})
         split = [c for c in CRITERIA if 0 < votes[c] < k]
@@ -77,6 +91,8 @@ def main() -> None:
 
     dist = {x: sum(1 for r in out if r["verdict"] == x) for x in ("통과", "보류", "탈락")}
     print(f"\n합의 판정: {dist}")
+    if fix:
+        print(f"합의를 고친 기준: {len(fix)}개 (data/labels/overrides.csv)")
     print(f"사람이 확인할 대본(채점자 판정이 갈림 또는 합의 탈락): {len(review)}개")
 
     lines = ["# 확인할 대본", "", "채점자끼리 판정이 갈렸거나 합의가 탈락인 대본입니다. 넣은 글과 대본은 `input/<id>.md`에 있습니다.", "",

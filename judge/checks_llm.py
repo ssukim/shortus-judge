@@ -74,12 +74,19 @@ def build_prompt(group, rubric, sections, source):
                 "\n## 판단 순서 (기준끼리 헷갈릴 때)\n"
                 "1. 기준 2는 넣은 글과 대본에 적힌 숫자·날짜·이름이 서로 다를 때만 겁니다. "
                 "말을 확실하게 바꾼 것(「받을 수 있다」 → 「받는다」)은 기준 2가 아니라 기준 3에서 봅니다.\n"
-                "2. 넣은 글의 조건이 대본에서 빠졌으면 차례로 묻습니다. "
+                "2. 조건이 빠졌는지는 장면 하나가 아니라 대본 전체를 보고 정합니다. 다른 장면에서 이미 말한 조건"
+                "(누구와, 몇 명이, 어디서, 언제)은 빠진 것이 아닙니다. 예: 앞 장면에서 「가족 셋이 다녀왔다」고 했으면 "
+                "뒤 장면의 「모두 30만 원 들었다」는 셋의 경비로 들립니다. "
+                "넣은 글의 조건이 대본 전체에서 빠졌으면 차례로 묻습니다. "
                 "(가) 조건이 빠진 탓에 숫자나 주장이 다른 대상·범위에 붙어 틀린 말이 되었나 → 기준 1. "
                 "(나) 그렇지 않고, 대본이 말한 것의 조건만 빠졌나 → 기준 4. "
                 "(다) 대본이 말하지 않은 곁가지라면 → 걸지 않습니다. 하나를 고르고 같은 내용을 두 기준에 함께 걸지 않습니다. "
-                "(가)와 (나)를 가를 때는 빠진 조건이 어디에 달렸는지 봅니다. 대본의 중심 내용(무엇을, 누가, 얼마에, 언제까지)에 달린 조건이면 (가), "
-                "덤으로 붙은 내용(사은품, 경품, 부가 혜택)에 달린 조건이면 (나)입니다.\n"
+                "(가)와 (나)를 가를 때는 대본 문장이 넣은 글과 맞서는지 봅니다. "
+                "(가)는 대본 문장을 들은 사람이 넣은 글과 반대되는 사실을 믿게 될 때뿐입니다: "
+                "숫자가 다른 대상에 붙음(「두 명 61만 원」 → 「한 명에 61만 원」), 대상이 넓어지거나 바뀜(「만 65세 이상 무료」 → 「누구나 무료」). "
+                "대본 문장이 흔한 경우에는 맞고 덜 말했을 뿐이면 (나)입니다: 기한·기간이 빠짐(「이번 달 할인」 → 「할인」), "
+                "예외나 단서가 빠짐(「단, ~은 제외」「~이면 안 됨」), 잰 조건이 빠짐(「실내에서 잰 값」), 방법·절차가 빠짐(보증기간, 신청 방법). "
+                "기준 1은 탈락이라, 틀린 사실을 믿게 되는지 확실할 때만 겁니다. 장소·순서 같은 작은 세부가 조금 달라진 것은 걸지 않습니다.\n"
                 "3. 기준 4는 먼저 넣은 글에서 대본이 다루는 얘기의 핵심 정보를 3개 이하로 골라 core에 적습니다. "
                 "핵심은 그 정보가 없으면 시청자가 대본의 요점을 잘못 알거나 쓰지 못하는 것입니다. "
                 "core에 고른 것이 대본에 없을 때만 기준 4를 겁니다. 핵심이 아닌 세부는 빠져도 걸지 않습니다.\n"
@@ -149,7 +156,8 @@ def ask_group(group, model, rubric, sections, source):
 
 
 def vote(results):
-    """같은 묶음을 여러 번 물은 결과를 기준마다 다수결로 합친다. 걸림이 과반이면 걸림이고, 근거는 걸림이라 답한 첫 결과에서 가져온다."""
+    """같은 묶음을 여러 번 물은 결과를 기준마다 합친다. 걸림이 과반이면 걸림이고, 근거는 걸림이라 답한 첫 결과에서 가져온다.
+    config.UNANIMOUS의 기준(탈락 기준)은 모두 걸림일 때만 걸고, 과반이지만 갈렸으면 안 걸림 + doubt로 둔다."""
     ok = [r for r in results if not r["error"]]
     base = ok[0] if ok else results[0]
     crit = {}
@@ -159,9 +167,13 @@ def vote(results):
         if not ok:
             crit[n] = base["criteria"][n]
             continue
-        hit = hits * 2 > len(ok)
-        src = next((r for r in ok if r["criteria"][n]["result"] == config.HIT), base) if hit else base
+        major = hits * 2 > len(ok)
+        hit = hits == len(ok) if n in config.UNANIMOUS else major
+        doubt = major and not hit
+        src = next((r for r in ok if r["criteria"][n]["result"] == config.HIT), base) if major else base
         crit[n] = {**src["criteria"][n], "result": config.HIT if hit else config.OK, "votes": f"{hits}/{len(ok)}"}
+        if doubt:
+            crit[n]["doubt"] = True
     usage = {k: sum(r["usage"][k] for r in results) for k in base["usage"]}
     return {"criteria": crit, "grounding": base.get("grounding"), "calls": [c for r in results for c in r["calls"]],
             "usage": usage, "error": None if ok else base["error"]}
