@@ -144,21 +144,23 @@ export default function CheckPage({ data }: { data: Data }) {
     <div className="wrap-narrow-in">
       <h1>판정기를 믿을 근거</h1>
       <p className="muted">
-        판정기를 만들 때 한 번도 보지 않은 대본 {t.n}개(시험용)를 판정기로 판정해, AI 채점 에이전트 세 명(시청자 20·40·60대 역할)이 따로 내린 판정의 다수결과 견줬습니다. 탈락으로 본 대본은 사람이 원래 글과 대조해 확인했습니다.
+        판정기를 만들 때 한 번도 보지 않은 대본 {t.n}개(목록의 「시험용」)로 시험했습니다.
+        AI 채점 에이전트 세 명(20·40·60대 시청자 역할)도 같은 대본을 따로 판정했고, 다수결 결과를 판정기와 비교했습니다.
+        채점자가 {w(fail)}으로 본 대본은 사람이 원래 글과 대조해 확인했습니다.
       </p>
       <div className="stat-row">
-        <div className="stat"><b>{t.verdict.k}/{t.n}</b><span>판정이 같음</span><small>모두 {w(t.baseline.top)}{ro(w(t.baseline.top))} 내면 {t.baseline.k}</small></div>
-        <div className="stat"><b>{t.fail_n - t.leak.length}/{t.fail_n}</b><span>사실 틀린 대본을 걸러냄</span><small>채점자가 {w(fail)}으로 본 대본</small></div>
-        <div className="stat"><b>{t.false_fail.length}/{t.not_fail_n}</b><span>멀쩡한데 {w(fail)}시킴</span><small>채점자가 {w(pass)}·보류로 본 대본</small></div>
+        <div className="stat"><b>{t.verdict.k}개</b><span>{t.n}개 중 채점자와 판정이 같았습니다</span><small>전부 「{w(t.baseline.top)}」로만 내도 채점자와 {t.baseline.k}개가 같습니다</small></div>
+        <div className="stat"><b>{t.fail_n - t.leak.length}개</b><span>사실이 틀린 대본 {t.fail_n}개 중 {t.fail_n - t.leak.length}개를 막았습니다</span><small>{t.leak.length}개는 통과시켰습니다(아래 목록)</small></div>
+        <div className="stat"><b>{t.false_fail.length}개</b><span>멀쩡한 대본 {t.not_fail_n}개 중 {t.false_fail.length}개를 잘못 {w(fail)}시켰습니다</span><small>아래 목록</small></div>
       </div>
 
-      <h2>판정기가 틀린 대본</h2>
-      <h3>{w(fail)}인데 {w(pass)}시킨 대본 {t.leak.length}개</h3>
+      <h2>잘못 판정한 대본</h2>
+      <h3>사실이 틀렸는데 {w(pass)}시킨 대본 {t.leak.length}개</h3>
       <Wrong ids={t.leak} />
       <h3>멀쩡한데 {w(fail)}시킨 대본 {t.false_fail.length}개</h3>
       <Wrong ids={t.false_fail} />
       <p className="muted small">
-        통과와 보류 사이에서 다르게 본 대본까지 모두 보려면 <a href={href(['list'], { f: 'diff' })}>채점자와 다르게 본 대본 {all.diffs.length}개(98개 중)</a>를 여세요.
+        대본 98개 중 판정기와 채점자의 판정이 다른 것은 {all.diffs.length}개입니다. <a href={href(['list'], { f: 'diff' })}>모아 둔 대본에서 보기</a>
       </p>
       <button type="button" className="detail-btn" aria-expanded={sheet.open} onClick={(e) => sheet.show(e.currentTarget)}>숫자 자세히 보기</button>
 
