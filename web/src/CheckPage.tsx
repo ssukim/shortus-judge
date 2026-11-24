@@ -144,7 +144,7 @@ export default function CheckPage({ data }: { data: Data }) {
     <div className="wrap-narrow-in">
       <h1>판정기를 믿을 근거</h1>
       <p className="muted">
-        판정기를 만드는 동안 한 번도 보지 않은 대본 {t.n}개를, 채점자 세 명이 따로 매긴 판정의 다수결과 견줬습니다.
+        판정기를 만들 때 한 번도 보지 않은 대본 {t.n}개를 판정기로 판정해, AI 채점 에이전트 세 명(시청자 20·40·60대 역할)이 따로 내린 판정의 다수결과 견줬습니다. 탈락으로 본 대본은 사람이 원래 글과 대조해 확인했습니다.
       </p>
       <div className="stat-row">
         <div className="stat"><b>{t.verdict.k}/{t.n}</b><span>판정이 같음</span><small>모두 {w(t.baseline.top)}{ro(w(t.baseline.top))} 내면 {t.baseline.k}</small></div>
