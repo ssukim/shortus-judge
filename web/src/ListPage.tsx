@@ -2,7 +2,7 @@ import type { Data, Script } from './types'
 import { VerdictBadge, consensusOf, href, setQuery, verdictWord } from './common'
 
 // 모아 둔 대본 98개: 판정(통과·보류·탈락)으로 거른다. 줄마다 판정 하나만 보이고, 눌러 들어가면 어디가 왜 걸렸는지 나온다.
-// 거르기는 주소의 f= (pass, hold, fail, test). diff(판정기가 채점자와 다르게 본 대본)는 「판정기를 믿을 근거」에서 링크로만 연다.
+// 거르기는 주소의 f= (pass, hold, fail, test, diff). diff는 판정기가 채점자와 다르게 본 대본(「판정기를 믿을 근거」에서도 링크함).
 
 type Filter = '' | 'pass' | 'hold' | 'fail' | 'diff' | 'test'
 
@@ -29,7 +29,7 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
     { id: 'hold', label: verdictWord(data, hold) },
     { id: 'fail', label: verdictWord(data, fail) },
     { id: 'test', label: '시험용' },
-    ...(f === 'diff' ? [{ id: 'diff' as Filter, label: '채점자와 다르게 본 대본' }] : []),
+    { id: 'diff', label: '채점자와 다르게 본 대본' },
   ]
   const rows = shown.filter(match[f] ?? match[''])
   const siblings = (s: Script) => shown.filter((x) => x.source_id === s.source_id).length
