@@ -68,6 +68,10 @@ SEC_PER_CHAR = 0.1764
 PER_MINUTE = int(os.environ.get("JUDGE_PER_MINUTE", "5"))          # 같은 주소에서 1분에 받는 판정 수
 MAX_CONCURRENT = int(os.environ.get("JUDGE_MAX_CONCURRENT", "2"))  # 동시에 하는 판정 수. 넘으면 429
 _slots = threading.BoundedSemaphore(MAX_CONCURRENT)
+# Cloudflare 터널 뒤에 둘 때(JUDGE_TRUST_PROXY=cloudflare): 터널이 늘 127.0.0.1로 들어오므로 방문자 주소는 CF-Connecting-IP에서,
+# 나라는 CF-IPCountry에서 읽는다. JUDGE_ALLOW_COUNTRIES=KR 처럼 주면 다른 나라의 판정·대본·소리 요청은 받지 않는다(가정한 운영 선택).
+TRUST_PROXY = os.environ.get("JUDGE_TRUST_PROXY", "").strip().lower()
+ALLOW_COUNTRIES = {c.strip().upper() for c in os.environ.get("JUDGE_ALLOW_COUNTRIES", "").split(",") if c.strip()}
 _recent, _recent_lock = {}, threading.Lock()
 
 
@@ -275,9 +279,21 @@ class Handler(BaseHTTPRequestHandler):
             ctype += "; charset=utf-8"
         self._send(200, target.read_bytes(), ctype=ctype, cache="no-cache")
 
+    def _ip(self):
+        if TRUST_PROXY == "cloudflare" and self.headers.get("CF-Connecting-IP"):
+            return self.headers["CF-Connecting-IP"].strip()
+        return self.client_address[0]
+
+    def _country_ok(self):
+        if not ALLOW_COUNTRIES or TRUST_PROXY != "cloudflare":
+            return True
+        return (self.headers.get("CF-IPCountry") or "").strip().upper() in ALLOW_COUNTRIES
+
     def do_POST(self):
         if not self._origin_ok():
             return self._send(403, {"error": "이 주소로는 받지 않습니다. http://127.0.0.1:<포트>로 열어 주세요."})
+        if not self._country_ok():
+            return self._send(403, {"error": "지금은 한국에서만 판정을 받습니다."})
         route = self._route()
         try:
             if route == PATH_JUDGE:
@@ -300,7 +316,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(400, {"error": str(e)})
         if not judge_ready():
             return self._send(503, {"error": "지금은 새로 판정할 수 없습니다. 저장해 둔 결과는 볼 수 있습니다."})
-        if not _minute_ok(self.client_address[0]):
+        if not _minute_ok(self._ip()):
             return self._send(429, {"error": f"요청이 많습니다. 1분에 {PER_MINUTE}번까지 받습니다. 1분 뒤에 다시 눌러 주세요."})
         if not _slots.acquire(blocking=False):
             return self._send(429, {"error": "지금 판정하는 대본이 많습니다. 잠시 뒤 다시 눌러 주세요."})
@@ -322,7 +338,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(*err)
         if not judge_ready():
             return self._send(503, {"error": fresh.FAIL})
-        self._send(*fresh.handle(payload, self.client_address[0]))
+        self._send(*fresh.handle(payload, self._ip()))
 
     def _judge_stream(self, payload):
         """판정을 일꾼 스레드에서 돌리고, 기준 하나·단계 하나가 끝날 때마다 이 스레드에서 한 줄씩 써 보낸다."""

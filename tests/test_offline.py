@@ -2,6 +2,7 @@
 import json
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 from judge import checks_code, config, verdict
@@ -355,6 +356,30 @@ class NoSource(unittest.TestCase):
         self.assertFalse(v["source_given"])
         self.assertTrue(all(v["criteria"][str(n)].get("not_checked") for n in (1, 2, 3, 4)))
 
+
+
+class Proxy(unittest.TestCase):
+    """Cloudflare 터널 뒤: 방문자 주소와 나라를 Cloudflare 머리글에서 읽는다."""
+    def handler(self, headers):
+        from judge import serve
+        h = serve.Handler.__new__(serve.Handler)
+        h.headers, h.client_address = headers, ("127.0.0.1", 1)
+        return h
+
+    def test_ip_and_country(self):
+        from judge import serve
+        with mock.patch.object(serve, "TRUST_PROXY", "cloudflare"), mock.patch.object(serve, "ALLOW_COUNTRIES", {"KR"}):
+            h = self.handler({"CF-Connecting-IP": "1.2.3.4", "CF-IPCountry": "US"})
+            self.assertEqual(h._ip(), "1.2.3.4")
+            self.assertFalse(h._country_ok())
+            self.assertTrue(self.handler({"CF-IPCountry": "kr"})._country_ok())
+
+    def test_headers_ignored_without_proxy(self):
+        from judge import serve
+        with mock.patch.object(serve, "TRUST_PROXY", ""), mock.patch.object(serve, "ALLOW_COUNTRIES", {"KR"}):
+            h = self.handler({"CF-Connecting-IP": "1.2.3.4", "CF-IPCountry": "US"})
+            self.assertEqual(h._ip(), "127.0.0.1")
+            self.assertTrue(h._country_ok())
 
 if __name__ == "__main__":
     unittest.main()
