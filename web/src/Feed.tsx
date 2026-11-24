@@ -1,9 +1,9 @@
 import { type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { Data, Script } from './types'
-import { decisionWord, setQuery, verdictWord } from './common'
+import { DecisionBadge, decisionWord, setQuery, verdictWord } from './common'
 import { FULL_NOTE, SCENES_MAX, SCENE_MAX, SOURCE_MAX, TEXT_MAX, TEXT_MIN, freshFull, freshLeft, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
 import {
-  PREPARE_MAX_MS, type Final, type Spec, getRun, giveUp, newToken, ordered, saveSpec, specOf, start, subscribe, titleOf,
+  PREPARE_MAX_MS, TYPE_ORDER, type Final, type Spec, getRun, giveUp, newToken, ordered, saveSpec, specOf, start, subscribe, titleOf,
 } from './runs'
 import { Card } from './Card'
 import { useFollow } from './follow'
@@ -64,11 +64,12 @@ const TRY_WORD: Record<string, string> = { news: '뉴스', blog: '블로그', co
 const tryLabel = (s: Script) => TRY_WORD[s.type] ?? s.type_name
 
 /** 쇼더스에서 새로 받기는 한 줄 위에 따로, 그 아래 나머지 */
-function Pills({ pills, onPick, disabled, row }: { pills: Pill[]; onPick: (p: Pill) => void; disabled?: boolean; row?: boolean }) {
+function Pills({ pills, onPick, disabled, row, more }: { pills: Pill[]; onPick: (p: Pill) => void; disabled?: boolean; row?: boolean; more?: ReactNode }) {
   // 아래 고정 영역: 한 줄로, 넘치면 가로 스크롤
   if (row) {
     return (
       <div className="pills pills-row">
+        {more}
         {pills.map((p, i) => <button key={i} type="button" className={p.spec.kind === 'fresh' || p.spec.kind === 'text' ? 'pill pill-main' : 'pill'} disabled={disabled} onClick={() => onPick(p)}>{p.label}</button>)}
       </div>
     )
@@ -82,12 +83,53 @@ function Pills({ pills, onPick, disabled, row }: { pills: Pill[]; onPick: (p: Pi
           {fresh.map((p, i) => <button key={i} type="button" className="pill pill-main" disabled={disabled} onClick={() => onPick(p)}>{p.label}</button>)}
         </div>
       )}
-      {rest.length > 0 && (
+      {(rest.length > 0 || more) && (
         <div className="pills">
           {rest.map((p, i) => <button key={i} type="button" className="pill" disabled={disabled} onClick={() => onPick(p)}>{p.label}</button>)}
+          {more}
         </div>
       )}
     </div>
+  )
+}
+
+/** 예시 전체 보기: 모아 둔 대본을 글 종류별로 모두 보이고, 하나를 고르면 단추와 같은 일을 한다(입력 칸 채우기 또는 바로 판정) */
+function ExamplesDialog({ data, list, onPick, onClose, fill }: { data: Data; list: Script[]; onPick: (s: Script) => void; onClose: () => void; fill: boolean }) {
+  const ref = useRef<HTMLDialogElement>(null)
+  useEffect(() => {
+    const d = ref.current
+    if (d && !d.open) d.showModal()
+  }, [])
+  const types = [...new Set(list.map((x) => x.type))].sort((a, b) => (TYPE_ORDER.indexOf(a) + 1 || 99) - (TYPE_ORDER.indexOf(b) + 1 || 99))
+  return (
+    <dialog ref={ref} className="ex-dialog" aria-labelledby="ex-title" onClose={onClose}
+      onClick={(e) => { if (e.target === ref.current) ref.current?.close() }}>
+      <div className="ex-head">
+        <h2 id="ex-title">예시 {list.length}개</h2>
+        <button type="button" className="ghost" onClick={() => ref.current?.close()}>닫기</button>
+      </div>
+      <p className="hint">{fill ? '고르면 입력 칸에 채웁니다. 「판정하기」를 눌러야 판정을 시작합니다.' : '고르면 저장해 둔 판정 결과를 바로 보여 줍니다.'} 오른쪽은 판정기가 미리 낸 결정입니다.</p>
+      <div className="ex-body">
+        {types.map((t) => {
+          const of = list.filter((x) => x.type === t)
+          return (
+            <section key={t}>
+              <h3>{TRY_WORD[t] ?? of[0].type_name} <span className="muted">{of.length}개</span></h3>
+              <ul>
+                {of.map((s) => (
+                  <li key={s.id}>
+                    <button type="button" onClick={() => { onPick(s); ref.current?.close() }}>
+                      <span className="ex-title">{titleOf(data, s)}<span className="ex-sub"> · {s.nth} 대본 · 장면 {s.scenes.length}개</span></span>
+                      <DecisionBadge data={data} r={data.results[s.id]} />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        })}
+      </div>
+    </dialog>
   )
 }
 
@@ -204,11 +246,10 @@ function OwnForm({ onSubmit, onClose, disabled, preset }: { onSubmit: (spec: Spe
       <p id="own-source-hint" className="hint">{src ? '원래 글과 견주어 틀린 내용까지 봅니다.' : '비워 두면 말투·길이·흐름만 보고, 내용이 맞는지는 보지 않습니다.'}</p>
       </div>
       </div>
-      <p className="hint">판정에는 30초쯤, 보류·탈락이면 고친 대본까지 1분쯤 걸립니다.</p>
       <div className="composer-actions">
         <button type="submit" className="primary" disabled={!scenes.length || !!why || disabled} aria-describedby={why ? 'own-why' : undefined}>판정하기</button>
         <button type="button" className="ghost" onClick={onClose}>접기</button>
-        {why && <span id="own-why" className="hint hint-error">{why}</span>}
+        {why ? <span id="own-why" className="hint hint-error">{why}</span> : <span className="hint">판정 30초쯤, 보류·탈락이면 고친 대본까지 1분쯤</span>}
       </div>
     </form>
   )
@@ -411,6 +452,14 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
   // 아래 「다음 예시 넣기」가 마지막으로 채운 대본. 누를 때마다 그다음 예시로 넘어간다
   const [lastFilled, setLastFilled] = useState<string | null>(null)
   const pick = (p: Pill) => (withFill && p.spec.kind === 'saved' ? fillFrom(p.spec.id) : addTurn(p.spec, query))
+  const [allOpen, setAllOpen] = useState(false)
+  const all = (row?: boolean) => (
+    <button type="button" className="pill pill-all" disabled={row ? busy : !decided} onClick={() => setAllOpen(true)} aria-haspopup="dialog">
+      예시 전체 보기 ({list.length})
+    </button>
+  )
+  const dialog = allOpen && <ExamplesDialog data={data} list={list} fill={withFill} onClose={() => setAllOpen(false)}
+    onPick={(s) => pick({ label: '', spec: { kind: 'saved', id: s.id } })} />
   let pills: Pill[]
   if (turns.length === 0) {
     pills = [
@@ -452,9 +501,10 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
           {live && <Composer onSubmit={submit} preset={preset} full={full} canFresh={!!freshOk} />}
           <div className="saved-picks">
             <p className="hint">{withFill ? '예시 넣기:' : '모아 둔 대본으로 바로 판정:'}</p>
-            <Pills pills={pills} onPick={pick} disabled={!decided} />
+            <Pills pills={pills} onPick={pick} disabled={!decided} more={all()} />
           </div>
         </div>
+        {dialog}
       </HeroShell>
     )
   }
@@ -479,9 +529,10 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
       <div className="feed-bottom" ref={bottom}>
         <div className="feed-bottom-in">
           {live && <Composer onSubmit={submit} disabled={busy} compact preset={preset} full={full} canFresh={!!freshOk} />}
-          <Pills pills={pills} onPick={pick} disabled={busy} row />
+          <Pills pills={pills} onPick={pick} disabled={busy} row more={all(true)} />
         </div>
       </div>
+      {dialog}
       {newBelow && <button type="button" className="new-below" onClick={jump}>판정 결과 보기 ↓</button>}
     </div>
   )
