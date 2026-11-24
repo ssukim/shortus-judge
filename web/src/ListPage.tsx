@@ -29,7 +29,7 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
     { id: 'hold', label: verdictWord(data, hold) },
     { id: 'fail', label: verdictWord(data, fail) },
     { id: 'test', label: '시험용' },
-    { id: 'diff', label: '채점자와 다르게 본 대본' },
+    { id: 'diff', label: '채점 에이전트와 다르게 본 대본' },
   ]
   const about: Record<Filter, string> = {
     '': '',
@@ -37,7 +37,7 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
     hold: '판정기가 고칠 곳이 있다고 본 대본입니다. 걸린 곳만 고쳐 다시 판정합니다.',
     fail: '판정기가 원래 글과 사실이 다르다고 본 대본입니다.',
     test: '판정기를 만들 때 한 번도 보지 않은 대본입니다. 「판정기를 믿을 근거」의 숫자가 이 50개에서 나왔습니다.',
-    diff: 'AI 채점 에이전트 세 명(시청자 20·40·60대 역할)의 다수결과 판정기의 판정이 다른 대본입니다. 줄마다 채점자와 판정기의 판정을 나란히 적었습니다.',
+    diff: 'AI 채점 에이전트 세 명(시청자 20·40·60대 역할)의 다수결과 판정기의 판정이 다른 대본입니다. 줄마다 채점 에이전트와 판정기의 판정을 나란히 적었습니다.',
   }
   const rows = shown.filter(match[f] ?? match[''])
   const siblings = (s: Script) => shown.filter((x) => x.source_id === s.source_id).length
@@ -70,7 +70,7 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
                 {siblings(s) > 1 && <span className="srow-sub"> · {s.nth}</span>}
               </a>
               <span className="srow-meta">
-                {f === 'diff' && gold && <span className="srow-flags">채점자 <VerdictBadge data={data} verdict={gold} /> · 판정기</span>}
+                {f === 'diff' && gold && <span className="srow-flags">채점 에이전트 <VerdictBadge data={data} verdict={gold} /> · 판정기</span>}
                 <VerdictBadge data={data} verdict={r.verdict} />
               </span>
             </li>

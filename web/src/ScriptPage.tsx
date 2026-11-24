@@ -34,12 +34,12 @@ export default function ScriptPage({ data, id }: { data: Data; id: string }) {
 
   const extra = (
     <section>
-      <h3>채점자와 견줌</h3>
+      <h3>채점 에이전트와 견줌</h3>
       <dl className="kv">
         <dt>판정기 결정</dt><dd><DecisionBadge data={data} r={f.r} /></dd>
         <dt>판정기 판정</dt><dd><Word data={data} verdict={f.r?.verdict} /></dd>
-        <dt>채점자 다수결</dt><dd><Word data={data} verdict={cons?.verdict} /> <span className="muted">(AI 채점 에이전트 세 명이 시청자 20·40·60대 역할로 판정기와 따로 매긴 것의 다수결)</span></dd>
-        <dt>확신한 걸림만</dt><dd><Word data={data} verdict={sure?.verdict} /> <span className="muted">(채점자가 「애매」로 적지 않은 걸림만 센 것)</span></dd>
+        <dt>채점 에이전트 다수결</dt><dd><Word data={data} verdict={cons?.verdict} /> <span className="muted">(AI 채점 에이전트 세 명이 시청자 20·40·60대 역할로 판정기와 따로 매긴 것의 다수결)</span></dd>
+        <dt>확신한 걸림만</dt><dd><Word data={data} verdict={sure?.verdict} /> <span className="muted">(채점 에이전트가 「애매」로 적지 않은 걸림만 센 것)</span></dd>
         {cons?.flags && <><dt>다르게 본 기준</dt><dd>{diff.length ? diff.map((n) => `${n} ${nameOf(n)}`).join(', ') : '없음'}</dd></>}
         <dt>쓰임</dt><dd>{s.test ? '시험용(판정기를 만들 때 한 번도 보지 않은 대본)' : '개발용(판정기의 오답을 읽고 지시문을 고칠 때 쓴 대본)'}</dd>
       </dl>

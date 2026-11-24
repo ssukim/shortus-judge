@@ -7,7 +7,7 @@ import { Panel, usePanel } from './Sheet'
 // 숫자는 모두 data.json(check)에서 읽는다. export_data.py가 tools/evaluate.py --redecide와 같은 셈으로 만들고 출력과 대조한다.
 
 const SET_WORD: Record<SetKey, string> = { test: '시험용', dev: '개발용', all: '전체' }
-const GOLD_WORD: Record<GoldKey, string> = { all: '채점자 다수결', sure: '확신한 걸림만' }
+const GOLD_WORD: Record<GoldKey, string> = { all: '채점 에이전트 다수결', sure: '확신한 걸림만' }
 const ci = (f: Frac) => `${f.lo}~${f.hi}%`
 
 /** 막대 한 줄: 이름, 막대, 숫자. 오차 범위(range)가 없으면 막대만 */
@@ -48,7 +48,7 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
   return (
     <>
       <p className="muted">
-        {SET_WORD[set]} 대본 {c.n}개를 {GOLD_WORD[gold]}({gold === 'sure' ? '채점자가 「애매」로 적지 않은 걸림만 센 다수결' : 'AI 채점 에이전트 세 명의 다수결'})과 견줬어요. 막대는 같게 본 비율, 옅은 띠는 오차 범위입니다.
+        {SET_WORD[set]} 대본 {c.n}개를 {GOLD_WORD[gold]}({gold === 'sure' ? '채점 에이전트가 「애매」로 적지 않은 걸림만 센 다수결' : 'AI 채점 에이전트 세 명의 다수결'})과 견줬어요. 막대는 같게 본 비율, 옅은 띠는 오차 범위입니다.
         대본이 적어 다른 대본으로 다시 재면 비율이 이 안에서 움직일 수 있다는 뜻입니다(95% Wilson 구간).
       </p>
       <h3>판정이 같은 대본</h3>
@@ -57,12 +57,12 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
         <BarRow label={`모든 대본을 ${topW}${ro(topW)} 내기`} f={{ k: c.baseline.k, n: c.n, lo: pct(c.baseline.k), hi: pct(c.baseline.k) }} range={false} />
       </ul>
 
-      <h3>채점자와 판정기</h3>
-      <div className="table-scroll" tabIndex={0} role="region" aria-label="채점자와 판정기 판정 표">
+      <h3>채점 에이전트와 판정기</h3>
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="채점 에이전트와 판정기 판정 표">
         <table className="metrics">
-          <caption className="sr-only">행은 채점자, 열은 판정기 판정</caption>
+          <caption className="sr-only">행은 채점 에이전트, 열은 판정기 판정</caption>
           <thead>
-            <tr><th scope="col">채점자 \ 판정기</th>{vs.map((v) => <th key={v} scope="col">{verdictWord(data, v)}</th>)}</tr>
+            <tr><th scope="col">채점 에이전트 \ 판정기</th>{vs.map((v) => <th key={v} scope="col">{verdictWord(data, v)}</th>)}</tr>
           </thead>
           <tbody>
             {vs.map((g) => (
@@ -77,8 +77,8 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
 
       <h3>치명 오류</h3>
       <ul className="muted defs">
-        <li>채점자가 {verdictWord(data, fail)}으로 본 {c.fail_n}개: 판정기도 {verdictWord(data, fail)} {c.fail_as_fail}, {verdictWord(data, hold)} {c.fail_as_hold}, <b>{verdictWord(data, pass)} {c.leak.length}</b></li>
-        <li>채점자가 {verdictWord(data, pass)}·{verdictWord(data, hold)}로 봤는데 판정기가 {verdictWord(data, fail)}시킨 것: {c.not_fail_n}개 중 {c.false_fail.length}개</li>
+        <li>채점 에이전트가 {verdictWord(data, fail)}으로 본 {c.fail_n}개: 판정기도 {verdictWord(data, fail)} {c.fail_as_fail}, {verdictWord(data, hold)} {c.fail_as_hold}, <b>{verdictWord(data, pass)} {c.leak.length}</b></li>
+        <li>채점 에이전트가 {verdictWord(data, pass)}·{verdictWord(data, hold)}로 봤는데 판정기가 {verdictWord(data, fail)}시킨 것: {c.not_fail_n}개 중 {c.false_fail.length}개</li>
       </ul>
       {c.leak.length > 0 && <><p className="small">탈락인데 통과시킨 대본</p><Ids ids={c.leak} /></>}
       {c.false_fail.length > 0 && <><p className="small">멀쩡한데 탈락시킨 대본</p><Ids ids={c.false_fail} /></>}
@@ -86,9 +86,9 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
       <h3>기준마다</h3>
       <div className="table-scroll" tabIndex={0} role="region" aria-label="기준마다 견준 표">
         <table className="metrics">
-          <caption className="sr-only">기준마다 채점자가 건 수와 판정기가 놓치거나 더 건 수</caption>
+          <caption className="sr-only">기준마다 채점 에이전트가 건 수와 판정기가 놓치거나 더 건 수</caption>
           <thead>
-            <tr><th scope="col">기준</th><th scope="col">채점자가 건 수</th><th scope="col">판정기도 걸음</th><th scope="col">놓침</th><th scope="col">더 걸음</th></tr>
+            <tr><th scope="col">기준</th><th scope="col">채점 에이전트가 건 수</th><th scope="col">판정기도 걸음</th><th scope="col">놓침</th><th scope="col">더 걸음</th></tr>
           </thead>
           <tbody>
             {Object.entries(c.criteria).map(([n, x]) => (
@@ -97,16 +97,16 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
           </tbody>
         </table>
       </div>
-      <p className="muted small">기준 5(표기)는 채점자 쪽도 판정기와 같은 표기 규칙에서 나와 견주지 않습니다. 기준 7(길이)과 10(끝맺음)은 진단만 냅니다.</p>
+      <p className="muted small">기준 5(표기)는 채점 에이전트 쪽도 판정기와 같은 표기 규칙에서 나와 견주지 않습니다. 기준 7(길이)과 10(끝맺음)은 진단만 냅니다.</p>
 
-      <h3>채점자와 다르게 본 대본 {c.diffs.length}개</h3>
+      <h3>채점 에이전트와 다르게 본 대본 {c.diffs.length}개</h3>
       <ul className="difflist" aria-label="판정기가 정답과 다르게 본 대본">
         {c.diffs.map((d) => {
           const sc = script(d.id)
           return (
             <li key={d.id} className="diff-item diff-verdict">
               {sc ? <ScriptName data={data} s={sc} link /> : d.id}
-              <p className="diff-v">채점자 <VerdictBadge data={data} verdict={d.gold} /> · 판정기 <VerdictBadge data={data} verdict={d.verdict} /></p>
+              <p className="diff-v">채점 에이전트 <VerdictBadge data={data} verdict={d.gold} /> · 판정기 <VerdictBadge data={data} verdict={d.verdict} /></p>
             </li>
           )
         })}
@@ -133,7 +133,7 @@ export default function CheckPage({ data }: { data: Data }) {
         return (
           <li key={id} className="diff-item diff-verdict">
             {s ? <ScriptName data={data} s={s} link /> : id}
-            {d && <p className="diff-v">채점자 <VerdictBadge data={data} verdict={d.gold} /> · 판정기 <VerdictBadge data={data} verdict={d.verdict} /></p>}
+            {d && <p className="diff-v">채점 에이전트 <VerdictBadge data={data} verdict={d.gold} /> · 판정기 <VerdictBadge data={data} verdict={d.verdict} /></p>}
           </li>
         )
       })}
@@ -146,10 +146,10 @@ export default function CheckPage({ data }: { data: Data }) {
       <p className="muted">
         판정기를 만들 때 한 번도 보지 않은 대본 {t.n}개(목록의 「시험용」)로 시험했습니다.
         AI 채점 에이전트 세 명(20·40·60대 시청자 역할)도 같은 대본을 따로 판정했고, 다수결 결과를 판정기와 비교했습니다.
-        채점자가 {w(fail)}으로 본 대본은 사람이 원래 글과 대조해 확인했습니다.
+        채점 에이전트가 {w(fail)}으로 본 대본은 사람이 원래 글과 대조해 확인했습니다.
       </p>
       <div className="stat-row">
-        <div className="stat"><b>{t.verdict.k}개</b><span>{t.n}개 중 채점자와 판정이 같았습니다</span><small>전부 「{w(t.baseline.top)}」로만 내도 채점자와 {t.baseline.k}개가 같습니다</small></div>
+        <div className="stat"><b>{t.verdict.k}개</b><span>{t.n}개 중 채점 에이전트와 판정이 같았습니다</span><small>전부 「{w(t.baseline.top)}」로만 내도 채점 에이전트와 {t.baseline.k}개가 같습니다</small></div>
         <div className="stat"><b>{t.fail_n - t.leak.length}개</b><span>사실이 틀린 대본 {t.fail_n}개 중 {t.fail_n - t.leak.length}개를 막았습니다</span><small>{t.leak.length}개는 통과시켰습니다(아래 목록)</small></div>
         <div className="stat"><b>{t.false_fail.length}개</b><span>멀쩡한 대본 {t.not_fail_n}개 중 {t.false_fail.length}개를 잘못 {w(fail)}시켰습니다</span><small>아래 목록</small></div>
       </div>
@@ -160,7 +160,7 @@ export default function CheckPage({ data }: { data: Data }) {
       <h3>멀쩡한데 {w(fail)}시킨 대본 {t.false_fail.length}개</h3>
       <Wrong ids={t.false_fail} />
       <p className="muted small">
-        대본 98개 중 판정기와 채점자의 판정이 다른 것은 {all.diffs.length}개입니다. <a href={href(['list'], { f: 'diff' })}>모아 둔 대본에서 보기</a>
+        대본 98개 중 판정기와 채점 에이전트의 판정이 다른 것은 {all.diffs.length}개입니다. <a href={href(['list'], { f: 'diff' })}>모아 둔 대본에서 보기</a>
       </p>
       <button type="button" className="detail-btn" aria-expanded={sheet.open} onClick={(e) => sheet.show(e.currentTarget)}>숫자 자세히 보기</button>
 
@@ -168,7 +168,7 @@ export default function CheckPage({ data }: { data: Data }) {
         <Panel title="숫자로 본 판정기" sub={`최종 판정기 · 모델 ${data.model}`} onClose={sheet.hide}>
           <div className="detail">
             <Picker label="대본" words={SET_WORD} value={set} onPick={setSet} />
-            <Picker label="채점자" words={GOLD_WORD} value={gold} onPick={setGold} />
+            <Picker label="채점 에이전트" words={GOLD_WORD} value={gold} onPick={setGold} />
             <Numbers data={data} c={data.check[gold][set]} set={set} gold={gold} />
           </div>
         </Panel>
