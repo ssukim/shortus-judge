@@ -102,6 +102,17 @@ html { scroll-padding-top: calc(var(--top-h, 0px) + 8px); scroll-padding-bottom:
 /* 입력 칸과 단추 줄: 판정 서버 확인이 끝나면 한 번에 살짝 나타난다. 제목은 위에서부터 놓여 있어 움직이지 않는다 */
 .hero-below { display: flex; flex-direction: column; gap: 20px; opacity: 0; transition: opacity .2s ease; }
 .hero-below.on { opacity: 1; }
+.hero-below-wait { display: none; }
+.hero-skel { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.skel { display: block; border-radius: 999px; background: linear-gradient(90deg, var(--soft) 25%, var(--line) 50%, var(--soft) 75%);
+  background-size: 200% 100%; animation: skel 1.2s ease-in-out infinite; }
+.skel-tabs, .skel-pills { display: flex; gap: 8px; justify-content: center; }
+.skel-tab { width: 128px; height: 36px; }
+.skel-input { width: 100%; height: 56px; border-radius: 28px; }
+.skel-pills { margin-top: 26px; }
+.skel-pill { width: 72px; height: 44px; }
+@keyframes skel { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skel { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .hero-below { transition: none; } }
 .hero-title { font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.3; margin: 0; letter-spacing: -0.01em; }
 

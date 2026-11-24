@@ -347,12 +347,24 @@ function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy, full 
 // ---- 화면 ----
 
 /** 첫 화면 틀. 자료를 받기 전(App)과 받은 뒤(Feed)에 제목이 같은 자리에 있게 위에서부터 놓는다 */
+/** 첫 화면을 준비하는 동안 입력 칸 자리에 보이는 뼈대(자료·판정 서버 확인을 기다리는 동안) */
+function HeroLoading() {
+  return (
+    <div className="hero-skel" aria-busy="true">
+      <span className="sr-only" role="status">판정기를 준비하고 있어요</span>
+      <div className="skel-tabs"><span className="skel skel-tab" /><span className="skel skel-tab" /></div>
+      <div className="skel skel-input" />
+      <div className="skel-pills"><span className="skel skel-pill" /><span className="skel skel-pill" /><span className="skel skel-pill" /><span className="skel skel-pill" /></div>
+    </div>
+  )
+}
+
 export function HeroShell({ children }: { children?: ReactNode }) {
   return (
     <div className="hero">
       <div className="hero-main">
         <h1 className="hero-title">쇼츠 대본을 영상으로 만들기 전에 판정합니다</h1>
-        {children}
+        {children ?? <HeroLoading />}
       </div>
     </div>
   )
@@ -433,7 +445,8 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
       <HeroShell>
         {/* 판정 서버 확인(probeLive, probeFresh)이 끝나기 전에는 입력 칸과 단추 줄을 같이 숨긴다.
             어느 단추 줄인지(예시 글 넣기 / 바로 판정)가 확인 결과로 정해지기 때문. 끝나면 둘이 한 번에 나타난다 */}
-        <div className={decided ? 'hero-below on' : 'hero-below'} aria-hidden={!decided} inert={!decided}>
+        {!decided && <HeroLoading />}
+        <div className={decided ? 'hero-below on' : 'hero-below hero-below-wait'} aria-hidden={!decided} inert={!decided}>
           {live && <Composer onSubmit={submit} preset={preset} full={full} canFresh={!!freshOk} />}
           <div className="saved-picks">
             <p className="hint">{withFill ? '예시 넣기:' : '모아 둔 대본으로 바로 판정:'}</p>

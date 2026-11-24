@@ -35,6 +35,7 @@ DAILY_LIMIT = int(os.environ.get("FRESH_DAILY_LIMIT", "20"))  # 이 서버가 �
 SHOWN_FIELDS = ("id", "text_source_id", "status", "full_text", "estimated_duration_sec", "sections")
 SHOWN_SECTION = ("role", "text", "estimated_sec", "reading")
 
+QUOTA_TIMEOUT_SEC = 2         # 남은 한도를 물을 때 기다리는 최대 시간. 화면이 확인을 3초까지 기다리므로 그 안에 답한다
 QUOTA_TTL_SEC = 60            # 쇼더스 남은 한도를 다시 묻는 간격 (GET /v1/meta/quota-status, 크레딧 0, 가정값)
 
 _lock = threading.Lock()
@@ -65,7 +66,7 @@ def status():
         fresh_enough = time.monotonic() - _quota["at"] < QUOTA_TTL_SEC
     if key and not fresh_enough:
         try:
-            q = _call(key, "GET", "/v1/meta/quota-status").get("daily_t2s_starts") or {}
+            q = _call(key, "GET", "/v1/meta/quota-status", timeout=QUOTA_TIMEOUT_SEC).get("daily_t2s_starts") or {}
             if "limit" in q:
                 with _lock:
                     _quota.update(at=time.monotonic(), full=q.get("used", 0) >= q["limit"], resets_at=q.get("resets_at"),
@@ -84,13 +85,13 @@ def source_ids():
     return sorted(p.stem for p in config.SOURCES.glob("*.txt"))
 
 
-def _call(key, method, path, body=None):
+def _call(key, method, path, body=None, timeout=HTTP_TIMEOUT_SEC):
     data = json.dumps(body).encode() if body is not None else None
     headers = {"Authorization": f"Bearer {key}", "Accept": "application/json"}
     if data:
         headers["Content-Type"] = "application/json"
     req = urllib.request.Request(BASE_URL + path, data=data, headers=headers, method=method)
-    with urllib.request.urlopen(req, timeout=HTTP_TIMEOUT_SEC) as resp:
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
 
