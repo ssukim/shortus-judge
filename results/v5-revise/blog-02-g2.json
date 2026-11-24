@@ -1,0 +1,435 @@
+{
+ "id": "blog-02-g2",
+ "source_id": "blog-02",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "설탕 대신 식초를 1큰술 넣으면",
+     "source_quote": "",
+     "reason": "넣은 글에는 설탕을 식초로 대신하라는 내용이 없고, 설탕은 반 작은술을 넣으라고 되어 있어 새 지시가 추가되었다."
+    }
+   ],
+   "votes": "2/3",
+   "doubt": false,
+   "by": "model"
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "신맛을 살릴 수 있어요",
+     "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요.",
+     "reason": "넣은 글의 '어느 정도'라는 제한이 빠져 신맛이 완전히 살아나는 것처럼 세게 말했다."
+    }
+   ],
+   "votes": "1/3",
+   "by": "model",
+   "doubt": false
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model",
+   "doubt": false
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 25.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "설탕은 반 작은술만 넣어야 해요. 많이 넣으면 찌개가 달아져서 오히려 이상해져요."
+  },
+  {
+   "scene": 2,
+   "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요."
+  },
+  {
+   "scene": 3,
+   "source_quote": "먼저 냄비에 고기를 넣고 중불에서 3분 정도 볶다가 김치를 넣고 5분 더 볶아요. 그다음 물을 붓고 센불에서 끓기 시작하면 중약불로 줄여 15분 끓여요."
+  },
+  {
+   "scene": 4,
+   "source_quote": "설탕은 반 작은술만 넣어야 해요."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+   "estimated_sec": 7.9
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "김치가 덜 익었을 때는 설탕 대신 식초를 1큰술 넣으면 신맛을 살릴 수 있어요.",
+   "estimated_sec": 7.5
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+   "estimated_sec": 7.0
+  },
+  {
+   "scene": 4,
+   "role": "cta",
+   "text": "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+   "estimated_sec": 6.7
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 26.2,
+    "input_tokens": 2,
+    "output_tokens": 5845,
+    "cache_creation_input_tokens": 4570,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00349
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 25.6,
+    "input_tokens": 2,
+    "output_tokens": 5801,
+    "cache_creation_input_tokens": 4571,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00347
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 23.9,
+    "input_tokens": 2,
+    "output_tokens": 5317,
+    "cache_creation_input_tokens": 393,
+    "cache_read_input_tokens": 4178,
+    "cost_usd": 0.00275
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 10.4,
+    "input_tokens": 2,
+    "output_tokens": 1564,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2580,
+    "cost_usd": 0.00086
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 18527,
+   "cache_creation_input_tokens": 9928,
+   "cache_read_input_tokens": 6758
+  },
+  "cost_usd_est": 0.01057,
+  "sec": 26.3,
+  "revise_cost_usd": 0.00974,
+  "revise_sec": 24.4
+ },
+ "revisions": [
+  {
+   "round": 1,
+   "error": null,
+   "scenes": [
+    {
+     "n": 1,
+     "before": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+     "after": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 2,
+     "before": "김치가 덜 익었을 때는 설탕 대신 식초를 1큰술 넣으면 신맛을 살릴 수 있어요.",
+     "after": "김치가 덜 익었을 때는 식초를 1큰술 넣으면 신맛이 어느 정도 살아나요.",
+     "changed": true,
+     "why": "넣은 글에 없는 '설탕 대신 식초' 대체 지시를 빼고, 식초를 더하는 것으로 바로잡았으며, '살릴 수 있다'를 원문의 '어느 정도 살아난다'는 말 세기로 돌렸습니다.",
+     "too_long": false
+    },
+    {
+     "n": 3,
+     "before": "고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+     "after": "고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 4,
+     "before": "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+     "after": "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    }
+   ],
+   "reverted": [],
+   "result": {
+    "id": "blog-02-g2",
+    "source_id": "blog-02",
+    "verdict": "통과",
+    "why": [],
+    "diagnostics": [
+     6
+    ],
+    "criteria": {
+     "1": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "2": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "3": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "4": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "5": {
+      "result": "안 걸림",
+      "findings": [],
+      "vague": [],
+      "unfixable": [],
+      "by": "code"
+     },
+     "6": {
+      "result": "걸림",
+      "findings": [
+       {
+        "scene": 4,
+        "quote": "맛있게 완성됩니다",
+        "source_quote": "",
+        "reason": "\"완성됩니다\"는 문서처럼 쓴 피동 표현이라, 말하듯 \"맛있게 돼요\"나 \"맛있어져요\"로 말하는 것이 자연스럽습니다."
+       },
+       {
+        "scene": 1,
+        "quote": "찌개 맛을 망칠 수 있습니다",
+        "source_quote": "",
+        "reason": "\"~수 있습니다\"는 설명서 말투라서, 말하는 사람이 쓰는 \"망칠 수도 있어요\"와 결이 다릅니다."
+       }
+      ],
+      "by": "model"
+     },
+     "7": {
+      "result": "안 걸림",
+      "findings": [],
+      "total_sec": 24.7,
+      "by": "code"
+     },
+     "8": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "9": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "10": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     }
+    },
+    "grounding": [
+     {
+      "scene": 1,
+      "source_quote": "설탕은 반 작은술만 넣어야 해요. 많이 넣으면 찌개가 달아져서 오히려 이상해져요."
+     },
+     {
+      "scene": 2,
+      "source_quote": "김치가 덜 익었으면 식초를 1큰술(15ml) 넣으면 신맛이 어느 정도 살아나요."
+     },
+     {
+      "scene": 3,
+      "source_quote": "먼저 냄비에 고기를 넣고 중불에서 3분 정도 볶다가 김치를 넣고 5분 더 볶아요. 그다음 물을 붓고 센불에서 끓기 시작하면 중약불로 줄여 15분 끓여요."
+     },
+     {
+      "scene": 4,
+      "source_quote": "설탕은 반 작은술만 넣어야 해요."
+     }
+    ],
+    "scenes": [
+     {
+      "scene": 1,
+      "role": "hook",
+      "text": "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+      "estimated_sec": 7.9
+     },
+     {
+      "scene": 2,
+      "role": "point",
+      "text": "김치가 덜 익었을 때는 식초를 1큰술 넣으면 신맛이 어느 정도 살아나요.",
+      "estimated_sec": 6.8
+     },
+     {
+      "scene": 3,
+      "role": "point",
+      "text": "고기를 먼저 볶다가 김치를 넣고 5분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+      "estimated_sec": 7.0
+     },
+     {
+      "scene": 4,
+      "role": "cta",
+      "text": "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다.",
+      "estimated_sec": 6.7
+     }
+    ],
+    "fixed_scenes": [
+     "신김치가 없어서 고민일 때 설탕을 듬뿍 넣으면 오히려 찌개 맛을 망칠 수 있습니다.",
+     "김치가 덜 익었을 때는 식초를 1큰술 넣으면 신맛이 어느 정도 살아나요.",
+     "고기를 먼저 볶다가 김치를 넣고 오 분 더 볶은 뒤 물을 부어 끓여야 합니다.",
+     "설탕은 반 작은술만 넣어야 찌개가 달아지지 않고 맛있게 완성됩니다."
+    ],
+    "run": {
+     "model": "claude-haiku-5-5",
+     "backend": "claude-cli",
+     "effort": "medium",
+     "calls": 4,
+     "call_log": [
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 18.7,
+       "input_tokens": 2,
+       "output_tokens": 4258,
+       "cache_creation_input_tokens": 4561,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.0027
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 12.6,
+       "input_tokens": 2,
+       "output_tokens": 2916,
+       "cache_creation_input_tokens": 4562,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00203
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 14.2,
+       "input_tokens": 2,
+       "output_tokens": 3302,
+       "cache_creation_input_tokens": 4563,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00222
+      },
+      {
+       "group": "flow",
+       "attempt": 1,
+       "sec": 17.2,
+       "input_tokens": 2,
+       "output_tokens": 3503,
+       "cache_creation_input_tokens": 2963,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00212
+      }
+     ],
+     "usage": {
+      "input_tokens": 8,
+      "output_tokens": 13979,
+      "cache_creation_input_tokens": 16649,
+      "cache_read_input_tokens": 0
+     },
+     "cost_usd_est": 0.00907,
+     "sec": 18.7
+    }
+   },
+   "calls": [
+    {
+     "group": "revise",
+     "attempt": 1,
+     "sec": 5.7,
+     "input_tokens": 2,
+     "output_tokens": 806,
+     "cache_creation_input_tokens": 2123,
+     "cache_read_input_tokens": 0,
+     "cost_usd": 0.00067
+    }
+   ],
+   "cost_usd": 0.00974,
+   "sec": 24.4
+  }
+ ],
+ "decision": {
+  "action": "render_revised",
+  "round": 1,
+  "remaining": [],
+  "reason": "1번째 고친 대본이 다시 판정에서 통과해 그 대본으로 만듭니다."
+ }
+}

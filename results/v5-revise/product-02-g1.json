@@ -1,0 +1,533 @@
+{
+ "id": "product-02-g1",
+ "source_id": "product-02",
+ "verdict": "탈락",
+ "why": [
+  "기준 1 걸림"
+ ],
+ "diagnostics": [
+  5,
+  6,
+  9
+ ],
+ "criteria": {
+  "1": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "실리콘 종이 호일과 꼬치 세트를 증정합니다",
+     "source_quote": "사은품은 선착순 500명까지이며 소진되면 조기 종료됩니다.",
+     "reason": "선착순 500명 조건이 빠져 구매자 모두가 사은품을 받는 것처럼 대상이 넓어진 틀린 말이 됨"
+    }
+   ],
+   "votes": "3/3",
+   "by": "model",
+   "doubt": false
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "5": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "5.5L",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 4,
+     "quote": "1,700W",
+     "reason": "잘못 읽는 표기 — 영문 단위 기호"
+    },
+    {
+     "scene": 5,
+     "quote": "4,000원에",
+     "reason": "잘못 읽는 표기 — 쉼표 든 금액"
+    }
+   ],
+   "vague": [
+    {
+     "scene": 3,
+     "quote": "AF-55는",
+     "reason": "애매한 표기 — 영문 약어"
+    }
+   ],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 3,
+     "quote": "조리 가능합니다",
+     "source_quote": "",
+     "reason": "\"사용 가능합니다\"와 같은 문서체 표현이다."
+    },
+    {
+     "scene": 4,
+     "quote": "예열 없이 바로 조리하며 80도부터 200도까지 5도 단위로 세밀하게 조절됩니다",
+     "source_quote": "",
+     "reason": "\"~하며\"로 잇고 \"조절됩니다\"로 끝내는 문서체 서술이다."
+    },
+    {
+     "scene": 5,
+     "quote": "12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며",
+     "source_quote": "",
+     "reason": "\"~하며\" 연결이 문서체이며, 말하는 문장으로는 어색하다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 39.3,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다",
+     "source_quote": "",
+     "reason": "장면 1의 \"바스켓 크기 때문에 고민\"과 같은 불편을 말만 바꿔 다시 말했다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "5.5L 대용량 바스켓으로 통닭 한 마리(약 1.2kg)도 자르지 않고 한 번에 조리할 수 있습니다."
+  },
+  {
+   "scene": 2,
+   "source_quote": "3~4인 가족 한 끼 분량을 나눠 굽지 않아도 됩니다."
+  },
+  {
+   "scene": 3,
+   "source_quote": "5.5L 대용량 바스켓으로 통닭 한 마리(약 1.2kg)도 자르지 않고 한 번에 조리할 수 있습니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "소비전력 1,700W 고출력 히터로 예열 없이 바로 조리 / 온도 80~200℃, 5℃ 단위로 세밀하게 조절"
+  },
+  {
+   "scene": 5,
+   "source_quote": "12월 31일까지 정가 15만 9,000원에서 22% 할인된 12만 4,000원에 판매합니다. 지금 구매하시면 실리콘 종이 호일 50매와 전용 꼬치 세트를 함께 보내 드립니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+   "estimated_sec": 7.6
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다.",
+   "estimated_sec": 8.3
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리 가능합니다.",
+   "estimated_sec": 9.3
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "1,700W 고출력 히터로 예열 없이 바로 조리하며 80도부터 200도까지 5도 단위로 세밀하게 조절됩니다.",
+   "estimated_sec": 9.8
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+   "estimated_sec": 10.2
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.5,
+    "input_tokens": 2,
+    "output_tokens": 4249,
+    "cache_creation_input_tokens": 4992,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00275
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 17.1,
+    "input_tokens": 2,
+    "output_tokens": 4065,
+    "cache_creation_input_tokens": 4993,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00266
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 19.4,
+    "input_tokens": 2,
+    "output_tokens": 4915,
+    "cache_creation_input_tokens": 4990,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00308
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 15.6,
+    "input_tokens": 2,
+    "output_tokens": 3446,
+    "cache_creation_input_tokens": 391,
+    "cache_read_input_tokens": 3001,
+    "cost_usd": 0.0018
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 16675,
+   "cache_creation_input_tokens": 15366,
+   "cache_read_input_tokens": 3001
+  },
+  "cost_usd_est": 0.01029,
+  "sec": 19.4,
+  "revise_cost_usd": 0.01091,
+  "revise_sec": 32.2
+ },
+ "revisions": [
+  {
+   "round": 1,
+   "error": null,
+   "scenes": [
+    {
+     "n": 1,
+     "before": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+     "after": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 2,
+     "before": "대용량 요리를 할 때마다 음식을 잘라서 여러 번 나눠 굽는 과정이 번거로울 수 있습니다.",
+     "after": "3~4인 가족 한 끼 분량도 나눠 굽지 않아도 됩니다.",
+     "changed": true,
+     "why": "장면 1의 바스켓 크기 고민을 말만 바꿔 되풀이했기에, 넣은 글의 '3~4인 가족 한 끼 분량을 나눠 굽지 않아도 됨'으로 바꿨습니다.",
+     "too_long": false
+    },
+    {
+     "n": 3,
+     "before": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리 가능합니다.",
+     "after": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리할 수 있습니다.",
+     "changed": true,
+     "why": "'조리 가능합니다'는 문서체 표현이라 말하듯 '조리할 수 있습니다'로 고쳤습니다.",
+     "too_long": false
+    },
+    {
+     "n": 4,
+     "before": "1,700W 고출력 히터로 예열 없이 바로 조리하며 80도부터 200도까지 5도 단위로 세밀하게 조절됩니다.",
+     "after": "1,700W 고출력 히터라 예열 없이 바로 조리할 수 있고, 온도는 80도에서 200도까지 5도 단위로 맞출 수 있습니다.",
+     "changed": true,
+     "why": "'~하며'로 잇고 '조절됩니다'로 끝나는 문서체 서술을 말하듯 바꾸고, 넣은 글의 수치는 그대로 두었습니다.",
+     "too_long": false
+    },
+    {
+     "n": 5,
+     "before": "12월 31일까지 22퍼센트 할인된 12만 4,000원에 판매하며 실리콘 종이 호일과 꼬치 세트를 증정합니다.",
+     "after": "12월 31일까지 22퍼센트 할인된 12만 4,000원입니다. 실리콘 종이 호일과 꼬치 세트는 선착순 500명까지만 드립니다.",
+     "changed": true,
+     "why": "'~하며' 문서체를 끊어 말하듯 바꾸고, 빠졌던 선착순 500명 조건을 넣은 글에 맞춰 더해 사은품 대상이 구매자 모두로 넓어지는 오류를 바로잡았습니다.",
+     "too_long": false
+    }
+   ],
+   "reverted": [],
+   "result": {
+    "id": "product-02-g1",
+    "source_id": "product-02",
+    "verdict": "통과",
+    "why": [],
+    "diagnostics": [
+     5,
+     7
+    ],
+    "criteria": {
+     "1": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "2": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "3": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "4": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "5": {
+      "result": "걸림",
+      "findings": [
+       {
+        "scene": 3,
+        "quote": "5.5L",
+        "reason": "잘못 읽는 표기 — 영문 단위 기호",
+        "fix": "5.5리터"
+       },
+       {
+        "scene": 4,
+        "quote": "1,700W",
+        "reason": "잘못 읽는 표기 — 영문 단위 기호",
+        "fix": "1700와트"
+       },
+       {
+        "scene": 5,
+        "quote": "4,000원입니다.",
+        "reason": "잘못 읽는 표기 — 쉼표 든 금액",
+        "fix": "4000원입니다."
+       }
+      ],
+      "vague": [
+       {
+        "scene": 2,
+        "quote": "3~4인",
+        "reason": "애매한 표기 — 범위 기호"
+       },
+       {
+        "scene": 3,
+        "quote": "AF-55는",
+        "reason": "애매한 표기 — 영문 약어"
+       }
+      ],
+      "unfixable": [],
+      "by": "code"
+     },
+     "6": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "7": {
+      "result": "걸림",
+      "findings": [
+       {
+        "scene": 5,
+        "quote": "12월 31일까지 22퍼센트 할인된 12만 4,000원",
+        "reason": "장면 읽는 시간 10.2초 > 10초"
+       }
+      ],
+      "total_sec": 39.2,
+      "by": "code"
+     },
+     "8": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "9": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "10": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     }
+    },
+    "grounding": [
+     {
+      "scene": 1,
+      "source_quote": "5.5L 대용량 바스켓으로 통닭 한 마리(약 1.2kg)도 자르지 않고 한 번에 조리할 수 있습니다."
+     },
+     {
+      "scene": 2,
+      "source_quote": "3~4인 가족 한 끼 분량을 나눠 굽지 않아도 됩니다."
+     },
+     {
+      "scene": 3,
+      "source_quote": "5.5L 대용량 바스켓으로 통닭 한 마리(약 1.2kg)도 자르지 않고 한 번에 조리할 수 있습니다."
+     },
+     {
+      "scene": 4,
+      "source_quote": "소비전력 1,700W 고출력 히터로 예열 없이 바로 조리 / 온도 80~200℃, 5℃ 단위로 세밀하게 조절"
+     },
+     {
+      "scene": 5,
+      "source_quote": "12월 31일까지 정가 15만 9,000원에서 22% 할인된 12만 4,000원에 판매합니다. 지금 구매하시면 실리콘 종이 호일 50매와 전용 꼬치 세트를 함께 보내 드립니다. 사은품은 선착순 500명까지이며 소진되면 조기 종료됩니다."
+     }
+    ],
+    "scenes": [
+     {
+      "scene": 1,
+      "role": "hook",
+      "text": "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+      "estimated_sec": 7.6
+     },
+     {
+      "scene": 2,
+      "role": "point",
+      "text": "3~4인 가족 한 끼 분량도 나눠 굽지 않아도 됩니다.",
+      "estimated_sec": 5.1
+     },
+     {
+      "scene": 3,
+      "role": "point",
+      "text": "솔바람 에어프라이어 AF-55는 5.5L 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리할 수 있습니다.",
+      "estimated_sec": 9.6
+     },
+     {
+      "scene": 4,
+      "role": "point",
+      "text": "1,700W 고출력 히터라 예열 없이 바로 조리할 수 있고, 온도는 80도에서 200도까지 5도 단위로 맞출 수 있습니다.",
+      "estimated_sec": 11.1
+     },
+     {
+      "scene": 5,
+      "role": "cta",
+      "text": "12월 31일까지 22퍼센트 할인된 12만 4,000원입니다. 실리콘 종이 호일과 꼬치 세트는 선착순 500명까지만 드립니다.",
+      "estimated_sec": 11.7
+     }
+    ],
+    "fixed_scenes": [
+     "통닭 한 마리를 한꺼번에 조리하려고 할 때 바스켓 크기 때문에 고민이 생겼어요.",
+     "3~4인 가족 한 끼 분량도 나눠 굽지 않아도 됩니다.",
+     "솔바람 에어프라이어 AF-55는 오 점 오 리터 대용량 바스켓으로 통닭 한 마리도 자르지 않고 조리할 수 있습니다.",
+     "천칠백 와트 고출력 히터라 예열 없이 바로 조리할 수 있고, 온도는 팔십 도에서 이백 도까지 오 도 단위로 맞출 수 있습니다.",
+     "12월 31일까지 이십이 퍼센트 할인된 십이만 사천원입니다. 실리콘 종이 호일과 꼬치 세트는 선착순 500명까지만 드립니다."
+    ],
+    "run": {
+     "model": "claude-haiku-5-5",
+     "backend": "claude-cli",
+     "effort": "medium",
+     "calls": 4,
+     "call_log": [
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 11.9,
+       "input_tokens": 2,
+       "output_tokens": 2799,
+       "cache_creation_input_tokens": 4987,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00202
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 14.5,
+       "input_tokens": 2,
+       "output_tokens": 3492,
+       "cache_creation_input_tokens": 4985,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00237
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 16.8,
+       "input_tokens": 2,
+       "output_tokens": 4000,
+       "cache_creation_input_tokens": 4986,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00262
+      },
+      {
+       "group": "flow",
+       "attempt": 1,
+       "sec": 12.3,
+       "input_tokens": 2,
+       "output_tokens": 2663,
+       "cache_creation_input_tokens": 3389,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00176
+      }
+     ],
+     "usage": {
+      "input_tokens": 8,
+      "output_tokens": 12954,
+      "cache_creation_input_tokens": 18347,
+      "cache_read_input_tokens": 0
+     },
+     "cost_usd_est": 0.00877,
+     "sec": 16.8
+    }
+   },
+   "calls": [
+    {
+     "group": "revise",
+     "attempt": 1,
+     "sec": 15.5,
+     "input_tokens": 2,
+     "output_tokens": 3517,
+     "cache_creation_input_tokens": 3027,
+     "cache_read_input_tokens": 0,
+     "cost_usd": 0.00214
+    }
+   ],
+   "cost_usd": 0.01091,
+   "sec": 32.2
+  }
+ ],
+ "decision": {
+  "action": "render_revised",
+  "round": 1,
+  "remaining": [],
+  "reason": "1번째 고친 대본이 다시 판정에서 통과해 그 대본으로 만듭니다."
+ }
+}

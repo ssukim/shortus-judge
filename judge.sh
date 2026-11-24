@@ -14,6 +14,7 @@
 #   JUDGE_MODEL    기본 claude-haiku-5-5. claude-sonnet-5-5 로 바꿀 수 있다.
 #   JUDGE_BACKEND  기본 claude-cli(이 컴퓨터에 로그인한 Claude Code). api 로 두면 .env의 ANTHROPIC_API_KEY.
 #   JUDGE_WORKERS  동시에 판정할 대본 수 (기본 6)
+#   JUDGE_REVISE   0이면 보류·탈락 대본을 고쳐 다시 판정하지 않는다(기본 1, judge/revise.py). dev·test는 늘 끈다.
 #   JUDGE_LISTEN   1이면 듣기 검사(숫자 든 장면을 쇼더스 목소리로 읽혀 받아쓰기로 대조)를 더한다. .venv의 파이썬으로 돈다.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

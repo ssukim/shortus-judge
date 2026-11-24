@@ -98,7 +98,11 @@ html { scroll-padding-top: calc(var(--top-h, 0px) + 8px); scroll-padding-bottom:
 
 /* ---- 첫 화면 ---- */
 .hero { min-height: calc(100vh - var(--top-h, 0px)); min-height: calc(100dvh - var(--top-h, 0px)); display: flex; flex-direction: column; text-align: center; padding: 8px 0 12px; }
-.hero-main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.hero-main { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; padding-top: clamp(40px, 22vh, 220px); }
+/* 입력 칸과 단추 줄: 판정 서버 확인이 끝나면 한 번에 살짝 나타난다. 제목은 위에서부터 놓여 있어 움직이지 않는다 */
+.hero-below { display: flex; flex-direction: column; gap: 20px; opacity: 0; transition: opacity .2s ease; }
+.hero-below.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero-below { transition: none; } }
 .hero-title { font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.3; margin: 0; letter-spacing: -0.01em; }
 
 .composer-closed { width: 100%; min-height: 56px; text-align: left; font: inherit; color: var(--muted); padding: 12px 22px; border: 1px solid var(--line); border-radius: 28px; background: var(--soft); cursor: text; }
@@ -168,7 +172,7 @@ button.ghost { font: inherit; min-height: 44px; padding: 6px 18px; border: 1px s
 .bot-head .bot-name { margin: 0; flex: 1; min-width: 0; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
 .bot-head .bot-at { flex: none; }
 .bot-head .vtags { flex-wrap: nowrap; overflow: hidden; }
-.bot-head .vtags .vtag { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.bot-head .vtags .vtag { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; line-height: 1.6; } /* 줄 높이가 낮으면 「만듦」의 받침이 잘려 「만들」로 보인다 */
 .bot-head .fact-mark { flex: none; }
 .bot-flow { padding-left: 38px; }
 .bot-flow .script, .bot-flow .listen-all, .bot-flow .report-card, .bot-flow .checklist, .bot-flow .rev, .bot-flow .detail-btn, .bot-flow button.link { margin-left: 0; }
@@ -507,3 +511,43 @@ button.sn-no { vertical-align: baseline; padding: 4px 2px; margin: 0; color: var
 .rev .listen-all, .panel .listen-all { margin-left: 0; }
 .script li.playing, .rev-list > li.playing { background: var(--soft); border-radius: 8px; }
 @media (max-width: 760px) { .listen-all { margin-left: 0; } .feed-bottom { left: 0; } .new-below { left: 50%; } }
+
+/* 쇼더스 하루 한도를 다 썼을 때: 꺼진 입력 칸과 까닭, 저장해 둔 결과를 대신 보일 때 판정봇이 먼저 하는 말 */
+.composer-wrap { display: flex; flex-direction: column; gap: 8px; }
+.turn-again .hint { align-self: center; margin-left: 8px; }
+.bot-notice { color: var(--hold-fg); }
+
+/* 밑줄 친 걸린 구절: 번호처럼 눌러서 보고서의 그 기준을 연다 */
+.hit-click { cursor: pointer; }
+.hit-click:hover .hit-u, .hit-click:hover ins { text-decoration-thickness: 3px; }
+
+/* 차례 말풍선 아래: 판정기에 실제로 넣은 것(넣은 글 글자 수, 대본 장면 수). 누르면 보고서의 「넣은 글」 탭 */
+.ask-input { display: block; margin: -8px 0 14px auto; width: fit-content; max-width: 90%; background: none; border: 0; padding: 0;
+  font: inherit; font-size: 0.8125rem; color: var(--muted); text-align: right; }
+button.ask-input { cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+button.ask-input:hover { color: var(--text); }
+
+/* 첫 화면 입력 두 갈래: 쇼더스로 대본 만들기 / 가진 대본 넣기 (D38) */
+.mode-tabs { display: flex; gap: 6px; justify-content: center; }
+.mode-tabs button { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 0.875rem; cursor: pointer; }
+.mode-tabs button.on { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 700; }
+.mode-tabs button:disabled { opacity: .45; cursor: not-allowed; }
+.composer-compact ~ * .mode-tabs, .pin .mode-tabs { justify-content: flex-start; }
+
+/* 가진 대본 넣기: 넓은 화면에서는 대본과 원래 글을 좌우로, 칸을 열면 첫 화면 위 여백을 줄여 한눈에 보이게 */
+.own-grid { display: flex; flex-direction: column; gap: 6px; }
+.own-col { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+@media (min-width: 1100px) {
+  .wrap-narrow:has(.composer-own) { max-width: 1120px; }
+  .own-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+.hero-main:has(.composer) { padding-top: clamp(24px, 6vh, 72px); }
+
+/* 최근 판정: 항목마다 지우기(×) */
+.side-recent li { position: relative; }
+.side-recent li a { padding-right: 30px; }
+.side-recent-del { position: absolute; top: 6px; right: 4px; width: 24px; height: 24px; border: 0; border-radius: 6px; background: none;
+  color: var(--muted); font-size: 1rem; line-height: 1; cursor: pointer; opacity: 0; }
+.side-recent li:hover .side-recent-del, .side-recent-del:focus-visible { opacity: 1; }
+.side-recent-del:hover { background: var(--line); color: var(--text); }
+@media (hover: none) { .side-recent-del { opacity: .7; } }

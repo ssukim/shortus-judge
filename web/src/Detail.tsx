@@ -42,7 +42,7 @@ function fullReason(cr: CriterionResult): ReactNode {
 }
 
 function unflaggedText(cr: CriterionResult): string {
-  if (cr.not_checked) return '넣은 글이 없어 보지 않음'
+  if (cr.not_checked) return '원래 글이 없어 보지 않음'
   if (cr.error) return '모델 답을 받지 못함'
   if (cr.votes && cr.votes[0] !== '0') return `걸리지 않음 · 세 번 물어 ${cr.votes.split('/')[0]}번만 걸림`
   return firstSentence(cr.reason) ?? '걸리지 않음'

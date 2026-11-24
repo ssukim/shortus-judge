@@ -4,7 +4,7 @@ import { href, parseHash } from './common'
 import ListPage from './ListPage'
 import ScriptPage from './ScriptPage'
 import CheckPage from './CheckPage'
-import Feed from './Feed'
+import Feed, { HeroShell } from './Feed'
 import Sidebar from './Sidebar'
 import { installReveal } from './reveal'
 
@@ -66,7 +66,8 @@ export default function App() {
       <Sidebar page={page} query={route.query} open={menu} onClose={() => setMenu(false)} />
       <main className={page === '' ? 'wrap wrap-narrow' : 'wrap'}>
         {error && <p className="notice">{error}</p>}
-        {!data && !error && <p className="muted">불러오는 중입니다.</p>}
+        {/* 자료를 받는 동안: 첫 화면은 제목만 먼저 같은 자리에 그리고, 다른 화면은 비워 둔다(「불러오는 중」 글을 띄우지 않음) */}
+        {!data && !error && page === '' && <HeroShell />}
         {data && page === 'list' && <ListPage data={data} query={route.query} />}
         {data && page === 'script' && <ScriptPage data={data} id={route.path[1] ?? ''} />}
         {data && page === 'check' && <CheckPage data={data} />}

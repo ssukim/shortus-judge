@@ -1,12 +1,12 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import type { CriterionResult, Data, Revision, RevScene, Scene } from './types'
-import type { CheckLine, Final } from './runs'
-import { SHORT_NAME, decisionClass, decisionKind, decisionWord } from './common'
+import type { CriterionResult, Data, Scene } from './types'
+import type { CheckLine, Final, Step } from './runs'
+import { SHORT_NAME, decisionClass, decisionWord, factMark, verdictWord } from './common'
 import { circled, placesOf, type Spot } from './places'
 import { Panel, usePanel } from './Sheet'
 import { Detail, TAB_LABEL, type DetailTab } from './Detail'
 import { Checklist } from './Trace'
-import { decisionSay, revisionOf } from './revision'
+import { decisionSay, revWhy, shownRevision, type Revision, type RevScene } from './revision'
 import { PlayButton, usePlaying, useTtsReady, type Clip } from './audio'
 
 // 판정봇의 보고: 말풍선(무엇을 확인했고 결론) → 고칠 곳마다 한 문장 → 고칠 곳이 표시된 대본 → 체크 목록 → 「자세히」 시트.
@@ -66,10 +66,15 @@ export function SceneText({ text, spots, numbers = true, onNo }: { text: string;
     // 구절이 문장부호로 끝나면 번호를 그 앞에
     const tail = q.match(/[.?!。]+$/)?.[0] ?? ''
     if (tail && !p.fix) q = q.slice(0, -tail.length)
+    // 밑줄 친 구절도 번호와 같이 누를 수 있다(그 구절의 첫 번호 기준을 연다). 화면 읽기에는 번호 단추만 읽히게 둔다
+    const open = onNo && p.nos.length ? () => onNo(p.nos[0]) : undefined
+    const hit = (body: ReactNode) => open
+      ? <span className="hit-click" onClick={open} title="자세히 보기">{body}</span>
+      : body
     if (p.fix) {
-      out.push(<span key={k} className="swap"><del>{q}</del><span className="sr-only">를 이렇게 바꿈:</span> <ins>{p.fix}</ins><Nos nos={p.nos} /></span>)
+      out.push(<span key={k} className="swap">{hit(<><del>{q}</del><span className="sr-only">를 이렇게 바꿈:</span> <ins>{p.fix}</ins></>)}<Nos nos={p.nos} /></span>)
     } else {
-      out.push(<span key={k}><u className="hit-u">{q}</u><Nos nos={p.nos} />{tail}</span>)
+      out.push(<span key={k}>{hit(<u className="hit-u">{q}</u>)}<Nos nos={p.nos} />{tail}</span>)
     }
     i = p.end
   })
@@ -84,6 +89,12 @@ function Elapsed({ since }: { since: number }) {
     return () => clearInterval(t)
   }, [])
   return <>{Math.max(0, Math.floor((now - since) / 1000))}초</>
+}
+
+/** 「보류」 → 「보류예요」, 「탈락」 → 「탈락이에요」 (받침에 따라) */
+const copula = (w: string) => {
+  const c = w.charCodeAt(w.length - 1)
+  return c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 === 0 ? `${w}예요` : `${w}이에요`
 }
 
 /** 판정봇 얼굴 (단색) */
@@ -149,9 +160,9 @@ function WorkLine({ text, since }: { text: string; since?: number }) {
   )
 }
 
-export function Card({ data, scenes, final, running, checks = [], sheetKey, extra, emptyNote, title, flow }: {
+export function Card({ data, scenes, final, running, checks = [], pre = [], sheetKey, extra, emptyNote, title, flow }: {
   title?: string // 대본 제목 (보고서 패널 위)
-  // 판정해 보기(Feed): 판정봇 머리줄 하나 아래로 흐르는 순서. 대본 → 진행 줄 → 확인 목록 → (끝나면) 결론 말풍선 → 보고서 카드 → 만들 대본.
+  // 판정해 보기(Feed): 판정봇 머리줄 하나 아래로 흐르는 순서. (받은 대본 한 줄) → 대본 → 진행 줄 → 확인 목록 → (끝나면) 결론 말풍선 → 보고서 카드 → 만들 대본 견주기.
   // 없으면(모아 둔 대본 화면) 판정봇 보고가 먼저 나온다
   flow?: boolean
   data: Data
@@ -159,13 +170,15 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
   final?: Final
   running?: { criteria: Record<string, CriterionResult>; since?: number; text: string; stages?: { text: string; sec: number }[] } // 판정하는 동안
   checks?: CheckLine[]
+  pre?: Step[] // 쇼더스에서 받기 (판정 앞 단계)
   sheetKey: string
   extra?: ReactNode // 시트에 더 넣을 것 (모아 둔 대본 화면)
   emptyNote?: string
 }) {
   const panel = usePanel(sheetKey)
   const ttsOk = useTtsReady()
-  // 판정봇 말의 「고친 대본 보기」: 펼쳐 둔 만들 대본으로 옮기고 잠깐 테두리와 바탕색(flash)을 준다
+  // 판정봇 말의 「고친 대본 보기」: 펼쳐 둔 만들 대본 견주기로 옮긴다 (머리줄 아래로는 html의 scroll-padding-top).
+  // 휴대폰 폭에서는 이미 보이는 자리라 옮겨 가지 않을 수 있어, 잠깐 테두리와 바탕색(flash)을 주어 눌렀다는 것이 보이게 한다
   const showRevised = () => {
     const open = document.querySelector<HTMLElement>(`#turn-${CSS.escape(sheetKey)} .rev-open`) ?? document.querySelector<HTMLElement>('.rev-open')
     if (!open) return
@@ -185,15 +198,23 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
   }
   const p = placesOf(data, { criteria }, shownScenes, { sourceText: final?.sourceText })
   const nos = Object.fromEntries(p.problems.map((x) => [x.n, circled(x.no)]))
+  const got = pre.find((s) => s.scenes && s.done)
+
+  const freshBubble = got && (
+    <Bubble at={final?.origin?.receivedAt ?? undefined}>
+      <p>쇼더스에서 대본을 받아 왔어요 · 장면 {got.scenes!.length}개</p>
+    </Bubble>
+  )
+  const preWorking = !got && pre.some((s) => !s.done) && <Working text="대본 받는 중" since={pre.find((s) => s.startedAt)?.startedAt} />
 
   if (final && !r) {
-    const msg = <p role="alert">{final.error ?? emptyNote ?? '판정 결과가 없어요.'}</p>
     if (flow) {
       return (
         <section className="result" aria-label="판정 결과">
           <BotHead at={final.at} />
           <div className="bot-flow">
-            <div className="bubble bot-report">{msg}</div>
+            {got && <p className="bot-line">쇼더스에서 대본을 받아 왔어요 · 장면 {got.scenes!.length}개</p>}
+            <div className="bubble bot-report"><p role="alert">{final.error ?? emptyNote ?? '판정 결과가 없어요.'}</p></div>
             {shownScenes.length > 0 && <ScriptView scenes={shownScenes} spots={[]} />}
           </div>
         </section>
@@ -201,7 +222,8 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
     }
     return (
       <section className="result" aria-label="판정 결과">
-        <Bubble>{msg}</Bubble>
+        {freshBubble}
+        <Bubble><p role="alert">{final.error ?? emptyNote ?? '판정 결과가 없어요.'}</p></Bubble>
         {shownScenes.length > 0 && <ScriptView scenes={shownScenes} spots={[]} />}
       </section>
     )
@@ -209,11 +231,12 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
 
   const [pass, hold, fail] = data.verdicts
   const v = r?.verdict
-  const kind = r ? decisionKind(r) : null
+  const notChecked = r ? r.source_given === false || Object.values(r.criteria).some((c) => c.not_checked) : false
   const n = shownScenes.length
-  const lead = `대본 ${n}장면을 넣은 글과 맞춰 봤어요.`
-  const end = !v ? '' : v === pass ? (kind === 'revised' ? '표기만 고친 대본으로 만들어요.' : r!.flagged.length ? '이 대본 그대로 만들어요.' : '고칠 곳이 없어요. 이 대본 그대로 만들어요.')
-    : v === hold ? (p.count ? `${p.count}곳이 걸려 사람이 보고 정해야 해요.` : '사람이 보고 정해야 해요.')
+  const lead = notChecked ? `대본 ${n}장면을 봤어요. 원래 글이 없어서 내용이 맞는지는 보지 않았어요.` : `대본 ${n}장면을 넣은 글과 맞춰 봤어요.`
+  const end = !v ? '' : v === pass ? (notChecked ? '말투·길이·흐름에는 걸린 곳이 없어요. 내용이 맞는지는 원래 글을 넣어야 볼 수 있어요.'
+      : r!.decision?.action === 'render_revised' ? '표기만 고친 대본으로 만들어요.' : r!.flagged.length ? '이 대본 그대로 만들어요.' : '고칠 곳이 없어요. 이 대본 그대로 만들어요.')
+    : v === hold ? (p.count ? `${p.count}곳이 걸렸어요.` : '걸린 곳이 있어요.')
       : v === fail ? '넣은 글과 다른 내용이 있어 이대로는 안 돼요.'
         : '몇 가지를 판정하지 못했어요.'
   const pick = (n: number) => panel.show(null, { tab: 'criteria', crit: n })
@@ -224,35 +247,60 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
   // 통과면 대본을 다시 보이지 않는다(할 일이 없음)
   const showScript = !!running || (!!v && v !== pass)
   const judgedAt = final?.at
-  // 고친 대본(표기와 숫자만 바꾼 것, revision.ts). 바뀐 장면이 없으면 없음
-  const revOk = r ? revisionOf(r) : null
+  // 고친 대본: 탈락·보류면 판정봇이 고치고 다시 판정한 것(두 번 고쳤으면 결정이 고른 판), 통과면 표기만 고친 것.
+  // 없거나 실패면 견주기를 숨긴다 (revision.ts)
+  const act = r?.decision?.action
+  const readingOnly = !!v && v === pass && act === 'render_revised'
+  // 탈락·보류는 판정봇이 실제로 고쳐 다시 판정한 것(method model)만. 고치기 전에 저장한 결과의 표기만 고친 대본은 보이지 않는다
+  const byModel = (r?.revision as { method?: string } | null | undefined)?.method === 'model'
+  const rev = r && (((v === fail || v === hold) && byModel) || readingOnly) && (r.revision_2 || r.revision) ? shownRevision(r) : null
+  const revOk = rev && !rev.error && rev.scenes.some((x) => x.changed) ? rev : null
   const revClip = (x: RevScene): Clip | null => {
     const key = `${sheetKey}-r${x.n}`
     if (!x.changed) return origClip(x.n, key)
     return ttsOk ? { key, text: x.reading || x.after } : null
   }
-  // 펼쳐 둘 고친 대본: 통과해 고친 대본으로 만들 때와, 사람이 보고 정할 때. 탈락이면 패널의 탭에만 둔다
-  const revTitle = kind === 'revised' ? '만들 대본 · 표기를 고친 대본' : kind === 'review' ? '표기를 고친 대본' : null
+  // 판정해 보기 차례 끝에 펼쳐 둘 견주기 (결정이 고친 대본이거나, 고쳐 봤지만 만들지 않거나 사람이 볼 때). 원래 대본으로 만들면 붙이지 않는다
+  const lastRound = r?.revision_2 ? 2 : 1
+  const times = (r?.decision?.round ?? lastRound) === 2 ? '두 번' : '한 번'
+  const revTitle = readingOnly ? '영상으로 만들 대본 · 표기를 고친 대본'
+    : act === 'render_revised' ? `영상으로 만들 대본 · ${times} 고친 대본`
+      : act === 'review' && r?.decision?.round ? `${times} 고친 대본 · 사람이 보고 정함`
+        : act === 'do_not_render' ? '고쳐 봤지만 사실 틀림이 남은 대본' : null
   const shortName = (n: number) => { const nm = data.criteria.find((c) => c.n === n)?.name ?? ''; return SHORT_NAME[nm] ?? nm }
-  const revSay = r ? decisionSay(data, r, shortName) : null
-  const left = r?.decision?.remaining ?? []
-  const remaining = left.length ? left.map((x) => shortName(x.criterion)).join('·') : null
+  const decided = r ? decisionSay(data, r, shortName) : null
+  const left = (r?.decision as { remaining?: unknown } | undefined)?.remaining // decision.remaining: [{criterion, name}]
+  const remaining = Array.isArray(left) && left.length ? left.map((x) => (typeof x === 'number' ? shortName(x)
+    : x && typeof x === 'object' && typeof (x as { criterion?: unknown }).criterion === 'number' ? shortName((x as { criterion: number }).criterion)
+      : String(x))).join('·')
+    : typeof left === 'string' && left ? left : null
+  // 결정이 없는 결과(결정을 넣기 전에 저장한 것)는 고친 대본의 판정만 말한다
+  const againSay = (again?: string) => !again ? ''
+    : again === pass ? '고친 대본은 통과예요.'
+      : again === hold || again === fail ? `고친 대본${again === v ? '도' : '은'} ${copula(verdictWord(data, again))}.`
+        : '고친 대본은 판정하지 못했어요.'
+  const revSay = r?.decision ? decided && (decided
+      + (revOk?.new_numbers.length ? ` 고친 대본에 넣은 글에 없는 숫자 ${[...new Set(revOk.new_numbers.map((x) => x.number))].join(', ')}이 들어갔어요.` : ''))
+    : !rev ? null : rev.error || !revOk ? '고친 대본을 만들지 못했어요.'
+      : `고친 대본을 만들어 다시 판정했어요. ${againSay(revOk.verdict)}`
+        + (revOk.verdict && revOk.verdict !== pass ? revWhy(revOk, data) : '')
 
   // 보고서 패널 탭 (고친 대본이 있으면 하나 더)
   const tabIds: DetailTab[] = ['criteria', 'source', 'sound', ...(revOk ? ['revision' as const] : [])]
   const tabs = tabIds.map((t) => ({ id: t, label: TAB_LABEL[t] }))
   const tab: DetailTab = tabIds.includes(panel.tab as DetailTab) ? (panel.tab as DetailTab) : 'criteria'
+  // 보고서 카드의 작은 줄: 넣은 글과 소리 (실제로 한 것만)
   const c5 = data.criteria.find((c) => c.name === '잘못 읽을 표기')
   const c5r = c5 ? criteria[String(c5.n)] : undefined
   const soundWord = c5r?.listen && !c5r.listen.skipped ? '소리로 들어 봄' : ''
   const flaggedN = r ? data.criteria.filter((c) => r.criteria[String(c.n)]?.flagged).length : 0
 
-  const working = running && <Working text={running.text} since={running.since} />
-  const tags = !running && v && <span className="vtags"><span className={`vtag vtag-${decisionClass(data, r!)}`}>{decisionWord(data, r!)}</span></span>
+  const working = running && (got || !pre.length) && <Working text={running.text} since={running.since} />
+  const tags = !running && v && <span className="vtags"><span className={`vtag vtag-${decisionClass(data, r!)}`}>{decisionWord(data, r!)}</span>{factMark(data, r!) && <span className="fact-mark">사실 틀림</span>}</span>
   const reportBody = !running && v && (
     <>
       <p className="lead-say">{lead} <b>{end}</b></p>
-      {(v !== pass || r!.flagged.length > 0) && p.says.length > 0 && (
+      {v !== pass && p.says.length > 0 && (
         <ul className="says">
           {p.says.map((s) => <li key={s.n}>{s.no != null && <span className="no">{circled(s.no)}</span>} {s.text}</li>)}
         </ul>
@@ -280,36 +328,42 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
   const panelEl = final && r && panel.open && (
     <Panel title="판정 보고서" sub={title} onClose={panel.hide} tabs={tabs} tab={tab} onTab={panel.setTab}>
       <Detail data={data} r={r} final={final} scenes={shownScenes} sheetKey={sheetKey} extra={extra}
-        tab={tab} crit={panel.crit} onPick={pick} revision={revOk ? <RevisionChanges rev={revOk} say={revSay} clip={revClip} origClip={origClip} /> : undefined} />
+        tab={tab} crit={panel.crit} onPick={pick} revision={revOk ? <RevisionChanges rev={revOk} say={revSay} hits={c5r?.hits} clip={revClip} origClip={origClip} /> : undefined} />
     </Panel>
   )
 
+  // 만들 대본 견주기: 결정이 고친 대본이거나 고쳐 봤지만 만들지 않을 때 판정 보고서 카드 아래에 펼쳐 둔다 (두 화면 같음)
   const revOpen = revOk && !running && revTitle && (
     <section className="rev rev-open" aria-label={revTitle}>
-      <h3 className="rev-title">{revTitle}{kind === 'review' && remaining && <span className="rev-left"> 사람이 볼 곳: {remaining}</span>}</h3>
-      <RevisionChanges rev={revOk} clip={revClip} origClip={origClip} />
+      <h3 className="rev-title">{revTitle}{remaining && <span className="rev-left"> 남은 곳: {remaining}</span>}</h3>
+      <RevisionChanges rev={revOk} hits={c5r?.hits} clip={revClip} origClip={origClip} />
     </section>
   )
 
-  // 원래 대본 그대로 만들 때는 같은 자리에 「만들 대본 · 원래 대본」으로 전체와 듣기 단추를 둔다
-  const passOpen = !running && kind === 'original' && shownScenes.length > 0 && (
-    <section className="rev rev-open" aria-label="만들 대본 · 원래 대본">
-      <h3 className="rev-title">만들 대본 · 원래 대본</h3>
+  // 통과한 대본도 쇼더스로 넘길 대본이므로 다른 판정과 같은 자리에 「만들 대본 · 원래 대본」으로 전체와 듣기 단추를 둔다
+  const passOpen = !running && !!v && v === pass && !readingOnly && shownScenes.length > 0 && (
+    <section className="rev rev-open" aria-label="영상으로 만들 대본 · 원래 대본">
+      <h3 className="rev-title">영상으로 만들 대본 · 원래 대본</h3>
       {original}
     </section>
   )
 
   if (flow) {
-    // 판정해 보기: 한 차례의 판정봇은 하나. 머리줄(얼굴·이름, 끝나면 시각과 꼬리표)을 처음부터 맨 위에 두고, 그 아래 한 덩어리에 위에서 아래로 쌓는다
+    // 판정해 보기: 한 차례의 판정봇은 하나. 머리줄(얼굴·이름, 끝나면 시각과 꼬리표)을 처음부터 맨 위에 두고, 그 아래 한 덩어리에 위에서 아래로 쌓는다.
+    // 끝날 때 위쪽에는 머리줄 안의 꼬리표만 붙고(높이 고정) 끼어드는 것이 없어 화면이 위아래로 놀지 않는다
     return (
       <section className="result" aria-label="판정 결과" aria-busy={!!running}>
         <BotHead at={!running && v ? judgedAt : undefined} tag={tags} />
         <div className="bot-flow">
+          {final?.notice && <p className="bot-line bot-notice" role="alert">{final.notice}</p>}
+          {got && <p className="bot-line">쇼더스에서 대본을 받아 왔어요 · 장면 {got.scenes!.length}개</p>}
+          {!got && pre.some((s) => !s.done) && <WorkLine text="대본 받는 중" since={pre.find((s) => s.startedAt)?.startedAt} />}
           {showScript && shownScenes.length > 0 && original}
-          {running && <WorkLine text={running.text} since={running.since} />}
+          {running && (got || !pre.length) && <WorkLine text={running.text} since={running.since} />}
           {checklist}
           {reportBody && <div className="bubble bot-report">{reportBody}</div>}
           {reportCard}
+          {final?.revising && <WorkLine text={final.revising.text} since={final.revising.since} />}
           {revOpen}
           {passOpen}
         </div>
@@ -320,6 +374,9 @@ export function Card({ data, scenes, final, running, checks = [], sheetKey, extr
 
   return (
     <section className="result" aria-label="판정 결과" aria-busy={!!running}>
+      {preWorking}
+      {final?.notice && <Bubble><p role="alert">{final.notice}</p></Bubble>}
+      {freshBubble}
       {working}
       {report}
       {reportCard}
@@ -357,21 +414,22 @@ export function ScriptView({ scenes, spots, onNo, clip }: { scenes: Scene[]; spo
   )
 }
 
-/** 고친 대본: 장면 1~n을 순서대로. 바뀐 장면은 고친 문장 → 원래(줄 그음) → 바꾼 곳 → 원래 소리 단추.
- *  판정기는 문장을 고쳐 쓰지 않고 표기와 숫자만 목소리가 바로 읽게 바꾼다(judge/view.py의 revision_view) */
+/** 만들 대본: 장면 1~n을 순서대로. 바뀐 장면(글자를 고쳤거나 읽는 법만 고친 장면)은 모두 같은 틀로 그린다:
+ *  고친 문장 → 원래(글자를 고쳤으면 줄 그음, 아니면 「글자는 그대로」) → 읽는 법(글자도 고친 장면만. 읽는 법만 고친 장면은
+ *  까닭 줄에 바꾼 표기가 이미 있음) → 고친 까닭 → 원래 소리 단추. */
 function RevisionChanges({ rev, say, clip, origClip }: {
-  rev: Revision; say?: string | null; clip?: (x: RevScene) => Clip | null; origClip?: (n: number, key?: string) => Clip | null
+  rev: Revision; say?: string | null; hits?: Hits; clip?: (x: RevScene) => Clip | null; origClip?: (n: number, key?: string) => Clip | null
 }) {
   const now = usePlaying()
   const clips = clip ? rev.scenes.map(clip).filter((c): c is Clip => !!c) : []
   return (
     <>
       {say && <p className="muted">{say}</p>}
-      <p className="hint">판정기는 문장을 고쳐 쓰지 않아요. 목소리가 잘못 읽을 표기와 읽을 때마다 틀리게 읽는 숫자만 바로 읽히게 바꿨어요. 렌더링에는 이 문장을 써요.</p>
-      {clips.length > 1 && <div className="listen-all"><PlayButton clips={clips} label="고친 대본 전체 듣기" text="전체 듣기" /></div>}
-      <ol className="rev-list" aria-label="고친 대본">
+      {clips.length > 1 && <div className="listen-all"><PlayButton clips={clips} label="영상으로 만들 대본 전체 듣기" text="전체 듣기" /></div>}
+      <ol className="rev-list" aria-label="영상으로 만들 대본">
         {rev.scenes.map((x) => {
-          const changed = x.changed
+          const textChanged = x.after !== x.before
+          const changed = x.changed || textChanged
           const c = clip?.(x)
           const before = changed ? origClip?.(x.n, `rev-orig-${x.n}-${x.before.length}`) : null
           const cls = [changed ? 'rev-changed' : '', c && now === c.key ? 'playing' : ''].filter(Boolean).join(' ')
@@ -380,8 +438,10 @@ function RevisionChanges({ rev, say, clip, origClip }: {
               <span className="sn" aria-label={`${x.n}번 장면`}>{x.n}</span>
               <div className="rev-body">
                 <p className="rev-after">{changed && <span className="sr-only">고친 문장: </span>}{x.after}</p>
-                {changed && <p className="rev-orig"><span>원래:</span> <del>{x.before}</del></p>}
-                {changed && x.reading && x.reading !== x.after && <p className="rev-reading"><span>읽는 법:</span> {x.reading}</p>}
+                {changed && (
+                  <p className="rev-orig"><span>원래:</span> {textChanged ? <del>{x.before}</del> : '글자는 그대로'}</p>
+                )}
+                {textChanged && x.reading && <p className="rev-reading"><span>읽는 법:</span> {x.reading}</p>}
                 {changed && x.why && <p className="rev-why">→ {x.why}</p>}
                 {before && <PlayButton clips={[before]} label={`${x.n}번 장면 원래 소리 듣기`} small text="원래 소리" />}
               </div>
@@ -393,6 +453,8 @@ function RevisionChanges({ rev, say, clip, origClip }: {
     </>
   )
 }
+
+type Hits = { scene: number; text: string; fix: string | null }[]
 
 function ReportIcon() {
   return (

@@ -1,0 +1,449 @@
+{
+ "id": "product-04-g1",
+ "source_id": "product-04",
+ "verdict": "보류",
+ "why": [
+  "기준 6·9 중 2개 이상 걸림"
+ ],
+ "diagnostics": [],
+ "criteria": {
+  "1": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "2": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "3": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "0/3",
+   "by": "model",
+   "doubt": false
+  },
+  "4": {
+   "result": "안 걸림",
+   "findings": [],
+   "votes": "1/3",
+   "by": "model",
+   "doubt": false
+  },
+  "5": {
+   "result": "안 걸림",
+   "findings": [],
+   "vague": [],
+   "by": "code"
+  },
+  "6": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 5,
+     "quote": "1박스 3만 2000원이며",
+     "source_quote": "1박스 3만 2,000원, 3박스 묶음은 8만 7,000원입니다.",
+     "reason": "\"~이며\"는 말하기보다 문서에서 쓰는 어투라 듣기에 어색합니다."
+    }
+   ],
+   "by": "model"
+  },
+  "7": {
+   "result": "안 걸림",
+   "findings": [],
+   "total_sec": 33.8,
+   "by": "code"
+  },
+  "8": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  },
+  "9": {
+   "result": "걸림",
+   "findings": [
+    {
+     "scene": 2,
+     "quote": "단 음료 대신 줄 건강한 간식을 찾거나 부모님 선물을 고르는 일이 번거로웠죠.",
+     "source_quote": "",
+     "reason": "장면 1과 같이 간식 고르기가 어렵다는 같은 요점을 낱말만 바꿔 되풀이합니다."
+    }
+   ],
+   "by": "model"
+  },
+  "10": {
+   "result": "안 걸림",
+   "findings": [],
+   "by": "model"
+  }
+ },
+ "grounding": [
+  {
+   "scene": 1,
+   "source_quote": "아이 간식으로 단 음료 대신 먹일 것을 찾는 분"
+  },
+  {
+   "scene": 2,
+   "source_quote": "아이 간식으로 단 음료 대신 먹일 것을 찾는 분 / 부모님 선물을 고민하는 분"
+  },
+  {
+   "scene": 3,
+   "source_quote": "경북 영주 들녘농원에서 키운 사과만 씻어서 껍질째 짰습니다. 물, 설탕, 보존료를 한 방울도 넣지 않았습니다. / 매주 화요일과 목요일에 짜서 그날 바로 보냅니다."
+  },
+  {
+   "scene": 4,
+   "source_quote": "한 포에 사과 약 1.5개가 들어갑니다. / 열량: 1포당 58kcal"
+  },
+  {
+   "scene": 5,
+   "source_quote": "1박스 3만 2,000원, 3박스 묶음은 8만 7,000원입니다."
+  }
+ ],
+ "scenes": [
+  {
+   "scene": 1,
+   "role": "hook",
+   "text": "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 2,
+   "role": "point",
+   "text": "단 음료 대신 줄 건강한 간식을 찾거나 부모님 선물을 고르는 일이 번거로웠죠.",
+   "estimated_sec": 7.4
+  },
+  {
+   "scene": 3,
+   "role": "point",
+   "text": "들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다.",
+   "estimated_sec": 10.0
+  },
+  {
+   "scene": 4,
+   "role": "point",
+   "text": "한 포에 사과 약 1.5개가 들어있고 열량은 1포당 58칼로리입니다.",
+   "estimated_sec": 6.6
+  },
+  {
+   "scene": 5,
+   "role": "cta",
+   "text": "1박스 3만 2000원이며 3박스 묶음은 8만 7000원에 구매할 수 있습니다.",
+   "estimated_sec": 7.5
+  }
+ ],
+ "run": {
+  "model": "claude-haiku-5-5",
+  "backend": "claude-cli",
+  "effort": "medium",
+  "calls": 4,
+  "call_log": [
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 12.0,
+    "input_tokens": 2,
+    "output_tokens": 2632,
+    "cache_creation_input_tokens": 4662,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.0019
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 33.9,
+    "input_tokens": 2,
+    "output_tokens": 8018,
+    "cache_creation_input_tokens": 4662,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00459
+   },
+   {
+    "group": "fact",
+    "attempt": 1,
+    "sec": 18.2,
+    "input_tokens": 2,
+    "output_tokens": 4335,
+    "cache_creation_input_tokens": 4663,
+    "cache_read_input_tokens": 0,
+    "cost_usd": 0.00275
+   },
+   {
+    "group": "flow",
+    "attempt": 1,
+    "sec": 9.2,
+    "input_tokens": 2,
+    "output_tokens": 1873,
+    "cache_creation_input_tokens": 394,
+    "cache_read_input_tokens": 2672,
+    "cost_usd": 0.00101
+   }
+  ],
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 16858,
+   "cache_creation_input_tokens": 14381,
+   "cache_read_input_tokens": 2672
+  },
+  "cost_usd_est": 0.01025,
+  "sec": 33.9,
+  "revise_cost_usd": 0.00964,
+  "revise_sec": 27.6
+ },
+ "revisions": [
+  {
+   "round": 1,
+   "error": null,
+   "scenes": [
+    {
+     "n": 1,
+     "before": "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠.",
+     "after": "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 2,
+     "before": "단 음료 대신 줄 건강한 간식을 찾거나 부모님 선물을 고르는 일이 번거로웠죠.",
+     "after": "아침을 거르기 쉬운 직장인이나 부모님 선물을 고민하는 분께 권해요.",
+     "changed": true,
+     "why": "장면 1과 같은 간식 고르기의 어려움을 되풀이하던 문장을, 넣은 글의 추천 대상으로 바꿔 요점을 새로 전달했습니다.",
+     "too_long": false
+    },
+    {
+     "n": 3,
+     "before": "들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다.",
+     "after": "들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 4,
+     "before": "한 포에 사과 약 1.5개가 들어있고 열량은 1포당 58칼로리입니다.",
+     "after": "한 포에 사과 약 1.5개가 들어있고 열량은 1포당 58칼로리입니다.",
+     "changed": false,
+     "why": "",
+     "too_long": false
+    },
+    {
+     "n": 5,
+     "before": "1박스 3만 2000원이며 3박스 묶음은 8만 7000원에 구매할 수 있습니다.",
+     "after": "1박스는 3만 2000원이고, 3박스 묶음은 8만 7000원에 구매할 수 있습니다.",
+     "changed": true,
+     "why": "문서체 어투인 \"~이며\"를 말하듯 쓰는 \"~이고\"로 바꾸고, 넣은 글의 가격 정보는 그대로 유지했습니다.",
+     "too_long": false
+    }
+   ],
+   "reverted": [],
+   "result": {
+    "id": "product-04-g1",
+    "source_id": "product-04",
+    "verdict": "통과",
+    "why": [],
+    "diagnostics": [],
+    "criteria": {
+     "1": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "2": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "3": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "4": {
+      "result": "안 걸림",
+      "findings": [],
+      "votes": "0/3",
+      "by": "model"
+     },
+     "5": {
+      "result": "안 걸림",
+      "findings": [],
+      "vague": [],
+      "unfixable": [],
+      "by": "code"
+     },
+     "6": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "7": {
+      "result": "안 걸림",
+      "findings": [],
+      "total_sec": 33.2,
+      "by": "code"
+     },
+     "8": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "9": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     },
+     "10": {
+      "result": "안 걸림",
+      "findings": [],
+      "by": "model"
+     }
+    },
+    "grounding": [
+     {
+      "scene": 1,
+      "source_quote": "아이 간식으로 단 음료 대신 먹일 것을 찾는 분"
+     },
+     {
+      "scene": 2,
+      "source_quote": "아침을 거르기 쉬운 직장인\n- 부모님 선물을 고민하는 분"
+     },
+     {
+      "scene": 3,
+      "source_quote": "경북 영주 들녘농원에서 키운 사과만 씻어서 껍질째 짰습니다. 물, 설탕, 보존료를 한 방울도 넣지 않았습니다."
+     },
+     {
+      "scene": 4,
+      "source_quote": "한 포에 사과 약 1.5개가 들어갑니다.\n- 열량: 1포당 58kcal"
+     },
+     {
+      "scene": 5,
+      "source_quote": "1박스 3만 2,000원, 3박스 묶음은 8만 7,000원입니다."
+     }
+    ],
+    "scenes": [
+     {
+      "scene": 1,
+      "role": "hook",
+      "text": "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠.",
+      "estimated_sec": 7.4
+     },
+     {
+      "scene": 2,
+      "role": "point",
+      "text": "아침을 거르기 쉬운 직장인이나 부모님 선물을 고민하는 분께 권해요.",
+      "estimated_sec": 6.4
+     },
+     {
+      "scene": 3,
+      "role": "point",
+      "text": "들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다.",
+      "estimated_sec": 10.0
+     },
+     {
+      "scene": 4,
+      "role": "point",
+      "text": "한 포에 사과 약 1.5개가 들어있고 열량은 1포당 58칼로리입니다.",
+      "estimated_sec": 6.6
+     },
+     {
+      "scene": 5,
+      "role": "cta",
+      "text": "1박스는 3만 2000원이고, 3박스 묶음은 8만 7000원에 구매할 수 있습니다.",
+      "estimated_sec": 7.8
+     }
+    ],
+    "fixed_scenes": [
+     "아이 간식으로 단 음료 대신 줄 건강한 먹거리를 찾으려니 선택이 쉽지 않았죠.",
+     "아침을 거르기 쉬운 직장인이나 부모님 선물을 고민하는 분께 권해요.",
+     "들녘농원에서 키운 사과를 씻어서 껍질째 짠 착즙 사과즙은 물이나 설탕 없이 농장에서 바로 배송됩니다.",
+     "한 포에 사과 약 한 개 반이 들어있고 열량은 한 포당 오십팔 칼로리입니다.",
+     "한 박스는 삼만 이천원이고, 세 박스 묶음은 팔만 칠천원에 구매할 수 있습니다."
+    ],
+    "run": {
+     "model": "claude-haiku-5-5",
+     "backend": "claude-cli",
+     "effort": "medium",
+     "calls": 4,
+     "call_log": [
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 17.2,
+       "input_tokens": 2,
+       "output_tokens": 3980,
+       "cache_creation_input_tokens": 4655,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00257
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 20.6,
+       "input_tokens": 2,
+       "output_tokens": 4708,
+       "cache_creation_input_tokens": 4655,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00294
+      },
+      {
+       "group": "fact",
+       "attempt": 1,
+       "sec": 14.6,
+       "input_tokens": 2,
+       "output_tokens": 3169,
+       "cache_creation_input_tokens": 4655,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00217
+      },
+      {
+       "group": "flow",
+       "attempt": 1,
+       "sec": 7.6,
+       "input_tokens": 2,
+       "output_tokens": 1337,
+       "cache_creation_input_tokens": 3057,
+       "cache_read_input_tokens": 0,
+       "cost_usd": 0.00105
+      }
+     ],
+     "usage": {
+      "input_tokens": 8,
+      "output_tokens": 13194,
+      "cache_creation_input_tokens": 17022,
+      "cache_read_input_tokens": 0
+     },
+     "cost_usd_est": 0.00873,
+     "sec": 20.6
+    }
+   },
+   "calls": [
+    {
+     "group": "revise",
+     "attempt": 1,
+     "sec": 7.0,
+     "input_tokens": 2,
+     "output_tokens": 1242,
+     "cache_creation_input_tokens": 2350,
+     "cache_read_input_tokens": 0,
+     "cost_usd": 0.00091
+    }
+   ],
+   "cost_usd": 0.00964,
+   "sec": 27.6
+  }
+ ],
+ "decision": {
+  "action": "render_revised",
+  "round": 1,
+  "remaining": [],
+  "reason": "1번째 고친 대본이 다시 판정에서 통과해 그 대본으로 만듭니다."
+ }
+}

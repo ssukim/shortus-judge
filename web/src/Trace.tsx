@@ -85,7 +85,7 @@ export function Checklist({ checks, running, elapsed, scenes, nos = {}, stages =
         {running ? sorted.filter((c) => c.state !== 'not_checked').map((l) => <Line key={l.n} l={l} scenes={scenes} nos={nos} onPick={onPick} />)
           : hits.map((l) => <Line key={l.n} l={l} scenes={scenes} nos={nos} onPick={onPick} />)}
         {skipped.length > 0 && (
-          <li className="tl tl-skip"><span className="tl-mark" aria-hidden="true">–</span><span className="tl-text">넣은 글이 없어 내용 대조({skipped.length}가지)는 건너뛰었어요</span><span className="tl-sec" /></li>
+          <li className="tl tl-skip"><span className="tl-mark" aria-hidden="true">–</span><span className="tl-text">원래 글이 없어 내용 대조({skipped.length}가지)는 건너뛰었어요</span><span className="tl-sec" /></li>
         )}
         {stages.map((g, i) => {
           const doing = running && i === stages.length - 1

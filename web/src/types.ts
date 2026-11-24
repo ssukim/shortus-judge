@@ -59,24 +59,16 @@ export interface CriterionResult {
   not_checked?: boolean
 }
 
-export interface RevScene { n: number; before: string; after: string; changed: boolean; why: string; reading?: string }
-
-export interface Revision {
-  method: 'reading_only' // 판정기는 문장을 고쳐 쓰지 않는다. 표기와 숫자만 목소리가 바로 읽게 바꾼다
-  round: number
-  scenes: RevScene[]
-  new_numbers: { scene: number; number: string }[]
-  error: string | null
-}
-
+// review: 보류라 사람이 보고 정함 (공개본 판정 선. 고친 대본도 보류면 저절로 만들지 않는다, D35)
 export type Action = 'render_original' | 'render_revised' | 'review' | 'do_not_render'
 
 export interface Decision {
   action: Action
-  script: string | null // original / revision 1, 정하지 않으면 null
+  script: string | null // original / revision 1 / revision 2, 정하지 않으면 null
   round: number | null
   reason: string
   remaining: { criterion: number; name: string }[] // 판정을 정한 걸린 기준
+  tried?: number // 고쳐 다시 판정한 횟수 (judge/revise.py)
 }
 
 export interface Result {
@@ -96,7 +88,10 @@ export interface Result {
   calls?: number
   judged_at?: string | null
   decision: Decision
-  revision: Revision | null
+  // 고친 대본 (web/src/revision.ts의 revisionOf로 읽음). 통과한 대본은 표기만 고친 것(method reading_only),
+  // 보류·탈락 대본은 모델이 고치고 다시 판정한 것(method model, judge/revise.py). revision_2는 두 번째로 고친 것
+  revision: unknown
+  revision_2?: unknown
 }
 
 /** k/n과 95% Wilson 구간(백분율, 정수) */
