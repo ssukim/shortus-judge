@@ -99,7 +99,7 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
       </div>
       <p className="muted small">기준 5(표기)는 채점 에이전트 쪽도 판정기와 같은 표기 규칙에서 나와 견주지 않습니다. 기준 7(길이)과 10(끝맺음)은 진단만 냅니다.</p>
 
-      <h3>채점 에이전트와 다르게 본 대본 {c.diffs.length}개</h3>
+      <h3>판정기·채점 에이전트 판정이 다른 대본 {c.diffs.length}개</h3>
       <ul className="difflist" aria-label="판정기가 정답과 다르게 본 대본">
         {c.diffs.map((d) => {
           const sc = script(d.id)
