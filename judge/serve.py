@@ -71,6 +71,12 @@ _slots = threading.BoundedSemaphore(MAX_CONCURRENT)
 # Cloudflare 터널 뒤에 둘 때(JUDGE_TRUST_PROXY=cloudflare): 터널이 늘 127.0.0.1로 들어오므로 방문자 주소는 CF-Connecting-IP에서,
 # 나라는 CF-IPCountry에서 읽는다. JUDGE_ALLOW_COUNTRIES=KR 처럼 주면 다른 나라의 판정·대본·소리 요청은 받지 않는다(가정한 운영 선택).
 TRUST_PROXY = os.environ.get("JUDGE_TRUST_PROXY", "").strip().lower()
+# 수집봇 막기(JUDGE_BLOCK_BOTS=1, 바깥에 열 때만): robots.txt로 모두 막고, 모든 응답에 noindex를 달고,
+# User-Agent가 비었거나 수집기·자동화 도구 이름이면 robots.txt 말고는 403. 링크 미리보기(슬랙·카카오톡)도 막힌다.
+BLOCK_BOTS = os.environ.get("JUDGE_BLOCK_BOTS", "") == "1"
+BOT_UA = re.compile(r"bot|crawl|spider|slurp|scrap|fetch|curl|wget|python|httpx|aiohttp|go-http|java/|okhttp|libwww|"
+                    r"headless|phantom|selenium|playwright|puppeteer|gpt|claude|anthropic|perplexity|ccbot|semrush|ahrefs", re.I)
+ROBOTS = b"User-agent: *\nDisallow: /\n"
 ALLOW_COUNTRIES = {c.strip().upper() for c in os.environ.get("JUDGE_ALLOW_COUNTRIES", "").split(",") if c.strip()}
 _recent, _recent_lock = {}, threading.Lock()
 
@@ -220,6 +226,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(data)))
         self.send_header("Cache-Control", cache)
         self.send_header("X-Content-Type-Options", "nosniff")
+        if BLOCK_BOTS:
+            self.send_header("X-Robots-Tag", "noindex, nofollow, noarchive")
         for k, v in self._cors().items():
             self.send_header(k, v)
         self.end_headers()
@@ -248,10 +256,18 @@ class Handler(BaseHTTPRequestHandler):
     def do_HEAD(self):
         self.do_GET()
 
+    def _bot(self):
+        ua = (self.headers.get("User-Agent") or "").strip()
+        return BLOCK_BOTS and (not ua or bool(BOT_UA.search(ua)))
+
     def do_GET(self):
         if not self._origin_ok():
             return self._send(403, {"error": "이 주소로는 받지 않습니다. http://127.0.0.1:<포트>로 열어 주세요."})
         route = self._route()
+        if BLOCK_BOTS and route == "/robots.txt":
+            return self._send(200, ROBOTS, ctype="text/plain; charset=utf-8", cache="public, max-age=3600")
+        if self._bot():
+            return self._send(403, {"error": "자동 수집은 받지 않습니다."})
         if route == PATH_JUDGE:
             return self._send(200, {"judge": True, "ready": judge_ready(), "model": config.MODEL,
                                     "backend": config.BACKEND, "criteria": view.criteria_meta(), "stream": STREAM_TYPE})
@@ -292,6 +308,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self._origin_ok():
             return self._send(403, {"error": "이 주소로는 받지 않습니다. http://127.0.0.1:<포트>로 열어 주세요."})
+        if self._bot():
+            return self._send(403, {"error": "자동 수집은 받지 않습니다."})
         if not self._country_ok():
             return self._send(403, {"error": "지금은 한국에서만 판정을 받습니다."})
         route = self._route()

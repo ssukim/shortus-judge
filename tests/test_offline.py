@@ -391,6 +391,20 @@ class FreshLeft(unittest.TestCase):
             st = fresh.status()
         self.assertEqual((st["left"], st["limit"], st["full"]), (3, 20, False))
 
+
+class Bots(unittest.TestCase):
+    def test_bot_user_agents(self):
+        from judge import serve
+        h = serve.Handler.__new__(serve.Handler)
+        with mock.patch.object(serve, "BLOCK_BOTS", True):
+            for ua, bot in [("Mozilla/5.0 (Macintosh) Safari/605", False), ("GPTBot/1.0", True), ("Googlebot/2.1", True),
+                            ("python-requests/2.31", True), ("", True)]:
+                h.headers = {"User-Agent": ua}
+                self.assertEqual(h._bot(), bot, ua)
+        with mock.patch.object(serve, "BLOCK_BOTS", False):
+            h.headers = {"User-Agent": "GPTBot/1.0"}
+            self.assertFalse(h._bot())
+
 if __name__ == "__main__":
     unittest.main()
 
