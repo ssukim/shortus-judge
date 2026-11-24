@@ -25,7 +25,7 @@ FAILED = {"failed", "error", "cancelled"}
 POLL_DEFAULT_SEC = 3
 HTTP_TIMEOUT_SEC = 20
 FAIL = "지금은 새 대본을 받을 수 없습니다."
-DAILY_FULL = "쇼더스의 오늘 대본 만들기 한도(100번)를 다 썼습니다. 한국 시각 자정에 풀립니다."
+DAILY_FULL = "쇼더스의 오늘 대본 만들기 한도를 다 썼습니다. 한국 시각 자정에 풀립니다."
 
 TEXT_MIN = 100                # 붙여 넣은 글 길이 (web/src/judgeClient.ts와 같은 값)
 TEXT_MAX = 15_000
@@ -39,7 +39,7 @@ QUOTA_TTL_SEC = 60            # 쇼더스 남은 한도를 다시 묻는 간격 
 
 _lock = threading.Lock()
 _minute, _day = {}, {"date": "", "n": 0}
-_quota = {"at": -1e9, "full": False, "resets_at": None}
+_quota = {"at": -1e9, "full": False, "resets_at": None, "used": None, "limit": None}
 _issued = {}                  # 이 서버가 만든 쇼더스 대본 id → 만든 때. 조회는 이것만 받는다
 _UUID = re.compile(r"^[0-9a-fA-F-]{8,64}$")
 
@@ -54,23 +54,30 @@ def _mark_full(resets_at=None):
 
 
 def status():
-    """오늘 더 받을 수 있는지 → {"full": bool, "resets_at": 쇼더스가 알려 준 풀리는 때 또는 None}.
+    """오늘 더 받을 수 있는지 → {"full": bool, "resets_at": 쇼더스가 알려 준 풀리는 때 또는 None,
+    "left": 오늘 더 받을 수 있는 수 또는 None, "limit": 하루 한도 또는 None}. left·limit은 쇼더스 한도와 이 서버 한도 가운데 작은 쪽.
     쇼더스 하루 한도는 QUOTA_TTL_SEC마다 한 번 묻고, 이 서버의 하루 한도(DAILY_LIMIT)도 같이 본다.
     묻지 못하면 받을 수 있다고 둔다(실제로 보낼 때 다시 막힌다)."""
     key = listen._key()
     with _lock:
-        mine_full = _day["date"] == time.strftime("%Y-%m-%d") and _day["n"] >= DAILY_LIMIT
+        mine_used = _day["n"] if _day["date"] == time.strftime("%Y-%m-%d") else 0
+        mine_full = mine_used >= DAILY_LIMIT
         fresh_enough = time.monotonic() - _quota["at"] < QUOTA_TTL_SEC
     if key and not fresh_enough:
         try:
             q = _call(key, "GET", "/v1/meta/quota-status").get("daily_t2s_starts") or {}
             if "limit" in q:
                 with _lock:
-                    _quota.update(at=time.monotonic(), full=q.get("used", 0) >= q["limit"], resets_at=q.get("resets_at"))
+                    _quota.update(at=time.monotonic(), full=q.get("used", 0) >= q["limit"], resets_at=q.get("resets_at"),
+                                  used=q.get("used", 0), limit=q["limit"])
         except (urllib.error.URLError, TimeoutError, ValueError, OSError):
             pass
     with _lock:
-        return {"full": mine_full or _quota["full"], "resets_at": _quota["resets_at"]}
+        left, limit = DAILY_LIMIT - mine_used, DAILY_LIMIT
+        if _quota["limit"] is not None:
+            left, limit = min(left, _quota["limit"] - _quota["used"]), min(limit, _quota["limit"])
+        full = mine_full or _quota["full"]
+        return {"full": full, "resets_at": _quota["resets_at"], "left": 0 if full else max(left, 0), "limit": limit}
 
 
 def source_ids():
@@ -148,6 +155,8 @@ def start(source_id=None, ip="-", text=None, title=None):
         return 502, {"error": FAIL}   # 쇼더스 응답 글·키는 밖으로 내지 않는다
     with _lock:
         _issued[str(created["id"])] = time.monotonic()
+        if _quota["used"] is not None:   # 다음에 쇼더스에 다시 물을 때까지 남은 수를 바로 줄여 보인다
+            _quota["used"] += 1
     return 200, {"source_id": source_id if text is None else None, "title": title, "text_source_id": ts["id"],
                  "script_id": created["id"], "send_sec": round(time.monotonic() - t0, 1),
                  "poll_after_sec": POLL_DEFAULT_SEC}

@@ -60,13 +60,28 @@ export function markFull() {
   fullNow = true
   fullListeners.forEach((fn) => fn())
 }
+// 오늘 더 받을 수 있는 수 (GET api/fresh의 left·limit, 쇼더스 한도와 서버 한도 가운데 작은 쪽). 모르면 null
+export type FreshLeft = { left: number; limit: number } | null
+let leftNow: FreshLeft = null
+export const freshLeft = () => leftNow
+function noteQuota(b: { full?: unknown; left?: unknown; limit?: unknown } | null) {
+  if (b?.full === true) markFull()
+  if (typeof b?.left === 'number' && typeof b?.limit === 'number' && (b.left !== leftNow?.left || b.limit !== leftNow?.limit)) {
+    leftNow = { left: b.left, limit: b.limit }
+    fullListeners.forEach((fn) => fn())
+  }
+}
+/** 대본을 하나 받은 뒤 남은 수를 다시 묻는다 */
+export function refreshFresh() {
+  void getJson(FRESH_URL).then(noteQuota)
+}
 export const FULL_NOTE = '오늘 쇼더스 대본 만들기 한도를 다 써서 새 대본은 한국 시각 자정부터 다시 받을 수 있어요.'
 
 let freshProbe: Promise<boolean> | null = null
 /** 쇼더스에서 받기를 쓸 수 있는 서버인지(키가 있음). 한도를 다 쓴 것은 freshFull로 따로 본다 */
 export function probeFresh(): Promise<boolean> {
   freshProbe ??= probeLive().then((live) => (live ? getJson(FRESH_URL).then((b) => {
-    if (b?.full === true) markFull()
+    noteQuota(b)
     return !!(b && b.fresh === true && b.ready === true)
   }) : false))
   return freshProbe

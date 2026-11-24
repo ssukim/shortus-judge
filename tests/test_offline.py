@@ -381,6 +381,16 @@ class Proxy(unittest.TestCase):
             self.assertEqual(h._ip(), "127.0.0.1")
             self.assertTrue(h._country_ok())
 
+
+class FreshLeft(unittest.TestCase):
+    def test_left_is_smaller_of_shortus_and_server(self):
+        from judge import fresh
+        q = {"daily_t2s_starts": {"limit": 100, "used": 97, "resets_at": "x"}}
+        with mock.patch.object(fresh, "_call", return_value=q), mock.patch.object(fresh.listen, "_key", return_value="k"), \
+                mock.patch.dict(fresh._quota, at=-1e9), mock.patch.object(fresh, "DAILY_LIMIT", 20):
+            st = fresh.status()
+        self.assertEqual((st["left"], st["limit"], st["full"]), (3, 20, False))
+
 if __name__ == "__main__":
     unittest.main()
 

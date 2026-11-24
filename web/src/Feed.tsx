@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { Data, Script } from './types'
 import { decisionWord, setQuery } from './common'
-import { FULL_NOTE, SCENES_MAX, SCENE_MAX, SOURCE_MAX, TEXT_MAX, TEXT_MIN, freshFull, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
+import { FULL_NOTE, SCENES_MAX, SCENE_MAX, SOURCE_MAX, TEXT_MAX, TEXT_MIN, freshFull, freshLeft, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
 import {
   PREPARE_MAX_MS, type Final, type Spec, getRun, giveUp, newToken, ordered, saveSpec, specOf, start, subscribe, titleOf,
 } from './runs'
@@ -141,7 +141,9 @@ function Composer({ onSubmit, disabled, compact, preset, full, canFresh }: {
         disabled={disabled} onClick={() => pick('own')}>가진 대본 넣기</button>
     </div>
   )
-  const note = why && !compact ? <p id="full-note" className="hint">{why}</p> : null
+  const left = useSyncExternalStore(subscribeFull, freshLeft)
+  const note = why && !compact ? <p id="full-note" className="hint">{why}</p>
+    : freshOn && mode === 'fresh' && left ? <p className="hint">오늘 쇼더스로 {left.left}번 더 만들 수 있어요 (하루 {left.limit}번)</p> : null
   if (!open) {
     return (
       <div className="composer-wrap">

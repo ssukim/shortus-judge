@@ -6,7 +6,7 @@
 import type { CriterionResult, Data, Result, Scene, Script } from './types'
 import { parseHash, verdictWord } from './common'
 import {
-  FRESH_WAIT_MAX_MS, FULL_NOTE, freshFull, freshPoll, freshStart, getMeta, markFull, postJudgeStream, probeFresh, probeLive,
+  FRESH_WAIT_MAX_MS, FULL_NOTE, freshFull, refreshFresh, freshPoll, freshStart, getMeta, markFull, postJudgeStream, probeFresh, probeLive,
   type ApiResult, type ShortusTime,
 } from './judgeClient'
 
@@ -373,6 +373,7 @@ async function run(token: string, spec: Spec, data: Data) {
   if (!(await probeFresh())) return fallback([])
   if (freshFull()) return fallback([], `${FULL_NOTE} 아래는 모아 둔 대본의 결과예요.`, FULL_NOTE)
   const st = await freshStart(sourceId ? { sourceId } : { text: pastedText, title: spec.kind === 'text' ? spec.title : undefined })
+  refreshFresh()
   if (!st.ok) {
     if (st.full) markFull()
     const textError = st.status === 400 ? st.error : st.status === 429 ? st.error ?? '요청이 많아 지금은 새 대본을 받을 수 없습니다. 잠시 뒤 다시 눌러 주세요.' : undefined
