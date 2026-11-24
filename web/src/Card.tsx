@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import type { CriterionResult, Data, Scene } from './types'
 import type { CheckLine, Final, Step } from './runs'
-import { SHORT_NAME, decisionClass, decisionWord, factMark, verdictWord } from './common'
+import { SHORT_NAME, decisionClass, decisionWord, factMark, verdictClass, verdictWord } from './common'
 import { circled, placesOf, type Spot } from './places'
 import { Panel, usePanel } from './Sheet'
 import { Detail, TAB_LABEL, type DetailTab } from './Detail'
@@ -296,7 +296,7 @@ export function Card({ data, scenes, final, running, checks = [], pre = [], shee
   const flaggedN = r ? data.criteria.filter((c) => r.criteria[String(c.n)]?.flagged).length : 0
 
   const working = running && (got || !pre.length) && <Working text={running.text} since={running.since} />
-  const tags = !running && v && <span className="vtags"><span className={`vtag vtag-${decisionClass(data, r!)}`}>{decisionWord(data, r!)}</span>{factMark(data, r!) && <span className="fact-mark">사실 틀림</span>}</span>
+  const tags = !running && v && <span className="vtags"><span className={`vtag vtag-${verdictClass(data, r!.verdict)}`}>{verdictWord(data, r!.verdict)}</span><span className={`vtag vtag-${decisionClass(data, r!)}`}>{decisionWord(data, r!)}</span>{factMark(data, r!) && <span className="fact-mark">사실 틀림</span>}</span>
   const reportBody = !running && v && (
     <>
       <p className="lead-say">{lead} <b>{end}</b></p>

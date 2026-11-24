@@ -10,7 +10,6 @@ export default function Sidebar({ page, query, open, onClose }: {
   page: string; query: URLSearchParams; open: boolean; onClose: () => void
 }) {
   const recent = useSyncExternalStore(subscribeRecent, recentList)
-  const diffOn = page === 'list' && query.get('f') === 'diff'
   const turns = (query.get('t') ?? '').split(',').filter(Boolean)
   const shownToken = page === '' && turns.length === 1 ? turns[0] : ''
   // 최근 판정 하나를 지운다. 지금 화면에 떠 있는 차례면 화면에서도 빼고, 남는 차례가 없으면 새 판정 화면(홈)으로 간다
@@ -36,8 +35,8 @@ export default function Sidebar({ page, query, open, onClose }: {
         {/* 같은 주소(첫 화면)에서 눌러도 닫히게 onClose를 같이 부른다 */}
         <a className="side-new" href={href([])} onClick={onClose}>＋ 새 판정</a>
         <nav className="side-nav" aria-label="다른 화면">
-          <a className={(page === 'list' && !diffOn) || page === 'script' ? 'on' : ''} href={href(['list'])} onClick={onClose}>모아 둔 대본</a>
-          <a className={page === 'check' || diffOn ? 'on' : ''} href={href(['check'])} onClick={onClose}>판정기를 믿을 근거</a>
+          <a className={page === 'list' || page === 'script' ? 'on' : ''} href={href(['list'])} onClick={onClose}>모아 둔 대본</a>
+          <a className={page === 'check' ? 'on' : ''} href={href(['check'])} onClick={onClose}>판정기를 믿을 근거</a>
         </nav>
         <div className="side-recent">
           <div className="side-recent-head">

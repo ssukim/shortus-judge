@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { Data, Script } from './types'
-import { decisionWord, setQuery } from './common'
+import { decisionWord, setQuery, verdictWord } from './common'
 import { FULL_NOTE, SCENES_MAX, SCENE_MAX, SOURCE_MAX, TEXT_MAX, TEXT_MIN, freshFull, freshLeft, pastedTitle, probeFresh, probeLive, subscribeFull } from './judgeClient'
 import {
   PREPARE_MAX_MS, type Final, type Spec, getRun, giveUp, newToken, ordered, saveSpec, specOf, start, subscribe, titleOf,
@@ -306,7 +306,7 @@ function Turn({ data, token, spec, freshNo, onPaint, again, onAgain, busy, full 
   const f = st?.final
   // 끝난 판정은 왼쪽 메뉴 「최근 판정」에 적는다(recent.ts). 결과 없이 끝난 것은 다시 열어 볼 것이 없어 적지 않는다
   useEffect(() => {
-    if (st?.final?.r && !st.final.revising) addRecent({ token, spec, label: turnLabel(data, spec, freshNo), verdict: decisionWord(data, st.final.r), run: st })
+    if (st?.final?.r && !st.final.revising) addRecent({ token, spec, label: turnLabel(data, spec, freshNo), verdict: `${verdictWord(data, st.final.r.verdict)} · ${decisionWord(data, st.final.r)}`, run: st })
   }, [!!f && !f.revising])
   const steps = st?.steps ?? [{ text: '준비하는 중', done: false }]
   const judging = steps.find((s) => s.checks)
