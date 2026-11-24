@@ -399,7 +399,9 @@ export default function Feed({ data, query }: { data: Data; query: URLSearchPara
     // 입력 칸은 첫 줄을 제목으로 쓴다. 모아 둔 글은 이미 「제목, 빈 줄, 본문」 꼴이라 그대로 넣고, 첫 줄에 제목이 없을 때만 앞에 붙인다
     const body = src.text.trim()
     const firstLine = body.split('\n')[0] ?? ''
-    const text = !src.title || firstLine.includes(src.title) ? body : `${src.title}\n\n${body}`
+    // 모아 둔 제목은 첫 문장을 잘라 「…」을 붙인 것이 있어, 「…」을 떼고 첫 줄의 앞부분인지 본다
+    const head = (src.title ?? '').replace(/…$/, '').trim()
+    const text = !head || firstLine.includes(head) ? body : `${src.title}\n\n${body}`
     // 판정 서버의 받기 목록(judge/fresh.py source_ids)은 모아 둔 대본(ordered)의 글과 같다(againOf 주석 참고)
     const freshable = list.some((x) => x.source_id === sid)
     const scenes = data.scripts.find((x) => x.id === scriptId)?.scenes.map((x) => x.text).join('\n') ?? ''
