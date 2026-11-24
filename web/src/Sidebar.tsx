@@ -37,8 +37,7 @@ export default function Sidebar({ page, query, open, onClose }: {
         <a className="side-new" href={href([])} onClick={onClose}>＋ 새 판정</a>
         <nav className="side-nav" aria-label="다른 화면">
           <a className={(page === 'list' && !diffOn) || page === 'script' ? 'on' : ''} href={href(['list'])} onClick={onClose}>모아 둔 대본</a>
-          <a className={diffOn ? 'on' : ''} href={href(['list'], { f: 'diff' })} onClick={onClose}>채점자와 판정 다름</a>
-          <a className={page === 'check' ? 'on' : ''} href={href(['check'])} onClick={onClose}>얼마나 믿을 수 있나</a>
+          <a className={page === 'check' || diffOn ? 'on' : ''} href={href(['check'])} onClick={onClose}>판정기를 믿을 근거</a>
         </nav>
         <div className="side-recent">
           <div className="side-recent-head">

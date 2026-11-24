@@ -1,10 +1,10 @@
 import type { Data, Script } from './types'
-import { DECISION_WORD, DecisionBadge, SHORT_NAME, agentWord, consensusOf, decisionKind, href, setQuery } from './common'
+import { VerdictBadge, consensusOf, href, setQuery, verdictWord } from './common'
 
-// 모아 둔 대본 98개: 결정(그대로 · 고친 대본 · 사람이 봄 · 만들지 않음)으로 거르거나, 판정기가 채점자 정답과 다르게 본 대본을 찾는다.
-// 거르기는 주소의 f= (original, revised, review, none, diff, test).
+// 모아 둔 대본 98개: 판정(통과·보류·탈락)으로 거른다. 줄마다 판정 하나만 보이고, 눌러 들어가면 어디가 왜 걸렸는지 나온다.
+// 거르기는 주소의 f= (pass, hold, fail, test). diff(판정기가 채점자와 다르게 본 대본)는 「판정기를 믿을 근거」에서 링크로만 연다.
 
-type Filter = '' | 'original' | 'revised' | 'review' | 'none' | 'diff' | 'test'
+type Filter = '' | 'pass' | 'hold' | 'fail' | 'diff' | 'test'
 
 export default function ListPage({ data, query }: { data: Data; query: URLSearchParams }) {
   const results = data.results
@@ -14,33 +14,31 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
   const goldOf = (s: Script) => consensusOf(s)?.verdict
   // 채점자는 원래 대본을 봤으므로 판정기의 판정과 견준다
   const differs = (s: Script) => !!goldOf(s) && goldOf(s) !== results[s.id].verdict
+  const [pass, hold, fail] = data.verdicts
   const match: Record<Filter, (s: Script) => boolean> = {
     '': () => true,
-    original: (s) => decisionKind(results[s.id]) === 'original',
-    revised: (s) => decisionKind(results[s.id]) === 'revised',
-    review: (s) => decisionKind(results[s.id]) === 'review',
-    none: (s) => decisionKind(results[s.id]) === 'none',
+    pass: (s) => results[s.id].verdict === pass,
+    hold: (s) => results[s.id].verdict === hold,
+    fail: (s) => results[s.id].verdict === fail,
     diff: differs,
     test: (s) => s.test,
   }
   const buttons: { id: Filter; label: string }[] = [
     { id: '', label: '전체' },
-    { id: 'original', label: DECISION_WORD.original },
-    { id: 'revised', label: DECISION_WORD.revised },
-    { id: 'review', label: DECISION_WORD.review },
-    { id: 'none', label: '만들지 않음' },
-    { id: 'diff', label: '채점자와 판정 다름' },
+    { id: 'pass', label: verdictWord(data, pass) },
+    { id: 'hold', label: verdictWord(data, hold) },
+    { id: 'fail', label: verdictWord(data, fail) },
     { id: 'test', label: '시험용' },
+    ...(f === 'diff' ? [{ id: 'diff' as Filter, label: '채점자와 다르게 본 대본' }] : []),
   ]
   const rows = shown.filter(match[f] ?? match[''])
   const siblings = (s: Script) => shown.filter((x) => x.source_id === s.source_id).length
-  const nameOf = (n: number) => data.criteria.find((c) => c.n === n)?.name ?? ''
 
   return (
     <>
       <section className="intro">
         <h1>모아 둔 대본</h1>
-        <p className="muted">쇼더스에서 받은 대본 {shown.length}개(시험용 {shown.filter((s) => s.test).length}개)와 최종 판정기의 결과입니다.</p>
+        <p className="muted">쇼더스에서 받은 대본 {shown.length}개를 판정기가 판정한 결과입니다. 대본을 누르면 어디가 왜 걸렸는지 볼 수 있어요.</p>
       </section>
 
       <div className="picker" role="group" aria-label="결정으로 거르기">
@@ -56,7 +54,6 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
         {rows.map((s) => {
           const r = results[s.id]
           const gold = goldOf(s)
-          const flags = r.flagged.map((n) => SHORT_NAME[nameOf(n)] ?? nameOf(n)).join(' · ')
           return (
             <li key={s.id} className="srow">
               <a className="srow-title" href={href(['script', s.id])}>
@@ -64,10 +61,8 @@ export default function ListPage({ data, query }: { data: Data; query: URLSearch
                 {siblings(s) > 1 && <span className="srow-sub"> · {s.nth}</span>}
               </a>
               <span className="srow-meta">
-                <DecisionBadge data={data} r={r} />
-                {flags && <span className="srow-flags">{flags}</span>}
-                {differs(s) && <span className="tag">채점자: {agentWord(data, gold!)}</span>}
-                {s.test && <span className="tag">시험용</span>}
+                {f === 'diff' && gold && <span className="srow-flags">채점자 {verdictWord(data, gold)} · 판정기</span>}
+                <VerdictBadge data={data} verdict={r.verdict} />
               </span>
             </li>
           )

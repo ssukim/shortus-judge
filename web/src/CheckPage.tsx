@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Check, Data, Frac, GoldKey, SetKey } from './types'
-import { ScriptName, VerdictBadge, ro, verdictWord } from './common'
+import { ScriptName, VerdictBadge, href, ro, verdictWord } from './common'
 import { Panel, usePanel } from './Sheet'
 
 // 「얼마나 믿을 수 있나」: 최종 판정기(5판)를 채점자 정답과 견준 숫자. 처음 보는 대본(시험용 50개)이 먼저다.
@@ -117,41 +117,50 @@ function Numbers({ data, c, set, gold }: { data: Data; c: Check; set: SetKey; go
 
 export default function CheckPage({ data }: { data: Data }) {
   const t = data.check.all.test
-  const d = data.check.all.dev
-  const sure = data.check.sure.all
   const all = data.check.all.all
-  const [, , fail] = data.verdicts
-  const failW = verdictWord(data, fail)
+  const [pass, , fail] = data.verdicts
   const w = (v: string) => verdictWord(data, v)
   const sheet = usePanel('nums')
   const [set, setSet] = useState<SetKey>('test')
   const [gold, setGold] = useState<GoldKey>('all')
+  const script = (id: string) => data.scripts.find((s) => s.id === id)
+  // 채점자와 판정기의 판정은 시험용 견주기(diffs)에서 그대로 읽는다
+  const Wrong = ({ ids }: { ids: string[] }) => (
+    <ul className="difflist">
+      {ids.map((id) => {
+        const s = script(id)
+        const d = t.diffs.find((x) => x.id === id)
+        return (
+          <li key={id} className="diff-item diff-verdict">
+            {s ? <ScriptName data={data} s={s} link /> : id}
+            {d && <p className="diff-v">채점자 <VerdictBadge data={data} verdict={d.gold} /> · 판정기 <VerdictBadge data={data} verdict={d.verdict} /></p>}
+          </li>
+        )
+      })}
+    </ul>
+  )
 
   return (
     <div className="wrap-narrow-in">
-      <h1>이 판정기를 얼마나 믿을 수 있나</h1>
+      <h1>판정기를 믿을 근거</h1>
       <p className="muted">
-        판정기의 판정(통과·보류·탈락)을 시청자 유형이 다른 채점자 세 명이 기준표로 따로 매긴 판정의 다수결과 견준 숫자입니다.
-        정답도 채점 에이전트의 합의라 한계가 있고, 탈락으로 합의된 대본만 사람이 넣은 글과 대조해 확인했습니다.
+        판정기를 만드는 동안 한 번도 보지 않은 대본 {t.n}개를, 채점자 세 명이 따로 매긴 판정의 다수결과 견줬습니다.
       </p>
-      <ol className="conclusions">
-        <li>
-          <b>처음 보는 대본 {t.n}개</b>(시험용, 판정기를 만드는 동안 판정하지 않음)에서 판정이 {t.verdict.k}개 같았습니다(95% 구간 {ci(t.verdict)}).
-          모든 대본을 {w(t.baseline.top)}{ro(w(t.baseline.top))} 내면 {t.baseline.k}개가 같아, 기준선보다 조금 나을 뿐입니다.
-        </li>
-        <li>
-          <b>사실 오류가 있는 {t.fail_n}개 중 {t.fail_n - t.leak.length}개를 통과시키지 않았습니다</b>({failW} {t.fail_as_fail}, 보류 {t.fail_as_hold}).
-          통과로 샌 것은 {t.leak.length}개, 멀쩡한 대본을 {failW}시킨 것은 {t.not_fail_n}개 중 {t.false_fail.length}개입니다.
-        </li>
-        <li>
-          개발용 {d.n}개에서는 {d.verdict.k}개가 같았습니다(기준선 {d.baseline.k}개). 98개 전체로는 {all.verdict.k}개입니다.
-        </li>
-        <li>
-          채점자가 「애매」로 적지 않은 걸림만 센 확신 정답으로 보면 98개 중 {sure.verdict.k}개가 같고, 모두 {w(sure.baseline.top)}{ro(w(sure.baseline.top))} 내면 {sure.baseline.k}개입니다.
-          판정기가 애매한 걸림까지 걸어 보류를 많이 내기 때문입니다. 이 판정기는 보류가 많은 대신 치명 오류는 적게 새는 쪽에 서 있습니다.
-        </li>
-      </ol>
-      <button type="button" className="detail-btn" aria-expanded={sheet.open} onClick={(e) => sheet.show(e.currentTarget)}>숫자 보기</button>
+      <div className="stat-row">
+        <div className="stat"><b>{t.verdict.k}/{t.n}</b><span>판정이 같음</span><small>모두 {w(t.baseline.top)}{ro(w(t.baseline.top))} 내면 {t.baseline.k}</small></div>
+        <div className="stat"><b>{t.fail_n - t.leak.length}/{t.fail_n}</b><span>사실 틀린 대본을 걸러냄</span><small>채점자가 {w(fail)}으로 본 대본</small></div>
+        <div className="stat"><b>{t.false_fail.length}/{t.not_fail_n}</b><span>멀쩡한데 {w(fail)}시킴</span><small>채점자가 {w(pass)}·보류로 본 대본</small></div>
+      </div>
+
+      <h2>판정기가 틀린 대본</h2>
+      <h3>{w(fail)}인데 {w(pass)}시킨 대본 {t.leak.length}개</h3>
+      <Wrong ids={t.leak} />
+      <h3>멀쩡한데 {w(fail)}시킨 대본 {t.false_fail.length}개</h3>
+      <Wrong ids={t.false_fail} />
+      <p className="muted small">
+        통과와 보류 사이에서 다르게 본 대본까지 모두 보려면 <a href={href(['list'], { f: 'diff' })}>채점자와 다르게 본 대본 {all.diffs.length}개(98개 중)</a>를 여세요.
+      </p>
+      <button type="button" className="detail-btn" aria-expanded={sheet.open} onClick={(e) => sheet.show(e.currentTarget)}>숫자 자세히 보기</button>
 
       {sheet.open && (
         <Panel title="숫자로 본 판정기" sub={`최종 판정기 · 모델 ${data.model}`} onClose={sheet.hide}>
